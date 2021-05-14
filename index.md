@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: lib/math
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/eratosthenes.hpp
       title: Eratosthenes's sieve
   verificationCategories:
@@ -12,7 +12,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/eratosthenes.aoj.test.cpp
       title: lib/math/eratosthenes.aoj.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/eratosthenes.yukicoder-1140.test.cpp
       title: lib/math/eratosthenes.yukicoder-1140.test.cpp
 layout: toppage

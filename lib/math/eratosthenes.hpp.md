@@ -6,12 +6,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/math/eratosthenes.aoj.test.cpp
     title: lib/math/eratosthenes.aoj.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/eratosthenes.yukicoder-1140.test.cpp
     title: lib/math/eratosthenes.yukicoder-1140.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Eratosthenes's sieve
     links: []
@@ -60,7 +60,7 @@ data:
   path: lib/math/eratosthenes.hpp
   requiredBy: []
   timestamp: '2021-05-14 22:14:56+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - lib/math/eratosthenes.yukicoder-1140.test.cpp
   - lib/math/eratosthenes.aoj.test.cpp

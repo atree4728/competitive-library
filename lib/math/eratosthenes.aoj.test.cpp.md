@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/eratosthenes.hpp
     title: Eratosthenes's sieve
   _extendedRequiredBy: []
