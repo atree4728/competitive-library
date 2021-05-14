@@ -1,11 +1,19 @@
 ---
 data:
-  libraryCategories: []
+  libraryCategories:
+  - name: lib/math
+    pages:
+    - icon: ':question:'
+      path: lib/math/eratosthenes.hpp
+      title: Eratosthenes's sieve
   verificationCategories:
-  - name: .
+  - name: lib/math
     pages:
     - icon: ':heavy_check_mark:'
-      path: example.test.cpp
-      title: example.test.cpp
+      path: lib/math/eratosthenes.aoj.test.cpp
+      title: lib/math/eratosthenes.aoj.test.cpp
+    - icon: ':x:'
+      path: lib/math/eratosthenes.yukicoder-1140.test.cpp
+      title: lib/math/eratosthenes.yukicoder-1140.test.cpp
 layout: toppage
 ---
