@@ -1,0 +1,71 @@
+---
+data:
+  _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: lib/modulus/modint.hpp
+    title: Modint
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
+  _pathExtension: cpp
+  _verificationStatusIcon: ':heavy_check_mark:'
+  attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_A
+    links:
+    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_A
+  bundledCode: "#line 1 \"lib/test/aoj/DPL_5_A.test.cpp\"\n#define PROBLEM \\\n  \
+    \  \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_A\"\n#include\
+    \ <iostream>\n#line 2 \"lib/modulus/modint.hpp\"\n\n#line 4 \"lib/modulus/modint.hpp\"\
+    \n\nusing namespace std;\n\n/**\n *@brief Modint\n */\n\ntemplate <int MOD>\n\
+    class Modint {\n    using mint = Modint<MOD>;\n\n   public:\n    int value;\n\
+    \    Modint(long long value_ = 0) : value((value_ % MOD + MOD) % MOD) {}\n\n \
+    \   static constexpr int mod() { return MOD; }\n    int val() const { return *this;\
+    \ }\n\n    inline mint operator-() const { return mint(-value); }\n\n    inline\
+    \ mint operator++() const { return *this += 1; }\n    inline mint operator--()\
+    \ const { return *this -= 1; }\n\n    inline mint operator+(mint arg) const {\
+    \ return mint(*this) += arg; }\n    inline mint operator-(mint arg) const { return\
+    \ mint(*this) -= arg; }\n    inline mint operator*(mint arg) const { return mint(*this)\
+    \ *= arg; }\n\n    inline mint& operator+=(mint arg) {\n        value += arg.value;\n\
+    \        if (value >= MOD) value -= MOD;\n        return *this;\n    }\n    inline\
+    \ mint& operator-=(mint arg) {\n        value -= arg.value;\n        if (value\
+    \ < 0) value += MOD;\n        return *this;\n    }\n    inline mint& operator*=(mint\
+    \ arg) {\n        value = (long long)value * arg.value % MOD;\n        return\
+    \ *this;\n    }\n\n    inline bool operator==(mint arg) const { return value ==\
+    \ arg.value; }\n    inline bool operator!=(mint arg) const { return value != arg.value;\
+    \ }\n\n    inline mint pow(long long k) const {\n        Modint ret = 1, a(*this);\n\
+    \        while (k > 0) {\n            if (k & 1) ret *= a;\n            k >>=\
+    \ 1;\n            a *= a;\n        }\n        return ret;\n    }\n    inline mint\
+    \ inv() const { return pow(MOD - 2); }\n\n    inline mint operator/(mint arg)\
+    \ const { return *this * arg.inv(); }\n    inline mint& operator/=(mint arg) {\
+    \ return *this *= arg.inv(); }\n};\n\ntemplate <int MOD>\nModint<MOD> operator+(long\
+    \ long value, Modint<MOD> a) {\n    return Modint<MOD>(value) + a;\n}\ntemplate\
+    \ <int MOD>\nModint<MOD> operator-(long long value, Modint<MOD> a) {\n    return\
+    \ Modint<MOD>(value) - a;\n}\ntemplate <int MOD>\nModint<MOD> operator*(long long\
+    \ value, Modint<MOD> a) {\n    return Modint<MOD>(value) * a;\n}\ntemplate <int\
+    \ MOD>\nModint<MOD> operator/(long long value, Modint<MOD> a) {\n    return Modint<MOD>(value)\
+    \ / a;\n}\ntemplate <int MOD>\nostream& operator<<(ostream& os, Modint<MOD> a)\
+    \ {\n    return os << a.value;\n}\n#line 5 \"lib/test/aoj/DPL_5_A.test.cpp\"\n\
+    \nusing namespace std;\n\nconstexpr int MOD = 1000000007;\n\nint main() {\n  \
+    \  int n, k;\n    cin >> n >> k;\n    cout << Modint<MOD>(k).pow(n) << \"\\n\"\
+    ;\n    return 0;\n}\n"
+  code: "#define PROBLEM \\\n    \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_A\"\
+    \n#include <iostream>\n#include \"lib/modulus/modint.hpp\"\n\nusing namespace\
+    \ std;\n\nconstexpr int MOD = 1000000007;\n\nint main() {\n    int n, k;\n   \
+    \ cin >> n >> k;\n    cout << Modint<MOD>(k).pow(n) << \"\\n\";\n    return 0;\n\
+    }\n"
+  dependsOn:
+  - lib/modulus/modint.hpp
+  isVerificationFile: true
+  path: lib/test/aoj/DPL_5_A.test.cpp
+  requiredBy: []
+  timestamp: '2021-05-28 15:42:00+09:00'
+  verificationStatus: TEST_ACCEPTED
+  verifiedWith: []
+documentation_of: lib/test/aoj/DPL_5_A.test.cpp
+layout: document
+redirect_from:
+- /verify/lib/test/aoj/DPL_5_A.test.cpp
+- /verify/lib/test/aoj/DPL_5_A.test.cpp.html
+title: lib/test/aoj/DPL_5_A.test.cpp
+---
