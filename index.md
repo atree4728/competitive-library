@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: lib/math
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/eratosthenes.hpp
       title: Eratosthenes's sieve($O(NloglogN)$)
   - name: lib/modulus
@@ -17,9 +17,6 @@ data:
   verificationCategories:
   - name: lib/test/aoj
     pages:
-    - icon: ':x:'
-      path: lib/test/aoj/ALDS1_1_C.test.cpp
-      title: lib/test/aoj/ALDS1_1_C.test.cpp
     - icon: ':heavy_check_mark:'
       path: lib/test/aoj/DPL_5_A.test.cpp
       title: lib/test/aoj/DPL_5_A.test.cpp

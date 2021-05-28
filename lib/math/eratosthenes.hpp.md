@@ -3,15 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
-    path: lib/test/aoj/ALDS1_1_C.test.cpp
-    title: lib/test/aoj/ALDS1_1_C.test.cpp
   - icon: ':heavy_check_mark:'
     path: lib/test/yukicoder/1140.test.cpp
     title: lib/test/yukicoder/1140.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Eratosthenes's sieve($O(NloglogN)$)
     links: []
@@ -57,10 +54,9 @@ data:
   path: lib/math/eratosthenes.hpp
   requiredBy: []
   timestamp: '2021-05-28 15:42:00+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - lib/test/yukicoder/1140.test.cpp
-  - lib/test/aoj/ALDS1_1_C.test.cpp
 documentation_of: lib/math/eratosthenes.hpp
 layout: document
 redirect_from:
