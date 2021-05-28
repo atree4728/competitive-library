@@ -11,10 +11,10 @@ struct IOSetup {
 
 const int M = 5000005;
 
-Eratosthenes era(M);
+Sieve sieve(M);
 
 int solve(long long a, int p) {
-    if (not era.is_prime(p)) return -1;
+    if (not sieve.is_prime(p)) return -1;
     if (a % p == 0) return 0;
     return 1;
 }

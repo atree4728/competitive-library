@@ -8,12 +8,12 @@ const int M = 100000003;
 int main() {
     int n;
     cin >> n;
-    Eratosthenes era(M);
+    Sieve sieve(M);
     int cnt = 0;
     for (int i = 0; i < n; i++) {
         int a;
         cin >> a;
-        cnt += era.is_prime(a);
+        cnt += sieve.is_prime(a);
     }
     cout << cnt << "\n";
     return 0;
