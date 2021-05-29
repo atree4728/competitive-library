@@ -2,13 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: lib/test/atcoder/abc202d.test.cpp
-    title: lib/test/atcoder/abc202d.test.cpp
-  _isVerificationFailed: true
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/math/simple_combination.hpp\"\n\n#include <vector>\n\
@@ -37,9 +34,8 @@ data:
   path: lib/math/simple_combination.hpp
   requiredBy: []
   timestamp: '2021-05-29 21:52:58+09:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - lib/test/atcoder/abc202d.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: lib/math/simple_combination.hpp
 layout: document
 redirect_from:

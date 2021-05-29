@@ -1,11 +1,20 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: lib/math/convert_base.hpp
+    title: Base conversion
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: lib/test/atcoder/abc110d.test.cpp
+    title: lib/test/atcoder/abc110d.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: lib/test/my_stress_test/convert_base.test.cpp
+    title: lib/test/my_stress_test/convert_base.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: math utility
     links: []
@@ -46,10 +55,13 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: lib/math/utility.hpp
-  requiredBy: []
+  requiredBy:
+  - lib/math/convert_base.hpp
   timestamp: '2021-05-29 21:52:58+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_SOME_WA
+  verifiedWith:
+  - lib/test/my_stress_test/convert_base.test.cpp
+  - lib/test/atcoder/abc110d.test.cpp
 documentation_of: lib/math/utility.hpp
 layout: document
 redirect_from:

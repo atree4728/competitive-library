@@ -3,29 +3,29 @@ data:
   libraryCategories:
   - name: lib/math
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/convert_base.hpp
       title: Base conversion
     - icon: ':heavy_check_mark:'
       path: lib/math/eratosthenes.hpp
       title: Eratosthenes's sieve($O(NloglogN)$)
-    - icon: ':x:'
+    - icon: ':warning:'
       path: lib/math/simple_combination.hpp
       title: lib/math/simple_combination.hpp
-    - icon: ':warning:'
+    - icon: ':question:'
       path: lib/math/utility.hpp
       title: math utility
   - name: lib/modulus
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: lib/modulus/combination.hpp
       title: combination on mod including nCk, nHr, nPr
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: lib/modulus/modint.hpp
       title: Modint
   - name: lib/utility
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/utility/cumulative_sum.hpp
       title: Cumulative-Sum(1D)
     - icon: ':warning:'
@@ -34,6 +34,9 @@ data:
   verificationCategories:
   - name: lib/test/aoj
     pages:
+    - icon: ':heavy_check_mark:'
+      path: lib/test/aoj/0560.test.cpp
+      title: lib/test/aoj/0560.test.cpp
     - icon: ':heavy_check_mark:'
       path: lib/test/aoj/DPL_5_A.test.cpp
       title: lib/test/aoj/DPL_5_A.test.cpp
@@ -51,20 +54,14 @@ data:
     - icon: ':x:'
       path: lib/test/atcoder/abc110d.test.cpp
       title: lib/test/atcoder/abc110d.test.cpp
-    - icon: ':x:'
-      path: lib/test/atcoder/abc202d.test.cpp
-      title: lib/test/atcoder/abc202d.test.cpp
-    - icon: ':x:'
-      path: lib/test/atcoder/arc025b.test.cpp
-      title: lib/test/atcoder/arc025b.test.cpp
   - name: lib/test/library-checker
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/test/library-checker/static_range_sum.test.cpp
       title: lib/test/library-checker/static_range_sum.test.cpp
   - name: lib/test/my_stress_test
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/test/my_stress_test/convert_base.test.cpp
       title: lib/test/my_stress_test/convert_base.test.cpp
   - name: lib/test/yukicoder

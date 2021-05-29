@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/modulus/modint.hpp
     title: Modint
   _extendedRequiredBy: []
@@ -15,9 +15,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/test/aoj/DPL_5_E.test.cpp
     title: lib/test/aoj/DPL_5_E.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: lib/test/atcoder/abc110d.test.cpp
+    title: lib/test/atcoder/abc110d.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: combination on mod including nCk, nHr, nPr
     links: []
@@ -26,7 +29,7 @@ data:
     \ <iostream>\n\nusing namespace std;\n\n/**\n *@brief Modint\n */\n\ntemplate\
     \ <int MOD>\nclass Modint {\n    using mint = Modint<MOD>;\n\n   public:\n   \
     \ int value;\n    Modint(long long value_ = 0) : value((value_ % MOD + MOD) %\
-    \ MOD) {}\n\n    static constexpr int mod() { return MOD; }\n    int val() const\
+    \ MOD) {}\n\n    static constexpr int mod() { return MOD; }\n    mint val() const\
     \ { return *this; }\n\n    inline mint operator-() const { return mint(-value);\
     \ }\n\n    inline mint operator++() const { return *this += 1; }\n    inline mint\
     \ operator--() const { return *this -= 1; }\n\n    inline mint operator+(mint\
@@ -80,12 +83,13 @@ data:
   isVerificationFile: false
   path: lib/modulus/combination.hpp
   requiredBy: []
-  timestamp: '2021-05-29 21:52:58+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2021-05-29 23:05:15+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - lib/test/aoj/DPL_5_B.test.cpp
   - lib/test/aoj/DPL_5_E.test.cpp
   - lib/test/aoj/DPL_5_D.test.cpp
+  - lib/test/atcoder/abc110d.test.cpp
 documentation_of: lib/modulus/combination.hpp
 layout: document
 redirect_from:

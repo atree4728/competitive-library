@@ -2,10 +2,16 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: lib/test/aoj/0560.test.cpp
+    title: lib/test/aoj/0560.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: lib/test/library-checker/static_range_sum.test.cpp
+    title: lib/test/library-checker/static_range_sum.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Cumulative-Sum(1D)
     links: []
@@ -19,7 +25,7 @@ data:
     /**\n * @brief Cumulative-Sum(2D)\n */\ntemplate <class T>\nclass CumulativeSum2D\
     \ {\n    vector<vector<T>> vv;\n\n   public:\n    CumulativeSum2D(vector<vector<T>>\
     \ a)\n        : vv(size(a) + 1, vector<int>(size(a[0]) + 1, 0)) {\n        for\
-    \ (int i = 0; i + 1 < size(vv); i++)\n            copy(begin(a[i]), end(a[i]),\
+    \ (size_t i = 0; i + 1 < size(vv); i++)\n            copy(begin(a[i]), end(a[i]),\
     \ begin(vv[i + 1]) + 1);\n        for (size_t i = 1; i < size(vv); i++) {\n  \
     \          for (size_t j = 1; j < size(vv[i]); j++)\n                vv[i][j]\
     \ += vv[i][j - 1] + vv[i - 1][j] - vv[i - 1][j - 1];\n        }\n    }\n    inline\
@@ -35,7 +41,7 @@ data:
     \ - v[l]; }\n    vector<T> raw() { return v; }\n};\n\n/**\n * @brief Cumulative-Sum(2D)\n\
     \ */\ntemplate <class T>\nclass CumulativeSum2D {\n    vector<vector<T>> vv;\n\
     \n   public:\n    CumulativeSum2D(vector<vector<T>> a)\n        : vv(size(a) +\
-    \ 1, vector<int>(size(a[0]) + 1, 0)) {\n        for (int i = 0; i + 1 < size(vv);\
+    \ 1, vector<int>(size(a[0]) + 1, 0)) {\n        for (size_t i = 0; i + 1 < size(vv);\
     \ i++)\n            copy(begin(a[i]), end(a[i]), begin(vv[i + 1]) + 1);\n    \
     \    for (size_t i = 1; i < size(vv); i++) {\n            for (size_t j = 1; j\
     \ < size(vv[i]); j++)\n                vv[i][j] += vv[i][j - 1] + vv[i - 1][j]\
@@ -46,9 +52,11 @@ data:
   isVerificationFile: false
   path: lib/utility/cumulative_sum.hpp
   requiredBy: []
-  timestamp: '2021-05-29 21:52:58+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2021-05-29 23:05:15+09:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - lib/test/library-checker/static_range_sum.test.cpp
+  - lib/test/aoj/0560.test.cpp
 documentation_of: lib/utility/cumulative_sum.hpp
 layout: document
 redirect_from:

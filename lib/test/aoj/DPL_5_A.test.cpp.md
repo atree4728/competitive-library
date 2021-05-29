@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/modulus/modint.hpp
     title: Modint
   _extendedRequiredBy: []
@@ -20,9 +20,9 @@ data:
     \n\nusing namespace std;\n\n/**\n *@brief Modint\n */\n\ntemplate <int MOD>\n\
     class Modint {\n    using mint = Modint<MOD>;\n\n   public:\n    int value;\n\
     \    Modint(long long value_ = 0) : value((value_ % MOD + MOD) % MOD) {}\n\n \
-    \   static constexpr int mod() { return MOD; }\n    int val() const { return *this;\
-    \ }\n\n    inline mint operator-() const { return mint(-value); }\n\n    inline\
-    \ mint operator++() const { return *this += 1; }\n    inline mint operator--()\
+    \   static constexpr int mod() { return MOD; }\n    mint val() const { return\
+    \ *this; }\n\n    inline mint operator-() const { return mint(-value); }\n\n \
+    \   inline mint operator++() const { return *this += 1; }\n    inline mint operator--()\
     \ const { return *this -= 1; }\n\n    inline mint operator+(mint arg) const {\
     \ return mint(*this) += arg; }\n    inline mint operator-(mint arg) const { return\
     \ mint(*this) -= arg; }\n    inline mint operator*(mint arg) const { return mint(*this)\
@@ -59,7 +59,7 @@ data:
   isVerificationFile: true
   path: lib/test/aoj/DPL_5_A.test.cpp
   requiredBy: []
-  timestamp: '2021-05-28 15:42:00+09:00'
+  timestamp: '2021-05-29 23:05:15+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: lib/test/aoj/DPL_5_A.test.cpp
