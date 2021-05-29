@@ -2,7 +2,7 @@
     "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_1_A"
 
 #include <bits/stdc++.h>
-#include "math/convert_base.hpp"
+#include "lib/math/convert_base.hpp"
 
 using namespace std;
 

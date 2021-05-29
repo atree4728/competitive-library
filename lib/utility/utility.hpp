@@ -4,7 +4,7 @@ using namespace std;
 #include <algorithm>
 #include <string>
 
-bool palindrome(const string& s) {
+bool is_palindrome(const string& s) {
     return equal(s.begin(), s.end(), s.rbegin());
 }
 

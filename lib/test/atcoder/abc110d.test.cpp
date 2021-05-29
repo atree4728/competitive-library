@@ -1,9 +1,9 @@
 #define PROBLEM "https://atcoder.jp/contests/abc110/tasks/abc110_d"
 
 #include <bits/stdc++.h>
-#include "modulus/modint.hpp"
-#include "modulus/combination.hpp"
-#include "math/utility.hpp"
+#include "lib/modulus/modint.hpp"
+#include "lib/modulus/combination.hpp"
+#include "lib/math/utility.hpp"
 using namespace std;
 
 constexpr int MOD = 1000000007;
@@ -15,10 +15,10 @@ int main() {
     cin.tie(nullptr);
     long long n, m;
     cin >> n >> m;
-    map<long long, int> factor = prime_factorize(n);
+    map<long long, int> factor = prime_factorize(m);
     mint ans = 1;
     CombinationTable<MOD> ct(M);
-    for (auto [_, ex] : factor) ans *= ct.C(n + ex - 1, ex);
+    for (auto [_, ex] : factor) ans *= ct.H(n, ex);
     cout << ans.val() << "\n";
     return 0;
 }

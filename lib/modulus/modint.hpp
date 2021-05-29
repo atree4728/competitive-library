@@ -17,7 +17,7 @@ class Modint {
     Modint(long long value_ = 0) : value((value_ % MOD + MOD) % MOD) {}
 
     static constexpr int mod() { return MOD; }
-    int val() const { return *this; }
+    mint val() const { return *this; }
 
     inline mint operator-() const { return mint(-value); }
 

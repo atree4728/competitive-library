@@ -31,7 +31,7 @@ class CumulativeSum2D {
    public:
     CumulativeSum2D(vector<vector<T>> a)
         : vv(size(a) + 1, vector<int>(size(a[0]) + 1, 0)) {
-        for (int i = 0; i + 1 < size(vv); i++)
+        for (size_t i = 0; i + 1 < size(vv); i++)
             copy(begin(a[i]), end(a[i]), begin(vv[i + 1]) + 1);
         for (size_t i = 1; i < size(vv); i++) {
             for (size_t j = 1; j < size(vv[i]); j++)

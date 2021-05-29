@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <cassert>
 
-#include "math/utility.hpp"
+#include "lib/math/utility.hpp"
 
 using namespace std;
 

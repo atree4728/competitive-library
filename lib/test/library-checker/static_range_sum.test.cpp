@@ -3,7 +3,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include "utility/cumulative_sum.hpp"
+#include "lib/utility/cumulative_sum.hpp"
 
 struct IOSetup {
     IOSetup() noexcept {
