@@ -12,6 +12,6 @@ int main() {
     int n, k;
     cin >> n >> k;
     CombinationTable<MOD> ct(1100);
-    cout << ct.p(k, n) << "\n";
+    cout << ct.P(k, n) << "\n";
     return 0;
 }

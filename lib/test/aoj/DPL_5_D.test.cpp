@@ -11,6 +11,6 @@ int main() {
     int n, k;
     cin >> n >> k;
     CombinationTable<MOD> ct(2100);
-    cout << ct.h(k, n) << endl;
+    cout << ct.H(k, n) << endl;
     return 0;
 }

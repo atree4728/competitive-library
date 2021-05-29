@@ -1,6 +1,6 @@
 ###math
 - 簡単なアルゴリズム集
- - O(root(N)) の素因数分解
+- 繰り返し2乗法
 
 ###graph
 - dijkstra
@@ -9,6 +9,5 @@
 
 ###utility
 - binary-search
-- base 変換
 
 追記する

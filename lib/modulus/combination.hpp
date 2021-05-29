@@ -23,15 +23,12 @@ class CombinationTable {
         ifact[n] = fact[n].inv();
         for (int i = n; i >= 1; i--) ifact[i - 1] = ifact[i] * i;
     }
-
-    Modint<MOD> c(int n, int r) {
+    Modint<MOD> C(int n, int r) {
         if (r < 0 or r > n) return 0;
         return fact[n] * ifact[r] * ifact[n - r];
     }
-
-    Modint<MOD> h(int n, int r) { return c(n + r - 1, r); }
-
-    Modint<MOD> p(int n, int r) {
+    Modint<MOD> H(int n, int r) { return C(n + r - 1, r); }
+    Modint<MOD> P(int n, int r) {
         if (r < 0 or r > n) return 0;
         return fact[n] * ifact[n - r];
     }
