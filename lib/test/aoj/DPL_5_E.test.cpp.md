@@ -55,27 +55,27 @@ data:
     \   public:\n    CombinationTable<MOD>(int n) : fact(n + 1), ifact(n + 1) {\n\
     \        assert(1 <= n and n < MOD);\n        fact[0] = 1;\n        for (int i\
     \ = 1; i <= n; i++) fact[i] = fact[i - 1] * i;\n        ifact[n] = fact[n].inv();\n\
-    \        for (int i = n; i >= 1; i--) ifact[i - 1] = ifact[i] * i;\n    }\n\n\
-    \    Modint<MOD> c(int n, int r) {\n        if (r < 0 or r > n) return 0;\n  \
-    \      return fact[n] * ifact[r] * ifact[n - r];\n    }\n\n    Modint<MOD> h(int\
-    \ n, int r) { return c(n + r - 1, r); }\n\n    Modint<MOD> p(int n, int r) {\n\
-    \        if (r < 0 or r > n) return 0;\n        return fact[n] * ifact[n - r];\n\
-    \    }\n};\n#line 6 \"lib/test/aoj/DPL_5_E.test.cpp\"\n\nusing namespace std;\n\
+    \        for (int i = n; i >= 1; i--) ifact[i - 1] = ifact[i] * i;\n    }\n  \
+    \  Modint<MOD> C(int n, int r) {\n        if (r < 0 or r > n) return 0;\n    \
+    \    return fact[n] * ifact[r] * ifact[n - r];\n    }\n    Modint<MOD> H(int n,\
+    \ int r) { return C(n + r - 1, r); }\n    Modint<MOD> P(int n, int r) {\n    \
+    \    if (r < 0 or r > n) return 0;\n        return fact[n] * ifact[n - r];\n \
+    \   }\n};\n#line 6 \"lib/test/aoj/DPL_5_E.test.cpp\"\n\nusing namespace std;\n\
     \nconstexpr int MOD = 1000000007;\n\nint main() {\n    int n, k;\n    cin >> n\
-    \ >> k;\n    CombinationTable<MOD> ct(1100);\n    cout << ct.c(k, n) << endl;\n\
+    \ >> k;\n    CombinationTable<MOD> ct(1100);\n    cout << ct.C(k, n) << endl;\n\
     \    return 0;\n}\n"
   code: "#define PROBLEM \\\n    \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_E\"\
     \n#include <iostream>\n#include \"lib/modulus/modint.hpp\"\n#include \"lib/modulus/combination.hpp\"\
     \n\nusing namespace std;\n\nconstexpr int MOD = 1000000007;\n\nint main() {\n\
     \    int n, k;\n    cin >> n >> k;\n    CombinationTable<MOD> ct(1100);\n    cout\
-    \ << ct.c(k, n) << endl;\n    return 0;\n}\n"
+    \ << ct.C(k, n) << endl;\n    return 0;\n}\n"
   dependsOn:
   - lib/modulus/modint.hpp
   - lib/modulus/combination.hpp
   isVerificationFile: true
   path: lib/test/aoj/DPL_5_E.test.cpp
   requiredBy: []
-  timestamp: '2021-05-28 15:42:00+09:00'
+  timestamp: '2021-05-29 21:52:58+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: lib/test/aoj/DPL_5_E.test.cpp
