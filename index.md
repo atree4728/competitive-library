@@ -12,15 +12,15 @@ data:
     - icon: ':warning:'
       path: lib/math/simple_combination.hpp
       title: lib/math/simple_combination.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/utility.hpp
       title: math utility
   - name: lib/modulus
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/modulus/combination.hpp
       title: combination on mod including nCk, nHr, nPr
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/modulus/modint.hpp
       title: Modint
   - name: lib/utility
@@ -51,7 +51,7 @@ data:
       title: lib/test/aoj/DPL_5_E.test.cpp
   - name: lib/test/atcoder
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/test/atcoder/abc110d.test.cpp
       title: lib/test/atcoder/abc110d.test.cpp
   - name: lib/test/library-checker

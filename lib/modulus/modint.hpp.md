@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/modulus/combination.hpp
     title: combination on mod including nCk, nHr, nPr
   _extendedVerifiedWith:
@@ -18,12 +18,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/test/aoj/DPL_5_E.test.cpp
     title: lib/test/aoj/DPL_5_E.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/test/atcoder/abc110d.test.cpp
     title: lib/test/atcoder/abc110d.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Modint
     links: []
@@ -93,7 +93,7 @@ data:
   requiredBy:
   - lib/modulus/combination.hpp
   timestamp: '2021-05-29 23:05:15+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - lib/test/aoj/DPL_5_A.test.cpp
   - lib/test/aoj/DPL_5_B.test.cpp

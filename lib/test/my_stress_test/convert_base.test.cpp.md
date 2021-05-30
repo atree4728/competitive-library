@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/math/convert_base.hpp
     title: Base conversion
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/utility.hpp
     title: math utility
   _extendedRequiredBy: []

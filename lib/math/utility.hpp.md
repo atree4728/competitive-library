@@ -6,15 +6,15 @@ data:
     path: lib/math/convert_base.hpp
     title: Base conversion
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/test/atcoder/abc110d.test.cpp
     title: lib/test/atcoder/abc110d.test.cpp
   - icon: ':heavy_check_mark:'
     path: lib/test/my_stress_test/convert_base.test.cpp
     title: lib/test/my_stress_test/convert_base.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: math utility
     links: []
@@ -58,7 +58,7 @@ data:
   requiredBy:
   - lib/math/convert_base.hpp
   timestamp: '2021-05-29 21:52:58+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - lib/test/my_stress_test/convert_base.test.cpp
   - lib/test/atcoder/abc110d.test.cpp

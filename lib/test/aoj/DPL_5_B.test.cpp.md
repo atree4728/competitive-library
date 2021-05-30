@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/modulus/combination.hpp
     title: combination on mod including nCk, nHr, nPr
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/modulus/modint.hpp
     title: Modint
   _extendedRequiredBy: []
