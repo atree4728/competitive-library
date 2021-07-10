@@ -3,5 +3,8 @@
 *.out
 .DS_Store
 .gitignore
+.clang-format
+CMakeLists.txt
 .bundle/
 cmake-build-debug/
+.idea/
