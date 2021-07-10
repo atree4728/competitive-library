@@ -1,10 +1,9 @@
 #define PROBLEM "https://atcoder.jp/contests/abc110/tasks/abc110_d"
 
-#include <bits/stdc++.h>
-#include "lib/modulus/modint.hpp"
-#include "lib/modulus/combination.hpp"
-#include "lib/math/utility.hpp"
-using namespace std;
+#include "../../include.hpp"
+#include "../../modulus/modint.hpp"
+#include "../../modulus/combination.hpp"
+#include "../../math/prime_factorize.hpp"
 
 constexpr int MOD = 1000000007;
 constexpr int M = 200000;

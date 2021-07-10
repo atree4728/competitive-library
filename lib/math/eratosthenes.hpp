@@ -1,21 +1,21 @@
 #pragma once
 
-#include <vector>
-#include <numeric>
-#include <cassert>
-#include <map>
-
-using namespace std;
+#include "../include.hpp"
 
 /**
- *@brief Eratosthenes's sieve($O(NloglogN)$)
+ * @brief Eratosthenes's Sieve
+ * @note construct in $O(NloglogN)$, return prime determination in $O(1)$ and number of constants and prime factorization fastly(<-!?)
  */
 
 class Sieve {
-    int size;
+    size_t size;
     vector<int> min_factor;
 
-    void init() {
+  public:
+    vector<int> prime_list;
+
+    Sieve(const int size_):
+        size(size_), min_factor(size_ + 1) {
         assert(size >= 0);
         iota(begin(min_factor), end(min_factor), 0);
         for (int i = 2; i <= size; i++) {
@@ -27,15 +27,8 @@ class Sieve {
                 if (min_factor[mul] == mul) min_factor[mul] = i;
             }
         }
-    }
-
-   public:
-    vector<int> prime_list;
-
-    Sieve(const int size_) : size(size_), min_factor(size_ + 1) { init(); };
-
+    };
     bool is_prime(const int n) { return min_factor[n] == n and n >= 2; }
-
     map<int, int> prime_factorize(const int n) {
         assert(1 <= n and n <= size);
         if (n == 1) return {};
@@ -47,12 +40,11 @@ class Sieve {
         }
         return factor;
     }
-
     int count_divisor(const int n) {
         assert(1 <= n and n <= size);
         int ret = 1;
         map<int, int> factor = prime_factorize(n);
-        for (auto [p, ex] : factor) ret *= (ex + 1);
+        for (auto [p, ex]: factor) ret *= (ex + 1);
         return ret;
     }
 };

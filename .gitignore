@@ -2,3 +2,6 @@
 *.pch
 *.out
 .DS_Store
+.gitignore
+.bundle/
+cmake-build-debug/

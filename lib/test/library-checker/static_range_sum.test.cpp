@@ -1,9 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/static_range_sum"
 
-#include <bits/stdc++.h>
-using namespace std;
-
-#include "lib/utility/cumulative_sum.hpp"
+#include "../../include.hpp"
+#include "../../utility/cumulative_sum.hpp"
 
 struct IOSetup {
     IOSetup() noexcept {
@@ -17,9 +15,9 @@ struct IOSetup {
 int main() {
     int n, q;
     cin >> n >> q;
-    vector<long long> a(n);
+    vector<i64> a(n);
     for (auto &&elem : a) cin >> elem;
-    CumulativeSum1D cs(a);
+    CumulativeSum1D<i64> cs(a);
     while (q--) {
         int l, r;
         cin >> l >> r;

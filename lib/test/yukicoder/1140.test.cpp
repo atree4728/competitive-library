@@ -1,6 +1,6 @@
 #define PROBLEM "https://yukicoder.me/problems/no/1140"
-#include <iostream>
-#include "lib/math/eratosthenes.hpp"
+#include "../../include.hpp"
+#include "../../math/eratosthenes.hpp"
 
 struct IOSetup {
     IOSetup() noexcept {

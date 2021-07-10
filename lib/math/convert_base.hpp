@@ -1,34 +1,27 @@
 #pragma once
 
-#include <string>
-#include <algorithm>
-#include <cassert>
-
-#include "lib/math/utility.hpp"
-
-using namespace std;
+#include "../include.hpp"
 
 /**
- * @brief Base conversion
- * @detail when base > 10, it will be used lower case letters
+ * @brief Convert base
+ * @note when base > 10, it will be used lower case letters
  */
-long long to_base10(string n, int base) {
-    long long ret = 0;
+i64 to_base10(string n, int base) {
+    i64 ret = 0;
     int s = (n[0] == '-' ? 1 : 0);
     reverse(begin(n), end(n));
-    for (int i = s; (size_t)i < size(n); i++) {
+    rep(i, s, size(n)) {
         int d = (isdigit(n[i]) ? (n[i] - '0') : (n[i] - 'a' + 10));
-        ret += mypow(base, i) * d;
+        ret += pow(base, i) * d;
     }
     return ret * (s == 1 ? -1 : 1);
 }
 
-string from_base10(long long n, int base) {
+string from_base10(i64 n, int base) {
     assert(2 <= base and base <= 36);
     const string table = "0123456789abcdefghijklmnopqrstuvwxyz";
     bool is_negative = (n < 0);
     if (is_negative) n *= -1;
-    assert(n >= 0);
     string ret;
     while (n >= base) {
         ret.push_back(table[n % base]);

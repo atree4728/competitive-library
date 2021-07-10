@@ -1,9 +1,7 @@
 #define PROBLEM \
     "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_D"
-#include <iostream>
-#include "lib/modulus/combination.hpp"
-
-using namespace std;
+#include "../../include.hpp"
+#include "../../modulus/combination.hpp"
 
 constexpr int MOD = 1000000007;
 

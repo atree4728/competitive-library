@@ -1,19 +1,19 @@
 #define PROBLEM \
     "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_1_A"
 
-#include <bits/stdc++.h>
-#include "lib/math/convert_base.hpp"
+#include "../../math/convert_base.hpp"
 
-using namespace std;
+#include "../../include.hpp"
 
 void test() {
-    for (int i = 0; i < 100000; i++) {
+    const int M = 1e5;
+    rep(i, M) {
         stringstream ss;
         ss << oct << i;
         assert(ss.str() == from_base10(i, 8));
         assert(i == to_base10(ss.str(), 8));
     }
-    for (int i = 0; i < 100000; i++) {
+    rep(i, M) {
         stringstream ss;
         ss << hex << i;
         assert(ss.str() == from_base10(i, 16));
@@ -22,7 +22,7 @@ void test() {
 }
 
 int main() {
-    cout << "Hello World\n";
     test();
+    cout << "Hello World\n";
     return 0;
 }
