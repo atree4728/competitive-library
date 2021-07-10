@@ -8,3 +8,4 @@ CMakeLists.txt
 .bundle/
 cmake-build-debug/
 .idea/
+.git/
