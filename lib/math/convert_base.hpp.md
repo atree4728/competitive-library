@@ -2,8 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: lib/math/utility.hpp
-    title: math utility
+    path: lib/include.hpp
+    title: lib/include.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -13,62 +13,49 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    document_title: Base conversion
+    document_title: Convert base
     links: []
-  bundledCode: "#line 2 \"lib/math/convert_base.hpp\"\n\n#include <string>\n#include\
-    \ <algorithm>\n#include <cassert>\n\n#line 2 \"lib/math/utility.hpp\"\n\n#line\
-    \ 5 \"lib/math/utility.hpp\"\n#include <map>\n\nusing namespace std;\n\n/**\n\
-    \ * @brief math utility\n */\n\nconstexpr long long ceil(long long a, long long\
-    \ b) { return (a + b - 1) / b; }\n\nlong long digit_sum(long long n) {\n    if\
-    \ (n < 10) return n;\n    return digit_sum(n / 10) + n % 10;\n}\n\nlong long mypow(long\
-    \ long a, int e) {\n    long long ret = 1;\n    while (e--) ret *= a;\n    return\
-    \ ret;\n}\n\nbool is_prime(long long n) {\n    if (n <= 1) return false;\n   \
-    \ if (n == 2) return true;\n    for (long long i = 2; i * i <= n; i++) {\n   \
-    \     if (n % i == 0) return false;\n    }\n    return true;\n}\n\nmap<long long,\
-    \ int> prime_factorize(long long n) {\n    map<long long, int> factor;\n    for\
-    \ (long long p = 2; p * p <= n; p++) {\n        if (n % p != 0) continue;\n  \
-    \      int ex = 0;\n        while (n % p == 0) {\n            ex++;\n        \
-    \    n /= p;\n        }\n        factor[p] = ex;\n    }\n    if (n != 1) factor[n]\
-    \ = 1;\n    return factor;\n}\n\nvector<long long> divisor(long long n) {\n  \
-    \  vector<long long> ret;\n    for (long long p = 1; p * p <= n; p++) {\n    \
-    \    if (n % p == 0) {\n            ret.push_back(p);\n            if (p * p !=\
-    \ n) ret.push_back(n / p);\n        }\n    }\n    sort(begin(ret), end(ret));\n\
-    \    return ret;\n}\n#line 8 \"lib/math/convert_base.hpp\"\n\nusing namespace\
-    \ std;\n\n/**\n * @brief Base conversion\n * @detail when base > 10, it will be\
-    \ used lower case letters\n */\nlong long to_base10(string n, int base) {\n  \
-    \  long long ret = 0;\n    int s = (n[0] == '-' ? 1 : 0);\n    reverse(begin(n),\
-    \ end(n));\n    for (int i = s; (size_t)i < size(n); i++) {\n        int d = (isdigit(n[i])\
-    \ ? (n[i] - '0') : (n[i] - 'a' + 10));\n        ret += mypow(base, i) * d;\n \
-    \   }\n    return ret * (s == 1 ? -1 : 1);\n}\n\nstring from_base10(long long\
-    \ n, int base) {\n    assert(2 <= base and base <= 36);\n    const string table\
-    \ = \"0123456789abcdefghijklmnopqrstuvwxyz\";\n    bool is_negative = (n < 0);\n\
-    \    if (is_negative) n *= -1;\n    assert(n >= 0);\n    string ret;\n    while\
-    \ (n >= base) {\n        ret.push_back(table[n % base]);\n        n /= base;\n\
+  bundledCode: "#line 2 \"lib/math/convert_base.hpp\"\n\n#line 2 \"lib/include.hpp\"\
+    \n#include <bits/stdc++.h>\n#include <experimental/iterator>\nusing namespace\
+    \ std;\n#define overload3(_1, _2, _3, name, ...) name\n#define rep1(n) for (auto\
+    \ _i = 0; _i < n; _i++)\n#define rep2(i, n) for (auto i = 0; i < n; i++)\n#define\
+    \ rep3(i, a, b) for (auto i = a; i < b; i++)\n#define rep(...) overload3(__VA_ARGS__,\
+    \ rep3, rep2, rep1)(__VA_ARGS__)\ntemplate <class T> bool chmax(T &a, const T\
+    \ &b) { return a < b ? a = b, true : false; }\ntemplate <class T> bool chmin(T\
+    \ &a, const T &b) { return a > b ? a = b, true : false; }\nusing i64 = long long;\n\
+    using f64 = long double;\n#line 4 \"lib/math/convert_base.hpp\"\n\n/**\n * @brief\
+    \ Convert base\n * @note when base > 10, it will be used lower case letters\n\
+    \ */\ni64 to_base10(string n, int base) {\n    i64 ret = 0;\n    int s = (n[0]\
+    \ == '-' ? 1 : 0);\n    reverse(begin(n), end(n));\n    rep(i, s, size(n)) {\n\
+    \        int d = (isdigit(n[i]) ? (n[i] - '0') : (n[i] - 'a' + 10));\n       \
+    \ ret += pow(base, i) * d;\n    }\n    return ret * (s == 1 ? -1 : 1);\n}\n\n\
+    string from_base10(i64 n, int base) {\n    assert(2 <= base and base <= 36);\n\
+    \    const string table = \"0123456789abcdefghijklmnopqrstuvwxyz\";\n    bool\
+    \ is_negative = (n < 0);\n    if (is_negative) n *= -1;\n    string ret;\n   \
+    \ while (n >= base) {\n        ret.push_back(table[n % base]);\n        n /= base;\n\
     \    }\n    ret.push_back(table[n]);\n    reverse(begin(ret), end(ret));\n   \
     \ return (is_negative ? \"-\" : \"\") + ret;\n}\n\nstring convert_base(string\
     \ n, int from_base, int to_base) {\n    return from_base10((to_base10(n, from_base)),\
     \ to_base);\n}\n"
-  code: "#pragma once\n\n#include <string>\n#include <algorithm>\n#include <cassert>\n\
-    \n#include \"lib/math/utility.hpp\"\n\nusing namespace std;\n\n/**\n * @brief\
-    \ Base conversion\n * @detail when base > 10, it will be used lower case letters\n\
-    \ */\nlong long to_base10(string n, int base) {\n    long long ret = 0;\n    int\
-    \ s = (n[0] == '-' ? 1 : 0);\n    reverse(begin(n), end(n));\n    for (int i =\
-    \ s; (size_t)i < size(n); i++) {\n        int d = (isdigit(n[i]) ? (n[i] - '0')\
-    \ : (n[i] - 'a' + 10));\n        ret += mypow(base, i) * d;\n    }\n    return\
-    \ ret * (s == 1 ? -1 : 1);\n}\n\nstring from_base10(long long n, int base) {\n\
-    \    assert(2 <= base and base <= 36);\n    const string table = \"0123456789abcdefghijklmnopqrstuvwxyz\"\
-    ;\n    bool is_negative = (n < 0);\n    if (is_negative) n *= -1;\n    assert(n\
-    \ >= 0);\n    string ret;\n    while (n >= base) {\n        ret.push_back(table[n\
-    \ % base]);\n        n /= base;\n    }\n    ret.push_back(table[n]);\n    reverse(begin(ret),\
+  code: "#pragma once\n\n#include \"../include.hpp\"\n\n/**\n * @brief Convert base\n\
+    \ * @note when base > 10, it will be used lower case letters\n */\ni64 to_base10(string\
+    \ n, int base) {\n    i64 ret = 0;\n    int s = (n[0] == '-' ? 1 : 0);\n    reverse(begin(n),\
+    \ end(n));\n    rep(i, s, size(n)) {\n        int d = (isdigit(n[i]) ? (n[i] -\
+    \ '0') : (n[i] - 'a' + 10));\n        ret += pow(base, i) * d;\n    }\n    return\
+    \ ret * (s == 1 ? -1 : 1);\n}\n\nstring from_base10(i64 n, int base) {\n    assert(2\
+    \ <= base and base <= 36);\n    const string table = \"0123456789abcdefghijklmnopqrstuvwxyz\"\
+    ;\n    bool is_negative = (n < 0);\n    if (is_negative) n *= -1;\n    string\
+    \ ret;\n    while (n >= base) {\n        ret.push_back(table[n % base]);\n   \
+    \     n /= base;\n    }\n    ret.push_back(table[n]);\n    reverse(begin(ret),\
     \ end(ret));\n    return (is_negative ? \"-\" : \"\") + ret;\n}\n\nstring convert_base(string\
     \ n, int from_base, int to_base) {\n    return from_base10((to_base10(n, from_base)),\
     \ to_base);\n}\n"
   dependsOn:
-  - lib/math/utility.hpp
+  - lib/include.hpp
   isVerificationFile: false
   path: lib/math/convert_base.hpp
   requiredBy: []
-  timestamp: '2021-05-29 23:05:15+09:00'
+  timestamp: '2021-07-10 14:38:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - lib/test/my_stress_test/convert_base.test.cpp
@@ -77,5 +64,5 @@ layout: document
 redirect_from:
 - /library/lib/math/convert_base.hpp
 - /library/lib/math/convert_base.hpp.html
-title: Base conversion
+title: Convert base
 ---

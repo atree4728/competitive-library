@@ -1,36 +1,60 @@
 ---
 data:
   libraryCategories:
+  - name: lib/data_structure
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: lib/data_structure/union_find.hpp
+      title: Union-Find
+  - name: lib/graph
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: lib/graph/dijkstra.hpp
+      title: Dijkstra's Algorithm
+  - name: lib
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: lib/include.hpp
+      title: lib/include.hpp
   - name: lib/math
     pages:
     - icon: ':heavy_check_mark:'
       path: lib/math/convert_base.hpp
-      title: Base conversion
+      title: Convert base
+    - icon: ':warning:'
+      path: lib/math/divisor.hpp
+      title: multiple enumeration
     - icon: ':heavy_check_mark:'
       path: lib/math/eratosthenes.hpp
-      title: Eratosthenes's sieve($O(NloglogN)$)
+      title: Eratosthenes's Sieve
+    - icon: ':warning:'
+      path: lib/math/is_prime.hpp
+      title: prime determination
+    - icon: ':heavy_check_mark:'
+      path: lib/math/prime_factorize.hpp
+      title: prime factorize
     - icon: ':warning:'
       path: lib/math/simple_combination.hpp
-      title: lib/math/simple_combination.hpp
-    - icon: ':heavy_check_mark:'
-      path: lib/math/utility.hpp
-      title: math utility
+      title: Combination without mod
   - name: lib/modulus
     pages:
     - icon: ':heavy_check_mark:'
       path: lib/modulus/combination.hpp
-      title: combination on mod including nCk, nHr, nPr
+      title: Combination on mod
     - icon: ':heavy_check_mark:'
       path: lib/modulus/modint.hpp
-      title: Modint
+      title: Finite Field
   - name: lib/utility
     pages:
     - icon: ':heavy_check_mark:'
       path: lib/utility/cumulative_sum.hpp
-      title: Cumulative-Sum(1D)
+      title: Partial Sum
+    - icon: ':heavy_check_mark:'
+      path: lib/utility/cumulative_sum_2D.hpp
+      title: Partial Sum(2D)
     - icon: ':warning:'
-      path: lib/utility/utility.hpp
-      title: lib/utility/utility.hpp
+      path: lib/utility/print.hpp
+      title: Print
   verificationCategories:
   - name: lib/test/aoj
     pages:
@@ -49,6 +73,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/test/aoj/DPL_5_E.test.cpp
       title: lib/test/aoj/DPL_5_E.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: lib/test/aoj/GRL_1_A.test.cpp
+      title: lib/test/aoj/GRL_1_A.test.cpp
   - name: lib/test/atcoder
     pages:
     - icon: ':heavy_check_mark:'
@@ -59,6 +86,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/test/library-checker/static_range_sum.test.cpp
       title: lib/test/library-checker/static_range_sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: lib/test/library-checker/unionfind.test.cpp
+      title: lib/test/library-checker/unionfind.test.cpp
   - name: lib/test/my_stress_test
     pages:
     - icon: ':heavy_check_mark:'
