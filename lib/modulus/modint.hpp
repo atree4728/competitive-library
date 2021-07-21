@@ -3,42 +3,39 @@
 #include "../include.hpp"
 
 /**
- *@brief  Finite Field
- * @note Since Fermat's little theorem is used for division, the modulo must be prime
+ * @brief  Finite Field
+ * @note Since Fermat's little theorem is used for division, the modulo must be prime.
  */
 
-template<int MOD> class Modint {
+template<int MOD> struct Modint {
     using mint = Modint<MOD>;
-
-  public:
     int value;
-    Modint(long long value_ = 0):
+    Modint(i64 value_ = 0):
         value((value_ % MOD + MOD) % MOD) {}
-    static constexpr int mod() { return MOD; }
     mint val() const { return *this; }
-    inline mint operator-() const { return mint(-value); }
-    inline mint operator++() const { return *this += 1; }
-    inline mint operator--() const { return *this -= 1; }
-    inline mint operator+(mint arg) const { return mint(*this) += arg; }
-    inline mint operator-(mint arg) const { return mint(*this) -= arg; }
-    inline mint operator*(mint arg) const { return mint(*this) *= arg; }
-    inline mint& operator+=(mint arg) {
+    mint operator-() const { return mint(-value); }
+    mint operator++() const { return *this += 1; }
+    mint operator--() const { return *this -= 1; }
+    mint operator+(mint arg) const { return mint(*this) += arg; }
+    mint operator-(mint arg) const { return mint(*this) -= arg; }
+    mint operator*(mint arg) const { return mint(*this) *= arg; }
+    mint& operator+=(mint arg) {
         value += arg.value;
         if (value >= MOD) value -= MOD;
         return *this;
     }
-    inline mint& operator-=(mint arg) {
+    mint& operator-=(mint arg) {
         value -= arg.value;
         if (value < 0) value += MOD;
         return *this;
     }
-    inline mint& operator*=(mint arg) {
+    mint& operator*=(mint arg) {
         value = (long long)value * arg.value % MOD;
         return *this;
     }
-    inline bool operator==(mint arg) const { return value == arg.value; }
-    inline bool operator!=(mint arg) const { return value != arg.value; }
-    inline mint pow(long long k) const {
+    bool operator==(mint arg) const { return value == arg.value; }
+    bool operator!=(mint arg) const { return value != arg.value; }
+    mint pow(long long k) const {
         Modint ret = 1, a(*this);
         while (k > 0) {
             if (k & 1) ret *= a;
@@ -47,12 +44,12 @@ template<int MOD> class Modint {
         }
         return ret;
     }
-    inline mint inv() const { return pow(MOD - 2); }
-    inline mint operator/(mint arg) const { return *this * arg.inv(); }
-    inline mint& operator/=(mint arg) { return *this *= arg.inv(); }
+    mint inv() const { return pow(MOD - 2); }
+    mint operator/(mint arg) const { return *this * arg.inv(); }
+    mint& operator/=(mint arg) { return *this *= arg.inv(); }
+    friend mint operator+(i64 value, Modint<MOD> a) { return Modint<MOD>(value) + a; }
+    friend mint operator-(i64 value, Modint<MOD> a) { return Modint<MOD>(value) - a; }
+    friend mint operator*(i64 value, Modint<MOD> a) { return Modint<MOD>(value) * a; }
+    friend mint operator/(i64 value, Modint<MOD> a) { return Modint<MOD>(value) / a; }
+    friend ostream& operator<<(ostream& os, Modint<MOD> a) { return os << a.value; }
 };
-template<int MOD> Modint<MOD> operator+(long long value, Modint<MOD> a) { return Modint<MOD>(value) + a; }
-template<int MOD> Modint<MOD> operator-(long long value, Modint<MOD> a) { return Modint<MOD>(value) - a; }
-template<int MOD> Modint<MOD> operator*(long long value, Modint<MOD> a) { return Modint<MOD>(value) * a; }
-template<int MOD> Modint<MOD> operator/(long long value, Modint<MOD> a) { return Modint<MOD>(value) / a; }
-template<int MOD> ostream& operator<<(ostream& os, Modint<MOD> a) { return os << a.value; }

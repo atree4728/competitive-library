@@ -3,8 +3,8 @@
 #include "../include.hpp"
 
 /**
- * @brief Convert base
- * @note when base > 10, it will be used lower case letters
+ * @brief Convert Base
+ * @note when base > 10, it will be used lower case letters.
  */
 i64 to_base10(string n, int base) {
     i64 ret = 0;

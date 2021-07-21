@@ -1,12 +1,9 @@
-#define PROBLEM \
-    "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_1_A"
+#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_1_A"
 
-#include "../../math/convert_base.hpp"
-
-#include "../../include.hpp"
+#include "../../lib/math/convert_base.hpp"
 
 void test() {
-    const int M = 1e5;
+    int M = 1e5;
     rep(i, M) {
         stringstream ss;
         ss << oct << i;

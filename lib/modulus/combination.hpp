@@ -5,13 +5,11 @@
 
 /**
  *@brief Combination on mod
- * @note construct in $O(N)$, return $nCr$, $nHr$, $nPr$ in $O(1)$
+ * @note construct in $O(N)$, return $nCr$, $nHr$, $nPr$ in $O(1)$.
  */
 
-template<int MOD> class CombinationTable {
+template<int MOD> struct CombinationTable {
     vector<Modint<MOD>> fact, ifact;
-
-  public:
     CombinationTable<MOD>(int n):
         fact(n + 1), ifact(n + 1) {
         assert(1 <= n and n < MOD);

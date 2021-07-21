@@ -1,7 +1,7 @@
 #define PROBLEM \
     "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_A"
-#include "../../include.hpp"
-#include "../../modulus/modint.hpp"
+
+#include "../../lib/modulus/modint.hpp"
 
 constexpr int MOD = 1000000007;
 

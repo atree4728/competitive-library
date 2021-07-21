@@ -1,13 +1,6 @@
 #define PROBLEM "https://yukicoder.me/problems/no/1140"
-#include "../../include.hpp"
-#include "../../math/eratosthenes.hpp"
 
-struct IOSetup {
-    IOSetup() noexcept {
-        ios::sync_with_stdio(false);
-        cin.tie(nullptr);
-    }
-} IOSetup;
+#include "../../lib/math/eratosthenes.hpp"
 
 const int M = 5000005;
 

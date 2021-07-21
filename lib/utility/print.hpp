@@ -1,4 +1,7 @@
 #define IGNORE
+
+#pragma once
+
 #include "../include.hpp"
 
 /**
@@ -31,11 +34,11 @@ struct Print {
     }
 };
 
-auto print_impl = Prnt(cout, " ", false);
+auto print_impl = Print(cout, " ", false);
 #define print(...) print_impl(true, "", __VA_ARGS__)
 #ifdef LOCAL
 auto debug_impl = Print(cerr, " ", true);
     #define debug(...) debug_impl(true, "(" #__VA_ARGS__ ") "s, __VA_ARGS__)
 #else
-    #define debug(...)
+    #define debug(...) void(0)
 #endif

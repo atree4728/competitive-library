@@ -3,7 +3,8 @@
 #include "../include.hpp"
 
 /**
- * @brief Union-Find
+ * @brief Union Find
+ * @note a.k.a DSU; Disjoint Set Union
  */
 struct UnionFind {
     vector<int> parents_or_size;

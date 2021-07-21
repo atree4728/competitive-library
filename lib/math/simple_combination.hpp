@@ -4,14 +4,12 @@
 
 /**
  * @brief Combination without mod
- * @note construct in $O(N^2)$, return nCr / nHr in $O(1)$
+ * @note construct in $O(N^2)$, return nCr / nHr in $O(1)$.
  */
 
-template<typename T> class SimpleCombinationTable {
+template<typename T> struct SimpleCombinationTable {
     vector<vector<T>> table;
-
-  public:
-    SimpleCombinationTable(int size):
+    SimpleCombinationTable(size_t size):
         table(size + 1, vector<T>(size + 1, 0)) {
         for (size_t i = 0; i <= size; i++) {
             table[i][0] = 1;
