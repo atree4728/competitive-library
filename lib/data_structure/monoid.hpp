@@ -1,7 +1,5 @@
 #pragma once
 
-#include <limits>
-
 #include "../include.hpp"
 
 struct Add {
@@ -32,4 +30,16 @@ struct Max {
     using T = int;
     static T op(T a, T b) { return max(a, b); }
     static inline T id = numeric_limits<T>::min();
+};
+
+struct Gcd {
+    using T = int;
+    static T op(T a, T b) { return gcd(a, b); }
+    static inline T id = 0;
+};
+
+struct Lcm {
+    using T = int;
+    static T op(T a, T b) { return lcm(a, b); }
+    static inline T id = 0;
 };
