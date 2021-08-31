@@ -9,10 +9,10 @@ data:
     - icon: ':warning:'
       path: lib/data_structure/fenwick_tree.hpp
       title: lib/data_structure/fenwick_tree.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/monoid.hpp
       title: lib/data_structure/monoid.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/segment_tree.hpp
       title: Segment Tree
     - icon: ':heavy_check_mark:'
@@ -37,7 +37,7 @@ data:
       title: Topological Sort
   - name: lib
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/include.hpp
       title: lib/include.hpp
   - name: lib/math
@@ -88,6 +88,18 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/0560.test.cpp
       title: test/aoj/0560.test.cpp
+    - icon: ':x:'
+      path: test/aoj/ALDS1_11_D.test.cpp
+      title: test/aoj/ALDS1_11_D.test.cpp
+    - icon: ':x:'
+      path: test/aoj/ALDS1_1_B.test.cpp
+      title: test/aoj/ALDS1_1_B.test.cpp
+    - icon: ':x:'
+      path: test/aoj/ALDS1_1_C.test.cpp
+      title: test/aoj/ALDS1_1_C.test.cpp
+    - icon: ':x:'
+      path: test/aoj/ALDS1_7_A.test.cpp
+      title: test/aoj/ALDS1_7_A.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/DPL_5_A.test.cpp
       title: test/aoj/DPL_5_A.test.cpp
@@ -106,7 +118,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_2_A.test.cpp
       title: test/aoj/DSL_2_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_2_B.test.cpp
       title: test/aoj/DSL_2_B.test.cpp
     - icon: ':heavy_check_mark:'
@@ -121,9 +133,42 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_2_A.test.cpp
       title: test/aoj/GRL_2_A.test.cpp
+    - icon: ':x:'
+      path: test/aoj/GRL_3_A.test.cpp
+      title: test/aoj/GRL_3_A.test.cpp
+    - icon: ':x:'
+      path: test/aoj/GRL_3_B.test.cpp
+      title: test/aoj/GRL_3_B.test.cpp
+    - icon: ':x:'
+      path: test/aoj/GRL_3_C.test.cpp
+      title: test/aoj/GRL_3_C.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_4_A.test.cpp
       title: test/aoj/GRL_4_A.test.cpp
+    - icon: ':x:'
+      path: test/aoj/GRL_5_A.test.cpp
+      title: test/aoj/GRL_5_A.test.cpp
+    - icon: ':x:'
+      path: test/aoj/GRL_5_B.test.cpp
+      title: test/aoj/GRL_5_B.test.cpp
+    - icon: ':x:'
+      path: test/aoj/GRL_5_C.test.cpp
+      title: test/aoj/GRL_5_C.test.cpp
+    - icon: ':x:'
+      path: test/aoj/NTL_1_A.test.cpp
+      title: test/aoj/NTL_1_A.test.cpp
+    - icon: ':x:'
+      path: test/aoj/NTL_1_B.test.cpp
+      title: test/aoj/NTL_1_B.test.cpp
+    - icon: ':x:'
+      path: test/aoj/NTL_1_C.test.cpp
+      title: test/aoj/NTL_1_C.test.cpp
+    - icon: ':x:'
+      path: test/aoj/NTL_1_D.test.cpp
+      title: test/aoj/NTL_1_D.test.cpp
+    - icon: ':x:'
+      path: test/aoj/NTL_1_E.test.cpp
+      title: test/aoj/NTL_1_E.test.cpp
   - name: test/atcoder
     pages:
     - icon: ':heavy_check_mark:'

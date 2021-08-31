@@ -5,10 +5,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/data_structure/cumulative_sum_2D.hpp
     title: Partial Sum(2D)
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/data_structure/monoid.hpp
     title: lib/data_structure/monoid.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/data_structure/segment_tree.hpp
     title: Segment Tree
   - icon: ':heavy_check_mark:'
@@ -84,7 +84,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_A.test.cpp
     title: test/aoj/DSL_2_A.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_B.test.cpp
     title: test/aoj/DSL_2_B.test.cpp
   - icon: ':heavy_check_mark:'
@@ -117,9 +117,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1140.test.cpp
     title: test/yukicoder/1140.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/include.hpp\"\n\n#include <bits/stdc++.h>\nusing namespace\
@@ -167,7 +167,7 @@ data:
   - lib/data_structure/cumulative_sum_2D.hpp
   - lib/data_structure/monoid.hpp
   timestamp: '2021-08-31 17:00:15+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/my_stress_test/topological_sort.test.cpp
   - test/my_stress_test/convert_base.test.cpp
