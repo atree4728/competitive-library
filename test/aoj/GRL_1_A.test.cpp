@@ -3,14 +3,14 @@
 #include "../../lib/graph/dijkstra.hpp"
 
 int main() {
-    size_t v, e, r;
+    int v, e, r;
     cin >> v >> e >> r;
-    using P = pair<size_t, i64>;
+    using P = pair<int, i64>;
     vector<vector<P>> graph(v, vector<P>{});
-    while(e--) {
-        size_t s, t;
-        cin >> s >> t;
+    while (e--) {
+        int s, t;
         i64 d;
+        cin >> s >> t;
         cin >> d;
         graph[s].emplace_back(P{t, d});
     }

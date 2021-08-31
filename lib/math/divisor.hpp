@@ -3,11 +3,10 @@
 #include "../include.hpp"
 
 /**
- * @brief Multiple Enumeration
- * @note $O(NlogN)$
+ * @brief Multiple Enumeration($O(√N)$)
  */
 
-template<class T = u64> vector<T> divisor(T n) {
+template<class T = i64> vector<T> divisor(T n) {
     vector<T> ret{};
     for (T p = 1; p * p <= n; p++) {
         if (n % p == 0) {

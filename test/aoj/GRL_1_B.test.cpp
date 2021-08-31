@@ -5,11 +5,10 @@
 int main() {
     size_t v, e, r;
     cin >> v >> e >> r;
-    using P = pair<size_t, int>;
+    using P = pair<int, int>;
     vector graph(v, vector<P>{});
     rep(e) {
-        size_t s, t;
-        int d;
+        int s, t, d;
         cin >> s >> t >> d;
         graph[s].emplace_back(P{t, d});
     }

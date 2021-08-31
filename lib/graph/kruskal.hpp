@@ -10,10 +10,10 @@
  * @return Set of edges by vector<tuple<u, v, weight>>
 */
 
-template<typename T> vector<tuple<size_t, size_t, T>> kruskal(vector<vector<pair<size_t, T>>> const& graph) {
-    using Edge = tuple<size_t, size_t, T>;
+template<typename T> vector<tuple<int, int, T>> kruskal(vector<vector<pair<int, T>>> const& graph) {
+    using Edge = tuple<int, int, T>;
     vector<Edge> edges{};
-    size_t n = size(graph);
+    int n = size(graph);
     if (n == 1) return {};
     rep(i, n) for (const auto& [j, cost]: graph[i]) edges.emplace_back(Edge{i, j, cost});
     sort(begin(edges), end(edges), [](Edge a, Edge b) { return get<2>(a) < get<2>(b); });
@@ -24,7 +24,7 @@ template<typename T> vector<tuple<size_t, size_t, T>> kruskal(vector<vector<pair
             ret.emplace_back(Edge{u, v, cost});
             uf.unite(u, v);
         }
-        if (size(ret) == n - 1) break;
+        if ((int)size(ret) + 1 == n) break;
     }
     return ret;
 }

@@ -5,10 +5,10 @@
 int main() {
     size_t v, e;
     cin >> v >> e;
-    using P = pair<size_t, i64>;
+    using P = pair<int, i64>;
     vector<vector<P>> graph(v, vector<P>{});
     while (e--) {
-        size_t s, t;
+        int s, t;
         i64 d;
         cin >> s >> t >> d;
         graph[s].emplace_back(P{t, d});

@@ -5,9 +5,9 @@
 int main() {
     size_t n, m;
     cin >> n >> m;
-    vector graph(n, vector<size_t>{});
+    vector graph(n, vector<int>{});
     while (m--) {
-        size_t s, t;
+        int s, t;
         cin >> s >> t;
         graph[s].push_back(t);
     }

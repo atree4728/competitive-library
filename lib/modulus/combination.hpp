@@ -4,13 +4,13 @@
 #include "lib/modulus/modint.hpp"
 
 /**
- *@brief Combination on mod
+ * @brief Combination on mod
  * @note construct in $O(N)$, return $nCr$, $nHr$, $nPr$ in $O(1)$.
  */
 
-template<int MOD> struct CombinationTable {
+template<int MOD> struct CombTable {
     vector<Modint<MOD>> fact, ifact;
-    CombinationTable<MOD>(int n):
+    CombTable<MOD>(int n):
         fact(n + 1), ifact(n + 1) {
         assert(1 <= n and n < MOD);
         fact[0] = 1;

@@ -8,7 +8,7 @@ constexpr int MOD = 1000000007;
 int main() {
     int n, k;
     cin >> n >> k;
-    CombinationTable<MOD> ct(2100);
+    CombTable<MOD> ct(2100);
     cout << ct.H(k, n) << endl;
     return 0;
 }

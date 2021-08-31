@@ -5,11 +5,10 @@
 int main() {
     size_t v, e;
     cin >> v >> e;
-    using Edge = pair<size_t, int>;
+    using Edge = pair<int, int>;
     vector<vector<Edge>> graph(v, vector<Edge>{});
     rep(e) {
-        size_t s, t;
-        int w;
+        int s, t, w;
         cin >> s >> t >> w;
         graph[s].emplace_back(Edge{t, w});
     }

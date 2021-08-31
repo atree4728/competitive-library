@@ -11,17 +11,17 @@ void test() {
     rep(it, 50000) {
         size_t n = rand() % 20, m = n ? rand() % 30 : 0;
         bool is_cycle = rand() % 2;
-        vector<size_t> ordered(n);
+        vector<int> ordered(n);
         iota(begin(ordered), end(ordered), 0);
         shuffle(begin(ordered), end(ordered), rnd);
-        vector<vector<size_t>> ed(n);
+        vector<vector<int>> ed(n);
         rep(i, m) {
             int a = rand() % n;
             int b = rand() % n;
             if (is_cycle and a >= b) continue;
             ed[ordered[a]].push_back(ordered[b]);
         }
-        vector<size_t> ret = topological_sort(ed);
+        vector<int> ret = topological_sort(ed);
         if (is_cycle) assert(size(ret) == n);
         else
             assert(size(ret) <= n);

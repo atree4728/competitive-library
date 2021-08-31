@@ -6,7 +6,7 @@
  * @brief Prime Factorize($O(√N)$)
  */
 
-template<class T = u64> map<T, int> prime_factorize(T n) {
+template<class T = i64> map<T, int> prime_factorize(T n) {
     map<T, int> factor;
     for (auto p = 2; p * p <= n; p++) {
         if (n % p != 0) continue;

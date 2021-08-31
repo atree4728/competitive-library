@@ -10,8 +10,8 @@
  * @note When the graph is more dense, it runs faster than the Dijkstra's Algorithm (O(|V||E|log|E)) from arbitrary vertices.
  */
 
-template<typename T> vector<vector<T>> floyd_warshall(vector<vector<pair<size_t, T>>> const& graph) {
-    size_t n = size(graph);
+template<typename T> vector<vector<T>> floyd_warshall(vector<vector<pair<int, T>>> const& graph) {
+    int n = size(graph);
     constexpr T INF = numeric_limits<T>::max();
     vector<vector<T>> dp(n, vector<T>(n, INF));
     rep(i, n) {

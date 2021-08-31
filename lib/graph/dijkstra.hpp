@@ -7,9 +7,9 @@
  * @note Find SSSP;Single Source Shortest Path in $O(|E|log|V|)$. There must be no negative edges. Return -1 for unreachable vertex.
  */
 
-template<class T = i64> vector<T> dijkstra(vector<vector<pair<size_t, T>>> const& graph, size_t root) {
+template<class T = i64> vector<T> dijkstra(vector<vector<pair<int, T>>> const& graph, int root) {
     static_assert(is_signed<T>::value, "template parameter T must be signed type!");
-    using P = pair<T, size_t>;
+    using P = pair<T, int>;
     constexpr T INF = numeric_limits<T>::max() / 2;
     vector<T> dist(size(graph), INF);
     priority_queue<P, vector<P>, greater<>> pq;

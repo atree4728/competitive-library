@@ -10,8 +10,8 @@
  * @note The complexity is $O(|E|+|V|)$
 */
 
-template<typename T = size_t> vector<T> topological_sort(vector<vector<T>> const &graph) {
-    size_t n = size(graph);
+template<typename T = int> vector<T> topological_sort(vector<vector<T>> const &graph) {
+    int n = size(graph);
     vector<int> indegree(n, 0);
     for (const auto &edges: graph)
         for (const auto &to: edges) indegree[to]++;

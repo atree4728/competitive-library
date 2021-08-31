@@ -6,7 +6,7 @@
  * @brief Prime Determination($O(√N)$)
  */
 
-template<typename T = u64> bool is_prime(T n) {
+template<typename T = i64> bool is_prime(T n) {
     if (n <= 1) return false;
     if (n == 2) return true;
     for (T i = 2; i * i <= n; i++)

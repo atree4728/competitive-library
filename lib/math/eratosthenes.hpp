@@ -8,18 +8,17 @@
  */
 
 struct Sieve {
-    size_t size;
-    vector<size_t> min_factor;
-    vector<int> prime_list;
-    Sieve(const size_t size_):
+    int size;
+    vector<int> min_factor, prime_list;
+    explicit Sieve(const int size_):
         size(size_), min_factor(size_ + 1) {
         iota(begin(min_factor), end(min_factor), 0);
-        for (size_t i = 2; i <= size; i++) {
+        for (int i = 2; i <= size; i++) {
             if (min_factor[i] != i) {
                 prime_list.emplace_back(i);
                 continue;
             }
-            for (size_t mul = i * 2; mul <= size; mul += i)
+            for (int mul = i * 2; mul <= size; mul += i)
                 if (min_factor[mul] == mul) min_factor[mul] = i;
         }
     };

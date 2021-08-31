@@ -9,7 +9,7 @@ constexpr int MOD = 1000000007;
 int main() {
     int n, k;
     cin >> n >> k;
-    CombinationTable<MOD> C(1100);
+    CombTable<MOD> C(1100);
     cout << C(k, n) << endl;
     return 0;
 }

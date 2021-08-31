@@ -9,10 +9,10 @@
 
 template<class T> struct CumSum2D {
     vector<vector<T>> vv;
-    CumSum2D(vector<vector<T>> a):
+    explicit CumSum2D(vector<vector<T>> a):
         vv(size(a) + 1, vector<T>(size(a[0]) + 1, 0)) {
         rep(i, size(vv) - 1) copy(begin(a[i]), end(a[i]), begin(vv[i + 1]) + 1);
         rep(i, 1, size(vv)) rep(j, 1, size(vv[i])) vv[i][j] += vv[i][j - 1] + vv[i - 1][j] - vv[i - 1][j - 1];
     }
-    T operator()(size_t sx, size_t sy, size_t gx, size_t gy) { return vv[gx][gy] - vv[sx][gy] - vv[gx][sy] + vv[sx][sy]; }
+    T operator()(int sx, int sy, int gx, int gy) { return vv[gx][gy] - vv[sx][gy] - vv[gx][sy] + vv[sx][sy]; }
 };
