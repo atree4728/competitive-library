@@ -4,17 +4,17 @@ data:
   - name: lib/data_structure
     pages:
     - icon: ':heavy_check_mark:'
-      path: lib/data_structure/cumulative_sum.hpp
-      title: Partial Sum
-    - icon: ':heavy_check_mark:'
       path: lib/data_structure/cumulative_sum_2D.hpp
       title: Partial Sum(2D)
     - icon: ':warning:'
       path: lib/data_structure/fenwick_tree.hpp
       title: lib/data_structure/fenwick_tree.hpp
-    - icon: ':warning:'
+    - icon: ':question:'
+      path: lib/data_structure/monoid.hpp
+      title: lib/data_structure/monoid.hpp
+    - icon: ':question:'
       path: lib/data_structure/segment_tree.hpp
-      title: lib/data_structure/segment_tree.hpp
+      title: Segment Tree
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/union_find.hpp
       title: Union Find
@@ -37,7 +37,7 @@ data:
       title: Topological Sort
   - name: lib
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: lib/include.hpp
       title: lib/include.hpp
   - name: lib/math
@@ -47,13 +47,22 @@ data:
       title: Convert Base
     - icon: ':warning:'
       path: lib/math/divisor.hpp
-      title: Multiple Enumeration
+      title: "Multiple Enumeration($O(\u221AN)$)"
     - icon: ':heavy_check_mark:'
       path: lib/math/eratosthenes.hpp
       title: Eratosthenes's Sieve
     - icon: ':warning:'
+      path: lib/math/extgcd.hpp
+      title: Extended Euclid's Algorithm
+    - icon: ':warning:'
+      path: lib/math/gcd.hpp
+      title: lib/math/gcd.hpp
+    - icon: ':warning:'
       path: lib/math/is_prime.hpp
       title: "Prime Determination($O(\u221AN)$)"
+    - icon: ':warning:'
+      path: lib/math/power.hpp
+      title: lib/math/power.hpp
     - icon: ':heavy_check_mark:'
       path: lib/math/prime_factorize.hpp
       title: "Prime Factorize($O(\u221AN)$)"
@@ -73,9 +82,6 @@ data:
     - icon: ':warning:'
       path: lib/utility/next_combination.hpp
       title: lib/utility/next_combination.hpp
-    - icon: ':warning:'
-      path: lib/utility/print.hpp
-      title: Print
   verificationCategories:
   - name: test/aoj
     pages:
@@ -94,6 +100,15 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/DPL_5_E.test.cpp
       title: test/aoj/DPL_5_E.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL_1_A.test.cpp
+      title: test/aoj/DSL_1_A.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL_2_A.test.cpp
+      title: test/aoj/DSL_2_A.test.cpp
+    - icon: ':x:'
+      path: test/aoj/DSL_2_B.test.cpp
+      title: test/aoj/DSL_2_B.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_1_A.test.cpp
       title: test/aoj/GRL_1_A.test.cpp
@@ -116,9 +131,6 @@ data:
       title: test/atcoder/abc110d.test.cpp
   - name: test/library-checker
     pages:
-    - icon: ':heavy_check_mark:'
-      path: test/library-checker/static_range_sum.test.cpp
-      title: test/library-checker/static_range_sum.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library-checker/unionfind.test.cpp
       title: test/library-checker/unionfind.test.cpp

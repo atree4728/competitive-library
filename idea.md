@@ -1,21 +1,25 @@
 ### math
-- 簡単なアルゴリズムたちをテストする
+- 簡単なアルゴリズムたちをテストするAOJ
 - 繰り返し2乗法
 - extgcd
 
 ### graph
 - LCA(doubling)
-- Floyd–Warshall
-- Bellman-Ford
-- Minimum Spanning tree(Kruskal/Prim)
-- namori
-- ほにゃらら成分分解
+- namori-cycle
+- Strongly Connected Component
+- Lowest Common Ancentor
+- subtree info
+- tree's diameter
+- $O(V^2)$ Dijlstra
+- Euler Tour
+- matrix->隣接
+- flow(ford fullkerson, dinic)
 
 ### data_structure
 - Fenwick tree(Binary Indexed Tree)
-- Segment tree -> 抽象化するか否か、するならどこまでするか
+- Lazy Segment tree
+- Sparse Table
 
 ### utility
-- doubling
-- 座標圧縮
 - next-comnination
+- xor shift

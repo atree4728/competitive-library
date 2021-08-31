@@ -1,30 +1,87 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':question:'
+    path: lib/include.hpp
+    title: lib/include.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/DSL_2_A.test.cpp
+    title: test/aoj/DSL_2_A.test.cpp
+  - icon: ':x:'
+    path: test/aoj/DSL_2_B.test.cpp
+    title: test/aoj/DSL_2_B.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':question:'
   attributes:
-    links: []
-  bundledCode: '#line 1 "lib/data_structure/segment_tree.hpp"
-
-    // TODO
-
-    '
-  code: // TODO
-  dependsOn: []
+    document_title: Segment Tree
+    links:
+    - https://noshi91.hatenablog.com/entry/2020/04/22/212649
+  bundledCode: "#line 2 \"lib/data_structure/segment_tree.hpp\"\n\n#line 2 \"lib/include.hpp\"\
+    \n\n#include <bits/stdc++.h>\nusing namespace std;\n#define overload3(_1, _2,\
+    \ _3, name, ...) name\n#define rep1(n) for (decltype(n) _tmp = 0; _tmp < (n);\
+    \ _tmp++)\n#define rep2(i, n) for (decltype(n) i = 0; i < (n); i++)\n#define rep3(i,\
+    \ a, b) for (decltype(b) i = a; i < (b); i++)\n#define rep(...) overload3(__VA_ARGS__,\
+    \ rep3, rep2, rep1)(__VA_ARGS__)\nstruct IOSetup {\n    IOSetup() noexcept {\n\
+    \        ios::sync_with_stdio(false);\n        cin.tie(nullptr);\n        cout\
+    \ << fixed << setprecision(10);\n        cerr << fixed << setprecision(10);\n\
+    \    }\n} iosetup;\ntemplate<class T> bool chmax(T &a, const T &b) { return a\
+    \ < b and (a = b, true); }\ntemplate<class T> bool chmin(T &a, const T &b) { return\
+    \ a > b and (a = b, true); }\nusing i64 = long long;\nusing f64 = long double;\n\
+    #line 4 \"lib/data_structure/segment_tree.hpp\"\n\n/**\n * @brief Segment Tree\n\
+    \ * @note Class ```Monoid``` must have one binary operation that satisfies the\
+    \ associativity, a set to be defined, and the identify element.\n * ref: https://noshi91.hatenablog.com/entry/2020/04/22/212649\n\
+    \ * @note\n *\n * @example\n * struct Add {\n *     using T = int;\n *     static\
+    \ T op(int l, int r) { return l + r; }\n *     static inline T id = 0;\n * };\n\
+    \ */\n\ntemplate<class Monoid> struct SegmentTree {\n    using T = typename Monoid::T;\n\
+    \    int n;\n    vector<T> node;\n    explicit SegmentTree(const int n):\n   \
+    \     n(n), node(n * 2, Monoid::id) {}\n    explicit SegmentTree(const vector<T>\
+    \ &a):\n        n(size(a)), node(n * 2, Monoid::id) {\n        copy(begin(a),\
+    \ end(a), begin(node) + n);\n        for (int i = n - 1; i >= 0; i--) node[i]\
+    \ = Monoid::op(node[i * 2], node[i * 2 + 1]);\n    };\n    void update(int i,\
+    \ T val) { set(i, Monoid::op(node[i + n], val)); }\n    void set(int i, T val)\
+    \ {\n        i += n;\n        node[i] = val;\n        while ((i /= 2) >= 1) node[i]\
+    \ = Monoid::op(node[i * 2], node[i * 2 + 1]);\n    }\n    T fold(int l, int r)\
+    \ {\n        T ret = Monoid::id;\n        l += n;\n        r += n;\n        while\
+    \ (l < r) {\n            if (l % 2 == 1) ret = Monoid::op(ret, node[l++]);\n \
+    \           if (r % 2 == 1) ret = Monoid::op(ret, node[--r]);\n            l /=\
+    \ 2;\n            r /= 2;\n        }\n        return ret;\n    }\n    T operator[](int\
+    \ i) { return node[i + n]; }\n};\n"
+  code: "#pragma once\n\n#include \"../include.hpp\"\n\n/**\n * @brief Segment Tree\n\
+    \ * @note Class ```Monoid``` must have one binary operation that satisfies the\
+    \ associativity, a set to be defined, and the identify element.\n * ref: https://noshi91.hatenablog.com/entry/2020/04/22/212649\n\
+    \ * @note\n *\n * @example\n * struct Add {\n *     using T = int;\n *     static\
+    \ T op(int l, int r) { return l + r; }\n *     static inline T id = 0;\n * };\n\
+    \ */\n\ntemplate<class Monoid> struct SegmentTree {\n    using T = typename Monoid::T;\n\
+    \    int n;\n    vector<T> node;\n    explicit SegmentTree(const int n):\n   \
+    \     n(n), node(n * 2, Monoid::id) {}\n    explicit SegmentTree(const vector<T>\
+    \ &a):\n        n(size(a)), node(n * 2, Monoid::id) {\n        copy(begin(a),\
+    \ end(a), begin(node) + n);\n        for (int i = n - 1; i >= 0; i--) node[i]\
+    \ = Monoid::op(node[i * 2], node[i * 2 + 1]);\n    };\n    void update(int i,\
+    \ T val) { set(i, Monoid::op(node[i + n], val)); }\n    void set(int i, T val)\
+    \ {\n        i += n;\n        node[i] = val;\n        while ((i /= 2) >= 1) node[i]\
+    \ = Monoid::op(node[i * 2], node[i * 2 + 1]);\n    }\n    T fold(int l, int r)\
+    \ {\n        T ret = Monoid::id;\n        l += n;\n        r += n;\n        while\
+    \ (l < r) {\n            if (l % 2 == 1) ret = Monoid::op(ret, node[l++]);\n \
+    \           if (r % 2 == 1) ret = Monoid::op(ret, node[--r]);\n            l /=\
+    \ 2;\n            r /= 2;\n        }\n        return ret;\n    }\n    T operator[](int\
+    \ i) { return node[i + n]; }\n};\n"
+  dependsOn:
+  - lib/include.hpp
   isVerificationFile: false
   path: lib/data_structure/segment_tree.hpp
   requiredBy: []
-  timestamp: '2021-07-21 10:45:19+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2021-08-31 17:00:15+09:00'
+  verificationStatus: LIBRARY_SOME_WA
+  verifiedWith:
+  - test/aoj/DSL_2_A.test.cpp
+  - test/aoj/DSL_2_B.test.cpp
 documentation_of: lib/data_structure/segment_tree.hpp
 layout: document
 redirect_from:
 - /library/lib/data_structure/segment_tree.hpp
 - /library/lib/data_structure/segment_tree.hpp.html
-title: lib/data_structure/segment_tree.hpp
+title: Segment Tree
 ---
