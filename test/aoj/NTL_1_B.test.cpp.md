@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/include.hpp
     title: lib/include.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/power.hpp
     title: lib/math/power.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/1/NTL_1_B
@@ -29,16 +29,13 @@ data:
     template<class T> bool chmax(T &a, const T &b) { return a < b and (a = b, true);\
     \ }\ntemplate<class T> bool chmin(T &a, const T &b) { return a > b and (a = b,\
     \ true); }\nusing i64 = long long;\nusing f64 = long double;\n#line 4 \"lib/math/power.hpp\"\
-    \n\ntemplate<typename T> i64 power(T a, T b) {\n    static_assert(is_integral<T>::value,\
-    \ \"T must be integer!\");\n    assert(0 <= b);\n    i64 ret = 1;\n    while (b\
-    \ > 0) {\n        if (b & 1) ret *= a;\n        b >>= 1;\n        a *= a;\n  \
-    \  }\n    return ret;\n}\n\ntemplate<typename T> i64 power(T a, T b, T m) {\n\
-    \    static_assert(is_integral<T>::value, \"T must be integer!\");\n    assert(0\
-    \ <= b && 1 <= m);\n    i64 ret = 1;\n    while (b > 0) {\n        if (b & 1)\
-    \ (ret *= a) %= m;\n        b >>= 1;\n        (a *= a) %= m;\n    }\n    return\
-    \ ret;\n}\n#line 4 \"test/aoj/NTL_1_B.test.cpp\"\n\nconst int MOD = 1'000'000'007;\n\
-    \nint main() {\n    int m, n;\n    cin >> m >> n;\n    int ans = power(m, n, MOD);\n\
-    \    cout << ans << \"\\n\";\n}\n"
+    \n\ni64 power(i64 a, i64 b) {\n    i64 ans = 1;\n    for (; b; b >>= 1) {\n  \
+    \      if (b & 1) ans *= a;\n        a *= a;\n    }\n    return ans;\n}\n\ni64\
+    \ power(i64 a, i64 b, int m) {\n    a %= m;\n    i64 ans = 1;\n    for (; b; b\
+    \ >>= 1) {\n        if (b & 1) (ans *= a) %= m;\n        (a *= a) %= m;\n    }\n\
+    \    return ans;\n}\n#line 4 \"test/aoj/NTL_1_B.test.cpp\"\n\nconst int MOD =\
+    \ 1'000'000'007;\n\nint main() {\n    int m, n;\n    cin >> m >> n;\n    int ans\
+    \ = power(m, n, MOD);\n    cout << ans << \"\\n\";\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/1/NTL_1_B\"\
     \n\n#include \"lib/math/power.hpp\"\n\nconst int MOD = 1'000'000'007;\n\nint main()\
     \ {\n    int m, n;\n    cin >> m >> n;\n    int ans = power(m, n, MOD);\n    cout\
@@ -49,8 +46,8 @@ data:
   isVerificationFile: true
   path: test/aoj/NTL_1_B.test.cpp
   requiredBy: []
-  timestamp: '2021-09-08 23:15:27+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-09-08 23:30:05+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/NTL_1_B.test.cpp
 layout: document

@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/include.hpp
     title: lib/include.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/NTL_1_B.test.cpp
     title: test/aoj/NTL_1_B.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/math/power.hpp\"\n\n#line 2 \"lib/include.hpp\"\n\n\
@@ -25,29 +25,23 @@ data:
     \    }\n} iosetup;\ntemplate<class T> bool chmax(T &a, const T &b) { return a\
     \ < b and (a = b, true); }\ntemplate<class T> bool chmin(T &a, const T &b) { return\
     \ a > b and (a = b, true); }\nusing i64 = long long;\nusing f64 = long double;\n\
-    #line 4 \"lib/math/power.hpp\"\n\ntemplate<typename T> i64 power(T a, T b) {\n\
-    \    static_assert(is_integral<T>::value, \"T must be integer!\");\n    assert(0\
-    \ <= b);\n    i64 ret = 1;\n    while (b > 0) {\n        if (b & 1) ret *= a;\n\
-    \        b >>= 1;\n        a *= a;\n    }\n    return ret;\n}\n\ntemplate<typename\
-    \ T> i64 power(T a, T b, T m) {\n    static_assert(is_integral<T>::value, \"T\
-    \ must be integer!\");\n    assert(0 <= b && 1 <= m);\n    i64 ret = 1;\n    while\
-    \ (b > 0) {\n        if (b & 1) (ret *= a) %= m;\n        b >>= 1;\n        (a\
-    \ *= a) %= m;\n    }\n    return ret;\n}\n"
-  code: "#pragma once\n\n#include \"../include.hpp\"\n\ntemplate<typename T> i64 power(T\
-    \ a, T b) {\n    static_assert(is_integral<T>::value, \"T must be integer!\");\n\
-    \    assert(0 <= b);\n    i64 ret = 1;\n    while (b > 0) {\n        if (b & 1)\
-    \ ret *= a;\n        b >>= 1;\n        a *= a;\n    }\n    return ret;\n}\n\n\
-    template<typename T> i64 power(T a, T b, T m) {\n    static_assert(is_integral<T>::value,\
-    \ \"T must be integer!\");\n    assert(0 <= b && 1 <= m);\n    i64 ret = 1;\n\
-    \    while (b > 0) {\n        if (b & 1) (ret *= a) %= m;\n        b >>= 1;\n\
-    \        (a *= a) %= m;\n    }\n    return ret;\n}\n"
+    #line 4 \"lib/math/power.hpp\"\n\ni64 power(i64 a, i64 b) {\n    i64 ans = 1;\n\
+    \    for (; b; b >>= 1) {\n        if (b & 1) ans *= a;\n        a *= a;\n   \
+    \ }\n    return ans;\n}\n\ni64 power(i64 a, i64 b, int m) {\n    a %= m;\n   \
+    \ i64 ans = 1;\n    for (; b; b >>= 1) {\n        if (b & 1) (ans *= a) %= m;\n\
+    \        (a *= a) %= m;\n    }\n    return ans;\n}\n"
+  code: "#pragma once\n\n#include \"../include.hpp\"\n\ni64 power(i64 a, i64 b) {\n\
+    \    i64 ans = 1;\n    for (; b; b >>= 1) {\n        if (b & 1) ans *= a;\n  \
+    \      a *= a;\n    }\n    return ans;\n}\n\ni64 power(i64 a, i64 b, int m) {\n\
+    \    a %= m;\n    i64 ans = 1;\n    for (; b; b >>= 1) {\n        if (b & 1) (ans\
+    \ *= a) %= m;\n        (a *= a) %= m;\n    }\n    return ans;\n}\n"
   dependsOn:
   - lib/include.hpp
   isVerificationFile: false
   path: lib/math/power.hpp
   requiredBy: []
-  timestamp: '2021-09-08 23:15:27+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-09-08 23:30:05+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/NTL_1_B.test.cpp
 documentation_of: lib/math/power.hpp
