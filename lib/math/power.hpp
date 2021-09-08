@@ -2,26 +2,21 @@
 
 #include "../include.hpp"
 
-template<typename T> i64 power(T a, T b) {
-    static_assert(is_integral<T>::value, "T must be integer!");
-    assert(0 <= b);
-    i64 ret = 1;
-    while (b > 0) {
-        if (b & 1) ret *= a;
-        b >>= 1;
+i64 power(i64 a, i64 b) {
+    i64 ans = 1;
+    for (; b; b >>= 1) {
+        if (b & 1) ans *= a;
         a *= a;
     }
-    return ret;
+    return ans;
 }
 
-template<typename T> i64 power(T a, T b, T m) {
-    static_assert(is_integral<T>::value, "T must be integer!");
-    assert(0 <= b && 1 <= m);
-    i64 ret = 1;
-    while (b > 0) {
-        if (b & 1) (ret *= a) %= m;
-        b >>= 1;
+i64 power(i64 a, i64 b, int m) {
+    a %= m;
+    i64 ans = 1;
+    for (; b; b >>= 1) {
+        if (b & 1) (ans *= a) %= m;
         (a *= a) %= m;
     }
-    return ret;
+    return ans;
 }

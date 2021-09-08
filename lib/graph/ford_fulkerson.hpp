@@ -15,8 +15,6 @@ struct FordFulkerson {
             to(to), from(from), cap(cap), rev_ind(rev_ind) {}
     };
     vector<vector<Edge>> data;
-    explicit FordFulkerson(const int n = 0):
-        data(n) {}
     Edge &rev(const Edge &e) { return data[e.to][e.rev_ind]; }
     void run_flow(Edge &e, int f) {
         e.cap -= f;
@@ -36,6 +34,8 @@ struct FordFulkerson {
     }
 
   public:
+    explicit FordFulkerson(const int n = 0):
+        data(n) {}
     [[nodiscard]] size_t size() const { return std::size(data); }
     vector<Edge> &operator[](int i) { return data[i]; }
     void add_edge(int from, int to, int cap) {
