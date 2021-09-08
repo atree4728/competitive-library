@@ -1,18 +1,11 @@
 ### math
-- 簡単なアルゴリズムたちをテストするAOJ
-- 繰り返し2乗法
-- extgcd
+- Eratosthenes の高速化(sqrt(n) までしか見ない、篩うのは`p * p`から)
 
 ### graph
-- LCA(doubling)
 - namori-cycle
-- Strongly Connected Component
-- Lowest Common Ancentor
 - subtree info
-- tree's diameter
 - $O(V^2)$ Dijlstra
 - Euler Tour
-- matrix->隣接
 - flow(ford fullkerson, dinic)
 
 ### data_structure
@@ -21,5 +14,8 @@
 - Sparse Table
 
 ### utility
-- next-comnination
 - xor shift
+
+
+assert() をたくさん書く  
+docs/ に移植していく

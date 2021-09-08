@@ -4,7 +4,7 @@
 
 #include "../include.hpp"
 
-template<typename T> T gcd(T a, T b) {
+template<typename T> T mygcd(T a, T b) {
     static_assert(is_integral<T>::value);
     while (a % b != 0) {
         T u = a % b;
@@ -13,3 +13,5 @@ template<typename T> T gcd(T a, T b) {
     }
     return b;
 }
+
+template<typename T> T mylcm(T a, T b) { return a / mygcd(a, b) * b; }

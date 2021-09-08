@@ -4,16 +4,7 @@
 
 /**
  * @brief Segment Tree
- * @note Class ```Monoid``` must have one binary operation that satisfies the associativity, a set to be defined, and the identify element.
- * ref: https://noshi91.hatenablog.com/entry/2020/04/22/212649
- * @note
- *
- * @example
- * struct Add {
- *     using T = int;
- *     static T op(int l, int r) { return l + r; }
- *     static inline T id = 0;
- * };
+ * @docs docs/segment_tree.md
  */
 
 template<class Monoid> struct SegmentTree {

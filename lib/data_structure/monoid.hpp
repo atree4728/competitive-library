@@ -2,6 +2,11 @@
 
 #include "../include.hpp"
 
+/**
+ * @brief Monoids
+ * @note Monoid 集
+ */
+
 struct Add {
     using T = int;
     static T op(T a, T b) { return a + b; }
@@ -41,5 +46,5 @@ struct Gcd {
 struct Lcm {
     using T = int;
     static T op(T a, T b) { return lcm(a, b); }
-    static inline T id = 0;
+    static inline T id = 1;
 };

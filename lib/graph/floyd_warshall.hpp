@@ -18,7 +18,7 @@ template<typename T> vector<vector<T>> floyd_warshall(vector<vector<pair<int, T>
         dp[i][i] = 0;
         for (const auto& [to, cost]: graph[i]) dp[i][to] = cost;
     }
-    rep(k, n) rep(i, n) rep(j, n) if (T tok = dp[i][k], fromk = dp[k][j]; tok != INF and fromk != INF) chmin(dp[i][j], dp[i][k] + dp[k][j]);
+    rep(k, n) rep(i, n) rep(j, n) if (dp[i][k] < INF and dp[k][j] < INF) chmin(dp[i][j], dp[i][k] + dp[k][j]);
     rep(i, n) if (dp[i][i] < 0) return {};
     return dp;
 }

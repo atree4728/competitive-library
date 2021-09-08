@@ -4,7 +4,7 @@
 
 /**
  * @brief Union Find
- * @note a.k.a DSU; Disjoint Set Union
+ * @docs docs/union_find.md
  */
 
 struct UnionFind {

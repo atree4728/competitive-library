@@ -1,6 +1,6 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0560"
 
-#include "../../lib/data_structure/cumulative_sum_2D.hpp"
+#include "../../lib/data_structure/partial_sum_2D.hpp"
 
 int main() {
     int n, m, q;

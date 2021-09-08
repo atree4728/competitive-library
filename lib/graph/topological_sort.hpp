@@ -25,6 +25,6 @@ template<typename T = int> vector<T> topological_sort(vector<vector<T>> const &g
         for (const auto &to: graph[from])
             if (--indegree[to] == 0) indegree_is_0.push(to);
     }
-    if (size(ordered) < n) return {}; // graph is not a DAG.
+    if ((int)size(ordered) < n) return {}; // graph is not a DAG.
     return ordered;
 }
