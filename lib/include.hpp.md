@@ -3,11 +3,11 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
-    path: lib/data_structure/cumulative_sum_2D.hpp
-    title: Partial Sum(2D)
-  - icon: ':heavy_check_mark:'
     path: lib/data_structure/monoid.hpp
-    title: lib/data_structure/monoid.hpp
+    title: Monoids
+  - icon: ':heavy_check_mark:'
+    path: lib/data_structure/partial_sum_2D.hpp
+    title: "2D Partial Sum / \u4E8C\u6B21\u5143\u7D2F\u7A4D\u548C"
   - icon: ':heavy_check_mark:'
     path: lib/data_structure/segment_tree.hpp
     title: Segment Tree
@@ -23,9 +23,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/graph/floyd_warshall.hpp
     title: Floyd Warshall's Algorithm
+  - icon: ':x:'
+    path: lib/graph/ford_fulkerson.hpp
+    title: "Max flow(with Ford-Fulkerson) / \u6700\u5927\u8CBB\u7528\u6D41"
   - icon: ':heavy_check_mark:'
     path: lib/graph/kruskal.hpp
     title: Kruskal's Algorithm
+  - icon: ':warning:'
+    path: lib/graph/lowest_common_ancestor.hpp
+    title: Lowest Common Ancestor
   - icon: ':heavy_check_mark:'
     path: lib/graph/topological_sort.hpp
     title: Topological Sort
@@ -38,16 +44,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/math/eratosthenes.hpp
     title: Eratosthenes's Sieve
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/extgcd.hpp
     title: Extended Euclid's Algorithm
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/gcd.hpp
     title: lib/math/gcd.hpp
   - icon: ':warning:'
     path: lib/math/is_prime.hpp
     title: "Prime Determination($O(\u221AN)$)"
-  - icon: ':warning:'
+  - icon: ':x:'
     path: lib/math/power.hpp
     title: lib/math/power.hpp
   - icon: ':heavy_check_mark:'
@@ -62,6 +68,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/modulus/modint.hpp
     title: Finite Field
+  - icon: ':warning:'
+    path: lib/utility/neighbor.hpp
+    title: "neighbor on grid / \u30B0\u30EA\u30C3\u30C9\u4E0A\u3067\u306E\u8FD1\u508D"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/0560.test.cpp
@@ -102,6 +111,24 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_4_A.test.cpp
     title: test/aoj/GRL_4_A.test.cpp
+  - icon: ':x:'
+    path: test/aoj/GRL_6_A.test.cpp
+    title: test/aoj/GRL_6_A.test.cpp
+  - icon: ':x:'
+    path: test/aoj/GRL_7_A.test.cpp
+    title: test/aoj/GRL_7_A.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/NTL_1_A.test.cpp
+    title: test/aoj/NTL_1_A.test.cpp
+  - icon: ':x:'
+    path: test/aoj/NTL_1_B.test.cpp
+    title: test/aoj/NTL_1_B.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/NTL_1_C.test.cpp
+    title: test/aoj/NTL_1_C.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/NTL_1_E.test.cpp
+    title: test/aoj/NTL_1_E.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/atcoder/abc110d.test.cpp
     title: test/atcoder/abc110d.test.cpp
@@ -117,9 +144,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1140.test.cpp
     title: test/yukicoder/1140.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/include.hpp\"\n\n#include <bits/stdc++.h>\nusing namespace\
@@ -146,47 +173,56 @@ data:
   isVerificationFile: false
   path: lib/include.hpp
   requiredBy:
-  - lib/math/convert_base.hpp
-  - lib/math/power.hpp
+  - lib/utility/neighbor.hpp
+  - lib/graph/lowest_common_ancestor.hpp
+  - lib/graph/topological_sort.hpp
+  - lib/graph/floyd_warshall.hpp
+  - lib/graph/kruskal.hpp
+  - lib/graph/bellman_ford.hpp
+  - lib/graph/ford_fulkerson.hpp
+  - lib/graph/dijkstra.hpp
   - lib/math/simple_combination.hpp
+  - lib/math/convert_base.hpp
   - lib/math/extgcd.hpp
+  - lib/math/power.hpp
+  - lib/math/eratosthenes.hpp
+  - lib/math/prime_factorize.hpp
+  - lib/math/gcd.hpp
   - lib/math/divisor.hpp
   - lib/math/is_prime.hpp
-  - lib/math/prime_factorize.hpp
-  - lib/math/eratosthenes.hpp
-  - lib/math/gcd.hpp
+  - lib/data_structure/union_find.hpp
+  - lib/data_structure/monoid.hpp
+  - lib/data_structure/segment_tree.hpp
+  - lib/data_structure/partial_sum_2D.hpp
   - lib/modulus/modint.hpp
   - lib/modulus/combination.hpp
-  - lib/graph/bellman_ford.hpp
-  - lib/graph/floyd_warshall.hpp
-  - lib/graph/dijkstra.hpp
-  - lib/graph/topological_sort.hpp
-  - lib/graph/kruskal.hpp
-  - lib/data_structure/union_find.hpp
-  - lib/data_structure/segment_tree.hpp
-  - lib/data_structure/cumulative_sum_2D.hpp
-  - lib/data_structure/monoid.hpp
   timestamp: '2021-08-31 17:00:15+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/my_stress_test/topological_sort.test.cpp
   - test/my_stress_test/convert_base.test.cpp
-  - test/library-checker/unionfind.test.cpp
-  - test/yukicoder/1140.test.cpp
+  - test/my_stress_test/topological_sort.test.cpp
   - test/atcoder/abc110d.test.cpp
-  - test/aoj/GRL_4_A.test.cpp
-  - test/aoj/GRL_1_A.test.cpp
-  - test/aoj/DPL_5_D.test.cpp
-  - test/aoj/DSL_2_A.test.cpp
-  - test/aoj/DSL_2_B.test.cpp
-  - test/aoj/DSL_1_A.test.cpp
-  - test/aoj/GRL_1_C.test.cpp
+  - test/yukicoder/1140.test.cpp
+  - test/library-checker/unionfind.test.cpp
   - test/aoj/DPL_5_B.test.cpp
-  - test/aoj/0560.test.cpp
-  - test/aoj/GRL_1_B.test.cpp
-  - test/aoj/DPL_5_A.test.cpp
-  - test/aoj/DPL_5_E.test.cpp
   - test/aoj/GRL_2_A.test.cpp
+  - test/aoj/GRL_1_A.test.cpp
+  - test/aoj/NTL_1_A.test.cpp
+  - test/aoj/DPL_5_D.test.cpp
+  - test/aoj/DSL_2_B.test.cpp
+  - test/aoj/0560.test.cpp
+  - test/aoj/DPL_5_A.test.cpp
+  - test/aoj/NTL_1_E.test.cpp
+  - test/aoj/NTL_1_B.test.cpp
+  - test/aoj/GRL_6_A.test.cpp
+  - test/aoj/NTL_1_C.test.cpp
+  - test/aoj/DSL_2_A.test.cpp
+  - test/aoj/DPL_5_E.test.cpp
+  - test/aoj/GRL_1_B.test.cpp
+  - test/aoj/GRL_1_C.test.cpp
+  - test/aoj/GRL_7_A.test.cpp
+  - test/aoj/DSL_1_A.test.cpp
+  - test/aoj/GRL_4_A.test.cpp
 documentation_of: lib/include.hpp
 layout: document
 redirect_from:

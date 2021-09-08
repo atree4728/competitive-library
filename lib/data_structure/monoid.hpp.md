@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/include.hpp
     title: lib/include.hpp
   _extendedRequiredBy: []
@@ -16,6 +16,7 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    document_title: Monoids
     links: []
   bundledCode: "#line 2 \"lib/data_structure/monoid.hpp\"\n\n#line 2 \"lib/include.hpp\"\
     \n\n#include <bits/stdc++.h>\nusing namespace std;\n#define overload3(_1, _2,\
@@ -28,44 +29,46 @@ data:
     \    }\n} iosetup;\ntemplate<class T> bool chmax(T &a, const T &b) { return a\
     \ < b and (a = b, true); }\ntemplate<class T> bool chmin(T &a, const T &b) { return\
     \ a > b and (a = b, true); }\nusing i64 = long long;\nusing f64 = long double;\n\
-    #line 4 \"lib/data_structure/monoid.hpp\"\n\nstruct Add {\n    using T = int;\n\
-    \    static T op(T a, T b) { return a + b; }\n    static inline T id = 0;\n};\n\
-    \nstruct Mul {\n    using T = int;\n    static T op(T a, T b) { return a * b;\
-    \ }\n    static inline T id = 1;\n};\n\nstruct Xor {\n    using T = int;\n   \
-    \ static T op(T a, T b) { return a xor b; }\n    static inline T id = 0;\n};\n\
-    \nstruct Min {\n    using T = int;\n    static T op(T a, T b) { return min(a,\
-    \ b); }\n    static inline T id = numeric_limits<T>::max();\n};\n\nstruct Max\
-    \ {\n    using T = int;\n    static T op(T a, T b) { return max(a, b); }\n   \
-    \ static inline T id = numeric_limits<T>::min();\n};\n\nstruct Gcd {\n    using\
-    \ T = int;\n    static T op(T a, T b) { return gcd(a, b); }\n    static inline\
-    \ T id = 0;\n};\n\nstruct Lcm {\n    using T = int;\n    static T op(T a, T b)\
-    \ { return lcm(a, b); }\n    static inline T id = 0;\n};\n"
-  code: "#pragma once\n\n#include \"../include.hpp\"\n\nstruct Add {\n    using T\
-    \ = int;\n    static T op(T a, T b) { return a + b; }\n    static inline T id\
-    \ = 0;\n};\n\nstruct Mul {\n    using T = int;\n    static T op(T a, T b) { return\
-    \ a * b; }\n    static inline T id = 1;\n};\n\nstruct Xor {\n    using T = int;\n\
-    \    static T op(T a, T b) { return a xor b; }\n    static inline T id = 0;\n\
-    };\n\nstruct Min {\n    using T = int;\n    static T op(T a, T b) { return min(a,\
-    \ b); }\n    static inline T id = numeric_limits<T>::max();\n};\n\nstruct Max\
-    \ {\n    using T = int;\n    static T op(T a, T b) { return max(a, b); }\n   \
-    \ static inline T id = numeric_limits<T>::min();\n};\n\nstruct Gcd {\n    using\
-    \ T = int;\n    static T op(T a, T b) { return gcd(a, b); }\n    static inline\
-    \ T id = 0;\n};\n\nstruct Lcm {\n    using T = int;\n    static T op(T a, T b)\
-    \ { return lcm(a, b); }\n    static inline T id = 0;\n};\n"
+    #line 4 \"lib/data_structure/monoid.hpp\"\n\n/**\n * @brief Monoids\n * @note\
+    \ Monoid \u96C6\n */\n\nstruct Add {\n    using T = int;\n    static T op(T a,\
+    \ T b) { return a + b; }\n    static inline T id = 0;\n};\n\nstruct Mul {\n  \
+    \  using T = int;\n    static T op(T a, T b) { return a * b; }\n    static inline\
+    \ T id = 1;\n};\n\nstruct Xor {\n    using T = int;\n    static T op(T a, T b)\
+    \ { return a xor b; }\n    static inline T id = 0;\n};\n\nstruct Min {\n    using\
+    \ T = int;\n    static T op(T a, T b) { return min(a, b); }\n    static inline\
+    \ T id = numeric_limits<T>::max();\n};\n\nstruct Max {\n    using T = int;\n \
+    \   static T op(T a, T b) { return max(a, b); }\n    static inline T id = numeric_limits<T>::min();\n\
+    };\n\nstruct Gcd {\n    using T = int;\n    static T op(T a, T b) { return gcd(a,\
+    \ b); }\n    static inline T id = 0;\n};\n\nstruct Lcm {\n    using T = int;\n\
+    \    static T op(T a, T b) { return lcm(a, b); }\n    static inline T id = 1;\n\
+    };\n"
+  code: "#pragma once\n\n#include \"../include.hpp\"\n\n/**\n * @brief Monoids\n *\
+    \ @note Monoid \u96C6\n */\n\nstruct Add {\n    using T = int;\n    static T op(T\
+    \ a, T b) { return a + b; }\n    static inline T id = 0;\n};\n\nstruct Mul {\n\
+    \    using T = int;\n    static T op(T a, T b) { return a * b; }\n    static inline\
+    \ T id = 1;\n};\n\nstruct Xor {\n    using T = int;\n    static T op(T a, T b)\
+    \ { return a xor b; }\n    static inline T id = 0;\n};\n\nstruct Min {\n    using\
+    \ T = int;\n    static T op(T a, T b) { return min(a, b); }\n    static inline\
+    \ T id = numeric_limits<T>::max();\n};\n\nstruct Max {\n    using T = int;\n \
+    \   static T op(T a, T b) { return max(a, b); }\n    static inline T id = numeric_limits<T>::min();\n\
+    };\n\nstruct Gcd {\n    using T = int;\n    static T op(T a, T b) { return gcd(a,\
+    \ b); }\n    static inline T id = 0;\n};\n\nstruct Lcm {\n    using T = int;\n\
+    \    static T op(T a, T b) { return lcm(a, b); }\n    static inline T id = 1;\n\
+    };\n"
   dependsOn:
   - lib/include.hpp
   isVerificationFile: false
   path: lib/data_structure/monoid.hpp
   requiredBy: []
-  timestamp: '2021-08-31 17:33:56+09:00'
+  timestamp: '2021-09-08 23:15:27+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/DSL_2_A.test.cpp
   - test/aoj/DSL_2_B.test.cpp
+  - test/aoj/DSL_2_A.test.cpp
 documentation_of: lib/data_structure/monoid.hpp
 layout: document
 redirect_from:
 - /library/lib/data_structure/monoid.hpp
 - /library/lib/data_structure/monoid.hpp.html
-title: lib/data_structure/monoid.hpp
+title: Monoids
 ---

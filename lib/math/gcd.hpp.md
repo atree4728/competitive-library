@@ -1,14 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/include.hpp
     title: lib/include.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/NTL_1_C.test.cpp
+    title: test/aoj/NTL_1_C.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/math/gcd.hpp\"\n\n#include <type_traits>\n\n#line 2\
@@ -22,21 +25,24 @@ data:
     \    }\n} iosetup;\ntemplate<class T> bool chmax(T &a, const T &b) { return a\
     \ < b and (a = b, true); }\ntemplate<class T> bool chmin(T &a, const T &b) { return\
     \ a > b and (a = b, true); }\nusing i64 = long long;\nusing f64 = long double;\n\
-    #line 6 \"lib/math/gcd.hpp\"\n\ntemplate<typename T> T gcd(T a, T b) {\n    static_assert(is_integral<T>::value);\n\
-    \    while (a % b != 0) {\n        T u = a % b;\n        a = b;\n        b = u;\n\
-    \    }\n    return b;\n}\n"
+    #line 6 \"lib/math/gcd.hpp\"\n\ntemplate<typename T> T mygcd(T a, T b) {\n   \
+    \ static_assert(is_integral<T>::value);\n    while (a % b != 0) {\n        T u\
+    \ = a % b;\n        a = b;\n        b = u;\n    }\n    return b;\n}\n\ntemplate<typename\
+    \ T> T mylcm(T a, T b) { return a / mygcd(a, b) * b; }\n"
   code: "#pragma once\n\n#include <type_traits>\n\n#include \"../include.hpp\"\n\n\
-    template<typename T> T gcd(T a, T b) {\n    static_assert(is_integral<T>::value);\n\
+    template<typename T> T mygcd(T a, T b) {\n    static_assert(is_integral<T>::value);\n\
     \    while (a % b != 0) {\n        T u = a % b;\n        a = b;\n        b = u;\n\
-    \    }\n    return b;\n}\n"
+    \    }\n    return b;\n}\n\ntemplate<typename T> T mylcm(T a, T b) { return a\
+    \ / mygcd(a, b) * b; }\n"
   dependsOn:
   - lib/include.hpp
   isVerificationFile: false
   path: lib/math/gcd.hpp
   requiredBy: []
-  timestamp: '2021-08-31 17:00:15+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2021-09-08 23:15:27+09:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/aoj/NTL_1_C.test.cpp
 documentation_of: lib/math/gcd.hpp
 layout: document
 redirect_from:

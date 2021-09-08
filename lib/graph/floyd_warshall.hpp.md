@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/include.hpp
     title: lib/include.hpp
   _extendedRequiredBy: []
@@ -36,9 +36,8 @@ data:
     \    constexpr T INF = numeric_limits<T>::max();\n    vector<vector<T>> dp(n,\
     \ vector<T>(n, INF));\n    rep(i, n) {\n        dp[i][i] = 0;\n        for (const\
     \ auto& [to, cost]: graph[i]) dp[i][to] = cost;\n    }\n    rep(k, n) rep(i, n)\
-    \ rep(j, n) if (T tok = dp[i][k], fromk = dp[k][j]; tok != INF and fromk != INF)\
-    \ chmin(dp[i][j], dp[i][k] + dp[k][j]);\n    rep(i, n) if (dp[i][i] < 0) return\
-    \ {};\n    return dp;\n}\n"
+    \ rep(j, n) if (dp[i][k] < INF and dp[k][j] < INF) chmin(dp[i][j], dp[i][k] +\
+    \ dp[k][j]);\n    rep(i, n) if (dp[i][i] < 0) return {};\n    return dp;\n}\n"
   code: "#pragma once\n\n#include \"../include.hpp\"\n\n/**\n * @brief Floyd Warshall's\
     \ Algorithm\n * @note Solve APSP; All Pair Shortest Path in $O(|V|^3)$ and if\
     \ given graph has a negative path.\n * @note Return an empty vector when given\
@@ -49,15 +48,14 @@ data:
     \    constexpr T INF = numeric_limits<T>::max();\n    vector<vector<T>> dp(n,\
     \ vector<T>(n, INF));\n    rep(i, n) {\n        dp[i][i] = 0;\n        for (const\
     \ auto& [to, cost]: graph[i]) dp[i][to] = cost;\n    }\n    rep(k, n) rep(i, n)\
-    \ rep(j, n) if (T tok = dp[i][k], fromk = dp[k][j]; tok != INF and fromk != INF)\
-    \ chmin(dp[i][j], dp[i][k] + dp[k][j]);\n    rep(i, n) if (dp[i][i] < 0) return\
-    \ {};\n    return dp;\n}"
+    \ rep(j, n) if (dp[i][k] < INF and dp[k][j] < INF) chmin(dp[i][j], dp[i][k] +\
+    \ dp[k][j]);\n    rep(i, n) if (dp[i][i] < 0) return {};\n    return dp;\n}"
   dependsOn:
   - lib/include.hpp
   isVerificationFile: false
   path: lib/graph/floyd_warshall.hpp
   requiredBy: []
-  timestamp: '2021-08-31 17:00:15+09:00'
+  timestamp: '2021-09-08 23:15:27+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL_1_C.test.cpp

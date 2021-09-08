@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/graph/floyd_warshall.hpp
     title: Floyd Warshall's Algorithm
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/include.hpp
     title: lib/include.hpp
   _extendedRequiredBy: []
@@ -39,17 +39,16 @@ data:
     \    constexpr T INF = numeric_limits<T>::max();\n    vector<vector<T>> dp(n,\
     \ vector<T>(n, INF));\n    rep(i, n) {\n        dp[i][i] = 0;\n        for (const\
     \ auto& [to, cost]: graph[i]) dp[i][to] = cost;\n    }\n    rep(k, n) rep(i, n)\
-    \ rep(j, n) if (T tok = dp[i][k], fromk = dp[k][j]; tok != INF and fromk != INF)\
-    \ chmin(dp[i][j], dp[i][k] + dp[k][j]);\n    rep(i, n) if (dp[i][i] < 0) return\
-    \ {};\n    return dp;\n}\n#line 4 \"test/aoj/GRL_1_C.test.cpp\"\n\nint main()\
-    \ {\n    size_t v, e;\n    cin >> v >> e;\n    using P = pair<int, i64>;\n   \
-    \ vector<vector<P>> graph(v, vector<P>{});\n    while (e--) {\n        int s,\
-    \ t;\n        i64 d;\n        cin >> s >> t >> d;\n        graph[s].emplace_back(P{t,\
-    \ d});\n    }\n    const auto result = floyd_warshall(graph);\n    if (empty(result))\
-    \ cout << \"NEGATIVE CYCLE\\n\";\n    else\n        rep(i, v) rep(j, v) {\n  \
-    \          if (result[i][j] >= numeric_limits<i64>::max()) cout << \"INF\";\n\
-    \            else\n                cout << result[i][j];\n            cout <<\
-    \ \" \\n\"[j + 1 == v];\n        }\n}\n"
+    \ rep(j, n) if (dp[i][k] < INF and dp[k][j] < INF) chmin(dp[i][j], dp[i][k] +\
+    \ dp[k][j]);\n    rep(i, n) if (dp[i][i] < 0) return {};\n    return dp;\n}\n\
+    #line 4 \"test/aoj/GRL_1_C.test.cpp\"\n\nint main() {\n    size_t v, e;\n    cin\
+    \ >> v >> e;\n    using P = pair<int, i64>;\n    vector<vector<P>> graph(v, vector<P>{});\n\
+    \    while (e--) {\n        int s, t;\n        i64 d;\n        cin >> s >> t >>\
+    \ d;\n        graph[s].emplace_back(P{t, d});\n    }\n    const auto result =\
+    \ floyd_warshall(graph);\n    if (empty(result)) cout << \"NEGATIVE CYCLE\\n\"\
+    ;\n    else\n        rep(i, v) rep(j, v) {\n            if (result[i][j] >= numeric_limits<i64>::max())\
+    \ cout << \"INF\";\n            else\n                cout << result[i][j];\n\
+    \            cout << \" \\n\"[j + 1 == v];\n        }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_C\"\
     \n\n#include \"../../lib/graph/floyd_warshall.hpp\"\n\nint main() {\n    size_t\
     \ v, e;\n    cin >> v >> e;\n    using P = pair<int, i64>;\n    vector<vector<P>>\
@@ -66,7 +65,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_1_C.test.cpp
   requiredBy: []
-  timestamp: '2021-08-31 17:00:15+09:00'
+  timestamp: '2021-09-08 23:15:27+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_1_C.test.cpp

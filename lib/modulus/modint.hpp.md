@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/include.hpp
     title: lib/include.hpp
   _extendedRequiredBy:
@@ -104,8 +104,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/atcoder/abc110d.test.cpp
-  - test/aoj/DPL_5_D.test.cpp
   - test/aoj/DPL_5_B.test.cpp
+  - test/aoj/DPL_5_D.test.cpp
   - test/aoj/DPL_5_A.test.cpp
   - test/aoj/DPL_5_E.test.cpp
 documentation_of: lib/modulus/modint.hpp

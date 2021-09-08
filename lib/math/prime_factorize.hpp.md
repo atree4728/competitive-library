@@ -1,11 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/include.hpp
     title: lib/include.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/NTL_1_A.test.cpp
+    title: test/aoj/NTL_1_A.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/atcoder/abc110d.test.cpp
     title: test/atcoder/abc110d.test.cpp
@@ -47,6 +50,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/atcoder/abc110d.test.cpp
+  - test/aoj/NTL_1_A.test.cpp
 documentation_of: lib/math/prime_factorize.hpp
 layout: document
 redirect_from:

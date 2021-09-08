@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/graph/topological_sort.hpp
     title: Topological Sort
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/include.hpp
     title: lib/include.hpp
   _extendedRequiredBy: []
@@ -43,8 +43,8 @@ data:
     \    vector<T> ordered{};\n    while (not empty(indegree_is_0)) {\n        T from\
     \ = indegree_is_0.front();\n        ordered.push_back(from);\n        indegree_is_0.pop();\n\
     \        for (const auto &to: graph[from])\n            if (--indegree[to] ==\
-    \ 0) indegree_is_0.push(to);\n    }\n    if (size(ordered) < n) return {}; //\
-    \ graph is not a DAG.\n    return ordered;\n}\n#line 4 \"test/my_stress_test/topological_sort.test.cpp\"\
+    \ 0) indegree_is_0.push(to);\n    }\n    if ((int)size(ordered) < n) return {};\
+    \ // graph is not a DAG.\n    return ordered;\n}\n#line 4 \"test/my_stress_test/topological_sort.test.cpp\"\
     \n\nrandom_device seed_gen;\nmt19937_64 rnd(seed_gen());\n\nint rand() { return\
     \ uniform_int_distribution<int>(0, 100000)(rnd); }\n\nvoid test() {\n    rep(it,\
     \ 50000) {\n        size_t n = rand() % 20, m = n ? rand() % 30 : 0;\n       \
@@ -81,7 +81,7 @@ data:
   isVerificationFile: true
   path: test/my_stress_test/topological_sort.test.cpp
   requiredBy: []
-  timestamp: '2021-08-31 17:00:15+09:00'
+  timestamp: '2021-09-08 23:15:27+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/my_stress_test/topological_sort.test.cpp

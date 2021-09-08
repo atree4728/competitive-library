@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/graph/topological_sort.hpp
     title: Topological Sort
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/include.hpp
     title: lib/include.hpp
   _extendedRequiredBy: []
@@ -42,8 +42,8 @@ data:
     \    vector<T> ordered{};\n    while (not empty(indegree_is_0)) {\n        T from\
     \ = indegree_is_0.front();\n        ordered.push_back(from);\n        indegree_is_0.pop();\n\
     \        for (const auto &to: graph[from])\n            if (--indegree[to] ==\
-    \ 0) indegree_is_0.push(to);\n    }\n    if (size(ordered) < n) return {}; //\
-    \ graph is not a DAG.\n    return ordered;\n}\n#line 4 \"test/aoj/GRL_4_A.test.cpp\"\
+    \ 0) indegree_is_0.push(to);\n    }\n    if ((int)size(ordered) < n) return {};\
+    \ // graph is not a DAG.\n    return ordered;\n}\n#line 4 \"test/aoj/GRL_4_A.test.cpp\"\
     \n\nint main() {\n    size_t n, m;\n    cin >> n >> m;\n    vector graph(n, vector<int>{});\n\
     \    while (m--) {\n        int s, t;\n        cin >> s >> t;\n        graph[s].push_back(t);\n\
     \    }\n    auto is_dag = topological_sort(graph);\n    cout << (empty(is_dag)\
@@ -60,7 +60,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_4_A.test.cpp
   requiredBy: []
-  timestamp: '2021-08-31 17:00:15+09:00'
+  timestamp: '2021-09-08 23:15:27+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_4_A.test.cpp

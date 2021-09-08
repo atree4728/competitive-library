@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/include.hpp
     title: lib/include.hpp
   _extendedRequiredBy: []
@@ -42,8 +42,8 @@ data:
     \    vector<T> ordered{};\n    while (not empty(indegree_is_0)) {\n        T from\
     \ = indegree_is_0.front();\n        ordered.push_back(from);\n        indegree_is_0.pop();\n\
     \        for (const auto &to: graph[from])\n            if (--indegree[to] ==\
-    \ 0) indegree_is_0.push(to);\n    }\n    if (size(ordered) < n) return {}; //\
-    \ graph is not a DAG.\n    return ordered;\n}\n"
+    \ 0) indegree_is_0.push(to);\n    }\n    if ((int)size(ordered) < n) return {};\
+    \ // graph is not a DAG.\n    return ordered;\n}\n"
   code: "#pragma once\n\n#include \"../include.hpp\"\n\n/**\n * @brief Topological\
     \ Sort\n * @note For any graph, it is an equivalence that topological sorting\
     \ is possible and that the graph is a DAG.\n * @note This implementation returns\
@@ -58,14 +58,14 @@ data:
     \    while (not empty(indegree_is_0)) {\n        T from = indegree_is_0.front();\n\
     \        ordered.push_back(from);\n        indegree_is_0.pop();\n        for (const\
     \ auto &to: graph[from])\n            if (--indegree[to] == 0) indegree_is_0.push(to);\n\
-    \    }\n    if (size(ordered) < n) return {}; // graph is not a DAG.\n    return\
-    \ ordered;\n}\n"
+    \    }\n    if ((int)size(ordered) < n) return {}; // graph is not a DAG.\n  \
+    \  return ordered;\n}\n"
   dependsOn:
   - lib/include.hpp
   isVerificationFile: false
   path: lib/graph/topological_sort.hpp
   requiredBy: []
-  timestamp: '2021-08-31 17:00:15+09:00'
+  timestamp: '2021-09-08 23:15:27+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/my_stress_test/topological_sort.test.cpp

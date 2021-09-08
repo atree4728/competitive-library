@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/data_structure/union_find.hpp
     title: Union Find
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/include.hpp
     title: lib/include.hpp
   _extendedRequiredBy: []
@@ -31,22 +31,22 @@ data:
     \ < b and (a = b, true); }\ntemplate<class T> bool chmin(T &a, const T &b) { return\
     \ a > b and (a = b, true); }\nusing i64 = long long;\nusing f64 = long double;\n\
     #line 4 \"lib/data_structure/union_find.hpp\"\n\n/**\n * @brief Union Find\n *\
-    \ @note a.k.a DSU; Disjoint Set Union\n */\n\nstruct UnionFind {\n    int n;\n\
-    \    vector<int> node;\n    explicit UnionFind(const int n):\n        n(n), node(n,\
-    \ -1) {}\n    bool unite(int u, int v) {\n        u = root(u), v = root(v);\n\
-    \        if (u == v) return false;\n        if (node[u] > node[v]) swap(u, v);\n\
-    \        node[u] += node[v];\n        node[v] = u;\n        return true;\n   \
-    \ }\n    int root(int v) { return node[v] < 0 ? v : node[v] = root(node[v]); }\n\
-    \    int size(int v) { return -node[root(v)]; }\n    bool same(int u, int v) {\
-    \ return root(u) == root(v); }\n    vector<vector<int>> group() {\n        vector\
-    \ ret(n, vector<int>{});\n        rep(i, n) ret[root(i)].push_back(i);\n     \
-    \   ret.erase(remove_if(begin(ret), end(ret), [&](const auto &ri) { return empty(ri);\
-    \ }));\n        return ret;\n    }\n};\n#line 5 \"test/aoj/DSL_1_A.test.cpp\"\n\
-    \nint main() {\n    int n, q;\n    cin >> n >> q;\n    UnionFind uf(n);\n    while\
-    \ (q--) {\n        int com, x, y;\n        cin >> com >> x >> y;\n        if (com\
-    \ == 0) {\n            uf.unite(x, y);\n        } else if (com == 1) {\n     \
-    \       cout << (uf.same(x, y) ? 1 : 0) << \"\\n\";\n        } else {\n      \
-    \      assert(false);\n        }\n    }\n}\n"
+    \ @docs docs/union_find.md\n */\n\nstruct UnionFind {\n    int n;\n    vector<int>\
+    \ node;\n    explicit UnionFind(const int n):\n        n(n), node(n, -1) {}\n\
+    \    bool unite(int u, int v) {\n        u = root(u), v = root(v);\n        if\
+    \ (u == v) return false;\n        if (node[u] > node[v]) swap(u, v);\n       \
+    \ node[u] += node[v];\n        node[v] = u;\n        return true;\n    }\n   \
+    \ int root(int v) { return node[v] < 0 ? v : node[v] = root(node[v]); }\n    int\
+    \ size(int v) { return -node[root(v)]; }\n    bool same(int u, int v) { return\
+    \ root(u) == root(v); }\n    vector<vector<int>> group() {\n        vector ret(n,\
+    \ vector<int>{});\n        rep(i, n) ret[root(i)].push_back(i);\n        ret.erase(remove_if(begin(ret),\
+    \ end(ret), [&](const auto &ri) { return empty(ri); }));\n        return ret;\n\
+    \    }\n};\n#line 5 \"test/aoj/DSL_1_A.test.cpp\"\n\nint main() {\n    int n,\
+    \ q;\n    cin >> n >> q;\n    UnionFind uf(n);\n    while (q--) {\n        int\
+    \ com, x, y;\n        cin >> com >> x >> y;\n        if (com == 0) {\n       \
+    \     uf.unite(x, y);\n        } else if (com == 1) {\n            cout << (uf.same(x,\
+    \ y) ? 1 : 0) << \"\\n\";\n        } else {\n            assert(false);\n    \
+    \    }\n    }\n}\n"
   code: "#include <cassert>\n#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/1/DSL_1_A\"\
     \n\n#include \"lib/data_structure/union_find.hpp\"\n\nint main() {\n    int n,\
     \ q;\n    cin >> n >> q;\n    UnionFind uf(n);\n    while (q--) {\n        int\
@@ -60,7 +60,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DSL_1_A.test.cpp
   requiredBy: []
-  timestamp: '2021-08-31 17:00:15+09:00'
+  timestamp: '2021-09-08 23:15:27+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL_1_A.test.cpp

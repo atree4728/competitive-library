@@ -3,15 +3,15 @@ data:
   libraryCategories:
   - name: lib/data_structure
     pages:
-    - icon: ':heavy_check_mark:'
-      path: lib/data_structure/cumulative_sum_2D.hpp
-      title: Partial Sum(2D)
     - icon: ':warning:'
       path: lib/data_structure/fenwick_tree.hpp
       title: lib/data_structure/fenwick_tree.hpp
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/monoid.hpp
-      title: lib/data_structure/monoid.hpp
+      title: Monoids
+    - icon: ':heavy_check_mark:'
+      path: lib/data_structure/partial_sum_2D.hpp
+      title: "2D Partial Sum / \u4E8C\u6B21\u5143\u7D2F\u7A4D\u548C"
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/segment_tree.hpp
       title: Segment Tree
@@ -29,15 +29,21 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/graph/floyd_warshall.hpp
       title: Floyd Warshall's Algorithm
+    - icon: ':x:'
+      path: lib/graph/ford_fulkerson.hpp
+      title: "Max flow(with Ford-Fulkerson) / \u6700\u5927\u8CBB\u7528\u6D41"
     - icon: ':heavy_check_mark:'
       path: lib/graph/kruskal.hpp
       title: Kruskal's Algorithm
+    - icon: ':warning:'
+      path: lib/graph/lowest_common_ancestor.hpp
+      title: Lowest Common Ancestor
     - icon: ':heavy_check_mark:'
       path: lib/graph/topological_sort.hpp
       title: Topological Sort
   - name: lib
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: lib/include.hpp
       title: lib/include.hpp
   - name: lib/math
@@ -51,16 +57,16 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/eratosthenes.hpp
       title: Eratosthenes's Sieve
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/extgcd.hpp
       title: Extended Euclid's Algorithm
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/gcd.hpp
       title: lib/math/gcd.hpp
     - icon: ':warning:'
       path: lib/math/is_prime.hpp
       title: "Prime Determination($O(\u221AN)$)"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: lib/math/power.hpp
       title: lib/math/power.hpp
     - icon: ':heavy_check_mark:'
@@ -80,8 +86,8 @@ data:
   - name: lib/utility
     pages:
     - icon: ':warning:'
-      path: lib/utility/next_combination.hpp
-      title: lib/utility/next_combination.hpp
+      path: lib/utility/neighbor.hpp
+      title: "neighbor on grid / \u30B0\u30EA\u30C3\u30C9\u4E0A\u3067\u306E\u8FD1\u508D"
   verificationCategories:
   - name: test/aoj
     pages:
@@ -155,18 +161,24 @@ data:
       path: test/aoj/GRL_5_C.test.cpp
       title: test/aoj/GRL_5_C.test.cpp
     - icon: ':x:'
+      path: test/aoj/GRL_6_A.test.cpp
+      title: test/aoj/GRL_6_A.test.cpp
+    - icon: ':x:'
+      path: test/aoj/GRL_7_A.test.cpp
+      title: test/aoj/GRL_7_A.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/aoj/NTL_1_A.test.cpp
       title: test/aoj/NTL_1_A.test.cpp
     - icon: ':x:'
       path: test/aoj/NTL_1_B.test.cpp
       title: test/aoj/NTL_1_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/NTL_1_C.test.cpp
       title: test/aoj/NTL_1_C.test.cpp
     - icon: ':x:'
       path: test/aoj/NTL_1_D.test.cpp
       title: test/aoj/NTL_1_D.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/NTL_1_E.test.cpp
       title: test/aoj/NTL_1_E.test.cpp
   - name: test/atcoder
