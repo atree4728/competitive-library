@@ -97,7 +97,7 @@ struct Add {
 以下、上の`Monoid`を前提とする。
 
 - `SegmentTree<Monoid> segtree(n)`: $n$個の`Monoid::id`から成る列で Segment Tree を構築する。
-- `SegmentTree<Monoid> segtree(a)`: 長さ$n$の列$a$(\forall 0\leqi<$n. a_i\in T$)で Segment Tree を構築する。
+- `SegmentTree<Monoid> segtree(a)`: 長さ$n$の列$a$($\forall 0\leqi<$n. a_i\in T$)で Segment Tree を構築する。
 - `segtree.set(i, val)`: $a_i$を$val$にする。
 - `segtree.update(i, val)`: $a_i$を$op(a_i,val)$にする。
 - `segtree.fold(l, r)`: $\bigodot_{i\in[l,r)}a_i$を計算する。

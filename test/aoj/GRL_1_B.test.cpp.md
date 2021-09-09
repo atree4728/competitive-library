@@ -3,7 +3,8 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: lib/graph/bellman_ford.hpp
-    title: Bellman-Ford's Algorithm
+    title: "Bellman-Ford Algorithm / \u8CA0\u8FBA\u3092\u8A31\u3059\u5358\u4E00\u59CB\
+      \u70B9\u6700\u77ED\u7D4C\u8DEF\u554F\u984C"
   - icon: ':heavy_check_mark:'
     path: lib/include.hpp
     title: lib/include.hpp
@@ -29,13 +30,11 @@ data:
     \    }\n} iosetup;\ntemplate<class T> bool chmax(T &a, const T &b) { return a\
     \ < b and (a = b, true); }\ntemplate<class T> bool chmin(T &a, const T &b) { return\
     \ a > b and (a = b, true); }\nusing i64 = long long;\nusing f64 = long double;\n\
-    #line 4 \"lib/graph/bellman_ford.hpp\"\n\n/**\n * @brief Bellman-Ford's Algorithm\n\
-    \ * @note Solve SSSP in $O(|V||E|)$ about graph $G = (V, E)$. It's accepted to\
-    \ exist edges which have negative cost.\n * @nate Return an empty vector when\
-    \ given graph has a negative cycle.\n * @note numeric_limits<T>::max() for unreachable\
-    \ nodes.\n*/\n\ntemplate<typename T> vector<T> bellman_ford(vector<vector<pair<int,\
-    \ T>>> const &graph, int root) {\n    static_assert(is_signed<T>::value, \"template\
-    \ parameter T must be signed type!\");\n    constexpr T INF = numeric_limits<T>::max();\n\
+    #line 4 \"lib/graph/bellman_ford.hpp\"\n\n/**\n * @brief Bellman-Ford Algorithm\
+    \ / \u8CA0\u8FBA\u3092\u8A31\u3059\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u7D4C\u8DEF\
+    \u554F\u984C\n * @docs docs/bellman_ford.md\n*/\n\ntemplate<typename T> vector<T>\
+    \ bellman_ford(vector<vector<pair<int, T>>> const &graph, int root) {\n    static_assert(is_signed<T>::value,\
+    \ \"template parameter T must be signed type!\");\n    constexpr T INF = numeric_limits<T>::max();\n\
     \    using Edge = tuple<int, int, T>;\n    vector<T> dist(size(graph), INF);\n\
     \    dist[root] = 0;\n    vector<Edge> edges{};\n    rep(i, size(graph)) for (const\
     \ auto &[j, w]: graph[i]) edges.emplace_back(Edge{i, j, w});\n    rep(i, size(graph))\
@@ -64,7 +63,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_1_B.test.cpp
   requiredBy: []
-  timestamp: '2021-08-31 17:00:15+09:00'
+  timestamp: '2021-09-09 23:28:49+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_1_B.test.cpp

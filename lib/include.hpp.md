@@ -16,22 +16,25 @@ data:
     title: Union Find
   - icon: ':heavy_check_mark:'
     path: lib/graph/bellman_ford.hpp
-    title: Bellman-Ford's Algorithm
+    title: "Bellman-Ford Algorithm / \u8CA0\u8FBA\u3092\u8A31\u3059\u5358\u4E00\u59CB\
+      \u70B9\u6700\u77ED\u7D4C\u8DEF\u554F\u984C"
   - icon: ':heavy_check_mark:'
     path: lib/graph/dijkstra.hpp
     title: Dijkstra's Algorithm
   - icon: ':heavy_check_mark:'
     path: lib/graph/floyd_warshall.hpp
-    title: Floyd Warshall's Algorithm
+    title: "Floyd Warshall Algorithm / \u8CA0\u8FBA\u3092\u8A31\u3059\u5168\u70B9\u5BFE\
+      \u6700\u77ED\u7D4C\u8DEF\u554F\u984C"
   - icon: ':heavy_check_mark:'
     path: lib/graph/ford_fulkerson.hpp
     title: "Max flow(with Ford-Fulkerson) / \u6700\u5927\u8CBB\u7528\u6D41"
   - icon: ':heavy_check_mark:'
     path: lib/graph/kruskal.hpp
     title: Kruskal's Algorithm
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: lib/graph/lowest_common_ancestor.hpp
-    title: Lowest Common Ancestor
+    title: "Lowest Common Ancestor(Doubling, Binary Search) / \u6700\u8FD1\u5171\u901A\
+      \u7956\u5148"
   - icon: ':heavy_check_mark:'
     path: lib/graph/topological_sort.hpp
     title: Topological Sort
@@ -112,6 +115,9 @@ data:
     path: test/aoj/GRL_4_A.test.cpp
     title: test/aoj/GRL_4_A.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/aoj/GRL_5_C.test.cpp
+    title: test/aoj/GRL_5_C.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_6_A.test.cpp
     title: test/aoj/GRL_6_A.test.cpp
   - icon: ':heavy_check_mark:'
@@ -132,6 +138,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/atcoder/abc110d.test.cpp
     title: test/atcoder/abc110d.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library-checker/lca.test.cpp
+    title: test/library-checker/lca.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library-checker/unionfind.test.cpp
     title: test/library-checker/unionfind.test.cpp
@@ -203,6 +212,7 @@ data:
   - test/my_stress_test/topological_sort.test.cpp
   - test/atcoder/abc110d.test.cpp
   - test/yukicoder/1140.test.cpp
+  - test/library-checker/lca.test.cpp
   - test/library-checker/unionfind.test.cpp
   - test/aoj/DPL_5_B.test.cpp
   - test/aoj/GRL_2_A.test.cpp
@@ -212,6 +222,7 @@ data:
   - test/aoj/DSL_2_B.test.cpp
   - test/aoj/0560.test.cpp
   - test/aoj/DPL_5_A.test.cpp
+  - test/aoj/GRL_5_C.test.cpp
   - test/aoj/NTL_1_E.test.cpp
   - test/aoj/NTL_1_B.test.cpp
   - test/aoj/GRL_6_A.test.cpp

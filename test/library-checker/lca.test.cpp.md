@@ -15,18 +15,18 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/GRL_5_C
+    PROBLEM: https://judge.yosupo.jp/problem/lca
     links:
-    - https://onlinejudge.u-aizu.ac.jp/problems/GRL_5_C
-  bundledCode: "#line 1 \"test/aoj/GRL_5_C.test.cpp\"\n#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/GRL_5_C\"\
-    \n\n#line 2 \"lib/graph/lowest_common_ancestor.hpp\"\n\n#line 2 \"lib/include.hpp\"\
-    \n\n#include <bits/stdc++.h>\nusing namespace std;\n#define overload3(_1, _2,\
-    \ _3, name, ...) name\n#define rep1(n) for (decltype(n) _tmp = 0; _tmp < (n);\
-    \ _tmp++)\n#define rep2(i, n) for (decltype(n) i = 0; i < (n); i++)\n#define rep3(i,\
-    \ a, b) for (decltype(b) i = a; i < (b); i++)\n#define rep(...) overload3(__VA_ARGS__,\
-    \ rep3, rep2, rep1)(__VA_ARGS__)\nstruct IOSetup {\n    IOSetup() noexcept {\n\
-    \        ios::sync_with_stdio(false);\n        cin.tie(nullptr);\n        cout\
-    \ << fixed << setprecision(10);\n        cerr << fixed << setprecision(10);\n\
+    - https://judge.yosupo.jp/problem/lca
+  bundledCode: "#line 1 \"test/library-checker/lca.test.cpp\"\n#define PROBLEM \"\
+    https://judge.yosupo.jp/problem/lca\"\n\n#line 2 \"lib/graph/lowest_common_ancestor.hpp\"\
+    \n\n#line 2 \"lib/include.hpp\"\n\n#include <bits/stdc++.h>\nusing namespace std;\n\
+    #define overload3(_1, _2, _3, name, ...) name\n#define rep1(n) for (decltype(n)\
+    \ _tmp = 0; _tmp < (n); _tmp++)\n#define rep2(i, n) for (decltype(n) i = 0; i\
+    \ < (n); i++)\n#define rep3(i, a, b) for (decltype(b) i = a; i < (b); i++)\n#define\
+    \ rep(...) overload3(__VA_ARGS__, rep3, rep2, rep1)(__VA_ARGS__)\nstruct IOSetup\
+    \ {\n    IOSetup() noexcept {\n        ios::sync_with_stdio(false);\n        cin.tie(nullptr);\n\
+    \        cout << fixed << setprecision(10);\n        cerr << fixed << setprecision(10);\n\
     \    }\n} iosetup;\ntemplate<class T> bool chmax(T &a, const T &b) { return a\
     \ < b and (a = b, true); }\ntemplate<class T> bool chmin(T &a, const T &b) { return\
     \ a > b and (a = b, true); }\nusing i64 = long long;\nusing f64 = long double;\n\
@@ -51,34 +51,29 @@ data:
     \                assert(depth[u] == -1 and dp[0][u] == -1); // The graph may not\
     \ be a tree Graph.\n                dp[0][u] = v;\n                depth[u] =\
     \ depth[v] + 1;\n                dfs(tree, u, v);\n            }\n    }\n};\n\
-    #line 4 \"test/aoj/GRL_5_C.test.cpp\"\n\nint main() {\n    int n;\n    cin >>\
-    \ n;\n    vector graph(n, vector<int>{});\n    rep(i, n) {\n        int k;\n \
-    \       cin >> k;\n        while (k--) {\n            int c;\n            cin\
-    \ >> c;\n            graph[i].push_back(c);\n        }\n    }\n    LCA lca(graph,\
-    \ 0);\n    int q;\n    cin >> q;\n    while (q--) {\n        int u, v;\n     \
-    \   cin >> u >> v;\n        int ans = lca(u, v);\n        cout << ans << \"\\\
-    n\";\n    }\n}\n"
-  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/GRL_5_C\"\n\n\
-    #include \"lib/graph/lowest_common_ancestor.hpp\"\n\nint main() {\n    int n;\n\
-    \    cin >> n;\n    vector graph(n, vector<int>{});\n    rep(i, n) {\n       \
-    \ int k;\n        cin >> k;\n        while (k--) {\n            int c;\n     \
-    \       cin >> c;\n            graph[i].push_back(c);\n        }\n    }\n    LCA\
-    \ lca(graph, 0);\n    int q;\n    cin >> q;\n    while (q--) {\n        int u,\
-    \ v;\n        cin >> u >> v;\n        int ans = lca(u, v);\n        cout << ans\
-    \ << \"\\n\";\n    }\n}"
+    #line 4 \"test/library-checker/lca.test.cpp\"\n\nint main() {\n    int n, q;\n\
+    \    cin >> n >> q;\n    vector graph(n, vector<int>{});\n    rep(i, 1, n) {\n\
+    \        int p;\n        cin >> p;\n        graph[p].push_back(i);\n    }\n  \
+    \  LCA lca(graph, 0);\n    while (q--) {\n        int u, v;\n        cin >> u\
+    \ >> v;\n        cout << lca(u, v) << \"\\n\";\n    }\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/lca\"\n\n#include \"lib/graph/lowest_common_ancestor.hpp\"\
+    \n\nint main() {\n    int n, q;\n    cin >> n >> q;\n    vector graph(n, vector<int>{});\n\
+    \    rep(i, 1, n) {\n        int p;\n        cin >> p;\n        graph[p].push_back(i);\n\
+    \    }\n    LCA lca(graph, 0);\n    while (q--) {\n        int u, v;\n       \
+    \ cin >> u >> v;\n        cout << lca(u, v) << \"\\n\";\n    }\n}"
   dependsOn:
   - lib/graph/lowest_common_ancestor.hpp
   - lib/include.hpp
   isVerificationFile: true
-  path: test/aoj/GRL_5_C.test.cpp
+  path: test/library-checker/lca.test.cpp
   requiredBy: []
   timestamp: '2021-09-09 23:28:49+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/aoj/GRL_5_C.test.cpp
+documentation_of: test/library-checker/lca.test.cpp
 layout: document
 redirect_from:
-- /verify/test/aoj/GRL_5_C.test.cpp
-- /verify/test/aoj/GRL_5_C.test.cpp.html
-title: test/aoj/GRL_5_C.test.cpp
+- /verify/test/library-checker/lca.test.cpp
+- /verify/test/library-checker/lca.test.cpp.html
+title: test/library-checker/lca.test.cpp
 ---

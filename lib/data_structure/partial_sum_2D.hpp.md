@@ -67,8 +67,8 @@ title: "2D Partial Sum / \u4E8C\u6B21\u5143\u7D2F\u7A4D\u548C"
 
 ## 使い方
 
-- `CumSum2D sum(v)`: `v`の型を`std::vector<syd::vector<T>>`（`T`は整数型）として二次元累積和を構築する。
-- `sum(sx, sy, gx, gy)`: \sum\limit_{i\in[sx,sy)}\sum\limit_{i\in[gx,gy)}a_ij
+- `CumSum2D sum(v)`: `v`の型を`std::vector<std::vector<T>>`（`T`は整数型）として二次元累積和を構築する。
+- `sum(sx, sy, gx, gy)`: $\sum\limit_{i\in[sx,sy)}\sum\limit_{i\in[gx,gy)}a_ij$
 
 ## 計算量
 

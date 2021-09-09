@@ -3,7 +3,8 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: lib/graph/floyd_warshall.hpp
-    title: Floyd Warshall's Algorithm
+    title: "Floyd Warshall Algorithm / \u8CA0\u8FBA\u3092\u8A31\u3059\u5168\u70B9\u5BFE\
+      \u6700\u77ED\u7D4C\u8DEF\u554F\u984C"
   - icon: ':heavy_check_mark:'
     path: lib/include.hpp
     title: lib/include.hpp
@@ -29,12 +30,9 @@ data:
     \    }\n} iosetup;\ntemplate<class T> bool chmax(T &a, const T &b) { return a\
     \ < b and (a = b, true); }\ntemplate<class T> bool chmin(T &a, const T &b) { return\
     \ a > b and (a = b, true); }\nusing i64 = long long;\nusing f64 = long double;\n\
-    #line 4 \"lib/graph/floyd_warshall.hpp\"\n\n/**\n * @brief Floyd Warshall's Algorithm\n\
-    \ * @note Solve APSP; All Pair Shortest Path in $O(|V|^3)$ and if given graph\
-    \ has a negative path.\n * @note Return an empty vector when given graph has a\
-    \ negative cycle.\n * @note If there is no path, return std::numeric_limits<T>::max().\n\
-    \ * @note When the graph is more dense, it runs faster than the Dijkstra's Algorithm\
-    \ (O(|V||E|log|E)) from arbitrary vertices.\n */\n\ntemplate<typename T> vector<vector<T>>\
+    #line 4 \"lib/graph/floyd_warshall.hpp\"\n\n/**\n * @brief Floyd Warshall Algorithm\
+    \ / \u8CA0\u8FBA\u3092\u8A31\u3059\u5168\u70B9\u5BFE\u6700\u77ED\u7D4C\u8DEF\u554F\
+    \u984C\n * @docs docs/floyd_warshall.md\n */\n\ntemplate<typename T> vector<vector<T>>\
     \ floyd_warshall(vector<vector<pair<int, T>>> const& graph) {\n    int n = size(graph);\n\
     \    constexpr T INF = numeric_limits<T>::max();\n    vector<vector<T>> dp(n,\
     \ vector<T>(n, INF));\n    rep(i, n) {\n        dp[i][i] = 0;\n        for (const\
@@ -65,7 +63,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_1_C.test.cpp
   requiredBy: []
-  timestamp: '2021-09-08 23:15:27+09:00'
+  timestamp: '2021-09-09 23:28:49+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_1_C.test.cpp
