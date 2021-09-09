@@ -3,11 +3,8 @@
 #include "../include.hpp"
 
 /**
- * @brief Floyd Warshall's Algorithm
- * @note Solve APSP; All Pair Shortest Path in $O(|V|^3)$ and if given graph has a negative path.
- * @note Return an empty vector when given graph has a negative cycle.
- * @note If there is no path, return std::numeric_limits<T>::max().
- * @note When the graph is more dense, it runs faster than the Dijkstra's Algorithm (O(|V||E|log|E)) from arbitrary vertices.
+ * @brief Floyd Warshall Algorithm / 負辺を許す全点対最短経路問題
+ * @docs docs/floyd_warshall.md
  */
 
 template<typename T> vector<vector<T>> floyd_warshall(vector<vector<pair<int, T>>> const& graph) {

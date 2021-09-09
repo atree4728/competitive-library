@@ -3,10 +3,8 @@
 #include "../include.hpp"
 
 /**
- * @brief Bellman-Ford's Algorithm
- * @note Solve SSSP in $O(|V||E|)$ about graph $G = (V, E)$. It's accepted to exist edges which have negative cost.
- * @nate Return an empty vector when given graph has a negative cycle.
- * @note numeric_limits<T>::max() for unreachable nodes.
+ * @brief Bellman-Ford Algorithm / 負辺を許す単一始点最短経路問題
+ * @docs docs/bellman_ford.md
 */
 
 template<typename T> vector<T> bellman_ford(vector<vector<pair<int, T>>> const &graph, int root) {

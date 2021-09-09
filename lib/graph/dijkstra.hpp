@@ -4,7 +4,7 @@
 
 /**
  * @brief Dijkstra's Algorithm
- * @note Find SSSP;Single Source Shortest Path in $O(|E|log|V|)$. There must be no negative edges. Return -1 for unreachable vertex.
+ * @note  $O(|E|log|V|)$. There must be no negative edges. Return -1 for unreachable vertex.
  */
 
 template<class T = i64> vector<T> dijkstra(vector<vector<pair<int, T>>> const& graph, int root) {
