@@ -18,15 +18,6 @@ jobs:
         run: |
           pip3 install -U clion-live-templates-generator
           pip3 install -U online-judge-verify-helper
-      - name: Create Live-templates file
-        run: lt-generate -d lib
-
-      - name: Upload Live-templates file
-        uses: actions/upload-artifact@master
-        with:
-          name: C_C__.xml
-          path: C_C__.xml
-        if: always()
 
       - name: Run tests
         env:
