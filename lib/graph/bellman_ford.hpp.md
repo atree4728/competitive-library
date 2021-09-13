@@ -79,4 +79,4 @@ Bellman-Ford 法は Dijkstra 法よりは遅いが、負辺があってもよく
 
 ## 計算量
 
-グラフ$G=(V,E)について、$$\mathcal{O}(|V||E|)$。
+グラフ$G=(V,E)について、$$\mathcal{O}(\textbar V\textbar\textbar E\textbar)$。
