@@ -35,9 +35,15 @@ data:
     path: lib/graph/lowest_common_ancestor.hpp
     title: "Lowest Common Ancestor(Doubling, Binary Search) / \u6700\u8FD1\u5171\u901A\
       \u7956\u5148"
+  - icon: ':warning:'
+    path: lib/graph/subtree_info.hpp
+    title: "Subtree Info / \u90E8\u5206\u6728\u306E\u60C5\u5831"
   - icon: ':heavy_check_mark:'
     path: lib/graph/topological_sort.hpp
     title: Topological Sort
+  - icon: ':heavy_check_mark:'
+    path: lib/graph/tree_diameter.hpp
+    title: "Diameter of a Tree / \u6728\u306E\u76F4\u5F84\\"
   - icon: ':heavy_check_mark:'
     path: lib/math/convert_base.hpp
     title: Convert Base
@@ -115,6 +121,9 @@ data:
     path: test/aoj/GRL_4_A.test.cpp
     title: test/aoj/GRL_4_A.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/aoj/GRL_5_A.test.cpp
+    title: test/aoj/GRL_5_A.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_5_C.test.cpp
     title: test/aoj/GRL_5_C.test.cpp
   - icon: ':heavy_check_mark:'
@@ -158,26 +167,62 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"lib/include.hpp\"\n\n#include <bits/stdc++.h>\nusing namespace\
-    \ std;\n#define overload3(_1, _2, _3, name, ...) name\n#define rep1(n) for (decltype(n)\
-    \ _tmp = 0; _tmp < (n); _tmp++)\n#define rep2(i, n) for (decltype(n) i = 0; i\
-    \ < (n); i++)\n#define rep3(i, a, b) for (decltype(b) i = a; i < (b); i++)\n#define\
-    \ rep(...) overload3(__VA_ARGS__, rep3, rep2, rep1)(__VA_ARGS__)\nstruct IOSetup\
-    \ {\n    IOSetup() noexcept {\n        ios::sync_with_stdio(false);\n        cin.tie(nullptr);\n\
-    \        cout << fixed << setprecision(10);\n        cerr << fixed << setprecision(10);\n\
-    \    }\n} iosetup;\ntemplate<class T> bool chmax(T &a, const T &b) { return a\
-    \ < b and (a = b, true); }\ntemplate<class T> bool chmin(T &a, const T &b) { return\
-    \ a > b and (a = b, true); }\nusing i64 = long long;\nusing f64 = long double;\n"
-  code: "#pragma once\n\n#include <bits/stdc++.h>\nusing namespace std;\n#define overload3(_1,\
-    \ _2, _3, name, ...) name\n#define rep1(n) for (decltype(n) _tmp = 0; _tmp < (n);\
-    \ _tmp++)\n#define rep2(i, n) for (decltype(n) i = 0; i < (n); i++)\n#define rep3(i,\
-    \ a, b) for (decltype(b) i = a; i < (b); i++)\n#define rep(...) overload3(__VA_ARGS__,\
-    \ rep3, rep2, rep1)(__VA_ARGS__)\nstruct IOSetup {\n    IOSetup() noexcept {\n\
-    \        ios::sync_with_stdio(false);\n        cin.tie(nullptr);\n        cout\
-    \ << fixed << setprecision(10);\n        cerr << fixed << setprecision(10);\n\
-    \    }\n} iosetup;\ntemplate<class T> bool chmax(T &a, const T &b) { return a\
-    \ < b and (a = b, true); }\ntemplate<class T> bool chmin(T &a, const T &b) { return\
-    \ a > b and (a = b, true); }\nusing i64 = long long;\nusing f64 = long double;\n"
+  bundledCode: '#line 2 "lib/include.hpp"
+
+
+    #include <bits/stdc++.h>
+
+    using namespace std;
+
+    #define overload3(_1, _2, _3, name, ...) name
+
+    #define rep1(n) for (auto _tmp = 0; _tmp < (n); _tmp++)
+
+    #define rep2(i, n) for (auto i = 0; i < (n); i++)
+
+    #define rep3(i, a, b) for (auto i = a; i < (b); i++)
+
+    #define rep(...) overload3(__VA_ARGS__, rep3, rep2, rep1)(__VA_ARGS__)
+
+    template<class T> bool chmax(T &a, const T &b) { return a < b and (a = b, true);
+    }
+
+    template<class T> bool chmin(T &a, const T &b) { return a > b and (a = b, true);
+    }
+
+    using i64 = long long;
+
+    using f64 = long double;
+
+    '
+  code: '#pragma once
+
+
+    #include <bits/stdc++.h>
+
+    using namespace std;
+
+    #define overload3(_1, _2, _3, name, ...) name
+
+    #define rep1(n) for (auto _tmp = 0; _tmp < (n); _tmp++)
+
+    #define rep2(i, n) for (auto i = 0; i < (n); i++)
+
+    #define rep3(i, a, b) for (auto i = a; i < (b); i++)
+
+    #define rep(...) overload3(__VA_ARGS__, rep3, rep2, rep1)(__VA_ARGS__)
+
+    template<class T> bool chmax(T &a, const T &b) { return a < b and (a = b, true);
+    }
+
+    template<class T> bool chmin(T &a, const T &b) { return a > b and (a = b, true);
+    }
+
+    using i64 = long long;
+
+    using f64 = long double;
+
+    '
   dependsOn: []
   isVerificationFile: false
   path: lib/include.hpp
@@ -189,6 +234,8 @@ data:
   - lib/graph/kruskal.hpp
   - lib/graph/bellman_ford.hpp
   - lib/graph/ford_fulkerson.hpp
+  - lib/graph/subtree_info.hpp
+  - lib/graph/tree_diameter.hpp
   - lib/graph/dijkstra.hpp
   - lib/math/simple_combination.hpp
   - lib/math/convert_base.hpp
@@ -205,7 +252,7 @@ data:
   - lib/data_structure/partial_sum_2D.hpp
   - lib/modulus/modint.hpp
   - lib/modulus/combination.hpp
-  timestamp: '2021-08-31 17:00:15+09:00'
+  timestamp: '2021-09-14 22:20:52+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/my_stress_test/convert_base.test.cpp
@@ -224,6 +271,7 @@ data:
   - test/aoj/DPL_5_A.test.cpp
   - test/aoj/GRL_5_C.test.cpp
   - test/aoj/NTL_1_E.test.cpp
+  - test/aoj/GRL_5_A.test.cpp
   - test/aoj/NTL_1_B.test.cpp
   - test/aoj/GRL_6_A.test.cpp
   - test/aoj/NTL_1_C.test.cpp

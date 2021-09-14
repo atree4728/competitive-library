@@ -21,13 +21,10 @@ data:
     \ \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_1_A\"\n\n#line\
     \ 2 \"lib/math/convert_base.hpp\"\n\n#line 2 \"lib/include.hpp\"\n\n#include <bits/stdc++.h>\n\
     using namespace std;\n#define overload3(_1, _2, _3, name, ...) name\n#define rep1(n)\
-    \ for (decltype(n) _tmp = 0; _tmp < (n); _tmp++)\n#define rep2(i, n) for (decltype(n)\
-    \ i = 0; i < (n); i++)\n#define rep3(i, a, b) for (decltype(b) i = a; i < (b);\
-    \ i++)\n#define rep(...) overload3(__VA_ARGS__, rep3, rep2, rep1)(__VA_ARGS__)\n\
-    struct IOSetup {\n    IOSetup() noexcept {\n        ios::sync_with_stdio(false);\n\
-    \        cin.tie(nullptr);\n        cout << fixed << setprecision(10);\n     \
-    \   cerr << fixed << setprecision(10);\n    }\n} iosetup;\ntemplate<class T> bool\
-    \ chmax(T &a, const T &b) { return a < b and (a = b, true); }\ntemplate<class\
+    \ for (auto _tmp = 0; _tmp < (n); _tmp++)\n#define rep2(i, n) for (auto i = 0;\
+    \ i < (n); i++)\n#define rep3(i, a, b) for (auto i = a; i < (b); i++)\n#define\
+    \ rep(...) overload3(__VA_ARGS__, rep3, rep2, rep1)(__VA_ARGS__)\ntemplate<class\
+    \ T> bool chmax(T &a, const T &b) { return a < b and (a = b, true); }\ntemplate<class\
     \ T> bool chmin(T &a, const T &b) { return a > b and (a = b, true); }\nusing i64\
     \ = long long;\nusing f64 = long double;\n#line 4 \"lib/math/convert_base.hpp\"\
     \n\n/**\n * @brief Convert Base\n * @note when base > 10, it will be used lower\
@@ -63,7 +60,7 @@ data:
   isVerificationFile: true
   path: test/my_stress_test/convert_base.test.cpp
   requiredBy: []
-  timestamp: '2021-08-31 17:00:15+09:00'
+  timestamp: '2021-09-14 22:20:52+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/my_stress_test/convert_base.test.cpp

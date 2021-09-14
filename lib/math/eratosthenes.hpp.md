@@ -17,29 +17,25 @@ data:
     links: []
   bundledCode: "#line 2 \"lib/math/eratosthenes.hpp\"\n\n#line 2 \"lib/include.hpp\"\
     \n\n#include <bits/stdc++.h>\nusing namespace std;\n#define overload3(_1, _2,\
-    \ _3, name, ...) name\n#define rep1(n) for (decltype(n) _tmp = 0; _tmp < (n);\
-    \ _tmp++)\n#define rep2(i, n) for (decltype(n) i = 0; i < (n); i++)\n#define rep3(i,\
-    \ a, b) for (decltype(b) i = a; i < (b); i++)\n#define rep(...) overload3(__VA_ARGS__,\
-    \ rep3, rep2, rep1)(__VA_ARGS__)\nstruct IOSetup {\n    IOSetup() noexcept {\n\
-    \        ios::sync_with_stdio(false);\n        cin.tie(nullptr);\n        cout\
-    \ << fixed << setprecision(10);\n        cerr << fixed << setprecision(10);\n\
-    \    }\n} iosetup;\ntemplate<class T> bool chmax(T &a, const T &b) { return a\
-    \ < b and (a = b, true); }\ntemplate<class T> bool chmin(T &a, const T &b) { return\
-    \ a > b and (a = b, true); }\nusing i64 = long long;\nusing f64 = long double;\n\
-    #line 4 \"lib/math/eratosthenes.hpp\"\n\n/**\n * @brief Eratosthenes's Sieve\n\
-    \ * @note construct in $O(NloglogN)$, return prime determination in $O(1)$ and\
-    \ number of constants and prime factorization fastly(<-?).\n */\n\nstruct Sieve\
-    \ {\n    int size;\n    vector<int> min_factor, prime_list;\n    explicit Sieve(const\
-    \ int size_):\n        size(size_), min_factor(size_ + 1) {\n        iota(begin(min_factor),\
-    \ end(min_factor), 0);\n        for (int i = 2; i <= size; i++) {\n          \
-    \  if (min_factor[i] != i) {\n                prime_list.emplace_back(i);\n  \
-    \              continue;\n            }\n            for (int mul = i * 2; mul\
-    \ <= size; mul += i)\n                if (min_factor[mul] == mul) min_factor[mul]\
-    \ = i;\n        }\n    };\n    bool is_prime(const int n) { return n >= 2 and\
-    \ (int) min_factor[n] == n; }\n    map<int, int> prime_factorize(const int n)\
-    \ {\n        assert(1 <= n and n <= (int)size);\n        if (n == 1) return {};\n\
-    \        map<int, int> factor{};\n        int cur = n;\n        while (cur !=\
-    \ 1) {\n            factor[min_factor[cur]]++;\n            cur /= min_factor[cur];\n\
+    \ _3, name, ...) name\n#define rep1(n) for (auto _tmp = 0; _tmp < (n); _tmp++)\n\
+    #define rep2(i, n) for (auto i = 0; i < (n); i++)\n#define rep3(i, a, b) for (auto\
+    \ i = a; i < (b); i++)\n#define rep(...) overload3(__VA_ARGS__, rep3, rep2, rep1)(__VA_ARGS__)\n\
+    template<class T> bool chmax(T &a, const T &b) { return a < b and (a = b, true);\
+    \ }\ntemplate<class T> bool chmin(T &a, const T &b) { return a > b and (a = b,\
+    \ true); }\nusing i64 = long long;\nusing f64 = long double;\n#line 4 \"lib/math/eratosthenes.hpp\"\
+    \n\n/**\n * @brief Eratosthenes's Sieve\n * @note construct in $O(NloglogN)$,\
+    \ return prime determination in $O(1)$ and number of constants and prime factorization\
+    \ fastly(<-?).\n */\n\nstruct Sieve {\n    int size;\n    vector<int> min_factor,\
+    \ prime_list;\n    explicit Sieve(const int size_):\n        size(size_), min_factor(size_\
+    \ + 1) {\n        iota(begin(min_factor), end(min_factor), 0);\n        for (int\
+    \ i = 2; i <= size; i++) {\n            if (min_factor[i] != i) {\n          \
+    \      prime_list.emplace_back(i);\n                continue;\n            }\n\
+    \            for (int mul = i * 2; mul <= size; mul += i)\n                if\
+    \ (min_factor[mul] == mul) min_factor[mul] = i;\n        }\n    };\n    bool is_prime(const\
+    \ int n) { return n >= 2 and (int) min_factor[n] == n; }\n    map<int, int> prime_factorize(const\
+    \ int n) {\n        assert(1 <= n and n <= (int)size);\n        if (n == 1) return\
+    \ {};\n        map<int, int> factor{};\n        int cur = n;\n        while (cur\
+    \ != 1) {\n            factor[min_factor[cur]]++;\n            cur /= min_factor[cur];\n\
     \        }\n        return factor;\n    }\n    int count_divisor(const int n)\
     \ {\n        assert(1 <= n and n <= (int)size);\n        int ret = 1;\n      \
     \  map<int, int> factor = prime_factorize(n);\n        for (auto [_, ex]: factor)\
@@ -67,7 +63,7 @@ data:
   isVerificationFile: false
   path: lib/math/eratosthenes.hpp
   requiredBy: []
-  timestamp: '2021-08-31 17:00:15+09:00'
+  timestamp: '2021-09-14 22:20:52+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/1140.test.cpp

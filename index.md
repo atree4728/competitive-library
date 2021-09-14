@@ -41,9 +41,15 @@ data:
       path: lib/graph/lowest_common_ancestor.hpp
       title: "Lowest Common Ancestor(Doubling, Binary Search) / \u6700\u8FD1\u5171\
         \u901A\u7956\u5148"
+    - icon: ':warning:'
+      path: lib/graph/subtree_info.hpp
+      title: "Subtree Info / \u90E8\u5206\u6728\u306E\u60C5\u5831"
     - icon: ':heavy_check_mark:'
       path: lib/graph/topological_sort.hpp
       title: Topological Sort
+    - icon: ':heavy_check_mark:'
+      path: lib/graph/tree_diameter.hpp
+      title: "Diameter of a Tree / \u6728\u306E\u76F4\u5F84\\"
   - name: lib
     pages:
     - icon: ':heavy_check_mark:'
@@ -154,12 +160,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_4_A.test.cpp
       title: test/aoj/GRL_4_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_5_A.test.cpp
       title: test/aoj/GRL_5_A.test.cpp
-    - icon: ':x:'
-      path: test/aoj/GRL_5_B.test.cpp
-      title: test/aoj/GRL_5_B.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_5_C.test.cpp
       title: test/aoj/GRL_5_C.test.cpp
