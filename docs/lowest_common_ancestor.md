@@ -15,4 +15,4 @@ documentation_of: //lib/graph/lowest_common_ancestor.hpp
 
 ## 計算量
 
-構築には$\mathcal{O}(n\log n)$時間、そのほかに対しては$\mathcal{O}(log n)$時間を要する。
+構築には$\mathcal{O}(n\log n)$時間、そのほかに対しては$\mathcal{O}(\log n)$時間を要する。

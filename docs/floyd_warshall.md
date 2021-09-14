@@ -14,4 +14,4 @@ Floyd Warshall 法は、低速ながら全点対最短経路問題(APSP; All Pai
 
 ## 計算量
 
-グラフ$G=(V,E)$について、$\mathcal{O}(\textbar V\textbar ^3)$。 余談だが、グラフがより疎な場合、全点を始点とした Dijkstra 法($\mathcal{O}(\textbar V\textbar\textbar E\textbar \log\textbar E)$)の方が高速になる場合がある。
+$\mathcal{O}(V^3)$。 余談だが、グラフがより疎な場合、全点を始点とした Dijkstra 法($\mathcal{O}(VE\log E)$)の方が高速になる場合がある。

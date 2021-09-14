@@ -4,10 +4,7 @@
 
 /**
  * @brief Topological Sort
- * @note For any graph, it is an equivalence that topological sorting is possible and that the graph is a DAG.
- * @note This implementation returns an empty vector when the topological sort fails (<=> the given graph is not a DAG).
- * @note This implementation makes use of breadth-first search and the property that vertices with zero indegree are placed first after sorting.
- * @note The complexity is $O(|E|+|V|)$
+ * @docs docs/topological_sort.md
 */
 
 template<typename T = int> vector<T> topological_sort(vector<vector<T>> const &graph) {
