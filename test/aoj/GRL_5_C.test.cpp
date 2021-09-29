@@ -3,25 +3,25 @@
 #include "lib/graph/lowest_common_ancestor.hpp"
 
 int main() {
-    int n;
+    size_t n;
     cin >> n;
-    vector graph(n, vector<int>{});
-    rep(i, n) {
-        int k;
+    vector graph(n, vector<size_t>{});
+    for (size_t i = 0; i < n; i++) {
+        size_t k;
         cin >> k;
         while (k--) {
-            int c;
+            size_t c;
             cin >> c;
             graph[i].push_back(c);
         }
     }
     LCA lca(graph, 0);
-    int q;
+    size_t q;
     cin >> q;
     while (q--) {
-        int u, v;
+        size_t u, v;
         cin >> u >> v;
-        int ans = lca(u, v);
+        size_t ans = lca(u, v);
         cout << ans << "\n";
     }
 }

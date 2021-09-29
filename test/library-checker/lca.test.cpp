@@ -6,10 +6,11 @@ int main() {
     size_t n, q;
     cin >> n >> q;
     vector graph(n, vector<size_t>{});
-    rep(i, 1, n) {
+    for (size_t i = 1; i < n; i++) {
         size_t p;
         cin >> p;
         graph[p].push_back(i);
+        graph[i].push_back(p);
     }
     LCA lca(graph, 0);
     while (q--) {

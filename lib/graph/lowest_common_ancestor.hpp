@@ -11,12 +11,12 @@ struct LCA {
     size_t n, height;
     vector<int> depth;
     vector<vector<int>> dp;
-    explicit LCA(const vector<vector<size_t>>& tree, size_t root): n(size(tree)),
-                                                                   height(32 - __builtin_clz(n)),
-                                                                   depth(n, -1),
-                                                                   dp(height, vector<int>(n, -1)) {
+    LCA(const vector<vector<size_t>>& tree, size_t root): n(size(tree)),
+                                                          height(32 - __builtin_clz(n)),
+                                                          depth(n, -1),
+                                                          dp(height, vector<int>(n, -1)) {
         depth[root] = 0;
-        dfs(tree, root, -1);
+        dfs(tree, root, root);
         rep(k, height - 1) rep(v, n) {
             if (dp[k][v] == -1) dp[k + 1][v] = -1;
             else

@@ -3,11 +3,12 @@
 #include "lib/graph/ford_fulkerson.hpp"
 
 int main() {
-    int v, e;
+    size_t v, e;
     cin >> v >> e;
     FordFulkerson graph(v);
     while (e--) {
-        int ui, vi, ci;
+        size_t ui, vi;
+        int ci;
         cin >> ui >> vi >> ci;
         graph.add_edge(ui, vi, ci);
     }

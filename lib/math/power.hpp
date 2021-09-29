@@ -2,8 +2,8 @@
 
 #include "../include.hpp"
 
-i64 power(i64 a, i64 b) {
-    i64 ans = 1;
+long long power(long long a, long long b) {
+    long long ans = 1;
     for (; b; b >>= 1) {
         if (b & 1) ans *= a;
         a *= a;
@@ -11,9 +11,9 @@ i64 power(i64 a, i64 b) {
     return ans;
 }
 
-i64 power(i64 a, i64 b, int m) {
+long long power(long long a, long long b, int m) {
     a %= m;
-    i64 ans = 1;
+    long long ans = 1;
     for (; b; b >>= 1) {
         if (b & 1) (ans *= a) %= m;
         (a *= a) %= m;
