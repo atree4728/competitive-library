@@ -18,6 +18,7 @@
 "test/aoj/GRL_6_A.test.cpp": "2021-09-29 22:27:21 +0900",
 "test/aoj/GRL_7_A.test.cpp": "2021-09-29 22:27:21 +0900",
 "test/aoj/NTL_1_B.test.cpp": "2021-09-29 22:27:21 +0900",
+"test/aoj/NTL_1_D.test.cpp": "2021-09-29 22:56:31 +0900",
 "test/aoj/NTL_1_E.test.cpp": "2021-09-29 20:09:01 +0900",
 "test/library-checker/lca.test.cpp": "2021-09-29 22:27:21 +0900",
 "test/library-checker/unionfind.test.cpp": "2021-09-29 20:09:01 +0900",
