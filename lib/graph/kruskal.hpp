@@ -10,21 +10,21 @@
  * @return Set of edges by vector<tuple<u, v, weight>>
 */
 
-template<typename T> vector<tuple<int, int, T>> kruskal(vector<vector<pair<int, T>>> const& graph) {
-    using Edge = tuple<int, int, T>;
+template<typename T> vector<tuple<size_type, size_type, T>> kruskal(vector<vector<pair<size_t, T>>> const& graph) {
+    using Edge = tuple<size_t, size_t, T>;
     vector<Edge> edges{};
-    int n = size(graph);
+    const size_t n = size(graph);
     if (n == 1) return {};
-    rep(i, n) for (const auto& [j, cost]: graph[i]) edges.emplace_back(Edge{i, j, cost});
+    rep(i, n) for (const auto& [j, cost]: graph[i]) edges.emplace_back(Edge{ i, j, cost });
     sort(begin(edges), end(edges), [](Edge a, Edge b) { return get<2>(a) < get<2>(b); });
     UnionFind uf(n);
     vector<Edge> ret{};
     for (const auto& [u, v, cost]: edges) {
         if (not uf.same(u, v)) {
-            ret.emplace_back(Edge{u, v, cost});
+            ret.emplace_back(Edge{ u, v, cost });
             uf.unite(u, v);
         }
-        if ((int)size(ret) + 1 == n) break;
+        if (size(ret) + 1 == n) break;
     }
     return ret;
 }

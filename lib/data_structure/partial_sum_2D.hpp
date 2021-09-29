@@ -15,5 +15,5 @@ template<class T> struct CumSum2D {
         rep(i, size(data) - 1) copy(begin(a[i]), end(a[i]), begin(data[i + 1]) + 1);
         rep(i, 1, size(data)) rep(j, 1, size(data[i])) data[i][j] += data[i][j - 1] + data[i - 1][j] - data[i - 1][j - 1];
     }
-    T operator()(int sx, int sy, int gx, int gy) const { return data[gx][gy] - data[sx][gy] - data[gx][sy] + data[sx][sy]; }
+    T operator()(size_type sx, size_type sy, size_type gx, size_type gy) const { return data[gx][gy] - data[sx][gy] - data[gx][sy] + data[sx][sy]; }
 };

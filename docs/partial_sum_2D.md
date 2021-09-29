@@ -10,7 +10,7 @@ documentation_of: //lib/data_structure/partial_sum_2D.hpp
 ## 使い方
 
 - `CumSum2D sum(v)`: `v`の型を`std::vector<std::vector<T>>`（`T`は整数型）として二次元累積和を構築する。
-- `sum(sx, sy, gx, gy)`: $\sum_{i\in[sx,sy)}\sum_{i\in[gx,gy)}a_ij$
+- `sum(sx, sy, gx, gy)`: $\sum_{i\in[sx,sy)}\sum_{i\in[gx,gy)}a_{ij}$
 
 ## 計算量
 

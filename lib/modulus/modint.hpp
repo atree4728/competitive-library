@@ -9,9 +9,8 @@
 
 template<int MOD> struct Modint {
     using mint = Modint<MOD>;
-    int value;
-    Modint(i64 value_ = 0):
-        value((value_ % MOD + MOD) % MOD) {}
+    unsigned int value;
+    Modint(long long value_ = 0): value((value_ % MOD + MOD) % MOD) {}
     mint val() const { return *this; }
     mint operator-() const { return mint(-value); }
     mint operator++() const { return *this += 1; }
@@ -30,7 +29,7 @@ template<int MOD> struct Modint {
         return *this;
     }
     mint& operator*=(mint arg) {
-        value = (long long)value * arg.value % MOD;
+        value = (long long) value * arg.value % MOD;
         return *this;
     }
     bool operator==(mint arg) const { return value == arg.value; }
@@ -47,9 +46,9 @@ template<int MOD> struct Modint {
     mint inv() const { return pow(MOD - 2); }
     mint operator/(mint arg) const { return *this * arg.inv(); }
     mint& operator/=(mint arg) { return *this *= arg.inv(); }
-    friend mint operator+(i64 value, Modint<MOD> a) { return Modint<MOD>(value) + a; }
-    friend mint operator-(i64 value, Modint<MOD> a) { return Modint<MOD>(value) - a; }
-    friend mint operator*(i64 value, Modint<MOD> a) { return Modint<MOD>(value) * a; }
-    friend mint operator/(i64 value, Modint<MOD> a) { return Modint<MOD>(value) / a; }
+    friend mint operator+(long long value, Modint<MOD> a) { return Modint<MOD>(value) + a; }
+    friend mint operator-(long long value, Modint<MOD> a) { return Modint<MOD>(value) - a; }
+    friend mint operator*(long long value, Modint<MOD> a) { return Modint<MOD>(value) * a; }
+    friend mint operator/(long long value, Modint<MOD> a) { return Modint<MOD>(value) / a; }
     friend ostream& operator<<(ostream& os, Modint<MOD> a) { return os << a.value; }
 };

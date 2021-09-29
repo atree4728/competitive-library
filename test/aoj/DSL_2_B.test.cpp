@@ -1,19 +1,22 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_B"
 
-#include "lib/data_structure/monoid.hpp"
-#include "lib/data_structure/segment_tree.hpp"
+#include <cassert>
+#include <iostream>
+#include "lib/data_structure/fenwick_tree.hpp"
 
 int main() {
-    int n, q;
+    using namespace std;
+    size_t n, q;
     cin >> n >> q;
-    SegmentTree<Add> segtree(n);
+    FenwickTree<int> bit(n);
     while (q--) {
-        int com, x, y;
+        size_t com, x;
+        int y;
         cin >> com >> x >> y;
         if (com == 0) {
-            segtree.update(--x, y);
+            bit.add(--x, y);
         } else if (com == 1) {
-            cout << segtree.fold(--x, y) << "\n";
+            cout << bit.sum(--x, y) << "\n";
         } else {
             assert(false);
         }

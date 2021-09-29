@@ -10,7 +10,7 @@ documentation_of: //lib/graph/subtree_info.hpp
 ## 使い方
 
 - `SubtreeInfo info(tree, root)`: 根を`root`、として木`tree`について構築する。木は重み付き・重みなしに対応している。
-  - `info.parent(u)`: 頂点$u$の親。`root`の親は`-1`である。
+- `info.parent(u)`: 頂点$u$の親。`root`の親は`-1`である。
 - `info.size(u)`: 頂点$u$を根とした部分木の大きさ。
 - `info.depth(u)`: 頂点$u$の深さ。
 

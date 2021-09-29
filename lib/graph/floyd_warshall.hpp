@@ -7,14 +7,15 @@
  * @docs docs/floyd_warshall.md
  */
 
-template<typename T> vector<vector<T>> floyd_warshall(vector<vector<pair<int, T>>> const& graph) {
-    int n = size(graph);
+template<typename T> vector<vector<T>> floyd_warshall(vector<vector<pair<size_t, T>>> const& graph) {
+    const size_t n = size(graph);
     constexpr T INF = numeric_limits<T>::max();
     vector<vector<T>> dp(n, vector<T>(n, INF));
     rep(i, n) {
         dp[i][i] = 0;
         for (const auto& [to, cost]: graph[i]) dp[i][to] = cost;
     }
+    auto chmin = [](auto& a, const auto& b) { return a > b and (a = b, true); };
     rep(k, n) rep(i, n) rep(j, n) if (dp[i][k] < INF and dp[k][j] < INF) chmin(dp[i][j], dp[i][k] + dp[k][j]);
     rep(i, n) if (dp[i][i] < 0) return {};
     return dp;

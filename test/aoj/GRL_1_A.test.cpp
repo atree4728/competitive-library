@@ -3,20 +3,21 @@
 #include "../../lib/graph/dijkstra.hpp"
 
 int main() {
-    int v, e, r;
+    size_t v, e, r;
     cin >> v >> e >> r;
-    using P = pair<int, i64>;
+    using P = pair<size_t, long long>;
     vector<vector<P>> graph(v, vector<P>{});
     while (e--) {
-        int s, t;
-        i64 d;
+        size_t s, t;
+        long long d;
         cin >> s >> t;
         cin >> d;
-        graph[s].emplace_back(P{t, d});
+        graph[s].emplace_back(P{ t, d });
     }
     auto dist = dijkstra(graph, r);
     for (const auto &d: dist) {
-        if (d == -1) cout << "INF\n";
+        if (d == -1)
+            cout << "INF\n";
         else
             cout << d << "\n";
     }

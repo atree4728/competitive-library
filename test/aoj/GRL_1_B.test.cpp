@@ -5,12 +5,13 @@
 int main() {
     size_t v, e, r;
     cin >> v >> e >> r;
-    using P = pair<int, int>;
+    using P = pair<size_t, int>;
     vector graph(v, vector<P>{});
-    rep(e) {
-        int s, t, d;
+    rep(_, e) {
+        size_t s, t;
+        int d;
         cin >> s >> t >> d;
-        graph[s].emplace_back(P{t, d});
+        graph[s].emplace_back(P{ t, d });
     }
     auto dist = bellman_ford(graph, r);
     if (empty(dist)) {

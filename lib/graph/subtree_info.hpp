@@ -8,16 +8,16 @@
  */
 
 template<typename T> struct SubtreeInfo {
-    int n;
-    vector<int> parents, sizes;
+    size_type n;
+    vector<size_type> parents, sizes;
     vector<T> depths;
-    SubtreeInfo(const vector<vector<int>>& tree, int root):
+    SubtreeInfo(const vector<vector<size_type>>& tree, size_type root):
         n(size(tree)), parents(n, -1), sizes(n, -1), depths(n, -1) {
         parents[root] = -1;
         depths[root] = 0;
-        auto dfs = [&](auto&& self, int v, int prev) -> void {
+        auto dfs = [&](auto&& self, size_type v, size_type prev) -> void {
             if (size(tree[v]) == 1) sizes[v] = 1;
-            for (const auto& u: tree[v])
+            for (const auto u: tree[v])
                 if (u != prev) {
                     parents[u] = v;
                     depths[u] = depths[v] + 1;
@@ -28,11 +28,11 @@ template<typename T> struct SubtreeInfo {
         };
         dfs(dfs, root, -1);
     }
-    SubtreeInfo(const vector<vector<pair<int, T>>>& tree, int root):
+    SubtreeInfo(const vector<vector<pair<size_type, T>>>& tree, size_type root):
         n(size(tree)), parents(n, -1), sizes(n, -1), depths(n, -1) {
         parents[root] = -1;
         depths[root] = 0;
-        auto dfs = [&](auto&& self, int v, int prev) -> void {
+        auto dfs = [&](auto&& self, size_type v, size_type prev) -> void {
             if (size(tree[v]) == 1) sizes[v] = 1;
             for (const auto& [u, w]: tree[v])
                 if (u != prev) {
@@ -45,7 +45,7 @@ template<typename T> struct SubtreeInfo {
         };
         dfs(dfs, root, -1);
     }
-    int parent(int u) { return parents[u]; }
-    int size(int u) { return sizes[u]; }
-    int depth(int u) { return depths[u]; }
+    size_type parent(size_type u) { return parents[u]; }
+    size_type size(size_type u) { return sizes[u]; }
+    int depth(size_type u) { return depths[u]; }
 };
