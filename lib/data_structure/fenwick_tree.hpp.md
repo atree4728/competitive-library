@@ -2,29 +2,67 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/DSL_2_B.test.cpp
+    title: test/aoj/DSL_2_B.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    _deprecated_at_docs: docs/fenwick_tree.md
+    document_title: Fenwick Tree / Binary Indexed Tree
     links: []
-  bundledCode: '#line 1 "lib/data_structure/fenwick_tree.hpp"
-
-    // TODO
-
-    '
-  code: // TODO
+  bundledCode: "#line 2 \"lib/data_structure/fenwick_tree.hpp\"\n\n#include <cassert>\n\
+    #include <vector>\nusing namespace std;\n\n/**\n * @brief Fenwick Tree / Binary\
+    \ Indexed Tree\n * @docs docs/fenwick_tree.md\n */\n\ntemplate<class T> struct\
+    \ FenwickTree {\n    size_t n;\n    vector<T> data;\n\n    FenwickTree(const size_t\
+    \ n): n(n), data(n, 0) {}\n    FenwickTree(const vector<T>& a): n(size(a)), data(n,\
+    \ 0) {\n        for (size_t i = 0; i < n; i++) set(i, a[i]);\n    }\n    T prefix_sum(size_t\
+    \ i) {\n        T ret = 0;\n        while (i > 0) {\n            ret += data[i\
+    \ - 1];\n            i -= i & -i;\n        }\n        return ret;\n    }\n   \
+    \ T sum(size_t l, size_t r) {\n        assert(l <= r and r <= n);\n        return\
+    \ prefix_sum(r) - prefix_sum(l);\n    }\n    void add(size_t i, T v) {\n     \
+    \   assert(i < n);\n        i++;\n        while (i <= n) {\n            data[i\
+    \ - 1] += v;\n            i += i & -i;\n        }\n    }\n};\n"
+  code: "#pragma once\n\n#include <cassert>\n#include <vector>\nusing namespace std;\n\
+    \n/**\n * @brief Fenwick Tree / Binary Indexed Tree\n * @docs docs/fenwick_tree.md\n\
+    \ */\n\ntemplate<class T> struct FenwickTree {\n    size_t n;\n    vector<T> data;\n\
+    \n    FenwickTree(const size_t n): n(n), data(n, 0) {}\n    FenwickTree(const\
+    \ vector<T>& a): n(size(a)), data(n, 0) {\n        for (size_t i = 0; i < n; i++)\
+    \ set(i, a[i]);\n    }\n    T prefix_sum(size_t i) {\n        T ret = 0;\n   \
+    \     while (i > 0) {\n            ret += data[i - 1];\n            i -= i & -i;\n\
+    \        }\n        return ret;\n    }\n    T sum(size_t l, size_t r) {\n    \
+    \    assert(l <= r and r <= n);\n        return prefix_sum(r) - prefix_sum(l);\n\
+    \    }\n    void add(size_t i, T v) {\n        assert(i < n);\n        i++;\n\
+    \        while (i <= n) {\n            data[i - 1] += v;\n            i += i &\
+    \ -i;\n        }\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/data_structure/fenwick_tree.hpp
   requiredBy: []
-  timestamp: '2021-07-21 10:45:19+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2021-09-29 20:09:01+09:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/aoj/DSL_2_B.test.cpp
 documentation_of: lib/data_structure/fenwick_tree.hpp
 layout: document
-redirect_from:
-- /library/lib/data_structure/fenwick_tree.hpp
-- /library/lib/data_structure/fenwick_tree.hpp.html
-title: lib/data_structure/fenwick_tree.hpp
+title: Fenwick Tree / Binary Indexed Tree
 ---
+
+## 概要
+
+Fenwick Tree は、可換 Monoid の列に対して、Prefix Sum、一点更新を高速に求めるデータ構造である。
+また、可換群（Abelian 群）であるならば、Prefix Sum と逆元を用いて任意の区間和を求めることもできる。
+この実装では抽象化は型（operator+ が必要）のみにとどめ、演算は加算を前提としている。
+
+## 使い方
+
+- `FenwickTree bit(n)`: 長さ`n`の単位元（`0`）からなる Fenwick Tree を構築する。
+- `FenwickTree bit(a)`: `a`は`std::vector`とし、その列からなる Fenwick Tree を構築する。
+- `operator(l, r)`: $\sum_{i \in [l, r)}a_{i}$ を求める。0-indexed。
+- `add(i, v)`: i(0-indexed)番目の要素に `v` を加算する。
+
+## 計算量
+
+構築には$\mathcal{O}(N)$（列からの構築ではそれぞれに対して`add`が呼ばれる実装になっているため$\mathcal{O}(N \log N)$）。区間和・一点更新は$\mathcal{O}(\log N)$。

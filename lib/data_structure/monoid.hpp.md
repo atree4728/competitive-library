@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/include.hpp
     title: lib/include.hpp
   _extendedRequiredBy: []
@@ -9,9 +9,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_A.test.cpp
     title: test/aoj/DSL_2_A.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DSL_2_B.test.cpp
-    title: test/aoj/DSL_2_B.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -19,16 +16,14 @@ data:
     document_title: Monoids
     links: []
   bundledCode: "#line 2 \"lib/data_structure/monoid.hpp\"\n\n#line 2 \"lib/include.hpp\"\
-    \n\n#include <bits/stdc++.h>\nusing namespace std;\n#define overload3(_1, _2,\
-    \ _3, name, ...) name\n#define rep1(n) for (auto _tmp = 0; _tmp < (n); _tmp++)\n\
-    #define rep2(i, n) for (auto i = 0; i < (n); i++)\n#define rep3(i, a, b) for (auto\
-    \ i = a; i < (b); i++)\n#define rep(...) overload3(__VA_ARGS__, rep3, rep2, rep1)(__VA_ARGS__)\n\
-    template<class T> bool chmax(T &a, const T &b) { return a < b and (a = b, true);\
-    \ }\ntemplate<class T> bool chmin(T &a, const T &b) { return a > b and (a = b,\
-    \ true); }\nusing i64 = long long;\nusing f64 = long double;\n#line 4 \"lib/data_structure/monoid.hpp\"\
-    \n\n/**\n * @brief Monoids\n * @note Monoid \u96C6\n */\n\nstruct Add {\n    using\
-    \ T = int;\n    static T op(T a, T b) { return a + b; }\n    static inline T id\
-    \ = 0;\n};\n\nstruct Mul {\n    using T = int;\n    static T op(T a, T b) { return\
+    \n\n#include <bits/stdc++.h>\nusing namespace std;\n#define overload3(_NULL, _2,\
+    \ _3, name, ...) name\n#define rep1(i, n) for (remove_const_t<remove_reference_t<decltype(n)>>\
+    \ i = 0; i < (n); i++)\n#define rep2(i, a, b) for (remove_const_t<remove_reference_t<decltype(b)>>\
+    \ i = a; i < (b); i++)\n#define rep(...) overload3(__VA_ARGS__, rep2, rep1)(__VA_ARGS__)\n\
+    using size_type = size_t;\n#line 4 \"lib/data_structure/monoid.hpp\"\n\n/**\n\
+    \ * @brief Monoids\n * @note Monoid \u96C6\n */\n\nstruct Add {\n    using T =\
+    \ int;\n    static T op(T a, T b) { return a + b; }\n    static inline T id =\
+    \ 0;\n};\n\nstruct Mul {\n    using T = int;\n    static T op(T a, T b) { return\
     \ a * b; }\n    static inline T id = 1;\n};\n\nstruct Xor {\n    using T = int;\n\
     \    static T op(T a, T b) { return a xor b; }\n    static inline T id = 0;\n\
     };\n\nstruct Min {\n    using T = int;\n    static T op(T a, T b) { return min(a,\
@@ -56,10 +51,9 @@ data:
   isVerificationFile: false
   path: lib/data_structure/monoid.hpp
   requiredBy: []
-  timestamp: '2021-09-14 22:20:52+09:00'
+  timestamp: '2021-09-29 20:09:01+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/DSL_2_B.test.cpp
   - test/aoj/DSL_2_A.test.cpp
 documentation_of: lib/data_structure/monoid.hpp
 layout: document
