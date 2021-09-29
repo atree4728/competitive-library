@@ -1,11 +1,11 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/include.hpp
     title: lib/include.hpp
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/modulus/combination.hpp
     title: Combination on mod
   _extendedVerifiedWith:
@@ -21,12 +21,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_E.test.cpp
     title: test/aoj/DPL_5_E.test.cpp
-  - icon: ':x:'
-    path: test/atcoder/abc110d.test.cpp
-    title: test/atcoder/abc110d.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Finite Field
     links: []
@@ -96,9 +93,8 @@ data:
   requiredBy:
   - lib/modulus/combination.hpp
   timestamp: '2021-09-29 20:09:01+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/atcoder/abc110d.test.cpp
   - test/aoj/DPL_5_B.test.cpp
   - test/aoj/DPL_5_D.test.cpp
   - test/aoj/DPL_5_A.test.cpp

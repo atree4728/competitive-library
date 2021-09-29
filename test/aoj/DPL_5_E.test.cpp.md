@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/include.hpp
     title: lib/include.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/modulus/combination.hpp
     title: Combination on mod
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/modulus/modint.hpp
     title: Finite Field
   _extendedRequiredBy: []

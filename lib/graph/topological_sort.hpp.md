@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/include.hpp
     title: lib/include.hpp
   _extendedRequiredBy: []
@@ -9,12 +9,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_4_A.test.cpp
     title: test/aoj/GRL_4_A.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/my_stress_test/topological_sort.test.cpp
     title: test/my_stress_test/topological_sort.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/topological_sort.md
     document_title: Topological Sort
@@ -26,33 +26,33 @@ data:
     \ i = a; i < (b); i++)\n#define rep(...) overload3(__VA_ARGS__, rep2, rep1)(__VA_ARGS__)\n\
     using size_type = size_t;\n#line 4 \"lib/graph/topological_sort.hpp\"\n\n/**\n\
     \ * @brief Topological Sort\n * @docs docs/topological_sort.md\n*/\n\ntemplate<typename\
-    \ T> vector<T> topological_sort(vector<vector<T>> const &graph) {\n    const size_type\
+    \ T> vector<T> topological_sort(vector<vector<T>> const &graph) {\n    const size_t\
     \ n = size(graph);\n    vector<unsigned int> indegree(n, 0);\n    for (const auto\
-    \ edges: graph)\n        for (const auto to: edges) indegree[to]++;\n    queue<T>\
-    \ indegree_is_0{};\n    rep(i, n) if (indegree[i] == 0) indegree_is_0.push(i);\n\
-    \    vector<T> ordered{};\n    while (not empty(indegree_is_0)) {\n        T from\
-    \ = indegree_is_0.front();\n        ordered.push_back(from);\n        indegree_is_0.pop();\n\
-    \        for (const auto to: graph[from])\n            if (--indegree[to] == 0)\
-    \ indegree_is_0.push(to);\n    }\n    if (size(ordered) < n) return {}; // graph\
-    \ is not a DAG.\n    return ordered;\n}\n"
+    \ &edges: graph)\n        for (const auto &to: edges) indegree[to]++;\n    queue<T>\
+    \ indegree_is_0{};\n    for (size_t i = 0; i < n; i++)\n        if (indegree[i]\
+    \ == 0) indegree_is_0.push(i);\n    vector<T> ordered{};\n    while (not empty(indegree_is_0))\
+    \ {\n        T from = indegree_is_0.front();\n        ordered.push_back(from);\n\
+    \        indegree_is_0.pop();\n        for (const auto &to: graph[from])\n   \
+    \         if (--indegree[to] == 0) indegree_is_0.push(to);\n    }\n    if (size(ordered)\
+    \ < n) return {};  // graph is not a DAG.\n    return ordered;\n}\n"
   code: "#pragma once\n\n#include \"../include.hpp\"\n\n/**\n * @brief Topological\
     \ Sort\n * @docs docs/topological_sort.md\n*/\n\ntemplate<typename T> vector<T>\
-    \ topological_sort(vector<vector<T>> const &graph) {\n    const size_type n =\
-    \ size(graph);\n    vector<unsigned int> indegree(n, 0);\n    for (const auto\
-    \ edges: graph)\n        for (const auto to: edges) indegree[to]++;\n    queue<T>\
-    \ indegree_is_0{};\n    rep(i, n) if (indegree[i] == 0) indegree_is_0.push(i);\n\
+    \ topological_sort(vector<vector<T>> const &graph) {\n    const size_t n = size(graph);\n\
+    \    vector<unsigned int> indegree(n, 0);\n    for (const auto &edges: graph)\n\
+    \        for (const auto &to: edges) indegree[to]++;\n    queue<T> indegree_is_0{};\n\
+    \    for (size_t i = 0; i < n; i++)\n        if (indegree[i] == 0) indegree_is_0.push(i);\n\
     \    vector<T> ordered{};\n    while (not empty(indegree_is_0)) {\n        T from\
     \ = indegree_is_0.front();\n        ordered.push_back(from);\n        indegree_is_0.pop();\n\
-    \        for (const auto to: graph[from])\n            if (--indegree[to] == 0)\
-    \ indegree_is_0.push(to);\n    }\n    if (size(ordered) < n) return {}; // graph\
-    \ is not a DAG.\n    return ordered;\n}\n"
+    \        for (const auto &to: graph[from])\n            if (--indegree[to] ==\
+    \ 0) indegree_is_0.push(to);\n    }\n    if (size(ordered) < n) return {};  //\
+    \ graph is not a DAG.\n    return ordered;\n}\n"
   dependsOn:
   - lib/include.hpp
   isVerificationFile: false
   path: lib/graph/topological_sort.hpp
   requiredBy: []
-  timestamp: '2021-09-29 20:09:01+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2021-09-29 22:27:21+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/my_stress_test/topological_sort.test.cpp
   - test/aoj/GRL_4_A.test.cpp

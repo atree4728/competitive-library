@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/include.hpp
     title: lib/include.hpp
   _extendedRequiredBy:
@@ -10,17 +10,20 @@ data:
     title: Kruskal's Algorithm
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/aoj/ALDS1_11_D.test.cpp
+    title: test/aoj/ALDS1_11_D.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_1_A.test.cpp
     title: test/aoj/DSL_1_A.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_2_A.test.cpp
     title: test/aoj/GRL_2_A.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library-checker/unionfind.test.cpp
     title: test/library-checker/unionfind.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/union_find.md
     document_title: Union Find
@@ -63,8 +66,9 @@ data:
   requiredBy:
   - lib/graph/kruskal.hpp
   timestamp: '2021-09-29 20:09:01+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/aoj/ALDS1_11_D.test.cpp
   - test/aoj/DSL_1_A.test.cpp
   - test/aoj/GRL_2_A.test.cpp
   - test/library-checker/unionfind.test.cpp

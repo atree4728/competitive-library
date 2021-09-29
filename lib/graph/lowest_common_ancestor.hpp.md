@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/include.hpp
     title: lib/include.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_5_C.test.cpp
     title: test/aoj/GRL_5_C.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library-checker/lca.test.cpp
     title: test/library-checker/lca.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/lowest_common_ancestor.md
     document_title: "Lowest Common Ancestor(Doubling, Binary Search) / \u6700\u8FD1\
@@ -29,35 +29,11 @@ data:
     /**\n * @brief Lowest Common Ancestor(Doubling, Binary Search) / \u6700\u8FD1\u5171\
     \u901A\u7956\u5148\n * @docs docs/lowest_common_ancestor.md\n*/\n\nstruct LCA\
     \ {\n    size_t n, height;\n    vector<int> depth;\n    vector<vector<int>> dp;\n\
-    \    explicit LCA(const vector<vector<size_t>>& tree, size_t root): n(size(tree)),\n\
-    \                                                                   height(32\
-    \ - __builtin_clz(n)),\n                                                     \
-    \              depth(n, -1),\n                                               \
-    \                    dp(height, vector<int>(n, -1)) {\n        depth[root] = 0;\n\
-    \        dfs(tree, root, -1);\n        rep(k, height - 1) rep(v, n) {\n      \
-    \      if (dp[k][v] == -1) dp[k + 1][v] = -1;\n            else\n            \
-    \    dp[k + 1][v] = dp[k][dp[k][v]];\n        }\n    }\n    size_t operator()(size_t\
-    \ u, size_t v) {\n        assert(u < n and v < n);\n        if (depth[u] < depth[v])\
-    \ swap(u, v);\n        for (size_t k = height - 1; k--;)\n            if (((depth[u]\
-    \ - depth[v]) >> k) & 1) u = dp[k][u];\n        if (u == v) return u;\n      \
-    \  for (size_t k = height - 1; k--;)\n            if (dp[k][u] != dp[k][v]) {\n\
-    \                u = dp[k][u];\n                v = dp[k][v];\n            }\n\
-    \        return dp[0][u];\n    }\n    int dist(size_t u, size_t v) { return depth[u]\
-    \ + depth[v] - depth[(*this)(u, v)] * 2; }\n\n  private:\n    void dfs(const vector<vector<size_t>>&\
-    \ tree, size_t v, size_t prev) {\n        for (const auto u: tree[v])\n      \
-    \      if (u != prev) {\n                assert(depth[u] == -1 and dp[0][u] ==\
-    \ -1);  // The graph may not be a tree Graph.\n                dp[0][u] = (int)\
-    \ v;\n                depth[u] = depth[v] + 1;\n                dfs(tree, u, v);\n\
-    \            }\n    }\n};\n"
-  code: "#pragma once\n\n#include \"../include.hpp\"\n\n/**\n * @brief Lowest Common\
-    \ Ancestor(Doubling, Binary Search) / \u6700\u8FD1\u5171\u901A\u7956\u5148\n *\
-    \ @docs docs/lowest_common_ancestor.md\n*/\n\nstruct LCA {\n    size_t n, height;\n\
-    \    vector<int> depth;\n    vector<vector<int>> dp;\n    explicit LCA(const vector<vector<size_t>>&\
-    \ tree, size_t root): n(size(tree)),\n                                       \
-    \                            height(32 - __builtin_clz(n)),\n                \
-    \                                                   depth(n, -1),\n          \
-    \                                                         dp(height, vector<int>(n,\
-    \ -1)) {\n        depth[root] = 0;\n        dfs(tree, root, -1);\n        rep(k,\
+    \    LCA(const vector<vector<size_t>>& tree, size_t root): n(size(tree)),\n  \
+    \                                                        height(32 - __builtin_clz(n)),\n\
+    \                                                          depth(n, -1),\n   \
+    \                                                       dp(height, vector<int>(n,\
+    \ -1)) {\n        depth[root] = 0;\n        dfs(tree, root, root);\n        rep(k,\
     \ height - 1) rep(v, n) {\n            if (dp[k][v] == -1) dp[k + 1][v] = -1;\n\
     \            else\n                dp[k + 1][v] = dp[k][dp[k][v]];\n        }\n\
     \    }\n    size_t operator()(size_t u, size_t v) {\n        assert(u < n and\
@@ -73,13 +49,36 @@ data:
     \ graph may not be a tree Graph.\n                dp[0][u] = (int) v;\n      \
     \          depth[u] = depth[v] + 1;\n                dfs(tree, u, v);\n      \
     \      }\n    }\n};\n"
+  code: "#pragma once\n\n#include \"../include.hpp\"\n\n/**\n * @brief Lowest Common\
+    \ Ancestor(Doubling, Binary Search) / \u6700\u8FD1\u5171\u901A\u7956\u5148\n *\
+    \ @docs docs/lowest_common_ancestor.md\n*/\n\nstruct LCA {\n    size_t n, height;\n\
+    \    vector<int> depth;\n    vector<vector<int>> dp;\n    LCA(const vector<vector<size_t>>&\
+    \ tree, size_t root): n(size(tree)),\n                                       \
+    \                   height(32 - __builtin_clz(n)),\n                         \
+    \                                 depth(n, -1),\n                            \
+    \                              dp(height, vector<int>(n, -1)) {\n        depth[root]\
+    \ = 0;\n        dfs(tree, root, root);\n        rep(k, height - 1) rep(v, n) {\n\
+    \            if (dp[k][v] == -1) dp[k + 1][v] = -1;\n            else\n      \
+    \          dp[k + 1][v] = dp[k][dp[k][v]];\n        }\n    }\n    size_t operator()(size_t\
+    \ u, size_t v) {\n        assert(u < n and v < n);\n        if (depth[u] < depth[v])\
+    \ swap(u, v);\n        for (size_t k = height - 1; k--;)\n            if (((depth[u]\
+    \ - depth[v]) >> k) & 1) u = dp[k][u];\n        if (u == v) return u;\n      \
+    \  for (size_t k = height - 1; k--;)\n            if (dp[k][u] != dp[k][v]) {\n\
+    \                u = dp[k][u];\n                v = dp[k][v];\n            }\n\
+    \        return dp[0][u];\n    }\n    int dist(size_t u, size_t v) { return depth[u]\
+    \ + depth[v] - depth[(*this)(u, v)] * 2; }\n\n  private:\n    void dfs(const vector<vector<size_t>>&\
+    \ tree, size_t v, size_t prev) {\n        for (const auto u: tree[v])\n      \
+    \      if (u != prev) {\n                assert(depth[u] == -1 and dp[0][u] ==\
+    \ -1);  // The graph may not be a tree Graph.\n                dp[0][u] = (int)\
+    \ v;\n                depth[u] = depth[v] + 1;\n                dfs(tree, u, v);\n\
+    \            }\n    }\n};\n"
   dependsOn:
   - lib/include.hpp
   isVerificationFile: false
   path: lib/graph/lowest_common_ancestor.hpp
   requiredBy: []
-  timestamp: '2021-09-29 20:09:01+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-09-29 22:27:21+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL_5_C.test.cpp
   - test/library-checker/lca.test.cpp

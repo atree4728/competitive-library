@@ -5,7 +5,7 @@ data:
     path: lib/graph/bellman_ford.hpp
     title: "Bellman-Ford Algorithm / \u8CA0\u8FBA\u3092\u8A31\u3059\u5358\u4E00\u59CB\
       \u70B9\u6700\u77ED\u7D4C\u8DEF\u554F\u984C"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/include.hpp
     title: lib/include.hpp
   _extendedRequiredBy: []
