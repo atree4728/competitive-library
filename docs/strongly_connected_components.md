@@ -1,6 +1,6 @@
 ---
 title: Strongly Connected Components / 強連結成分分解
-documentation_of: docs/strongly_connected_components.md
+documentation_of: //lib/graph/strongly_connected_components.hpp
 ---
 
 ## 概要

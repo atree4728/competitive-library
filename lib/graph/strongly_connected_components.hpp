@@ -28,7 +28,8 @@ struct StronglyConnectedComponents {
         for (usize v = 0; v < n; v++) dfs(v, graph);
         usize index = 0;
         std::reverse(std::begin(post_order), std::end(post_order));
-        for (const auto& v: post_order) rev_dfs(v, index++);
+        for (const auto& v: post_order)
+            if (component[v] == (usize) -1) rev_dfs(v, index++);
         contracted.resize(index);
         for (usize i = 0; i < n; i++) {
             for (const auto& j: graph[i]) {
@@ -37,7 +38,7 @@ struct StronglyConnectedComponents {
             }
         }
     }
-    usize operator[](usize v) {
+    usize& operator[](usize v) {
         return component[v];
     }
 

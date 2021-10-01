@@ -15,7 +15,7 @@ template<class T> struct FenwickTree {
 
     FenwickTree(const size_t n): n(n), data(n, 0) {}
     FenwickTree(const vector<T>& a): n(size(a)), data(n, 0) {
-        for (size_t i = 0; i < n; i++) set(i, a[i]);
+        for (size_t i = 0; i < n; i++) add(i, a[i]);
     }
     T prefix_sum(size_t i) {
         T ret = 0;
