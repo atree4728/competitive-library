@@ -7,14 +7,14 @@
  * @docs docs/lowest_common_ancestor.md
 */
 
-struct LCA {
+struct LowestCommonAncestor {
     size_t n, height;
     vector<int> depth;
     vector<vector<int>> dp;
-    LCA(const vector<vector<size_t>>& tree, size_t root): n(size(tree)),
-                                                          height(32 - __builtin_clz(n)),
-                                                          depth(n, -1),
-                                                          dp(height, vector<int>(n, -1)) {
+    LowestCommonAncestor(const vector<vector<size_t>>& tree, size_t root): n(size(tree)),
+                                                                           height(32 - __builtin_clz(n)),
+                                                                           depth(n, -1),
+                                                                           dp(height, vector<int>(n, -1)) {
         depth[root] = 0;
         dfs(tree, root, root);
         rep(k, height - 1) rep(v, n) {

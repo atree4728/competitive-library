@@ -9,7 +9,7 @@ documentation_of: //lib/graph/lowest_common_ancestor.hpp
 
 ## 使い方
 
-- `LCA lca(tree, r)`: 頂点$r$を根とした根付き木$tree$をもとに最近共通祖先を求めるための前処理をする。
+- `LowestCommonAncestor lca(tree, r)`: 頂点$r$を根とした根付き木$tree$をもとに最近共通祖先を求めるための前処理をする。
 - `lca(u, v)`(`operator()`): 頂点$u$と$v$の最近共通祖先の index を返す。
 - `lca.dist(u, v)`: 頂点$u$と$v$の最短距離を返す。
 

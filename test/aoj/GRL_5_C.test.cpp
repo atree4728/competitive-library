@@ -15,7 +15,7 @@ int main() {
             graph[i].push_back(c);
         }
     }
-    LCA lca(graph, 0);
+    auto lca = LowestCommonAncestor(graph, 0);
     size_t q;
     cin >> q;
     while (q--) {
