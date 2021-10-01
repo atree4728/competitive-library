@@ -41,6 +41,9 @@ data:
       path: lib/graph/lowest_common_ancestor.hpp
       title: "Lowest Common Ancestor(Doubling, Binary Search) / \u6700\u8FD1\u5171\
         \u901A\u7956\u5148"
+    - icon: ':heavy_check_mark:'
+      path: lib/graph/lowlink.hpp
+      title: "Lowlink / \u6A4B\u30FB\u95A2\u7BC0\u70B9"
     - icon: ':warning:'
       path: lib/graph/subtree_info.hpp
       title: "Subtree Info / \u90E8\u5206\u6728\u306E\u60C5\u5831"
@@ -94,9 +97,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/ALDS1_11_D.test.cpp
       title: test/aoj/ALDS1_11_D.test.cpp
-    - icon: ':x:'
-      path: test/aoj/ALDS1_7_A.test.cpp
-      title: test/aoj/ALDS1_7_A.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/DPL_5_A.test.cpp
       title: test/aoj/DPL_5_A.test.cpp
@@ -130,10 +130,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_2_A.test.cpp
       title: test/aoj/GRL_2_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_3_A.test.cpp
       title: test/aoj/GRL_3_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_3_B.test.cpp
       title: test/aoj/GRL_3_B.test.cpp
     - icon: ':x:'
@@ -183,3 +183,6 @@ data:
       title: test/yukicoder/1140.test.cpp
 layout: toppage
 ---
+[![atree](https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fatcoder%2Fjson%2Fatree)](https://atcoder.jp/users/atree)
+
+バグがあると思われです。
