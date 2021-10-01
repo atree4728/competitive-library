@@ -44,6 +44,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/graph/lowlink.hpp
       title: "Lowlink / \u6A4B\u30FB\u95A2\u7BC0\u70B9"
+    - icon: ':heavy_check_mark:'
+      path: lib/graph/strongly_connected_components.hpp
+      title: "Strongly Connected Components / \u5F37\u9023\u7D50\u6210\u5206\u5206\
+        \u89E3"
     - icon: ':warning:'
       path: lib/graph/subtree_info.hpp
       title: "Subtree Info / \u90E8\u5206\u6728\u306E\u60C5\u5831"
@@ -136,7 +140,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_3_B.test.cpp
       title: test/aoj/GRL_3_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_3_C.test.cpp
       title: test/aoj/GRL_3_C.test.cpp
     - icon: ':heavy_check_mark:'
@@ -168,6 +172,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library-checker/lca.test.cpp
       title: test/library-checker/lca.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library-checker/point_add_range_sum.test.cpp
+      title: test/library-checker/point_add_range_sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library-checker/scc.test.cpp
+      title: test/library-checker/scc.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library-checker/unionfind.test.cpp
       title: test/library-checker/unionfind.test.cpp

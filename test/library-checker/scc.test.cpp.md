@@ -11,11 +11,11 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/GRL_3_C
+    PROBLEM: https://judge.yosupo.jp/problem/scc
     links:
-    - https://onlinejudge.u-aizu.ac.jp/problems/GRL_3_C
-  bundledCode: "#line 1 \"test/aoj/GRL_3_C.test.cpp\"\n#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/GRL_3_C\"\
-    \n\n#include <iostream>\n#line 2 \"lib/graph/strongly_connected_components.hpp\"\
+    - https://judge.yosupo.jp/problem/scc
+  bundledCode: "#line 1 \"test/library-checker/scc.test.cpp\"\n#define PROBLEM \"\
+    https://judge.yosupo.jp/problem/scc\"\n\n#include <iostream>\n#line 2 \"lib/graph/strongly_connected_components.hpp\"\
     \n\n#include <algorithm>\n#include <cassert>\n#include <vector>\n\n/**\n * @brief\
     \ Strongly Connected Components / \u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\n\
     \ * @docs docs/strongly_connected_components.md\n */\n\nstruct StronglyConnectedComponents\
@@ -39,33 +39,37 @@ data:
     \ auto& u: graph[v]) dfs(u, graph);\n        post_order.push_back(v);\n    }\n\
     \    void rev_dfs(usize v, usize index) {\n        if (component[v] != (usize)\
     \ -1) return;\n        component[v] = index;\n        for (const auto& u: rev_graph[v])\
-    \ rev_dfs(u, index);\n    }\n};\n#line 5 \"test/aoj/GRL_3_C.test.cpp\"\n\nint\
-    \ main() {\n    using namespace std;\n    size_t v, e;\n    cin >> v >> e;\n \
-    \   vector graph(v, vector<size_t>{});\n    while (e--) {\n        size_t s, t;\n\
-    \        cin >> s >> t;\n        graph[s].push_back(t);\n    }\n    auto scc =\
-    \ StronglyConnectedComponents(graph);\n    size_t q;\n    cin >> q;\n    while\
-    \ (q--) {\n        size_t ui, vi;\n        cin >> ui >> vi;\n        cout << (scc[ui]\
-    \ == scc[vi] ? 1 : 0) << \"\\n\";\n    }\n}\n"
-  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/GRL_3_C\"\n\n\
-    #include <iostream>\n#include \"lib/graph/strongly_connected_components.hpp\"\n\
-    \nint main() {\n    using namespace std;\n    size_t v, e;\n    cin >> v >> e;\n\
-    \    vector graph(v, vector<size_t>{});\n    while (e--) {\n        size_t s,\
-    \ t;\n        cin >> s >> t;\n        graph[s].push_back(t);\n    }\n    auto\
-    \ scc = StronglyConnectedComponents(graph);\n    size_t q;\n    cin >> q;\n  \
-    \  while (q--) {\n        size_t ui, vi;\n        cin >> ui >> vi;\n        cout\
-    \ << (scc[ui] == scc[vi] ? 1 : 0) << \"\\n\";\n    }\n}\n"
+    \ rev_dfs(u, index);\n    }\n};\n#line 5 \"test/library-checker/scc.test.cpp\"\
+    \n\nint main() {\n    using namespace std;\n    size_t n, m;\n    cin >> n >>\
+    \ m;\n    vector graph(n, vector<size_t>{});\n    while (m--) {\n        size_t\
+    \ a, b;\n        cin >> a >> b;\n        graph[a].push_back(b);\n    }\n    auto\
+    \ scc = StronglyConnectedComponents(graph);\n    vector ans(size(scc.contracted),\
+    \ vector<size_t>{});\n    for (size_t v = 0; v < n; v++) ans[scc[v]].push_back(v);\n\
+    \    cout << size(scc.contracted) << \"\\n\";\n    for (size_t i = 0; i < size(scc.contracted);\
+    \ i++) {\n        cout << size(ans[i]);\n        for (const auto& ai: ans[i])\
+    \ cout << \" \" << ai;\n        cout << \"\\n\";\n    }\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/scc\"\n\n#include <iostream>\n\
+    #include \"lib/graph/strongly_connected_components.hpp\"\n\nint main() {\n   \
+    \ using namespace std;\n    size_t n, m;\n    cin >> n >> m;\n    vector graph(n,\
+    \ vector<size_t>{});\n    while (m--) {\n        size_t a, b;\n        cin >>\
+    \ a >> b;\n        graph[a].push_back(b);\n    }\n    auto scc = StronglyConnectedComponents(graph);\n\
+    \    vector ans(size(scc.contracted), vector<size_t>{});\n    for (size_t v =\
+    \ 0; v < n; v++) ans[scc[v]].push_back(v);\n    cout << size(scc.contracted) <<\
+    \ \"\\n\";\n    for (size_t i = 0; i < size(scc.contracted); i++) {\n        cout\
+    \ << size(ans[i]);\n        for (const auto& ai: ans[i]) cout << \" \" << ai;\n\
+    \        cout << \"\\n\";\n    }\n}\n"
   dependsOn:
   - lib/graph/strongly_connected_components.hpp
   isVerificationFile: true
-  path: test/aoj/GRL_3_C.test.cpp
+  path: test/library-checker/scc.test.cpp
   requiredBy: []
   timestamp: '2021-10-02 00:32:30+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/aoj/GRL_3_C.test.cpp
+documentation_of: test/library-checker/scc.test.cpp
 layout: document
 redirect_from:
-- /verify/test/aoj/GRL_3_C.test.cpp
-- /verify/test/aoj/GRL_3_C.test.cpp.html
-title: test/aoj/GRL_3_C.test.cpp
+- /verify/test/library-checker/scc.test.cpp
+- /verify/test/library-checker/scc.test.cpp.html
+title: test/library-checker/scc.test.cpp
 ---

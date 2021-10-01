@@ -6,6 +6,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_B.test.cpp
     title: test/aoj/DSL_2_B.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library-checker/point_add_range_sum.test.cpp
+    title: test/library-checker/point_add_range_sum.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -18,7 +21,7 @@ data:
     \ Indexed Tree\n * @docs docs/fenwick_tree.md\n */\n\ntemplate<class T> struct\
     \ FenwickTree {\n    size_t n;\n    vector<T> data;\n\n    FenwickTree(const size_t\
     \ n): n(n), data(n, 0) {}\n    FenwickTree(const vector<T>& a): n(size(a)), data(n,\
-    \ 0) {\n        for (size_t i = 0; i < n; i++) set(i, a[i]);\n    }\n    T prefix_sum(size_t\
+    \ 0) {\n        for (size_t i = 0; i < n; i++) add(i, a[i]);\n    }\n    T prefix_sum(size_t\
     \ i) {\n        T ret = 0;\n        while (i > 0) {\n            ret += data[i\
     \ - 1];\n            i -= i & -i;\n        }\n        return ret;\n    }\n   \
     \ T sum(size_t l, size_t r) {\n        assert(l <= r and r <= n);\n        return\
@@ -30,7 +33,7 @@ data:
     \ */\n\ntemplate<class T> struct FenwickTree {\n    size_t n;\n    vector<T> data;\n\
     \n    FenwickTree(const size_t n): n(n), data(n, 0) {}\n    FenwickTree(const\
     \ vector<T>& a): n(size(a)), data(n, 0) {\n        for (size_t i = 0; i < n; i++)\
-    \ set(i, a[i]);\n    }\n    T prefix_sum(size_t i) {\n        T ret = 0;\n   \
+    \ add(i, a[i]);\n    }\n    T prefix_sum(size_t i) {\n        T ret = 0;\n   \
     \     while (i > 0) {\n            ret += data[i - 1];\n            i -= i & -i;\n\
     \        }\n        return ret;\n    }\n    T sum(size_t l, size_t r) {\n    \
     \    assert(l <= r and r <= n);\n        return prefix_sum(r) - prefix_sum(l);\n\
@@ -41,10 +44,11 @@ data:
   isVerificationFile: false
   path: lib/data_structure/fenwick_tree.hpp
   requiredBy: []
-  timestamp: '2021-09-29 20:09:01+09:00'
+  timestamp: '2021-10-02 00:32:30+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DSL_2_B.test.cpp
+  - test/library-checker/point_add_range_sum.test.cpp
 documentation_of: lib/data_structure/fenwick_tree.hpp
 layout: document
 title: Fenwick Tree / Binary Indexed Tree

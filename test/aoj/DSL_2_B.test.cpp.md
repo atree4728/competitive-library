@@ -21,7 +21,7 @@ data:
     \ docs/fenwick_tree.md\n */\n\ntemplate<class T> struct FenwickTree {\n    size_t\
     \ n;\n    vector<T> data;\n\n    FenwickTree(const size_t n): n(n), data(n, 0)\
     \ {}\n    FenwickTree(const vector<T>& a): n(size(a)), data(n, 0) {\n        for\
-    \ (size_t i = 0; i < n; i++) set(i, a[i]);\n    }\n    T prefix_sum(size_t i)\
+    \ (size_t i = 0; i < n; i++) add(i, a[i]);\n    }\n    T prefix_sum(size_t i)\
     \ {\n        T ret = 0;\n        while (i > 0) {\n            ret += data[i -\
     \ 1];\n            i -= i & -i;\n        }\n        return ret;\n    }\n    T\
     \ sum(size_t l, size_t r) {\n        assert(l <= r and r <= n);\n        return\
@@ -47,7 +47,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DSL_2_B.test.cpp
   requiredBy: []
-  timestamp: '2021-09-29 20:09:01+09:00'
+  timestamp: '2021-10-02 00:32:30+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL_2_B.test.cpp
