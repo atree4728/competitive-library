@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../include.hpp"
+#include <iostream>
 
 /**
  * @brief  Finite Field
@@ -50,5 +50,5 @@ template<int MOD> struct Modint {
     friend mint operator-(long long value, Modint<MOD> a) { return Modint<MOD>(value) - a; }
     friend mint operator*(long long value, Modint<MOD> a) { return Modint<MOD>(value) * a; }
     friend mint operator/(long long value, Modint<MOD> a) { return Modint<MOD>(value) / a; }
-    friend ostream& operator<<(ostream& os, Modint<MOD> a) { return os << a.value; }
+    friend std::ostream& operator<<(std::ostream& os, Modint<MOD> a) { return os << a.value; }
 };

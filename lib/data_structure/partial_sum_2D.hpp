@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../include.hpp"
+#include <vector>
 
 /**
  * @brief 2D Partial Sum / 二次元累積和
@@ -8,12 +8,11 @@
  */
 
 template<class T> struct CumSum2D {
-    vector<vector<T>> data;
-    explicit CumSum2D(const vector<vector<T>> &a):
-        data(size(a) + 1, vector<T>(size(a[0]) + 1, 0)) {
-        static_assert(is_integral_v<T>);
-        rep(i, size(data) - 1) copy(begin(a[i]), end(a[i]), begin(data[i + 1]) + 1);
-        rep(i, 1, size(data)) rep(j, 1, size(data[i])) data[i][j] += data[i][j - 1] + data[i - 1][j] - data[i - 1][j - 1];
+    std::vector<std::vector<T>> data;
+    explicit CumSum2D(const std::vector<std::vector<T>> &a): data(size(a) + 1, std::vector<T>(size(a[0]) + 1, 0)) {
+        for (size_t i = 0; i + 1 < size(data); i++) copy(begin(a[i]), end(a[i]), begin(data[i + 1]) + 1);
+        for (size_t i = 0; i + 1 < size(data); i++)
+            for (size_t j = 0; j + 1 < size(data[i]); j++) data[i + 1][j + 1] += data[i][j + 1] + data[i + 1][j] - data[i][j];
     }
-    T operator()(size_type sx, size_type sy, size_type gx, size_type gy) const { return data[gx][gy] - data[sx][gy] - data[gx][sy] + data[sx][sy]; }
+    T operator()(size_t sx, size_t sy, size_t gx, size_t gy) const { return data[gx][gy] - data[sx][gy] - data[gx][sy] + data[sx][sy]; }
 };

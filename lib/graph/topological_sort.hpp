@@ -1,13 +1,15 @@
 #pragma once
 
-#include "../include.hpp"
+#include <queue>
+#include <vector>
 
 /**
  * @brief Topological Sort
  * @docs docs/topological_sort.md
 */
 
-template<typename T> vector<T> topological_sort(vector<vector<T>> const &graph) {
+template<typename T> std::vector<T> topological_sort(std::vector<std::vector<T>> const &graph) {
+    using namespace std;
     const size_t n = size(graph);
     vector<unsigned int> indegree(n, 0);
     for (const auto &edges: graph)

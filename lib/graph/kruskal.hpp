@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../data_structure/union_find.hpp"
-
+#include <utility>
+#include "lib/data_structure/union_find.hpp"
 /**
  * @brief Kruskal's Algorithm
  * @note Solve MST; Minimum Spanning Tree in $O(|E|log|E)$.
@@ -10,12 +10,14 @@
  * @return Set of edges by vector<tuple<u, v, weight>>
 */
 
-template<typename T> vector<tuple<size_type, size_type, T>> kruskal(vector<vector<pair<size_t, T>>> const& graph) {
+template<typename T> std::vector<std::tuple<size_t, size_t, T>> kruskal(std::vector<std::vector<std::pair<size_t, T>>> const& graph) {
+    using namespace std;
     using Edge = tuple<size_t, size_t, T>;
     vector<Edge> edges{};
     const size_t n = size(graph);
     if (n == 1) return {};
-    rep(i, n) for (const auto& [j, cost]: graph[i]) edges.emplace_back(Edge{ i, j, cost });
+    for (size_t i = 0; i < n; i++)
+        for (const auto& [j, cost]: graph[i]) edges.emplace_back(Edge{ i, j, cost });
     sort(begin(edges), end(edges), [](Edge a, Edge b) { return get<2>(a) < get<2>(b); });
     UnionFind uf(n);
     vector<Edge> ret{};

@@ -1,8 +1,11 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/unionfind"
 
-#include "../../lib/data_structure/union_find.hpp"
+#include <cassert>
+#include <iostream>
+#include "lib/data_structure/union_find.hpp"
 
 int main() {
+    using namespace std;
     size_t n, q;
     cin >> n >> q;
     UnionFind uf(n);

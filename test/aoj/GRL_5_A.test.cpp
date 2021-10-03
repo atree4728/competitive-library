@@ -4,6 +4,7 @@
 #include "lib/graph/tree_diameter.hpp"
 
 int main() {
+    using namespace std;
     size_t n;
     cin >> n;
     using Edge = pair<size_t, int>;

@@ -1,8 +1,10 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_11_D"
 
-#include "../../lib/data_structure/union_find.hpp"
+#include <iostream>
+#include "lib/data_structure/union_find.hpp"
 
 int main() {
+    using namespace std;
     size_t n, m;
     cin >> n >> m;
     UnionFind uf(n);

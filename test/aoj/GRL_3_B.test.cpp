@@ -1,7 +1,7 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/GRL_3_B"
 
 #include <iostream>
-#include "../../lib/graph/lowlink.hpp"
+#include "lib/graph/lowlink.hpp"
 
 int main() {
     using namespace std;

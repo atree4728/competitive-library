@@ -1,8 +1,10 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_A"
 
+#include <iostream>
 #include "lib/graph/ford_fulkerson.hpp"
 
 int main() {
+    using namespace std;
     size_t v, e;
     cin >> v >> e;
     FordFulkerson graph(v);

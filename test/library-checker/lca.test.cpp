@@ -1,8 +1,10 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/lca"
 
+#include <iostream>
 #include "lib/graph/lowest_common_ancestor.hpp"
 
 int main() {
+    using namespace std;
     size_t n, q;
     cin >> n >> q;
     vector graph(n, vector<size_t>{});

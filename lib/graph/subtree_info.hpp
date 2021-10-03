@@ -1,6 +1,7 @@
 #pragma once
 
-#include "../include.hpp"
+#include <utility>
+#include <vector>
 
 /**
  * @brief Subtree Info / 部分木の情報
@@ -8,14 +9,15 @@
  */
 
 template<typename T> struct SubtreeInfo {
-    size_type n;
-    vector<size_type> parents, sizes;
+    using size_t = std::size_t;
+    template<class U> using vector = std::vector<U>;
+    size_t n;
+    vector<size_t> parents, sizes;
     vector<T> depths;
-    SubtreeInfo(const vector<vector<size_type>>& tree, size_type root):
-        n(size(tree)), parents(n, -1), sizes(n, -1), depths(n, -1) {
+    SubtreeInfo(const vector<vector<size_t>>& tree, size_t root): n(size(tree)), parents(n, -1), sizes(n, -1), depths(n, -1) {
         parents[root] = -1;
         depths[root] = 0;
-        auto dfs = [&](auto&& self, size_type v, size_type prev) -> void {
+        auto dfs = [&](auto&& self, size_t v, size_t prev) -> void {
             if (size(tree[v]) == 1) sizes[v] = 1;
             for (const auto u: tree[v])
                 if (u != prev) {
@@ -28,11 +30,10 @@ template<typename T> struct SubtreeInfo {
         };
         dfs(dfs, root, -1);
     }
-    SubtreeInfo(const vector<vector<pair<size_type, T>>>& tree, size_type root):
-        n(size(tree)), parents(n, -1), sizes(n, -1), depths(n, -1) {
+    SubtreeInfo(const vector<vector<std::pair<size_t, T>>>& tree, size_t root): n(size(tree)), parents(n, -1), sizes(n, -1), depths(n, -1) {
         parents[root] = -1;
         depths[root] = 0;
-        auto dfs = [&](auto&& self, size_type v, size_type prev) -> void {
+        auto dfs = [&](auto&& self, size_t v, size_t prev) -> void {
             if (size(tree[v]) == 1) sizes[v] = 1;
             for (const auto& [u, w]: tree[v])
                 if (u != prev) {
@@ -45,7 +46,7 @@ template<typename T> struct SubtreeInfo {
         };
         dfs(dfs, root, -1);
     }
-    size_type parent(size_type u) { return parents[u]; }
-    size_type size(size_type u) { return sizes[u]; }
-    int depth(size_type u) { return depths[u]; }
+    size_t parent(size_t u) { return parents[u]; }
+    size_t size(size_t u) { return sizes[u]; }
+    int depth(size_t u) { return depths[u]; }
 };

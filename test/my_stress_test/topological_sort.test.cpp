@@ -1,6 +1,12 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_1_A"
 
-#include "../../lib/graph/topological_sort.hpp"
+#include "lib/graph/topological_sort.hpp"
+#include <algorithm>
+#include <cassert>
+#include <iostream>
+#include <numeric>
+#include <random>
+using namespace std;
 
 random_device seed_gen;
 mt19937_64 rnd(seed_gen());
@@ -8,14 +14,14 @@ mt19937_64 rnd(seed_gen());
 int rand() { return uniform_int_distribution<int>(0, 100000)(rnd); }
 
 void test() {
-    rep(it, 50000) {
+    for (size_t _ = 0; _ < 500000; _++) {
         size_t n = rand() % 20, m = n ? rand() % 30 : 0;
         bool is_cycle = rand() % 2;
         vector<int> ordered(n);
         iota(begin(ordered), end(ordered), 0);
         shuffle(begin(ordered), end(ordered), rnd);
         vector<vector<int>> ed(n);
-        rep(i, m) {
+        for (size_t i = 0; i < m; i++) {
             int a = rand() % n;
             int b = rand() % n;
             if (is_cycle and a >= b) continue;
@@ -35,6 +41,6 @@ void test() {
 
 int main() {
     test();
-    cout << "Hello World\n";
+    std::cout << "Hello World\n";
     return 0;
 }

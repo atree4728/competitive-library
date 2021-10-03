@@ -1,8 +1,11 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_C"
 
-#include "../../lib/graph/floyd_warshall.hpp"
+#include <iostream>
+#include <limits>
+#include "lib/graph/floyd_warshall.hpp"
 
 int main() {
+    using namespace std;
     size_t v, e;
     cin >> v >> e;
     using P = pair<size_t, long long>;
@@ -17,11 +20,11 @@ int main() {
     if (empty(result))
         cout << "NEGATIVE CYCLE\n";
     else
-        rep(i, v) rep(j, v) {
-            if (result[i][j] >= numeric_limits<long long>::max())
-                cout << "INF";
-            else
-                cout << result[i][j];
-            cout << " \n"[j + 1 == v];
-        }
+        for (size_t i = 0; i < v; i++)
+            for (size_t j = 0; j < v; j++) {
+                if (result[i][j] >= numeric_limits<long long>::max()) cout << "INF";
+                else
+                    cout << result[i][j];
+                cout << " \n"[j + 1 == v];
+            }
 }

@@ -1,13 +1,16 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_B"
 
-#include "../../lib/graph/bellman_ford.hpp"
+#include <iostream>
+#include <limits>
+#include "lib/graph/bellman_ford.hpp"
 
 int main() {
+    using namespace std;
     size_t v, e, r;
     cin >> v >> e >> r;
     using P = pair<size_t, int>;
     vector graph(v, vector<P>{});
-    rep(_, e) {
+    while (e--) {
         size_t s, t;
         int d;
         cin >> s >> t >> d;

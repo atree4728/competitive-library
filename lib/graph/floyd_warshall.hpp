@@ -1,22 +1,27 @@
 #pragma once
 
-#include "../include.hpp"
+#include <utility>
+#include <vector>
 
 /**
  * @brief Floyd Warshall Algorithm / 負辺を許す全点対最短経路問題
  * @docs docs/floyd_warshall.md
  */
 
-template<typename T> vector<vector<T>> floyd_warshall(vector<vector<pair<size_t, T>>> const& graph) {
+template<typename T> std::vector<std::vector<T>> floyd_warshall(std::vector<std::vector<std::pair<std::size_t, T>>> const& graph) {
+    using namespace std;
     const size_t n = size(graph);
     constexpr T INF = numeric_limits<T>::max();
     vector<vector<T>> dp(n, vector<T>(n, INF));
-    rep(i, n) {
+    for (size_t i = 0; i < n; i++) {
         dp[i][i] = 0;
         for (const auto& [to, cost]: graph[i]) dp[i][to] = cost;
     }
-    auto chmin = [](auto& a, const auto& b) { return a > b and (a = b, true); };
-    rep(k, n) rep(i, n) rep(j, n) if (dp[i][k] < INF and dp[k][j] < INF) chmin(dp[i][j], dp[i][k] + dp[k][j]);
-    rep(i, n) if (dp[i][i] < 0) return {};
+    for (size_t k = 0; k < n; k++)
+        for (size_t i = 0; i < n; i++)
+            for (size_t j = 0; j < n; j++)
+                if (dp[i][k] < INF and dp[k][j] < INF) dp[i][j] = min(dp[i][j], dp[i][k] + dp[k][j]);
+    for (size_t i = 0; i < n; i++)
+        if (dp[i][i] < 0) return {};
     return dp;
 }

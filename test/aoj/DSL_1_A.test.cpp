@@ -1,10 +1,12 @@
-#include <cassert>
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/1/DSL_1_A"
 
+#include <cassert>
+#include <iostream>
 #include "lib/data_structure/union_find.hpp"
 
 int main() {
-    int n, q;
+    using namespace std;
+    size_t n, q;
     cin >> n >> q;
     UnionFind uf(n);
     while (q--) {

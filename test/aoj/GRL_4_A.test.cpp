@@ -1,8 +1,10 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_4_A"
 
-#include "../../lib/graph/topological_sort.hpp"
+#include <iostream>
+#include "lib/graph/topological_sort.hpp"
 
 int main() {
+    using namespace std;
     size_t n, m;
     cin >> n >> m;
     vector graph(n, vector<int>{});

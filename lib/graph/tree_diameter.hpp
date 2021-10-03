@@ -4,14 +4,14 @@
 #include <cassert>
 #include <limits>
 #include <vector>
-using namespace std;
 
 /**
  * @brief Diameter of a Tree / 木の直径
  * @docs docs/tree_diameter.md
  */
 
-template<typename T> T tree_diameter(const vector<vector<pair<size_t, T>>> &tree) {
+template<typename T> T tree_diameter(const std::vector<std::vector<std::pair<std::size_t, T>>> &tree) {
+    using namespace std;
     const size_t n = size(tree);
     const T INF = numeric_limits<T>::max();
     vector<T> dist(n, INF);

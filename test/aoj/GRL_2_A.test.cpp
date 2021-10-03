@@ -1,8 +1,11 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/GRL_2_A"
 
-#include "../../lib/graph/kruskal.hpp"
+#include <iostream>
+#include <numeric>
+#include "lib/graph/kruskal.hpp"
 
 int main() {
+    using namespace std;
     size_t v, e;
     cin >> v >> e;
     using Edge = pair<size_t, size_t>;

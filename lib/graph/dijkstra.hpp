@@ -1,13 +1,17 @@
 #pragma once
 
-#include "../include.hpp"
+#include <limits>
+#include <queue>
+#include <utility>
+#include <vector>
 
 /**
  * @brief Dijkstra's Algorithm
  * @note  $O(|E|log|V|)$. There must be no negative edges. Return -1 for unreachable vertex.
  */
 
-template<class T> vector<T> dijkstra(vector<vector<pair<size_t, T>>> const& graph, size_t root) {
+template<class T> std::vector<T> dijkstra(std::vector<std::vector<std::pair<std::size_t, T>>> const& graph, std::size_t root) {
+    using namespace std;
     static_assert(is_signed<T>::value, "template parameter T must be signed type!");
     using P = pair<T, size_t>;
     constexpr T INF = numeric_limits<T>::max() / 2;

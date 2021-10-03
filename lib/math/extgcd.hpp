@@ -1,8 +1,8 @@
 #pragma once
 
 #include <cassert>
-
-#include "../include.hpp"
+#include <numeric>
+#include <utility>
 
 /**
  * @brief Extended Euclid's Algorithm
@@ -10,8 +10,8 @@
  * @ref https://noshi91.hatenablog.com/entry/2019/04/01/184957
  */
 
-template<typename T> pair<T, T> extgcd(T a, T b) {
-    static_assert(is_integral<T>::value);
+template<typename T> std::pair<T, T> extgcd(T a, T b) {
+    static_assert(std::is_integral<T>::value);
     T s = a, xs = 1, ys = 0, t = b, xt = 0, yt = 1;
     while (s % t != 0) {
         T tmp = s / t,
@@ -21,6 +21,6 @@ template<typename T> pair<T, T> extgcd(T a, T b) {
         s = t, xs = xt, ys = yt;
         t = u, xt = xu, yt = yu;
     }
-    assert(t == gcd(a, b));
-    return {xt, yt};
+    assert(t == std::gcd(a, b));
+    return { xt, yt };
 }

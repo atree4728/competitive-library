@@ -1,8 +1,10 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A"
 
-#include "../../lib/graph/dijkstra.hpp"
+#include <iostream>
+#include "lib/graph/dijkstra.hpp"
 
 int main() {
+    using namespace std;
     size_t v, e, r;
     cin >> v >> e >> r;
     using P = pair<size_t, long long>;
@@ -16,8 +18,7 @@ int main() {
     }
     auto dist = dijkstra(graph, r);
     for (const auto &d: dist) {
-        if (d == -1)
-            cout << "INF\n";
+        if (d == -1) cout << "INF\n";
         else
             cout << d << "\n";
     }
