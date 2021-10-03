@@ -1,9 +1,6 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: lib/include.hpp
-    title: lib/include.hpp
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -12,40 +9,34 @@ data:
   attributes:
     document_title: Combination without mod
     links: []
-  bundledCode: "#line 2 \"lib/math/simple_combination.hpp\"\n\n#line 2 \"lib/include.hpp\"\
-    \n\n#include <bits/stdc++.h>\nusing namespace std;\n#define overload3(_NULL, _2,\
-    \ _3, name, ...) name\n#define rep1(i, n) for (remove_const_t<remove_reference_t<decltype(n)>>\
-    \ i = 0; i < (n); i++)\n#define rep2(i, a, b) for (remove_const_t<remove_reference_t<decltype(b)>>\
-    \ i = a; i < (b); i++)\n#define rep(...) overload3(__VA_ARGS__, rep2, rep1)(__VA_ARGS__)\n\
-    using size_type = size_t;\n#line 4 \"lib/math/simple_combination.hpp\"\n\n/**\n\
-    \ * @brief Combination without mod\n * @note construct in $O(N^2)$, return nCr\
-    \ / nHr in $O(1)$.\n */\n\ntemplate<typename T> struct SimpleCombinationTable\
-    \ {\n    vector<vector<T>> table;\n    SimpleCombinationTable(size_t size):\n\
-    \        table(size + 1, vector<T>(size + 1, 0)) {\n        for (size_t i = 0;\
-    \ i <= size; i++) {\n            table[i][0] = 1;\n            table[i][i] = 1;\n\
-    \        }\n        for (size_t i = 1; i <= size; i++) {\n            for (size_t\
-    \ j = 1; j < i; j++) {\n                table[i][j] = (table[i - 1][j - 1] + table[i\
-    \ - 1][j]);\n            }\n        }\n    }\n    T operator()(int n, int r) {\n\
-    \        if (r < 0 or r > n) return 0;\n        return table[n][min(n, n - r)];\n\
-    \    }\n    T H(int n, int r) const { return table[n + r - 1][min(r, n - 1)];\
-    \ }\n};\n"
-  code: "#pragma once\n\n#include \"../include.hpp\"\n\n/**\n * @brief Combination\
-    \ without mod\n * @note construct in $O(N^2)$, return nCr / nHr in $O(1)$.\n */\n\
-    \ntemplate<typename T> struct SimpleCombinationTable {\n    vector<vector<T>>\
-    \ table;\n    SimpleCombinationTable(size_t size):\n        table(size + 1, vector<T>(size\
+  bundledCode: "#line 2 \"lib/math/simple_combination.hpp\"\n\n#include <vector>\n\
+    \n/**\n * @brief Combination without mod\n * @note construct in $O(N^2)$, return\
+    \ nCr / nHr in $O(1)$.\n */\n\ntemplate<typename T> struct SimpleCombinationTable\
+    \ {\n    std::vector<std::vector<T>> table;\n    SimpleCombinationTable(std::size_t\
+    \ size): table(size + 1, std::vector<T>(size + 1, 0)) {\n        for (size_t i\
+    \ = 0; i <= size; i++) {\n            table[i][0] = 1;\n            table[i][i]\
+    \ = 1;\n        }\n        for (size_t i = 1; i <= size; i++) {\n            for\
+    \ (size_t j = 1; j < i; j++) {\n                table[i][j] = (table[i - 1][j\
+    \ - 1] + table[i - 1][j]);\n            }\n        }\n    }\n    T operator()(int\
+    \ n, int r) {\n        if (r < 0 or r > n) return 0;\n        return table[n][std::min(n,\
+    \ n - r)];\n    }\n    T H(int n, int r) const { return table[n + r - 1][std::min(r,\
+    \ n - 1)]; }\n};\n"
+  code: "#pragma once\n\n#include <vector>\n\n/**\n * @brief Combination without mod\n\
+    \ * @note construct in $O(N^2)$, return nCr / nHr in $O(1)$.\n */\n\ntemplate<typename\
+    \ T> struct SimpleCombinationTable {\n    std::vector<std::vector<T>> table;\n\
+    \    SimpleCombinationTable(std::size_t size): table(size + 1, std::vector<T>(size\
     \ + 1, 0)) {\n        for (size_t i = 0; i <= size; i++) {\n            table[i][0]\
     \ = 1;\n            table[i][i] = 1;\n        }\n        for (size_t i = 1; i\
     \ <= size; i++) {\n            for (size_t j = 1; j < i; j++) {\n            \
     \    table[i][j] = (table[i - 1][j - 1] + table[i - 1][j]);\n            }\n \
     \       }\n    }\n    T operator()(int n, int r) {\n        if (r < 0 or r > n)\
-    \ return 0;\n        return table[n][min(n, n - r)];\n    }\n    T H(int n, int\
-    \ r) const { return table[n + r - 1][min(r, n - 1)]; }\n};\n"
-  dependsOn:
-  - lib/include.hpp
+    \ return 0;\n        return table[n][std::min(n, n - r)];\n    }\n    T H(int\
+    \ n, int r) const { return table[n + r - 1][std::min(r, n - 1)]; }\n};\n"
+  dependsOn: []
   isVerificationFile: false
   path: lib/math/simple_combination.hpp
   requiredBy: []
-  timestamp: '2021-09-29 20:09:01+09:00'
+  timestamp: '2021-10-03 22:04:20+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: lib/math/simple_combination.hpp

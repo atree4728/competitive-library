@@ -5,9 +5,6 @@ data:
     path: lib/graph/lowest_common_ancestor.hpp
     title: "Lowest Common Ancestor(Doubling, Binary Search) / \u6700\u8FD1\u5171\u901A\
       \u7956\u5148"
-  - icon: ':heavy_check_mark:'
-    path: lib/include.hpp
-    title: lib/include.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -19,59 +16,54 @@ data:
     links:
     - https://onlinejudge.u-aizu.ac.jp/problems/GRL_5_C
   bundledCode: "#line 1 \"test/aoj/GRL_5_C.test.cpp\"\n#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/GRL_5_C\"\
-    \n\n#line 2 \"lib/graph/lowest_common_ancestor.hpp\"\n\n#line 2 \"lib/include.hpp\"\
-    \n\n#include <bits/stdc++.h>\nusing namespace std;\n#define overload3(_NULL, _2,\
-    \ _3, name, ...) name\n#define rep1(i, n) for (remove_const_t<remove_reference_t<decltype(n)>>\
-    \ i = 0; i < (n); i++)\n#define rep2(i, a, b) for (remove_const_t<remove_reference_t<decltype(b)>>\
-    \ i = a; i < (b); i++)\n#define rep(...) overload3(__VA_ARGS__, rep2, rep1)(__VA_ARGS__)\n\
-    using size_type = size_t;\n#line 4 \"lib/graph/lowest_common_ancestor.hpp\"\n\n\
-    /**\n * @brief Lowest Common Ancestor(Doubling, Binary Search) / \u6700\u8FD1\u5171\
-    \u901A\u7956\u5148\n * @docs docs/lowest_common_ancestor.md\n*/\n\nstruct LowestCommonAncestor\
-    \ {\n    size_t n, height;\n    vector<int> depth;\n    vector<vector<int>> dp;\n\
-    \    LowestCommonAncestor(const vector<vector<size_t>>& tree, size_t root): n(size(tree)),\n\
-    \                                                                           height(32\
-    \ - __builtin_clz(n)),\n                                                     \
-    \                      depth(n, -1),\n                                       \
-    \                                    dp(height, vector<int>(n, -1)) {\n      \
-    \  depth[root] = 0;\n        dfs(tree, root, root);\n        rep(k, height - 1)\
-    \ rep(v, n) {\n            if (dp[k][v] == -1) dp[k + 1][v] = -1;\n          \
-    \  else\n                dp[k + 1][v] = dp[k][dp[k][v]];\n        }\n    }\n \
-    \   size_t operator()(size_t u, size_t v) {\n        assert(u < n and v < n);\n\
-    \        if (depth[u] < depth[v]) swap(u, v);\n        for (size_t k = height\
-    \ - 1; k--;)\n            if (((depth[u] - depth[v]) >> k) & 1) u = dp[k][u];\n\
-    \        if (u == v) return u;\n        for (size_t k = height - 1; k--;)\n  \
-    \          if (dp[k][u] != dp[k][v]) {\n                u = dp[k][u];\n      \
-    \          v = dp[k][v];\n            }\n        return dp[0][u];\n    }\n   \
-    \ int dist(size_t u, size_t v) { return depth[u] + depth[v] - depth[(*this)(u,\
-    \ v)] * 2; }\n\n  private:\n    void dfs(const vector<vector<size_t>>& tree, size_t\
-    \ v, size_t prev) {\n        for (const auto u: tree[v])\n            if (u !=\
-    \ prev) {\n                assert(depth[u] == -1 and dp[0][u] == -1);  // The\
-    \ graph may not be a tree Graph.\n                dp[0][u] = (int) v;\n      \
-    \          depth[u] = depth[v] + 1;\n                dfs(tree, u, v);\n      \
-    \      }\n    }\n};\n#line 4 \"test/aoj/GRL_5_C.test.cpp\"\n\nint main() {\n \
-    \   size_t n;\n    cin >> n;\n    vector graph(n, vector<size_t>{});\n    for\
-    \ (size_t i = 0; i < n; i++) {\n        size_t k;\n        cin >> k;\n       \
-    \ while (k--) {\n            size_t c;\n            cin >> c;\n            graph[i].push_back(c);\n\
-    \        }\n    }\n    auto lca = LowestCommonAncestor(graph, 0);\n    size_t\
-    \ q;\n    cin >> q;\n    while (q--) {\n        size_t u, v;\n        cin >> u\
-    \ >> v;\n        size_t ans = lca(u, v);\n        cout << ans << \"\\n\";\n  \
-    \  }\n}\n"
+    \n\n#include <iostream>\n#line 2 \"lib/graph/lowest_common_ancestor.hpp\"\n\n\
+    #include <cassert>\n#include <vector>\n\nstruct LowestCommonAncestor {\n    std::size_t\
+    \ n, height;\n    std::vector<int> depth;\n    std::vector<std::vector<int>> dp;\n\
+    \    LowestCommonAncestor(const std::vector<std::vector<std::size_t>>& tree, std::size_t\
+    \ root): n(size(tree)),\n                                                    \
+    \                                           height(32 - __builtin_clz(n)),\n \
+    \                                                                            \
+    \                  depth(n, -1),\n                                           \
+    \                                                    dp(height, std::vector<int>(n,\
+    \ -1)) {\n        depth[root] = 0;\n        dfs(tree, root, root);\n        for\
+    \ (std::size_t k = 0; k + 1 < height; k++)\n            for (std::size_t v = 0;\
+    \ v < n; v++) {\n                if (dp[k][v] == -1) dp[k + 1][v] = -1;\n    \
+    \            else\n                    dp[k + 1][v] = dp[k][dp[k][v]];\n     \
+    \       }\n    }\n    std::size_t operator()(std::size_t u, std::size_t v) {\n\
+    \        assert(u < n and v < n);\n        if (depth[u] < depth[v]) std::swap(u,\
+    \ v);\n        for (std::size_t k = height - 1; k--;)\n            if (((depth[u]\
+    \ - depth[v]) >> k) & 1) u = dp[k][u];\n        if (u == v) return u;\n      \
+    \  for (size_t k = height - 1; k--;)\n            if (dp[k][u] != dp[k][v]) {\n\
+    \                u = dp[k][u];\n                v = dp[k][v];\n            }\n\
+    \        return dp[0][u];\n    }\n    int dist(size_t u, size_t v) { return depth[u]\
+    \ + depth[v] - depth[(*this)(u, v)] * 2; }\n\n  private:\n    void dfs(const std::vector<std::vector<std::size_t>>&\
+    \ tree, std::size_t v, std::size_t prev) {\n        for (const auto u: tree[v])\n\
+    \            if (u != prev) {\n                assert(depth[u] == -1 and dp[0][u]\
+    \ == -1);  // The graph may not be a tree Graph.\n                dp[0][u] = (int)\
+    \ v;\n                depth[u] = depth[v] + 1;\n                dfs(tree, u, v);\n\
+    \            }\n    }\n};\n#line 5 \"test/aoj/GRL_5_C.test.cpp\"\n\nint main()\
+    \ {\n    using namespace std;\n    size_t n;\n    cin >> n;\n    vector graph(n,\
+    \ vector<size_t>{});\n    for (size_t i = 0; i < n; i++) {\n        size_t k;\n\
+    \        cin >> k;\n        while (k--) {\n            size_t c;\n           \
+    \ cin >> c;\n            graph[i].push_back(c);\n        }\n    }\n    auto lca\
+    \ = LowestCommonAncestor(graph, 0);\n    size_t q;\n    cin >> q;\n    while (q--)\
+    \ {\n        size_t u, v;\n        cin >> u >> v;\n        size_t ans = lca(u,\
+    \ v);\n        cout << ans << \"\\n\";\n    }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/GRL_5_C\"\n\n\
-    #include \"lib/graph/lowest_common_ancestor.hpp\"\n\nint main() {\n    size_t\
-    \ n;\n    cin >> n;\n    vector graph(n, vector<size_t>{});\n    for (size_t i\
-    \ = 0; i < n; i++) {\n        size_t k;\n        cin >> k;\n        while (k--)\
-    \ {\n            size_t c;\n            cin >> c;\n            graph[i].push_back(c);\n\
-    \        }\n    }\n    auto lca = LowestCommonAncestor(graph, 0);\n    size_t\
-    \ q;\n    cin >> q;\n    while (q--) {\n        size_t u, v;\n        cin >> u\
-    \ >> v;\n        size_t ans = lca(u, v);\n        cout << ans << \"\\n\";\n  \
-    \  }\n}\n"
+    #include <iostream>\n#include \"lib/graph/lowest_common_ancestor.hpp\"\n\nint\
+    \ main() {\n    using namespace std;\n    size_t n;\n    cin >> n;\n    vector\
+    \ graph(n, vector<size_t>{});\n    for (size_t i = 0; i < n; i++) {\n        size_t\
+    \ k;\n        cin >> k;\n        while (k--) {\n            size_t c;\n      \
+    \      cin >> c;\n            graph[i].push_back(c);\n        }\n    }\n    auto\
+    \ lca = LowestCommonAncestor(graph, 0);\n    size_t q;\n    cin >> q;\n    while\
+    \ (q--) {\n        size_t u, v;\n        cin >> u >> v;\n        size_t ans =\
+    \ lca(u, v);\n        cout << ans << \"\\n\";\n    }\n}\n"
   dependsOn:
   - lib/graph/lowest_common_ancestor.hpp
-  - lib/include.hpp
   isVerificationFile: true
   path: test/aoj/GRL_5_C.test.cpp
   requiredBy: []
-  timestamp: '2021-10-01 23:39:12+09:00'
+  timestamp: '2021-10-03 22:09:41+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_5_C.test.cpp

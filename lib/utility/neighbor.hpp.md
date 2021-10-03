@@ -1,46 +1,34 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: lib/include.hpp
-    title: lib/include.hpp
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    _deprecated_at_docs: docs/neighbor.md
-    document_title: "neighbor on grid / \u30B0\u30EA\u30C3\u30C9\u4E0A\u3067\u306E\
-      \u8FD1\u508D"
     links: []
-  bundledCode: "#line 2 \"lib/utility/neighbor.hpp\"\n\n#line 2 \"lib/include.hpp\"\
-    \n\n#include <bits/stdc++.h>\nusing namespace std;\n#define overload3(_NULL, _2,\
-    \ _3, name, ...) name\n#define rep1(i, n) for (remove_const_t<remove_reference_t<decltype(n)>>\
-    \ i = 0; i < (n); i++)\n#define rep2(i, a, b) for (remove_const_t<remove_reference_t<decltype(b)>>\
-    \ i = a; i < (b); i++)\n#define rep(...) overload3(__VA_ARGS__, rep2, rep1)(__VA_ARGS__)\n\
-    using size_type = size_t;\n#line 4 \"lib/utility/neighbor.hpp\"\n\n/**\n * @brief\
-    \ neighbor on grid / \u30B0\u30EA\u30C3\u30C9\u4E0A\u3067\u306E\u8FD1\u508D\n\
-    \ * @docs docs/neighbor.md\n */\n\ntemplate<class F> vector<pair<int, int>> neighbor(int\
-    \ x, int y, int dir, const F& ok) {\n    assert(dir == 4 or dir == 8);\n    const\
-    \ int dx[8] = {0, 0, -1, 1, -1, -1, 1, 1};\n    const int dy[8] = {-1, 1, 0, 0,\
-    \ -1, 1, -1, 1};\n    vector<pair<int, int>> ret{};\n    rep(i, dir) {\n     \
-    \   const auto& [nx, ny] = pair{x + dx, y + dy};\n        if (ok(nx, ny)) ret.emplace_back(pair{nx,\
-    \ ny});\n    }\n    return ret;\n}\n"
-  code: "#pragma once\n\n#include \"../include.hpp\"\n\n/**\n * @brief neighbor on\
-    \ grid / \u30B0\u30EA\u30C3\u30C9\u4E0A\u3067\u306E\u8FD1\u508D\n * @docs docs/neighbor.md\n\
-    \ */\n\ntemplate<class F> vector<pair<int, int>> neighbor(int x, int y, int dir,\
-    \ const F& ok) {\n    assert(dir == 4 or dir == 8);\n    const int dx[8] = {0,\
-    \ 0, -1, 1, -1, -1, 1, 1};\n    const int dy[8] = {-1, 1, 0, 0, -1, 1, -1, 1};\n\
-    \    vector<pair<int, int>> ret{};\n    rep(i, dir) {\n        const auto& [nx,\
-    \ ny] = pair{x + dx, y + dy};\n        if (ok(nx, ny)) ret.emplace_back(pair{nx,\
-    \ ny});\n    }\n    return ret;\n}\n"
-  dependsOn:
-  - lib/include.hpp
+  bundledCode: "#line 2 \"lib/utility/neighbor.hpp\"\n\n#include <cassert>\n#include\
+    \ <utility>\n#include <vector>\n\ntemplate<class F> std::vector<std::pair<std::size_t,\
+    \ std::size_t>> neighbor(size_t x, size_t y, int dir, const F& ok) {\n    using\
+    \ namespace std;\n    assert(dir == 4 or dir == 8);\n    const int dx[8] = { 0,\
+    \ 0, -1, 1, -1, -1, 1, 1 };\n    const int dy[8] = { -1, 1, 0, 0, -1, 1, -1, 1\
+    \ };\n    vector<pair<size_t, size_t>> ret{};\n    for (int i = 0; i < dir; i++)\
+    \ {\n        const auto& [nx, ny] = pair{ x + dx, y + dy };\n        if (ok(nx,\
+    \ ny)) ret.emplace_back(pair{ nx, ny });\n    }\n    return ret;\n}\n"
+  code: "#pragma once\n\n#include <cassert>\n#include <utility>\n#include <vector>\n\
+    \ntemplate<class F> std::vector<std::pair<std::size_t, std::size_t>> neighbor(size_t\
+    \ x, size_t y, int dir, const F& ok) {\n    using namespace std;\n    assert(dir\
+    \ == 4 or dir == 8);\n    const int dx[8] = { 0, 0, -1, 1, -1, -1, 1, 1 };\n \
+    \   const int dy[8] = { -1, 1, 0, 0, -1, 1, -1, 1 };\n    vector<pair<size_t,\
+    \ size_t>> ret{};\n    for (int i = 0; i < dir; i++) {\n        const auto& [nx,\
+    \ ny] = pair{ x + dx, y + dy };\n        if (ok(nx, ny)) ret.emplace_back(pair{\
+    \ nx, ny });\n    }\n    return ret;\n}\n"
+  dependsOn: []
   isVerificationFile: false
   path: lib/utility/neighbor.hpp
   requiredBy: []
-  timestamp: '2021-09-29 20:09:01+09:00'
+  timestamp: '2021-10-03 22:09:41+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: lib/utility/neighbor.hpp

@@ -57,16 +57,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/graph/tree_diameter.hpp
       title: "Diameter of a Tree / \u6728\u306E\u76F4\u5F84"
-  - name: lib
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: lib/include.hpp
-      title: lib/include.hpp
   - name: lib/math
     pages:
     - icon: ':heavy_check_mark:'
       path: lib/math/eratosthenes.hpp
-      title: Eratosthenes's Sieve
+      title: lib/math/eratosthenes.hpp
     - icon: ':heavy_check_mark:'
       path: lib/math/euler_phi.hpp
       title: Euler's totient function / $\varphi(n)$

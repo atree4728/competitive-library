@@ -16,9 +16,7 @@ data:
     - https://judge.yosupo.jp/problem/scc
   bundledCode: "#line 1 \"test/library-checker/scc.test.cpp\"\n#define PROBLEM \"\
     https://judge.yosupo.jp/problem/scc\"\n\n#include <iostream>\n#line 2 \"lib/graph/strongly_connected_components.hpp\"\
-    \n\n#include <algorithm>\n#include <cassert>\n#include <vector>\n\n/**\n * @brief\
-    \ Strongly Connected Components / \u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\n\
-    \ * @docs docs/strongly_connected_components.md\n */\n\nstruct StronglyConnectedComponents\
+    \n\n#include <algorithm>\n#include <cassert>\n#include <vector>\n\nstruct StronglyConnectedComponents\
     \ {\n    template<class T> using vector = std::vector<T>;\n    using usize = std::size_t;\n\
     \n    usize n;\n    vector<vector<usize>> rev_graph;\n    vector<vector<usize>>\
     \ contracted;\n    vector<usize> component;\n    vector<usize> post_order;\n\n\
@@ -63,7 +61,7 @@ data:
   isVerificationFile: true
   path: test/library-checker/scc.test.cpp
   requiredBy: []
-  timestamp: '2021-10-02 00:32:30+09:00'
+  timestamp: '2021-10-03 22:09:41+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library-checker/scc.test.cpp

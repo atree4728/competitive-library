@@ -1,9 +1,6 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: lib/include.hpp
-    title: lib/include.hpp
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -16,28 +13,10 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/topological_sort.md
-    document_title: Topological Sort
     links: []
-  bundledCode: "#line 2 \"lib/graph/topological_sort.hpp\"\n\n#line 2 \"lib/include.hpp\"\
-    \n\n#include <bits/stdc++.h>\nusing namespace std;\n#define overload3(_NULL, _2,\
-    \ _3, name, ...) name\n#define rep1(i, n) for (remove_const_t<remove_reference_t<decltype(n)>>\
-    \ i = 0; i < (n); i++)\n#define rep2(i, a, b) for (remove_const_t<remove_reference_t<decltype(b)>>\
-    \ i = a; i < (b); i++)\n#define rep(...) overload3(__VA_ARGS__, rep2, rep1)(__VA_ARGS__)\n\
-    using size_type = size_t;\n#line 4 \"lib/graph/topological_sort.hpp\"\n\n/**\n\
-    \ * @brief Topological Sort\n * @docs docs/topological_sort.md\n*/\n\ntemplate<typename\
-    \ T> vector<T> topological_sort(vector<vector<T>> const &graph) {\n    const size_t\
-    \ n = size(graph);\n    vector<unsigned int> indegree(n, 0);\n    for (const auto\
-    \ &edges: graph)\n        for (const auto &to: edges) indegree[to]++;\n    queue<T>\
-    \ indegree_is_0{};\n    for (size_t i = 0; i < n; i++)\n        if (indegree[i]\
-    \ == 0) indegree_is_0.push(i);\n    vector<T> ordered{};\n    while (not empty(indegree_is_0))\
-    \ {\n        T from = indegree_is_0.front();\n        ordered.push_back(from);\n\
-    \        indegree_is_0.pop();\n        for (const auto &to: graph[from])\n   \
-    \         if (--indegree[to] == 0) indegree_is_0.push(to);\n    }\n    if (size(ordered)\
-    \ < n) return {};  // graph is not a DAG.\n    return ordered;\n}\n"
-  code: "#pragma once\n\n#include \"../include.hpp\"\n\n/**\n * @brief Topological\
-    \ Sort\n * @docs docs/topological_sort.md\n*/\n\ntemplate<typename T> vector<T>\
-    \ topological_sort(vector<vector<T>> const &graph) {\n    const size_t n = size(graph);\n\
+  bundledCode: "#line 2 \"lib/graph/topological_sort.hpp\"\n\n#include <queue>\n#include\
+    \ <vector>\n\ntemplate<typename T> std::vector<T> topological_sort(std::vector<std::vector<T>>\
+    \ const &graph) {\n    using namespace std;\n    const size_t n = size(graph);\n\
     \    vector<unsigned int> indegree(n, 0);\n    for (const auto &edges: graph)\n\
     \        for (const auto &to: edges) indegree[to]++;\n    queue<T> indegree_is_0{};\n\
     \    for (size_t i = 0; i < n; i++)\n        if (indegree[i] == 0) indegree_is_0.push(i);\n\
@@ -46,12 +25,22 @@ data:
     \        for (const auto &to: graph[from])\n            if (--indegree[to] ==\
     \ 0) indegree_is_0.push(to);\n    }\n    if (size(ordered) < n) return {};  //\
     \ graph is not a DAG.\n    return ordered;\n}\n"
-  dependsOn:
-  - lib/include.hpp
+  code: "#pragma once\n\n#include <queue>\n#include <vector>\n\ntemplate<typename\
+    \ T> std::vector<T> topological_sort(std::vector<std::vector<T>> const &graph)\
+    \ {\n    using namespace std;\n    const size_t n = size(graph);\n    vector<unsigned\
+    \ int> indegree(n, 0);\n    for (const auto &edges: graph)\n        for (const\
+    \ auto &to: edges) indegree[to]++;\n    queue<T> indegree_is_0{};\n    for (size_t\
+    \ i = 0; i < n; i++)\n        if (indegree[i] == 0) indegree_is_0.push(i);\n \
+    \   vector<T> ordered{};\n    while (not empty(indegree_is_0)) {\n        T from\
+    \ = indegree_is_0.front();\n        ordered.push_back(from);\n        indegree_is_0.pop();\n\
+    \        for (const auto &to: graph[from])\n            if (--indegree[to] ==\
+    \ 0) indegree_is_0.push(to);\n    }\n    if (size(ordered) < n) return {};  //\
+    \ graph is not a DAG.\n    return ordered;\n}\n"
+  dependsOn: []
   isVerificationFile: false
   path: lib/graph/topological_sort.hpp
   requiredBy: []
-  timestamp: '2021-09-29 22:27:21+09:00'
+  timestamp: '2021-10-03 22:09:41+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/my_stress_test/topological_sort.test.cpp

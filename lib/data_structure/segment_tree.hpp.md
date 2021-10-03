@@ -1,9 +1,6 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: lib/include.hpp
-    title: lib/include.hpp
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -13,56 +10,45 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/segment_tree.md
-    document_title: Segment Tree
     links: []
-  bundledCode: "#line 2 \"lib/data_structure/segment_tree.hpp\"\n\n#line 2 \"lib/include.hpp\"\
-    \n\n#include <bits/stdc++.h>\nusing namespace std;\n#define overload3(_NULL, _2,\
-    \ _3, name, ...) name\n#define rep1(i, n) for (remove_const_t<remove_reference_t<decltype(n)>>\
-    \ i = 0; i < (n); i++)\n#define rep2(i, a, b) for (remove_const_t<remove_reference_t<decltype(b)>>\
-    \ i = a; i < (b); i++)\n#define rep(...) overload3(__VA_ARGS__, rep2, rep1)(__VA_ARGS__)\n\
-    using size_type = size_t;\n#line 4 \"lib/data_structure/segment_tree.hpp\"\n\n\
-    /**\n * @brief Segment Tree\n * @docs docs/segment_tree.md\n */\n\ntemplate<class\
-    \ Monoid> struct SegmentTree {\n    using T = typename Monoid::T;\n    size_type\
-    \ n;\n    vector<T> node;\n    explicit SegmentTree(const size_type n):\n    \
-    \    n(n), node(n * 2, Monoid::id) {}\n    explicit SegmentTree(const vector<T>&\
-    \ a):\n        n(size(a)), node(n * 2, Monoid::id) {\n        copy(begin(a), end(a),\
-    \ begin(node) + n);\n        for (size_type i = n - 1; i--;) node[i] = Monoid::op(node[i\
-    \ * 2], node[i * 2 + 1]);\n    };\n    void update(size_type i, T val) { set(i,\
-    \ Monoid::op(node[i + n], val)); }\n    void set(size_type i, T val) {\n     \
-    \   assert(i < n);\n        i += n;\n        node[i] = val;\n        while ((i\
-    \ /= 2) >= 1) node[i] = Monoid::op(node[i * 2], node[i * 2 + 1]);\n    }\n   \
-    \ T fold(size_type l, size_type r) {\n        assert(l <= n and r <= n);\n   \
-    \     if (l == 0 and r == n) return node[1];\n        T ret = Monoid::id;\n  \
-    \      l += n;\n        r += n;\n        while (l < r) {\n            if (l %\
-    \ 2 == 1) ret = Monoid::op(ret, node[l++]);\n            if (r % 2 == 1) ret =\
-    \ Monoid::op(ret, node[--r]);\n            l /= 2;\n            r /= 2;\n    \
-    \    }\n        return ret;\n    }\n    T& operator[](size_type i) {\n       \
-    \ assert(i < n);\n        return &node[i + n];\n    }\n};\n"
-  code: "#pragma once\n\n#include \"../include.hpp\"\n\n/**\n * @brief Segment Tree\n\
-    \ * @docs docs/segment_tree.md\n */\n\ntemplate<class Monoid> struct SegmentTree\
-    \ {\n    using T = typename Monoid::T;\n    size_type n;\n    vector<T> node;\n\
-    \    explicit SegmentTree(const size_type n):\n        n(n), node(n * 2, Monoid::id)\
-    \ {}\n    explicit SegmentTree(const vector<T>& a):\n        n(size(a)), node(n\
-    \ * 2, Monoid::id) {\n        copy(begin(a), end(a), begin(node) + n);\n     \
-    \   for (size_type i = n - 1; i--;) node[i] = Monoid::op(node[i * 2], node[i *\
-    \ 2 + 1]);\n    };\n    void update(size_type i, T val) { set(i, Monoid::op(node[i\
-    \ + n], val)); }\n    void set(size_type i, T val) {\n        assert(i < n);\n\
-    \        i += n;\n        node[i] = val;\n        while ((i /= 2) >= 1) node[i]\
-    \ = Monoid::op(node[i * 2], node[i * 2 + 1]);\n    }\n    T fold(size_type l,\
-    \ size_type r) {\n        assert(l <= n and r <= n);\n        if (l == 0 and r\
-    \ == n) return node[1];\n        T ret = Monoid::id;\n        l += n;\n      \
-    \  r += n;\n        while (l < r) {\n            if (l % 2 == 1) ret = Monoid::op(ret,\
-    \ node[l++]);\n            if (r % 2 == 1) ret = Monoid::op(ret, node[--r]);\n\
-    \            l /= 2;\n            r /= 2;\n        }\n        return ret;\n  \
-    \  }\n    T& operator[](size_type i) {\n        assert(i < n);\n        return\
-    \ &node[i + n];\n    }\n};\n"
-  dependsOn:
-  - lib/include.hpp
+  bundledCode: "#line 2 \"lib/data_structure/segment_tree.hpp\"\n\n#include <cassert>\n\
+    #include <vector>\n\ntemplate<class Monoid> struct SegmentTree {\n    using T\
+    \ = typename Monoid::T;\n    size_t n;\n    std::vector<T> node;\n    explicit\
+    \ SegmentTree(const size_t n): n(n), node(n * 2, Monoid::id) {}\n    explicit\
+    \ SegmentTree(const std::vector<T>& a): n(size(a)), node(n * 2, Monoid::id) {\n\
+    \        copy(begin(a), end(a), begin(node) + n);\n        for (size_t i = n -\
+    \ 1; i--;) node[i] = Monoid::op(node[i * 2], node[i * 2 + 1]);\n    };\n    void\
+    \ update(size_t i, T val) { set(i, Monoid::op(node[i + n], val)); }\n    void\
+    \ set(size_t i, T val) {\n        assert(i < n);\n        i += n;\n        node[i]\
+    \ = val;\n        while ((i /= 2) >= 1) node[i] = Monoid::op(node[i * 2], node[i\
+    \ * 2 + 1]);\n    }\n    T fold(size_t l, size_t r) {\n        assert(l <= n and\
+    \ r <= n);\n        if (l == 0 and r == n) return node[1];\n        T ret = Monoid::id;\n\
+    \        l += n;\n        r += n;\n        while (l < r) {\n            if (l\
+    \ % 2 == 1) ret = Monoid::op(ret, node[l++]);\n            if (r % 2 == 1) ret\
+    \ = Monoid::op(ret, node[--r]);\n            l /= 2;\n            r /= 2;\n  \
+    \      }\n        return ret;\n    }\n    T& operator[](size_t i) {\n        assert(i\
+    \ < n);\n        return &node[i + n];\n    }\n};\n"
+  code: "#pragma once\n\n#include <cassert>\n#include <vector>\n\ntemplate<class Monoid>\
+    \ struct SegmentTree {\n    using T = typename Monoid::T;\n    size_t n;\n   \
+    \ std::vector<T> node;\n    explicit SegmentTree(const size_t n): n(n), node(n\
+    \ * 2, Monoid::id) {}\n    explicit SegmentTree(const std::vector<T>& a): n(size(a)),\
+    \ node(n * 2, Monoid::id) {\n        copy(begin(a), end(a), begin(node) + n);\n\
+    \        for (size_t i = n - 1; i--;) node[i] = Monoid::op(node[i * 2], node[i\
+    \ * 2 + 1]);\n    };\n    void update(size_t i, T val) { set(i, Monoid::op(node[i\
+    \ + n], val)); }\n    void set(size_t i, T val) {\n        assert(i < n);\n  \
+    \      i += n;\n        node[i] = val;\n        while ((i /= 2) >= 1) node[i]\
+    \ = Monoid::op(node[i * 2], node[i * 2 + 1]);\n    }\n    T fold(size_t l, size_t\
+    \ r) {\n        assert(l <= n and r <= n);\n        if (l == 0 and r == n) return\
+    \ node[1];\n        T ret = Monoid::id;\n        l += n;\n        r += n;\n  \
+    \      while (l < r) {\n            if (l % 2 == 1) ret = Monoid::op(ret, node[l++]);\n\
+    \            if (r % 2 == 1) ret = Monoid::op(ret, node[--r]);\n            l\
+    \ /= 2;\n            r /= 2;\n        }\n        return ret;\n    }\n    T& operator[](size_t\
+    \ i) {\n        assert(i < n);\n        return &node[i + n];\n    }\n};\n"
+  dependsOn: []
   isVerificationFile: false
   path: lib/data_structure/segment_tree.hpp
   requiredBy: []
-  timestamp: '2021-09-29 20:09:01+09:00'
+  timestamp: '2021-10-03 22:09:41+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DSL_2_A.test.cpp

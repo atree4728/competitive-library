@@ -16,15 +16,14 @@ data:
     - https://onlinejudge.u-aizu.ac.jp/problems/GRL_3_B
   bundledCode: "#line 1 \"test/aoj/GRL_3_B.test.cpp\"\n#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/GRL_3_B\"\
     \n\n#include <iostream>\n#line 2 \"lib/graph/lowlink.hpp\"\n\n#include <algorithm>\n\
-    #include <vector>\n\n/**\n * @brief Lowlink / \u6A4B\u30FB\u95A2\u7BC0\u70B9\n\
-    \ * @docs docs/lowlink.md\n */\n\nstruct Lowlink {\n    using usize = std::size_t;\n\
-    \    template<class T> using vector = std::vector<T>;\n    using edge_t = std::pair<usize,\
-    \ usize>;\n\n    usize n;\n    vector<usize> order, lowlink, articulation;\n \
-    \   vector<edge_t> bridge;\n    Lowlink(const vector<vector<usize>> &graph): n(size(graph)),\
-    \ order(n, 0), lowlink(n, 0), seen(n, false) {\n        usize time = 0;\n    \
-    \    for (usize i = 0; i < n; i++)\n            if (not seen[i]) time = dfs(i,\
-    \ i, time, graph);\n        // When you comment below two lines out, the complexity\
-    \ is $\\mathcal{O}(N \\log N)$.\n        // std::sort(articulation.begin(), articulation.end());\n\
+    #include <vector>\n\nstruct Lowlink {\n    using usize = std::size_t;\n    template<class\
+    \ T> using vector = std::vector<T>;\n    using edge_t = std::pair<usize, usize>;\n\
+    \n    usize n;\n    vector<usize> order, lowlink, articulation;\n    vector<edge_t>\
+    \ bridge;\n    Lowlink(const vector<vector<usize>> &graph): n(size(graph)), order(n,\
+    \ 0), lowlink(n, 0), seen(n, false) {\n        usize time = 0;\n        for (usize\
+    \ i = 0; i < n; i++)\n            if (not seen[i]) time = dfs(i, i, time, graph);\n\
+    \        // When you comment below two lines out, the complexity is $\\mathcal{O}(N\
+    \ \\log N)$.\n        // std::sort(articulation.begin(), articulation.end());\n\
     \        // std::sort(bridge.begin(), bridge.end());\n    }\n\n  private:\n  \
     \  vector<bool> seen;\n    usize dfs(const usize &v, const usize &prev, usize\
     \ &time, const vector<vector<usize>> &graph) {\n        seen[v] = true;\n    \
@@ -44,19 +43,18 @@ data:
     \    sort(begin(bridge), end(bridge));\n    for (const auto &[u, v]: bridge) {\n\
     \        cout << u << \" \" << v << \"\\n\";\n    }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/GRL_3_B\"\n\n\
-    #include <iostream>\n#include \"../../lib/graph/lowlink.hpp\"\n\nint main() {\n\
-    \    using namespace std;\n    size_t v, e;\n    cin >> v >> e;\n    vector graph(v,\
-    \ vector<size_t>{});\n    while (e--) {\n        size_t s, t;\n        cin >>\
-    \ s >> t;\n        graph[s].push_back(t);\n        graph[t].push_back(s);\n  \
-    \  }\n    auto bridge = Lowlink(graph).bridge;\n    sort(begin(bridge), end(bridge));\n\
-    \    for (const auto &[u, v]: bridge) {\n        cout << u << \" \" << v << \"\
-    \\n\";\n    }\n}\n"
+    #include <iostream>\n#include \"lib/graph/lowlink.hpp\"\n\nint main() {\n    using\
+    \ namespace std;\n    size_t v, e;\n    cin >> v >> e;\n    vector graph(v, vector<size_t>{});\n\
+    \    while (e--) {\n        size_t s, t;\n        cin >> s >> t;\n        graph[s].push_back(t);\n\
+    \        graph[t].push_back(s);\n    }\n    auto bridge = Lowlink(graph).bridge;\n\
+    \    sort(begin(bridge), end(bridge));\n    for (const auto &[u, v]: bridge) {\n\
+    \        cout << u << \" \" << v << \"\\n\";\n    }\n}\n"
   dependsOn:
   - lib/graph/lowlink.hpp
   isVerificationFile: true
   path: test/aoj/GRL_3_B.test.cpp
   requiredBy: []
-  timestamp: '2021-10-01 17:45:37+09:00'
+  timestamp: '2021-10-03 22:09:41+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_3_B.test.cpp
