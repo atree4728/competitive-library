@@ -3,11 +3,6 @@
 #include <tuple>
 #include <vector>
 
-/**
- * @brief Bellman-Ford Algorithm / 負辺を許す単一始点最短経路問題
- * @docs docs/bellman_ford.md
-*/
-
 template<typename T> std::vector<T> bellman_ford(std::vector<std::vector<std::pair<std::size_t, T>>> const& graph, std::size_t root) {
     using namespace std;
     static_assert(is_signed_v<T>);

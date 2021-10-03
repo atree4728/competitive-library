@@ -3,11 +3,6 @@
 #include <queue>
 #include <vector>
 
-/**
- * @brief Topological Sort
- * @docs docs/topological_sort.md
-*/
-
 template<typename T> std::vector<T> topological_sort(std::vector<std::vector<T>> const &graph) {
     using namespace std;
     const size_t n = size(graph);

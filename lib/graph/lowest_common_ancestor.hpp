@@ -3,11 +3,6 @@
 #include <cassert>
 #include <vector>
 
-/**
- * @brief Lowest Common Ancestor(Doubling, Binary Search) / 最近共通祖先
- * @docs docs/lowest_common_ancestor.md
-*/
-
 struct LowestCommonAncestor {
     std::size_t n, height;
     std::vector<int> depth;

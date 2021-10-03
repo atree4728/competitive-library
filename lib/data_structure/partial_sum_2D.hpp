@@ -2,11 +2,6 @@
 
 #include <vector>
 
-/**
- * @brief 2D Partial Sum / 二次元累積和
- * @docs docs/partial_sum_2D.md
- */
-
 template<class T> struct CumSum2D {
     std::vector<std::vector<T>> data;
     explicit CumSum2D(const std::vector<std::vector<T>> &a): data(size(a) + 1, std::vector<T>(size(a[0]) + 1, 0)) {

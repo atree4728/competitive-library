@@ -3,11 +3,6 @@
 #include <utility>
 #include <vector>
 
-/**
- * @brief Floyd Warshall Algorithm / 負辺を許す全点対最短経路問題
- * @docs docs/floyd_warshall.md
- */
-
 template<typename T> std::vector<std::vector<T>> floyd_warshall(std::vector<std::vector<std::pair<std::size_t, T>>> const& graph) {
     using namespace std;
     const size_t n = size(graph);

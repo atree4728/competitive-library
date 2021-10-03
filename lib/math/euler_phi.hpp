@@ -2,11 +2,6 @@
 
 #include <cassert>
 
-/**
- * @brief Euler's totient function / $\varphi(n)$
- * @docs docs/euler_phi.md
- */
-
 template<typename T> T euler_phi(T n) {
     assert(n > 0);
     T ret = n;

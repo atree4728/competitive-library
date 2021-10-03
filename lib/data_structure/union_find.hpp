@@ -3,11 +3,6 @@
 #include <algorithm>
 #include <vector>
 
-/**
- * @brief Union Find
- * @docs docs/union_find.md
- */
-
 struct UnionFind {
     std::size_t n;
     std::vector<int> node;

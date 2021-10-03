@@ -4,11 +4,6 @@
 #include <cassert>
 #include <vector>
 
-/**
- * @brief Strongly Connected Components / 強連結成分分解
- * @docs docs/strongly_connected_components.md
- */
-
 struct StronglyConnectedComponents {
     template<class T> using vector = std::vector<T>;
     using usize = std::size_t;

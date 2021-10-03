@@ -5,11 +5,6 @@
 #include <numeric>
 #include <vector>
 
-/**
- * @brief Eratosthenes's Sieve
- * @note construct in $O(NloglogN)$, return prime determination in $O(1)$ and number of constants and prime factorization quickly(<-?).
- */
-
 struct Sieve {
     int size;
     std::vector<int> min_factor, prime_list;

@@ -3,11 +3,6 @@
 #include <limits>
 #include <vector>
 
-/**
- * @brief MaxFlow(Ford-Fulkerson) / 最大費用流
- * @docs docs/ford_fulkerson.md
-*/
-
 struct FordFulkerson {
     using size_t = std::size_t;
     using flow_t = int;

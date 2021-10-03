@@ -3,11 +3,6 @@
 #include <utility>
 #include <vector>
 
-/**
- * @brief Subtree Info / 部分木の情報
- * @docs docs/subtree_info.md
- */
-
 template<typename T> struct SubtreeInfo {
     using size_t = std::size_t;
     template<class U> using vector = std::vector<U>;

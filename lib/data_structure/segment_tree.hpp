@@ -3,11 +3,6 @@
 #include <cassert>
 #include <vector>
 
-/**
- * @brief Segment Tree
- * @docs docs/segment_tree.md
- */
-
 template<class Monoid> struct SegmentTree {
     using T = typename Monoid::T;
     size_t n;

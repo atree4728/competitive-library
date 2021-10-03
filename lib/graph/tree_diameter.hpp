@@ -5,11 +5,6 @@
 #include <limits>
 #include <vector>
 
-/**
- * @brief Diameter of a Tree / 木の直径
- * @docs docs/tree_diameter.md
- */
-
 template<typename T> T tree_diameter(const std::vector<std::vector<std::pair<std::size_t, T>>> &tree) {
     using namespace std;
     const size_t n = size(tree);

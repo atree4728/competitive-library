@@ -4,11 +4,6 @@
 #include <utility>
 #include <vector>
 
-/**
- * @brief neighbor on grid / グリッド上での近傍
- * @docs docs/neighbor.md
- */
-
 template<class F> std::vector<std::pair<std::size_t, std::size_t>> neighbor(size_t x, size_t y, int dir, const F& ok) {
     using namespace std;
     assert(dir == 4 or dir == 8);

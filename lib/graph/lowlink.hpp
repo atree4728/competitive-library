@@ -3,11 +3,6 @@
 #include <algorithm>
 #include <vector>
 
-/**
- * @brief Lowlink / 橋・関節点
- * @docs docs/lowlink.md
- */
-
 struct Lowlink {
     using usize = std::size_t;
     template<class T> using vector = std::vector<T>;

@@ -4,11 +4,6 @@
 #include <vector>
 using namespace std;
 
-/**
- * @brief Fenwick Tree / Binary Indexed Tree
- * @docs docs/fenwick_tree.md
- */
-
 template<class T> struct FenwickTree {
     size_t n;
     vector<T> data;
