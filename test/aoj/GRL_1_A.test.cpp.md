@@ -3,7 +3,8 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: lib/graph/dijkstra.hpp
-    title: Dijkstra's Algorithm
+    title: "Dijkstra's Algorithm / \u5358\u4E00\u59CB\u70B9\u6700\u77ED\u7D4C\u8DEF\
+      \u554F\u984C"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false

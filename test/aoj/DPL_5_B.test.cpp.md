@@ -6,7 +6,7 @@ data:
     title: Combination on mod
   - icon: ':heavy_check_mark:'
     path: lib/modulus/modint.hpp
-    title: Finite Field
+    title: "Finite Field / \u6709\u9650\u4F53"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -28,12 +28,11 @@ data:
     \  Modint operator()(int n, int r) { return r < 0 or r > n ? 0 : fact[n] * ifact[r]\
     \ * ifact[n - r]; }\n    Modint H(int n, int r) { return operator()(n + r - 1,\
     \ r); }\n    Modint P(int n, int r) { return r < 0 or r > n ? 0 : fact[n] * ifact[n\
-    \ - r]; }\n};\n#line 2 \"lib/modulus/modint.hpp\"\n\n#include <iostream>\n\n/**\n\
-    \ * @brief  Finite Field\n * @note Since Fermat's little theorem is used for division,\
-    \ the modulo must be prime.\n */\n\ntemplate<int MOD> struct Modint {\n    using\
-    \ mint = Modint<MOD>;\n    unsigned int value;\n    Modint(long long value_ =\
-    \ 0): value((value_ % MOD + MOD) % MOD) {}\n    mint val() const { return *this;\
-    \ }\n    mint operator-() const { return mint(-value); }\n    mint operator++()\
+    \ - r]; }\n};\n#line 2 \"lib/modulus/modint.hpp\"\n\n/**\n * @brief Finite Field\
+    \ / \u6709\u9650\u4F53\n */\n\n#include <iostream>\n\ntemplate<int MOD> struct\
+    \ Modint {\n    using mint = Modint<MOD>;\n    int value;\n    Modint(long long\
+    \ value_ = 0): value((value_ % MOD + MOD) % MOD) {}\n    mint val() const { return\
+    \ *this; }\n    mint operator-() const { return mint(-value); }\n    mint operator++()\
     \ const { return *this += 1; }\n    mint operator--() const { return *this -=\
     \ 1; }\n    mint operator+(mint arg) const { return mint(*this) += arg; }\n  \
     \  mint operator-(mint arg) const { return mint(*this) -= arg; }\n    mint operator*(mint\
@@ -54,9 +53,10 @@ data:
     \ - a; }\n    friend mint operator*(long long value, Modint<MOD> a) { return Modint<MOD>(value)\
     \ * a; }\n    friend mint operator/(long long value, Modint<MOD> a) { return Modint<MOD>(value)\
     \ / a; }\n    friend std::ostream& operator<<(std::ostream& os, Modint<MOD> a)\
-    \ { return os << a.value; }\n};\n#line 5 \"test/aoj/DPL_5_B.test.cpp\"\n\nint\
-    \ main() {\n    int n, k;\n    std::cin >> n >> k;\n\n    constexpr int MOD =\
-    \ 1000000007;\n    using mint = Modint<MOD>;\n    CombTable<mint> ct(1100);\n\
+    \ { return os << a.value; }\n};\n\nusing Modint1000000007 = Modint<1000000007>;\n\
+    using Modint998244353 = Modint<998244353>;\n#line 5 \"test/aoj/DPL_5_B.test.cpp\"\
+    \n\nint main() {\n    int n, k;\n    std::cin >> n >> k;\n\n    constexpr int\
+    \ MOD = 1000000007;\n    using mint = Modint<MOD>;\n    CombTable<mint> ct(1100);\n\
     \    std::cout << ct.P(k, n) << \"\\n\";\n    return 0;\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_B\"\
     \n\n#include \"lib/modulus/combination.hpp\"\n#include \"lib/modulus/modint.hpp\"\
@@ -69,7 +69,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DPL_5_B.test.cpp
   requiredBy: []
-  timestamp: '2021-10-03 22:04:20+09:00'
+  timestamp: '2021-10-13 18:08:33+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DPL_5_B.test.cpp

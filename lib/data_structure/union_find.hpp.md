@@ -4,7 +4,8 @@ data:
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: lib/graph/kruskal.hpp
-    title: Kruskal's Algorithm
+    title: "Kruskal's Algorithm / Minimum Spanning Tree\uFF08\u6700\u5C0F\u5168\u57DF\
+      \u6728\uFF09"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/ALDS1_11_D.test.cpp
@@ -59,10 +60,10 @@ data:
   timestamp: '2021-10-03 22:09:41+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/ALDS1_11_D.test.cpp
-  - test/aoj/DSL_1_A.test.cpp
-  - test/aoj/GRL_2_A.test.cpp
   - test/library-checker/unionfind.test.cpp
+  - test/aoj/GRL_2_A.test.cpp
+  - test/aoj/DSL_1_A.test.cpp
+  - test/aoj/ALDS1_11_D.test.cpp
 documentation_of: lib/data_structure/union_find.hpp
 layout: document
 title: Union Find

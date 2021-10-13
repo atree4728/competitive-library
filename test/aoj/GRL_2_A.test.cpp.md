@@ -6,7 +6,8 @@ data:
     title: Union Find
   - icon: ':heavy_check_mark:'
     path: lib/graph/kruskal.hpp
-    title: Kruskal's Algorithm
+    title: "Kruskal's Algorithm / Minimum Spanning Tree\uFF08\u6700\u5C0F\u5168\u57DF\
+      \u6728\uFF09"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -33,11 +34,7 @@ data:
     \ ret(n, std::vector<std::size_t>{});\n        for (std::size_t i = 0; i < n;\
     \ i++) ret[root(i)].push_back(i);\n        ret.erase(std::remove_if(begin(ret),\
     \ end(ret), [&](const auto &ri) { return empty(ri); }));\n        return ret;\n\
-    \    }\n};\n#line 5 \"lib/graph/kruskal.hpp\"\n/**\n * @brief Kruskal's Algorithm\n\
-    \ * @note Solve MST; Minimum Spanning Tree in $O(|E|log|E)$.\n * @note The sum\
-    \ of the weights of the edges can be obtained from\n * ```accumulate(begin(ret),\
-    \ end(ret), 0, [](T acc, auto e) { return acc + get<2>(e); })```.\n * @return\
-    \ Set of edges by vector<tuple<u, v, weight>>\n*/\n\ntemplate<typename T> std::vector<std::tuple<size_t,\
+    \    }\n};\n#line 5 \"lib/graph/kruskal.hpp\"\n\ntemplate<typename T> std::vector<std::tuple<size_t,\
     \ size_t, T>> kruskal(std::vector<std::vector<std::pair<size_t, T>>> const& graph)\
     \ {\n    using namespace std;\n    using Edge = tuple<size_t, size_t, T>;\n  \
     \  vector<Edge> edges{};\n    const size_t n = size(graph);\n    if (n == 1) return\
@@ -68,7 +65,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_2_A.test.cpp
   requiredBy: []
-  timestamp: '2021-10-03 22:09:41+09:00'
+  timestamp: '2021-10-13 18:08:33+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_2_A.test.cpp

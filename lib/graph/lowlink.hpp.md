@@ -64,8 +64,8 @@ data:
   timestamp: '2021-10-03 22:09:41+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/GRL_3_B.test.cpp
   - test/aoj/GRL_3_A.test.cpp
+  - test/aoj/GRL_3_B.test.cpp
 documentation_of: lib/graph/lowlink.hpp
 layout: document
 title: "Lowlink / \u6A4B\u30FB\u95A2\u7BC0\u70B9"

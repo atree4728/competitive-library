@@ -26,7 +26,8 @@ data:
         \u70B9\u6700\u77ED\u7D4C\u8DEF\u554F\u984C"
     - icon: ':heavy_check_mark:'
       path: lib/graph/dijkstra.hpp
-      title: Dijkstra's Algorithm
+      title: "Dijkstra's Algorithm / \u5358\u4E00\u59CB\u70B9\u6700\u77ED\u7D4C\u8DEF\
+        \u554F\u984C"
     - icon: ':heavy_check_mark:'
       path: lib/graph/floyd_warshall.hpp
       title: "Floyd Warshall Algorithm / \u8CA0\u8FBA\u3092\u8A31\u3059\u5168\u70B9\
@@ -36,7 +37,8 @@ data:
       title: "Max flow(with Ford-Fulkerson) / \u6700\u5927\u8CBB\u7528\u6D41"
     - icon: ':heavy_check_mark:'
       path: lib/graph/kruskal.hpp
-      title: Kruskal's Algorithm
+      title: "Kruskal's Algorithm / Minimum Spanning Tree\uFF08\u6700\u5C0F\u5168\u57DF\
+        \u6728\uFF09"
     - icon: ':heavy_check_mark:'
       path: lib/graph/lowest_common_ancestor.hpp
       title: "Lowest Common Ancestor(Doubling, Binary Search) / \u6700\u8FD1\u5171\
@@ -67,7 +69,8 @@ data:
       title: Euler's totient function / $\varphi(n)$
     - icon: ':heavy_check_mark:'
       path: lib/math/extgcd.hpp
-      title: Extended Euclid's Algorithm
+      title: "Extended Euclidean algorithm / \u62E1\u5F35 Euclid \u306E\u4E92\u9664\
+        \u6CD5"
     - icon: ':heavy_check_mark:'
       path: lib/math/power.hpp
       title: lib/math/power.hpp
@@ -81,7 +84,7 @@ data:
       title: Combination on mod
     - icon: ':heavy_check_mark:'
       path: lib/modulus/modint.hpp
-      title: Finite Field
+      title: "Finite Field / \u6709\u9650\u4F53"
   - name: lib/utility
     pages:
     - icon: ':warning:'

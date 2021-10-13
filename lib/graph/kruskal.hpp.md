@@ -13,7 +13,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    document_title: Kruskal's Algorithm
     links: []
   bundledCode: "#line 2 \"lib/graph/kruskal.hpp\"\n\n#include <utility>\n#line 2 \"\
     lib/data_structure/union_find.hpp\"\n\n#include <algorithm>\n#include <vector>\n\
@@ -29,11 +28,7 @@ data:
     \ std::vector ret(n, std::vector<std::size_t>{});\n        for (std::size_t i\
     \ = 0; i < n; i++) ret[root(i)].push_back(i);\n        ret.erase(std::remove_if(begin(ret),\
     \ end(ret), [&](const auto &ri) { return empty(ri); }));\n        return ret;\n\
-    \    }\n};\n#line 5 \"lib/graph/kruskal.hpp\"\n/**\n * @brief Kruskal's Algorithm\n\
-    \ * @note Solve MST; Minimum Spanning Tree in $O(|E|log|E)$.\n * @note The sum\
-    \ of the weights of the edges can be obtained from\n * ```accumulate(begin(ret),\
-    \ end(ret), 0, [](T acc, auto e) { return acc + get<2>(e); })```.\n * @return\
-    \ Set of edges by vector<tuple<u, v, weight>>\n*/\n\ntemplate<typename T> std::vector<std::tuple<size_t,\
+    \    }\n};\n#line 5 \"lib/graph/kruskal.hpp\"\n\ntemplate<typename T> std::vector<std::tuple<size_t,\
     \ size_t, T>> kruskal(std::vector<std::vector<std::pair<size_t, T>>> const& graph)\
     \ {\n    using namespace std;\n    using Edge = tuple<size_t, size_t, T>;\n  \
     \  vector<Edge> edges{};\n    const size_t n = size(graph);\n    if (n == 1) return\
@@ -45,11 +40,7 @@ data:
     \            uf.unite(u, v);\n        }\n        if (size(ret) + 1 == n) break;\n\
     \    }\n    return ret;\n}\n"
   code: "#pragma once\n\n#include <utility>\n#include \"lib/data_structure/union_find.hpp\"\
-    \n/**\n * @brief Kruskal's Algorithm\n * @note Solve MST; Minimum Spanning Tree\
-    \ in $O(|E|log|E)$.\n * @note The sum of the weights of the edges can be obtained\
-    \ from\n * ```accumulate(begin(ret), end(ret), 0, [](T acc, auto e) { return acc\
-    \ + get<2>(e); })```.\n * @return Set of edges by vector<tuple<u, v, weight>>\n\
-    */\n\ntemplate<typename T> std::vector<std::tuple<size_t, size_t, T>> kruskal(std::vector<std::vector<std::pair<size_t,\
+    \n\ntemplate<typename T> std::vector<std::tuple<size_t, size_t, T>> kruskal(std::vector<std::vector<std::pair<size_t,\
     \ T>>> const& graph) {\n    using namespace std;\n    using Edge = tuple<size_t,\
     \ size_t, T>;\n    vector<Edge> edges{};\n    const size_t n = size(graph);\n\
     \    if (n == 1) return {};\n    for (size_t i = 0; i < n; i++)\n        for (const\
@@ -64,14 +55,21 @@ data:
   isVerificationFile: false
   path: lib/graph/kruskal.hpp
   requiredBy: []
-  timestamp: '2021-10-03 22:09:41+09:00'
+  timestamp: '2021-10-13 18:08:33+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL_2_A.test.cpp
 documentation_of: lib/graph/kruskal.hpp
 layout: document
-redirect_from:
-- /library/lib/graph/kruskal.hpp
-- /library/lib/graph/kruskal.hpp.html
-title: Kruskal's Algorithm
+title: "Kruskal's Algorithm / Minimum Spanning Tree\uFF08\u6700\u5C0F\u5168\u57DF\u6728\
+  \uFF09"
 ---
+
+## 概要
+無向グラフ$G=(V,E)$について、$G=(V,E')$が木になるような$E'\subset E$の中で$\sum_{e\in E'}weight(e)$が最小であるような$G$を返す。
+
+## 使い方
+- `kruskal(g)`: `g`の最小全域木の辺集合を`tuple<index, index, weight>`として返す。(辺重の総和は`accumulate(cbegin(kruskal(g)), cend(kruskal(g)), 0, [](T acc, auto e) { return acc + get<2>(e); })`)
+
+## 計算量
+$\mathcal{O}(|E|log|E)$。

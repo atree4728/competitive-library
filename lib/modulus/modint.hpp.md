@@ -16,14 +16,13 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    document_title: Finite Field
+    document_title: "Finite Field / \u6709\u9650\u4F53"
     links: []
-  bundledCode: "#line 2 \"lib/modulus/modint.hpp\"\n\n#include <iostream>\n\n/**\n\
-    \ * @brief  Finite Field\n * @note Since Fermat's little theorem is used for division,\
-    \ the modulo must be prime.\n */\n\ntemplate<int MOD> struct Modint {\n    using\
-    \ mint = Modint<MOD>;\n    unsigned int value;\n    Modint(long long value_ =\
-    \ 0): value((value_ % MOD + MOD) % MOD) {}\n    mint val() const { return *this;\
-    \ }\n    mint operator-() const { return mint(-value); }\n    mint operator++()\
+  bundledCode: "#line 2 \"lib/modulus/modint.hpp\"\n\n/**\n * @brief Finite Field\
+    \ / \u6709\u9650\u4F53\n */\n\n#include <iostream>\n\ntemplate<int MOD> struct\
+    \ Modint {\n    using mint = Modint<MOD>;\n    int value;\n    Modint(long long\
+    \ value_ = 0): value((value_ % MOD + MOD) % MOD) {}\n    mint val() const { return\
+    \ *this; }\n    mint operator-() const { return mint(-value); }\n    mint operator++()\
     \ const { return *this += 1; }\n    mint operator--() const { return *this -=\
     \ 1; }\n    mint operator+(mint arg) const { return mint(*this) += arg; }\n  \
     \  mint operator-(mint arg) const { return mint(*this) -= arg; }\n    mint operator*(mint\
@@ -44,18 +43,18 @@ data:
     \ - a; }\n    friend mint operator*(long long value, Modint<MOD> a) { return Modint<MOD>(value)\
     \ * a; }\n    friend mint operator/(long long value, Modint<MOD> a) { return Modint<MOD>(value)\
     \ / a; }\n    friend std::ostream& operator<<(std::ostream& os, Modint<MOD> a)\
-    \ { return os << a.value; }\n};\n"
-  code: "#pragma once\n\n#include <iostream>\n\n/**\n * @brief  Finite Field\n * @note\
-    \ Since Fermat's little theorem is used for division, the modulo must be prime.\n\
-    \ */\n\ntemplate<int MOD> struct Modint {\n    using mint = Modint<MOD>;\n   \
-    \ unsigned int value;\n    Modint(long long value_ = 0): value((value_ % MOD +\
-    \ MOD) % MOD) {}\n    mint val() const { return *this; }\n    mint operator-()\
-    \ const { return mint(-value); }\n    mint operator++() const { return *this +=\
-    \ 1; }\n    mint operator--() const { return *this -= 1; }\n    mint operator+(mint\
-    \ arg) const { return mint(*this) += arg; }\n    mint operator-(mint arg) const\
-    \ { return mint(*this) -= arg; }\n    mint operator*(mint arg) const { return\
-    \ mint(*this) *= arg; }\n    mint& operator+=(mint arg) {\n        value += arg.value;\n\
-    \        if (value >= MOD) value -= MOD;\n        return *this;\n    }\n    mint&\
+    \ { return os << a.value; }\n};\n\nusing Modint1000000007 = Modint<1000000007>;\n\
+    using Modint998244353 = Modint<998244353>;\n"
+  code: "#pragma once\n\n/**\n * @brief Finite Field / \u6709\u9650\u4F53\n */\n\n\
+    #include <iostream>\n\ntemplate<int MOD> struct Modint {\n    using mint = Modint<MOD>;\n\
+    \    int value;\n    Modint(long long value_ = 0): value((value_ % MOD + MOD)\
+    \ % MOD) {}\n    mint val() const { return *this; }\n    mint operator-() const\
+    \ { return mint(-value); }\n    mint operator++() const { return *this += 1; }\n\
+    \    mint operator--() const { return *this -= 1; }\n    mint operator+(mint arg)\
+    \ const { return mint(*this) += arg; }\n    mint operator-(mint arg) const { return\
+    \ mint(*this) -= arg; }\n    mint operator*(mint arg) const { return mint(*this)\
+    \ *= arg; }\n    mint& operator+=(mint arg) {\n        value += arg.value;\n \
+    \       if (value >= MOD) value -= MOD;\n        return *this;\n    }\n    mint&\
     \ operator-=(mint arg) {\n        value -= arg.value;\n        if (value < 0)\
     \ value += MOD;\n        return *this;\n    }\n    mint& operator*=(mint arg)\
     \ {\n        value = (long long) value * arg.value % MOD;\n        return *this;\n\
@@ -71,21 +70,22 @@ data:
     \ - a; }\n    friend mint operator*(long long value, Modint<MOD> a) { return Modint<MOD>(value)\
     \ * a; }\n    friend mint operator/(long long value, Modint<MOD> a) { return Modint<MOD>(value)\
     \ / a; }\n    friend std::ostream& operator<<(std::ostream& os, Modint<MOD> a)\
-    \ { return os << a.value; }\n};\n"
+    \ { return os << a.value; }\n};\n\nusing Modint1000000007 = Modint<1000000007>;\n\
+    using Modint998244353 = Modint<998244353>;\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/modulus/modint.hpp
   requiredBy: []
-  timestamp: '2021-10-03 22:04:20+09:00'
+  timestamp: '2021-10-13 18:08:33+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/DPL_5_B.test.cpp
-  - test/aoj/DPL_5_D.test.cpp
   - test/aoj/DPL_5_E.test.cpp
+  - test/aoj/DPL_5_D.test.cpp
+  - test/aoj/DPL_5_B.test.cpp
 documentation_of: lib/modulus/modint.hpp
 layout: document
 redirect_from:
 - /library/lib/modulus/modint.hpp
 - /library/lib/modulus/modint.hpp.html
-title: Finite Field
+title: "Finite Field / \u6709\u9650\u4F53"
 ---

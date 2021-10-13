@@ -72,8 +72,8 @@ data:
   timestamp: '2021-10-03 22:09:41+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/GRL_5_C.test.cpp
   - test/library-checker/lca.test.cpp
+  - test/aoj/GRL_5_C.test.cpp
 documentation_of: lib/graph/lowest_common_ancestor.hpp
 layout: document
 title: "Lowest Common Ancestor(Doubling, Binary Search) / \u6700\u8FD1\u5171\u901A\
