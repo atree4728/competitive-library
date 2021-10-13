@@ -1,15 +1,14 @@
 #pragma once
 
-#include <iostream>
-
 /**
- * @brief  Finite Field
- * @note Since Fermat's little theorem is used for division, the modulo must be prime.
+ * @brief Finite Field / 有限体
  */
+
+#include <iostream>
 
 template<int MOD> struct Modint {
     using mint = Modint<MOD>;
-    unsigned int value;
+    int value;
     Modint(long long value_ = 0): value((value_ % MOD + MOD) % MOD) {}
     mint val() const { return *this; }
     mint operator-() const { return mint(-value); }
@@ -52,3 +51,6 @@ template<int MOD> struct Modint {
     friend mint operator/(long long value, Modint<MOD> a) { return Modint<MOD>(value) / a; }
     friend std::ostream& operator<<(std::ostream& os, Modint<MOD> a) { return os << a.value; }
 };
+
+using Modint1000000007 = Modint<1000000007>;
+using Modint998244353 = Modint<998244353>;

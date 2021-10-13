@@ -2,13 +2,6 @@
 
 #include <utility>
 #include "lib/data_structure/union_find.hpp"
-/**
- * @brief Kruskal's Algorithm
- * @note Solve MST; Minimum Spanning Tree in $O(|E|log|E)$.
- * @note The sum of the weights of the edges can be obtained from
- * ```accumulate(begin(ret), end(ret), 0, [](T acc, auto e) { return acc + get<2>(e); })```.
- * @return Set of edges by vector<tuple<u, v, weight>>
-*/
 
 template<typename T> std::vector<std::tuple<size_t, size_t, T>> kruskal(std::vector<std::vector<std::pair<size_t, T>>> const& graph) {
     using namespace std;
