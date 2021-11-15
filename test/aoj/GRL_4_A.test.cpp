@@ -7,7 +7,7 @@ int main() {
     using namespace std;
     size_t n, m;
     cin >> n >> m;
-    vector graph(n, vector<int>{});
+    vector graph(n, vector<size_t>{});
     while (m--) {
         int s, t;
         cin >> s >> t;
