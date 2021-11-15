@@ -61,9 +61,9 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library-checker/unionfind.test.cpp
-  - test/aoj/GRL_2_A.test.cpp
   - test/aoj/DSL_1_A.test.cpp
   - test/aoj/ALDS1_11_D.test.cpp
+  - test/aoj/GRL_2_A.test.cpp
 documentation_of: lib/data_structure/union_find.hpp
 layout: document
 title: Union Find

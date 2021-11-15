@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/graph/topological_sort.hpp
     title: Topological Sort
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_1_A
@@ -17,16 +17,16 @@ data:
   bundledCode: "#line 1 \"test/my_stress_test/topological_sort.test.cpp\"\n#define\
     \ PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_1_A\"\
     \n\n#line 2 \"lib/graph/topological_sort.hpp\"\n\n#include <queue>\n#include <vector>\n\
-    \ntemplate<typename T> std::vector<T> topological_sort(std::vector<std::vector<T>>\
+    \nstd::vector<std::size_t> topological_sort(std::vector<std::vector<std::size_t>>\
     \ const &graph) {\n    using namespace std;\n    const size_t n = size(graph);\n\
     \    vector<unsigned int> indegree(n, 0);\n    for (const auto &edges: graph)\n\
-    \        for (const auto &to: edges) indegree[to]++;\n    queue<T> indegree_is_0{};\n\
-    \    for (size_t i = 0; i < n; i++)\n        if (indegree[i] == 0) indegree_is_0.push(i);\n\
-    \    vector<T> ordered{};\n    while (not empty(indegree_is_0)) {\n        T from\
-    \ = indegree_is_0.front();\n        ordered.push_back(from);\n        indegree_is_0.pop();\n\
+    \        for (const auto &to: edges) indegree[to]++;\n    queue<size_t> indeg0{};\n\
+    \    for (size_t i = 0; i < n; i++)\n        if (indegree[i] == 0) indeg0.push(i);\n\
+    \    vector<size_t> ordered{};\n    while (not empty(indeg0)) {\n        size_t\
+    \ from = indeg0.front();\n        ordered.push_back(from);\n        indeg0.pop();\n\
     \        for (const auto &to: graph[from])\n            if (--indegree[to] ==\
-    \ 0) indegree_is_0.push(to);\n    }\n    if (size(ordered) < n) return {};  //\
-    \ graph is not a DAG.\n    return ordered;\n}\n#line 4 \"test/my_stress_test/topological_sort.test.cpp\"\
+    \ 0) indeg0.push(to);\n    }\n    if (size(ordered) < n) return {};  // graph\
+    \ is not a DAG.\n    return ordered;\n}\n#line 4 \"test/my_stress_test/topological_sort.test.cpp\"\
     \n#include <algorithm>\n#include <cassert>\n#include <iostream>\n#include <numeric>\n\
     #include <random>\nusing namespace std;\n\nrandom_device seed_gen;\nmt19937_64\
     \ rnd(seed_gen());\n\nint rand() { return uniform_int_distribution<int>(0, 100000)(rnd);\
@@ -65,8 +65,8 @@ data:
   isVerificationFile: true
   path: test/my_stress_test/topological_sort.test.cpp
   requiredBy: []
-  timestamp: '2021-10-03 22:09:41+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-11-15 23:15:51+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/my_stress_test/topological_sort.test.cpp
 layout: document

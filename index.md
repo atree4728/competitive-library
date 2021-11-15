@@ -53,7 +53,7 @@ data:
     - icon: ':warning:'
       path: lib/graph/subtree_info.hpp
       title: "Subtree Info / \u90E8\u5206\u6728\u306E\u60C5\u5831"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: lib/graph/topological_sort.hpp
       title: Topological Sort
     - icon: ':heavy_check_mark:'
@@ -61,9 +61,6 @@ data:
       title: "Diameter of a Tree / \u6728\u306E\u76F4\u5F84"
   - name: lib/math
     pages:
-    - icon: ':heavy_check_mark:'
-      path: lib/math/eratosthenes.hpp
-      title: lib/math/eratosthenes.hpp
     - icon: ':heavy_check_mark:'
       path: lib/math/euler_phi.hpp
       title: Euler's totient function / $\varphi(n)$
@@ -74,6 +71,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/power.hpp
       title: lib/math/power.hpp
+    - icon: ':heavy_check_mark:'
+      path: lib/math/sieve.hpp
+      title: lib/math/sieve.hpp
     - icon: ':warning:'
       path: lib/math/simple_combination.hpp
       title: Combination without mod
@@ -141,7 +141,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_3_C.test.cpp
       title: test/aoj/GRL_3_C.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/GRL_4_A.test.cpp
       title: test/aoj/GRL_4_A.test.cpp
     - icon: ':heavy_check_mark:'
@@ -181,7 +181,7 @@ data:
       title: test/library-checker/unionfind.test.cpp
   - name: test/my_stress_test
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/my_stress_test/topological_sort.test.cpp
       title: test/my_stress_test/topological_sort.test.cpp
   - name: test/yukicoder

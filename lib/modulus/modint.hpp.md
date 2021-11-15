@@ -80,8 +80,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DPL_5_E.test.cpp
-  - test/aoj/DPL_5_D.test.cpp
   - test/aoj/DPL_5_B.test.cpp
+  - test/aoj/DPL_5_D.test.cpp
 documentation_of: lib/modulus/modint.hpp
 layout: document
 redirect_from:
