@@ -53,7 +53,7 @@ data:
     - icon: ':warning:'
       path: lib/graph/subtree_info.hpp
       title: "Subtree Info / \u90E8\u5206\u6728\u306E\u60C5\u5831"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/graph/topological_sort.hpp
       title: Topological Sort
     - icon: ':heavy_check_mark:'
@@ -181,7 +181,7 @@ data:
       title: test/library-checker/unionfind.test.cpp
   - name: test/my_stress_test
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/my_stress_test/topological_sort.test.cpp
       title: test/my_stress_test/topological_sort.test.cpp
   - name: test/yukicoder
