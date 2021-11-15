@@ -1,6 +1,6 @@
 ---
 title: Eratosthenes's Sieve / 素数判定・列挙
-documentation_of: //lib/graph/sieve.hpp
+documentation_of: //lib/math/sieve.hpp
 ---
 
 ## 概要
