@@ -53,7 +53,7 @@ data:
     - icon: ':warning:'
       path: lib/graph/subtree_info.hpp
       title: "Subtree Info / \u90E8\u5206\u6728\u306E\u60C5\u5831"
-    - icon: ':x:'
+    - icon: ':question:'
       path: lib/graph/topological_sort.hpp
       title: Topological Sort
     - icon: ':heavy_check_mark:'
@@ -141,7 +141,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_3_C.test.cpp
       title: test/aoj/GRL_3_C.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_4_A.test.cpp
       title: test/aoj/GRL_4_A.test.cpp
     - icon: ':heavy_check_mark:'

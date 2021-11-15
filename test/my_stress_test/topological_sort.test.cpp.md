@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: lib/graph/topological_sort.hpp
     title: Topological Sort
   _extendedRequiredBy: []
