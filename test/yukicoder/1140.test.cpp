@@ -1,15 +1,11 @@
 #define PROBLEM "https://yukicoder.me/problems/no/1140"
 
 #include <iostream>
-#include "lib/math/eratosthenes.hpp"
-
-int solve(Sieve& sieve, long long a, int p) {
-    if (not sieve.is_prime(p)) return -1;
-    if (a % p == 0) return 0;
-    return 1;
-}
+#include "lib/math/sieve.hpp"
 
 int main() {
+    std::cin.tie(nullptr);
+    std::ios::sync_with_stdio(false);
     const int M = 5000005;
     Sieve sieve(M);
     int t;
@@ -18,7 +14,11 @@ int main() {
         long long a;
         int p;
         std::cin >> a >> p;
-        std::cout << solve(sieve, a, p) << "\n";
+        int ans{};
+        if (not sieve.is_prime(p)) ans = -1;
+        else if (a % p == 0) ans = 0;
+        else ans = 1;
+        std::cout << ans << "\n";
     }
     return 0;
 }
