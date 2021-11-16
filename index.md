@@ -68,12 +68,12 @@ data:
       path: lib/math/extgcd.hpp
       title: "Extended Euclidean algorithm / \u62E1\u5F35 Euclid \u306E\u4E92\u9664\
         \u6CD5"
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: lib/math/power.hpp
       title: lib/math/power.hpp
     - icon: ':heavy_check_mark:'
       path: lib/math/sieve.hpp
-      title: lib/math/sieve.hpp
+      title: "Eratosthenes's Sieve / \u7D20\u6570\u5224\u5B9A\u30FB\u5217\u6319"
     - icon: ':warning:'
       path: lib/math/simple_combination.hpp
       title: Combination without mod

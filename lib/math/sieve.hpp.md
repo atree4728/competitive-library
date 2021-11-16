@@ -58,8 +58,13 @@ data:
   - test/yukicoder/1140.test.cpp
 documentation_of: lib/math/sieve.hpp
 layout: document
-redirect_from:
-- /library/lib/math/sieve.hpp
-- /library/lib/math/sieve.hpp.html
-title: lib/math/sieve.hpp
+title: "Eratosthenes's Sieve / \u7D20\u6570\u5224\u5B9A\u30FB\u5217\u6319"
 ---
+
+Eratosthenes の篩。
+
+## Usage
+- `Sieve(const intmax_t n)`: constructor. $\mathcal{O}(n \log \log n)$.
+- `bool is_prime(const intmax_t n)`: `n` の素数判定。$\mathcal{O}(\log n)$.
+- `std::vector<intmax_t> factor(intmax_t n)`: `n` の素因数分解。sorted とは限らない。$\mathcal{O}(\log n)$.
+- `intmax_t count_divisor(const intmax_t n)`: `n` の正の約数の個数。$\mathcal{O}(\log n)$.

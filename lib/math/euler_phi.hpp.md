@@ -11,21 +11,21 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"lib/math/euler_phi.hpp\"\n\n#include <cassert>\n\ntemplate<typename\
-    \ T> T euler_phi(T n) {\n    assert(n > 0);\n    T ret = n;\n    for (T i = 2;\
-    \ i * i <= n; i++) {\n        if (n % i == 0) {\n            ret -= ret / i;\n\
-    \            while (n % i == 0) n /= i;\n        }\n    }\n    if (n > 1) ret\
-    \ -= ret / n;\n    return ret;\n}\n"
-  code: "#pragma once\n\n#include <cassert>\n\ntemplate<typename T> T euler_phi(T\
-    \ n) {\n    assert(n > 0);\n    T ret = n;\n    for (T i = 2; i * i <= n; i++)\
-    \ {\n        if (n % i == 0) {\n            ret -= ret / i;\n            while\
-    \ (n % i == 0) n /= i;\n        }\n    }\n    if (n > 1) ret -= ret / n;\n   \
-    \ return ret;\n}\n"
+  bundledCode: "#line 2 \"lib/math/euler_phi.hpp\"\n\n#include <cassert>\n\nconstexpr\
+    \ intmax_t euler_phi(intmax_t n) {\n    assert(n > 0);\n    intmax_t ret = n;\n\
+    \    for (intmax_t i = 2; i * i <= n; i++) {\n        if (n % i == 0) {\n    \
+    \        ret -= ret / i;\n            while (n % i == 0) n /= i;\n        }\n\
+    \    }\n    if (n > 1) ret -= ret / n;\n    return ret;\n}\n"
+  code: "#pragma once\n\n#include <cassert>\n\nconstexpr intmax_t euler_phi(intmax_t\
+    \ n) {\n    assert(n > 0);\n    intmax_t ret = n;\n    for (intmax_t i = 2; i\
+    \ * i <= n; i++) {\n        if (n % i == 0) {\n            ret -= ret / i;\n \
+    \           while (n % i == 0) n /= i;\n        }\n    }\n    if (n > 1) ret -=\
+    \ ret / n;\n    return ret;\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/math/euler_phi.hpp
   requiredBy: []
-  timestamp: '2021-10-03 22:09:41+09:00'
+  timestamp: '2021-11-16 17:42:48+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/NTL_1_D.test.cpp
