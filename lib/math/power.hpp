@@ -1,7 +1,9 @@
 #pragma once
 
-long long power(long long a, long long b) {
-    long long ans = 1;
+#include <cstdint>
+
+constexpr intmax_t power(intmax_t a, intmax_t b) {
+    intmax_t ans = 1;
     for (; b; b >>= 1) {
         if (b & 1) ans *= a;
         a *= a;
@@ -9,9 +11,9 @@ long long power(long long a, long long b) {
     return ans;
 }
 
-long long power(long long a, long long b, int m) {
+constexpr intmax_t power(intmax_t a, intmax_t b, intmax_t m) {
     a %= m;
-    long long ans = 1;
+    intmax_t ans = 1;
     for (; b; b >>= 1) {
         if (b & 1) (ans *= a) %= m;
         (a *= a) %= m;

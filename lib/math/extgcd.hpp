@@ -10,14 +10,13 @@
  * @ref https://noshi91.hatenablog.com/entry/2019/04/01/184957
  */
 
-template<typename T> std::pair<T, T> extgcd(T a, T b) {
-    static_assert(std::is_integral<T>::value);
-    T s = a, xs = 1, ys = 0, t = b, xt = 0, yt = 1;
+constexpr std::pair<intmax_t, intmax_t> extgcd(intmax_t a, intmax_t b) {
+    intmax_t s = a, xs = 1, ys = 0, t = b, xt = 0, yt = 1;
     while (s % t != 0) {
-        T tmp = s / t,
-          u = s - t * tmp,
-          xu = xs - xt * tmp,
-          yu = ys - yt * tmp;
+        const intmax_t tmp = s / t,
+                       u = s - t * tmp,
+                       xu = xs - xt * tmp,
+                       yu = ys - yt * tmp;
         s = t, xs = xt, ys = yt;
         t = u, xt = xu, yt = yu;
     }
