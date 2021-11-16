@@ -5,4 +5,4 @@
 
 [atree](https://twitter.com/atree4728) の競技プログラミング用ライブラリです。
 
-このライブラリは、MIT License のもとで公開されていますが、競技プログラミングのためにこのライブラリの一部をジャッジサーバなどに送信するとき、著作権表示および許諾表示を省略することができます。
+本作品は [CC0 License](https://creativecommons.org/publicdomain/zero/1.0/deed.ja) によって許諾されています。

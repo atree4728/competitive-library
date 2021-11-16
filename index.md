@@ -7,7 +7,7 @@ data:
       path: lib/data_structure/fenwick_tree.hpp
       title: Fenwick Tree / Binary Indexed Tree
     - icon: ':heavy_check_mark:'
-      path: lib/data_structure/monoid.hpp
+      path: lib/data_structure/monoids.hpp
       title: Monoids
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/partial_sum_2D.hpp
@@ -74,9 +74,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/sieve.hpp
       title: "Eratosthenes's Sieve / \u7D20\u6570\u5224\u5B9A\u30FB\u5217\u6319"
-    - icon: ':warning:'
-      path: lib/math/simple_combination.hpp
-      title: Combination without mod
   - name: lib/modulus
     pages:
     - icon: ':heavy_check_mark:'
