@@ -10,7 +10,7 @@ Fenwick Tree は、可換 Monoid の列に対して、Prefix Sum、一点更新�
 ## Usage
 - 0-indexed
 - `FenwickTree(size_t n)`: `n`の単位元（`0`）からなる Fenwick Tree の constructor. $\mathcal{O}(N)$.
-- `FenwickTree(InputIterator first, InputIterator last)`: iterator による constructor. $\mathcal{O}(N\log N)$.
+- `FenwickTree(InputIterator first, InputIterator last)`: iterator による constructor. $\mathcal{O}(N\log N)$. `T` を明示する必要がある。
 - `T sum(size_t l, size_t r)`: $\sum_{i \in [l, r)}a_{i}$.$\mathcal{O}(\log N)$.
 - `void add(size_t i, T v)`: `i`番目の要素に `v` を加算する。$\mathcal{O}(\log N)$.
 

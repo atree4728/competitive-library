@@ -4,36 +4,36 @@
 #include <vector>
 
 template<class Monoid> struct SegmentTree {
-    using T = typename Monoid::T;
+    using operand_type = typename Monoid::operand_type;
     size_t n;
-    std::vector<T> node;
-    explicit SegmentTree(const size_t n): n(n), node(n * 2, Monoid::id) {}
-    explicit SegmentTree(const std::vector<T>& a): n(size(a)), node(n * 2, Monoid::id) {
-        copy(begin(a), end(a), begin(node) + n);
-        for (size_t i = n - 1; i--;) node[i] = Monoid::op(node[i * 2], node[i * 2 + 1]);
+    std::vector<operand_type> node;
+    SegmentTree(const size_t n): n(n), node(n * 2, Monoid::identity()) {}
+    template<typename InputIterator> SegmentTree(InputIterator first, InputIterator last): n(last - first), node(n * 2, Monoid::identity()) {
+        copy(first, last, begin(node) + n);
+        for (size_t i = n - 1; i--;) node[i] = Monoid::operaton(node[i * 2], node[i * 2 + 1]);
     };
-    void update(size_t i, T val) { set(i, Monoid::op(node[i + n], val)); }
-    void set(size_t i, T val) {
+    void update(size_t i, operand_type val) { set(i, Monoid::operation(node[i + n], val)); }
+    void set(size_t i, operand_type val) {
         assert(i < n);
         i += n;
         node[i] = val;
-        while ((i /= 2) >= 1) node[i] = Monoid::op(node[i * 2], node[i * 2 + 1]);
+        while ((i /= 2) >= 1) node[i] = Monoid::operation(node[i * 2], node[i * 2 + 1]);
     }
-    T fold(size_t l, size_t r) {
+    operand_type fold(size_t l, size_t r) {
         assert(l <= n and r <= n);
         if (l == 0 and r == n) return node[1];
-        T ret = Monoid::id;
+        operand_type ret = Monoid::identity();
         l += n;
         r += n;
         while (l < r) {
-            if (l % 2 == 1) ret = Monoid::op(ret, node[l++]);
-            if (r % 2 == 1) ret = Monoid::op(ret, node[--r]);
+            if (l % 2 == 1) ret = Monoid::operation(ret, node[l++]);
+            if (r % 2 == 1) ret = Monoid::operation(ret, node[--r]);
             l /= 2;
             r /= 2;
         }
         return ret;
     }
-    T& operator[](size_t i) {
+    operand_type& operator[](size_t i) {
         assert(i < n);
         return &node[i + n];
     }
