@@ -27,5 +27,6 @@
 "test/library-checker/point_add_range_sum.test.cpp": "2021-10-03 22:09:41 +0900",
 "test/library-checker/scc.test.cpp": "2021-10-03 22:09:41 +0900",
 "test/library-checker/unionfind.test.cpp": "2021-10-03 22:09:41 +0900",
+"test/my_stress_test/topological_sort.test.cpp": "2021-11-15 23:28:19 +0900",
 "test/yukicoder/1140.test.cpp": "2021-11-15 23:15:51 +0900"
 }
