@@ -11,4 +11,4 @@ $(a,b)\in\mathbb{Z}^2$ について、$ax+by=d$を満たす$(x,y)\in\mathbb{Z}^2
 - `extgcd(a, b)`: $(x,y)\in\mathbb{Z}^2\mathrm{s.t.}ax+by=\gcd(a,b)$ を`pair`として返す。
 
 ## 計算量
-Euclid の互除法と同じく$\mathcal{O}\log \max(a,b)$。s
+Euclid の互除法と同じく$\mathcal{O}\log \max(a,b)$。

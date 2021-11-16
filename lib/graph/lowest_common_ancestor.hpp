@@ -7,10 +7,7 @@ struct LowestCommonAncestor {
     std::size_t n, height;
     std::vector<int> depth;
     std::vector<std::vector<int>> dp;
-    LowestCommonAncestor(const std::vector<std::vector<std::size_t>>& tree, std::size_t root): n(size(tree)),
-                                                                                               height(32 - __builtin_clz(n)),
-                                                                                               depth(n, -1),
-                                                                                               dp(height, std::vector<int>(n, -1)) {
+    LowestCommonAncestor(const std::vector<std::vector<std::size_t>>& tree, std::size_t root): n(size(tree)), height(32 - __builtin_clz(n)), depth(n, -1), dp(height, std::vector<int>(n, -1)) {
         depth[root] = 0;
         dfs(tree, root, root);
         for (std::size_t k = 0; k + 1 < height; k++)
