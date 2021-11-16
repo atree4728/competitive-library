@@ -8,9 +8,10 @@ template<class T> struct FenwickTree {
     size_t n;
     vector<T> data;
 
-    FenwickTree(const size_t n): n(n), data(n, 0) {}
-    FenwickTree(const vector<T>& a): n(size(a)), data(n, 0) {
-        for (size_t i = 0; i < n; i++) add(i, a[i]);
+    FenwickTree() = default;
+    FenwickTree(const size_t n): n(n), data(n, T{}) {}
+    template<typename InputIterator> FenwickTree(InputIterator first, InputIterator last): n(last - first), data(n, T{}) {
+        for (auto it = first; it != last; it++) this->add(it - first, *it);
     }
     T prefix_sum(size_t i) {
         T ret = 0;

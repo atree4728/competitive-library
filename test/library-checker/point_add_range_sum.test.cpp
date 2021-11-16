@@ -9,7 +9,7 @@ int main() {
     cin >> n >> q;
     vector<unsigned long long> a(n);
     for (auto&& ai: a) cin >> ai;
-    FenwickTree bit(a);
+    FenwickTree<unsigned long long> bit(cbegin(a), cend(a));
     while (q--) {
         int t;
         cin >> t;
