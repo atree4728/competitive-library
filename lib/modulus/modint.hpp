@@ -31,7 +31,7 @@ template<unsigned int Modulo> struct Modint {
         return static_cast<T>(value);
     }
     template<class T = value_type>
-    constexpr std::enable_if_t<std::is_convertible_v<value_type, T>, T> mod() const noexcept {
+    static constexpr std::enable_if_t<std::is_convertible_v<value_type, T>, T> mod() noexcept {
         return static_cast<T>(Modulo);
     }
     template<class T> static constexpr auto raw(const T& v) noexcept {

@@ -4,15 +4,21 @@
 #include <vector>
 
 template<typename Modint> class ModTable {
-    std::vector<Modint> factorials, factorials_inv;
+    std::vector<Modint> factorials, factorials_inv, inverse;
 
   public:
     constexpr ModTable() = default;
-    constexpr ModTable(const int n): factorials(n + 1), factorials_inv(n + 1) {
+    constexpr ModTable(const size_t n): factorials(n + 1), factorials_inv(n + 1), inverse(n + 1) {
+        inverse[1] = 1;
+        for (size_t i = 2; i <= n; ++i) inverse[i] = -inverse[Modint::mod() % i] * (Modint::mod() / i);
         factorials[0] = 1;
         for (size_t i = 0; i < n; i++) factorials[i + 1] = factorials[i] * Modint{ i + 1 };
         factorials_inv[n] = factorials[n].inv();
         for (size_t i = n; i--;) factorials_inv[i] = factorials_inv[i + 1] * Modint{ i + 1 };
+    }
+    constexpr auto inv(const int i) const {
+        assert(i != 0);
+        return inverse[i];
     }
     constexpr auto fact(const int i) const { return factorials[i]; }
     constexpr auto fact_inv(const int i) const { return factorials_inv[i]; }
