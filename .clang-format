@@ -33,7 +33,7 @@ BreakStringLiterals: true
 CompactNamespaces: false
 ConstructorInitializerIndentWidth: 4
 ContinuationIndentWidth: 4
-ColumnLimit: 0
+ColumnLimit: 120
 Cpp11BracedListStyle: false
 DeriveLineEnding: true
 DerivePointerAlignment: true
