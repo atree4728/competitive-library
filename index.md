@@ -77,11 +77,11 @@ data:
   - name: lib/modulus
     pages:
     - icon: ':heavy_check_mark:'
-      path: lib/modulus/combination.hpp
-      title: Combination on mod
-    - icon: ':heavy_check_mark:'
       path: lib/modulus/modint.hpp
-      title: "Finite Field / \u6709\u9650\u4F53"
+      title: Modint
+    - icon: ':heavy_check_mark:'
+      path: lib/modulus/modtable.hpp
+      title: lib/modulus/modtable.hpp
   - name: lib/utility
     pages:
     - icon: ':warning:'

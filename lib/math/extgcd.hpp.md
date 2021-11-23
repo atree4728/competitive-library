@@ -4,7 +4,7 @@ data:
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: lib/modulus/modint.hpp
-    title: "Finite Field / \u6709\u9650\u4F53"
+    title: Modint
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_A.test.cpp
@@ -60,11 +60,11 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/NTL_1_B.test.cpp
-  - test/aoj/DPL_5_E.test.cpp
   - test/aoj/DPL_5_B.test.cpp
-  - test/aoj/NTL_1_E.test.cpp
   - test/aoj/DPL_5_A.test.cpp
   - test/aoj/DPL_5_D.test.cpp
+  - test/aoj/DPL_5_E.test.cpp
+  - test/aoj/NTL_1_E.test.cpp
 documentation_of: lib/math/extgcd.hpp
 layout: document
 title: "Extended Euclidean algorithm / \u62E1\u5F35 Euclid \u306E\u4E92\u9664\u6CD5"
