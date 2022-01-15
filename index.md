@@ -24,7 +24,7 @@ data:
       path: lib/graph/bellman_ford.hpp
       title: "Bellman-Ford Algorithm / \u8CA0\u8FBA\u3092\u8A31\u3059\u5358\u4E00\u59CB\
         \u70B9\u6700\u77ED\u7D4C\u8DEF\u554F\u984C"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/graph/dijkstra.hpp
       title: "Dijkstra's Algorithm / \u5358\u4E00\u59CB\u70B9\u6700\u77ED\u7D4C\u8DEF\
         \u554F\u984C"
@@ -120,7 +120,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_2_B.test.cpp
       title: test/aoj/DSL_2_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_1_A.test.cpp
       title: test/aoj/GRL_1_A.test.cpp
     - icon: ':heavy_check_mark:'

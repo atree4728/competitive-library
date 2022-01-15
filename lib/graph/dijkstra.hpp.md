@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_1_A.test.cpp
     title: test/aoj/GRL_1_A.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/graph/dijkstra.hpp\"\n\n#include <optional>\n#include\
@@ -38,7 +38,7 @@ data:
   path: lib/graph/dijkstra.hpp
   requiredBy: []
   timestamp: '2022-01-15 17:41:33+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL_1_A.test.cpp
 documentation_of: lib/graph/dijkstra.hpp

@@ -33,14 +33,14 @@ data:
     }\n#line 12 \"lib/modulus/modint.hpp\"\n\ntemplate<uint_fast32_t Modulo> struct\
     \ Modint {\n    using value_type = decltype(Modulo);\n\n  private:\n    value_type\
     \ value = 0;\n    template<class T> static constexpr value_type normalize(T n)\
-    \ {\n        static_assert(std::is_integral_v<T>);\n        if (n >= Modulo) n\
-    \ %= Modulo;\n        if (n < 0) (n %= Modulo) += Modulo;\n        return n;\n\
-    \    }\n\n  public:\n    constexpr Modint() noexcept: value(0) {}\n    template<class\
-    \ T, std::enable_if_t<std::is_integral_v<T>, std::nullptr_t> = nullptr> constexpr\
-    \ Modint(const T& n)\n        : value(normalize(n)) {}\n    template<class T =\
-    \ value_type> constexpr std::enable_if_t<std::is_convertible_v<value_type, T>,\
-    \ T> val() const noexcept {\n        return static_cast<T>(value);\n    }\n  \
-    \  template<class T = value_type> static constexpr std::enable_if_t<std::is_convertible_v<value_type,\
+    \ {\n        static_assert(std::is_integral_v<T>);\n        if (static_cast<std::common_type_t<value_type,\
+    \ T>>(n) >= Modulo) n %= Modulo;\n        if (n < 0) (n %= Modulo) += Modulo;\n\
+    \        return n;\n    }\n\n  public:\n    constexpr Modint() noexcept: value(0)\
+    \ {}\n    template<class T, std::enable_if_t<std::is_integral_v<T>, std::nullptr_t>\
+    \ = nullptr> constexpr Modint(const T& n)\n        : value(normalize(n)) {}\n\
+    \    template<class T = value_type> constexpr std::enable_if_t<std::is_convertible_v<value_type,\
+    \ T>, T> val() const noexcept {\n        return static_cast<T>(value);\n    }\n\
+    \    template<class T = value_type> static constexpr std::enable_if_t<std::is_convertible_v<value_type,\
     \ T>, T> mod() noexcept {\n        return static_cast<T>(Modulo);\n    }\n   \
     \ template<class T> static constexpr auto raw(const T& v) noexcept {\n       \
     \ Modint tmp{};\n        tmp.value = static_cast<uint_fast32_t>(v);\n        return\
@@ -89,7 +89,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DPL_5_A.test.cpp
   requiredBy: []
-  timestamp: '2022-01-15 17:41:33+09:00'
+  timestamp: '2022-01-16 00:36:45+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DPL_5_A.test.cpp

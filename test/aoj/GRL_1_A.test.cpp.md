@@ -1,15 +1,15 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/graph/dijkstra.hpp
     title: "Dijkstra's Algorithm / \u5358\u4E00\u59CB\u70B9\u6700\u77ED\u7D4C\u8DEF\
       \u554F\u984C"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A
@@ -32,8 +32,8 @@ data:
     \ vector<P>{});\n    while (e--) {\n        size_t s, t;\n        long long d;\n\
     \        cin >> s >> t;\n        cin >> d;\n        graph[s].emplace_back(P{ t,\
     \ d });\n    }\n    auto dist = dijkstra(graph, r);\n    for (const auto &d: dist)\
-    \ {\n        if (d == -1) cout << \"INF\\n\";\n        else\n            cout\
-    \ << d << \"\\n\";\n    }\n    return 0;\n}\n"
+    \ {\n        if (not d.has_value()) cout << \"INF\\n\";\n        else cout <<\
+    \ *d << \"\\n\";\n    }\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A\"\
     \n\n#include <iostream>\n#include \"lib/graph/dijkstra.hpp\"\n\nint main() {\n\
     \    using namespace std;\n    size_t v, e, r;\n    cin >> v >> e >> r;\n    using\
@@ -41,15 +41,15 @@ data:
     \    while (e--) {\n        size_t s, t;\n        long long d;\n        cin >>\
     \ s >> t;\n        cin >> d;\n        graph[s].emplace_back(P{ t, d });\n    }\n\
     \    auto dist = dijkstra(graph, r);\n    for (const auto &d: dist) {\n      \
-    \  if (d == -1) cout << \"INF\\n\";\n        else\n            cout << d << \"\
-    \\n\";\n    }\n    return 0;\n}\n"
+    \  if (not d.has_value()) cout << \"INF\\n\";\n        else cout << *d << \"\\\
+    n\";\n    }\n    return 0;\n}\n"
   dependsOn:
   - lib/graph/dijkstra.hpp
   isVerificationFile: true
   path: test/aoj/GRL_1_A.test.cpp
   requiredBy: []
-  timestamp: '2022-01-15 17:41:33+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-01-16 00:36:45+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_1_A.test.cpp
 layout: document
