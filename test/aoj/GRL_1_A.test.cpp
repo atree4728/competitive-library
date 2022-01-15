@@ -18,9 +18,8 @@ int main() {
     }
     auto dist = dijkstra(graph, r);
     for (const auto &d: dist) {
-        if (d == -1) cout << "INF\n";
-        else
-            cout << d << "\n";
+        if (not d.has_value()) cout << "INF\n";
+        else cout << *d << "\n";
     }
     return 0;
 }

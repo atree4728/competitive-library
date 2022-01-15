@@ -17,7 +17,7 @@ template<uint_fast32_t Modulo> struct Modint {
     value_type value = 0;
     template<class T> static constexpr value_type normalize(T n) {
         static_assert(std::is_integral_v<T>);
-        if (n >= Modulo) n %= Modulo;
+        if (static_cast<std::common_type_t<value_type, T>>(n) >= Modulo) n %= Modulo;
         if (n < 0) (n %= Modulo) += Modulo;
         return n;
     }
