@@ -8,9 +8,10 @@ template<class Monoid> struct SegmentTree {
     size_t n;
     std::vector<operand_type> node;
     SegmentTree(const size_t n): n(n), node(n * 2, Monoid::identity()) {}
-    template<typename InputIterator> SegmentTree(InputIterator first, InputIterator last): n(last - first), node(n * 2, Monoid::identity()) {
+    template<typename InputIterator> SegmentTree(InputIterator first, InputIterator last)
+        : n(last - first), node(n * 2, Monoid::identity()) {
         copy(first, last, begin(node) + n);
-        for (size_t i = n - 1; i--;) node[i] = Monoid::operaton(node[i * 2], node[i * 2 + 1]);
+        for (size_t i = n - 1; i--;) node[i] = Monoid::operation(node[i * 2], node[i * 2 + 1]);
     };
     void update(size_t i, operand_type val) { set(i, Monoid::operation(node[i + n], val)); }
     void set(size_t i, operand_type val) {

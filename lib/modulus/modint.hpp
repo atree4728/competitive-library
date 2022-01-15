@@ -10,7 +10,7 @@
 #include <numeric>
 #include "lib/math/extgcd.hpp"
 
-template<unsigned int Modulo> struct Modint {
+template<uint_fast32_t Modulo> struct Modint {
     using value_type = decltype(Modulo);
 
   private:
@@ -26,17 +26,15 @@ template<unsigned int Modulo> struct Modint {
     constexpr Modint() noexcept: value(0) {}
     template<class T, std::enable_if_t<std::is_integral_v<T>, std::nullptr_t> = nullptr> constexpr Modint(const T& n)
         : value(normalize(n)) {}
-    template<class T = value_type>
-    constexpr std::enable_if_t<std::is_convertible_v<value_type, T>, T> val() const noexcept {
+    template<class T = value_type> constexpr std::enable_if_t<std::is_convertible_v<value_type, T>, T> val() const noexcept {
         return static_cast<T>(value);
     }
-    template<class T = value_type>
-    static constexpr std::enable_if_t<std::is_convertible_v<value_type, T>, T> mod() noexcept {
+    template<class T = value_type> static constexpr std::enable_if_t<std::is_convertible_v<value_type, T>, T> mod() noexcept {
         return static_cast<T>(Modulo);
     }
     template<class T> static constexpr auto raw(const T& v) noexcept {
         Modint tmp{};
-        tmp.value = static_cast<unsigned int>(v);
+        tmp.value = static_cast<uint_fast32_t>(v);
         return tmp;
     }
 
@@ -82,7 +80,7 @@ template<unsigned int Modulo> struct Modint {
         return *this;
     }
     constexpr auto& operator*=(const Modint& rhs) noexcept {
-        value = static_cast<unsigned int>(static_cast<intmax_t>(value) * static_cast<intmax_t>(rhs.value) % mod());
+        value = static_cast<uint_fast32_t>(static_cast<uint_fast64_t>(value) * static_cast<uint_fast64_t>(rhs.value) % mod());
         return *this;
     }
     constexpr auto& operator/=(const Modint& rhs) noexcept { return *this *= rhs.inv(); }
