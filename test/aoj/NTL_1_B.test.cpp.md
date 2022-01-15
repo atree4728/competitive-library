@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/extgcd.hpp
     title: "Extended Euclidean algorithm / \u62E1\u5F35 Euclid \u306E\u4E92\u9664\u6CD5"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/modulus/modint.hpp
     title: Modint
   _extendedRequiredBy: []
@@ -30,7 +30,7 @@ data:
     \ * tmp,\n                       xu = xs - xt * tmp,\n                       yu\
     \ = ys - yt * tmp;\n        s = t, xs = xt, ys = yt;\n        t = u, xt = xu,\
     \ yt = yu;\n    }\n    assert(t == std::gcd(a, b));\n    return { xt, yt };\n\
-    }\n#line 12 \"lib/modulus/modint.hpp\"\n\ntemplate<unsigned int Modulo> struct\
+    }\n#line 12 \"lib/modulus/modint.hpp\"\n\ntemplate<uint_fast32_t Modulo> struct\
     \ Modint {\n    using value_type = decltype(Modulo);\n\n  private:\n    value_type\
     \ value = 0;\n    template<class T> static constexpr value_type normalize(T n)\
     \ {\n        static_assert(std::is_integral_v<T>);\n        if (n >= Modulo) n\
@@ -38,24 +38,24 @@ data:
     \    }\n\n  public:\n    constexpr Modint() noexcept: value(0) {}\n    template<class\
     \ T, std::enable_if_t<std::is_integral_v<T>, std::nullptr_t> = nullptr> constexpr\
     \ Modint(const T& n)\n        : value(normalize(n)) {}\n    template<class T =\
-    \ value_type>\n    constexpr std::enable_if_t<std::is_convertible_v<value_type,\
-    \ T>, T> val() const noexcept {\n        return static_cast<T>(value);\n    }\n\
-    \    template<class T = value_type>\n    constexpr std::enable_if_t<std::is_convertible_v<value_type,\
-    \ T>, T> mod() const noexcept {\n        return static_cast<T>(Modulo);\n    }\n\
-    \    template<class T> static constexpr auto raw(const T& v) noexcept {\n    \
-    \    Modint tmp{};\n        tmp.value = static_cast<unsigned int>(v);\n      \
-    \  return tmp;\n    }\n\n    constexpr auto operator+() const noexcept { return\
-    \ *this; }\n    constexpr auto operator-() const noexcept {\n        if (value\
-    \ == 0) return *this;\n        return Modint::raw(mod() - value);\n    }\n\n \
-    \   constexpr bool operator==(const Modint& rhs) { return value == rhs.value;\
-    \ }\n    constexpr bool operator!=(const Modint& rhs) { return value != rhs.value;\
-    \ }\n\n    constexpr auto& operator++() noexcept {\n        if (++value == mod())\
-    \ value = 0;\n        return *this;\n    }\n    constexpr auto& operator--() noexcept\
-    \ {\n        if (value-- == 0) value = mod() - 1;\n        return *this;\n   \
-    \ }\n    constexpr auto operator++(int) {\n        const auto tmp{ *this };\n\
-    \        ++*this;\n        return tmp;\n    }\n    constexpr auto operator--(int)\
-    \ {\n        const auto tmp{ *this };\n        --*this;\n        return tmp;\n\
-    \    }\n\n    constexpr auto operator+(const Modint& rhs) const noexcept { return\
+    \ value_type> constexpr std::enable_if_t<std::is_convertible_v<value_type, T>,\
+    \ T> val() const noexcept {\n        return static_cast<T>(value);\n    }\n  \
+    \  template<class T = value_type> static constexpr std::enable_if_t<std::is_convertible_v<value_type,\
+    \ T>, T> mod() noexcept {\n        return static_cast<T>(Modulo);\n    }\n   \
+    \ template<class T> static constexpr auto raw(const T& v) noexcept {\n       \
+    \ Modint tmp{};\n        tmp.value = static_cast<uint_fast32_t>(v);\n        return\
+    \ tmp;\n    }\n\n    constexpr auto operator+() const noexcept { return *this;\
+    \ }\n    constexpr auto operator-() const noexcept {\n        if (value == 0)\
+    \ return *this;\n        return Modint::raw(mod() - value);\n    }\n\n    constexpr\
+    \ bool operator==(const Modint& rhs) { return value == rhs.value; }\n    constexpr\
+    \ bool operator!=(const Modint& rhs) { return value != rhs.value; }\n\n    constexpr\
+    \ auto& operator++() noexcept {\n        if (++value == mod()) value = 0;\n  \
+    \      return *this;\n    }\n    constexpr auto& operator--() noexcept {\n   \
+    \     if (value-- == 0) value = mod() - 1;\n        return *this;\n    }\n   \
+    \ constexpr auto operator++(int) {\n        const auto tmp{ *this };\n       \
+    \ ++*this;\n        return tmp;\n    }\n    constexpr auto operator--(int) {\n\
+    \        const auto tmp{ *this };\n        --*this;\n        return tmp;\n   \
+    \ }\n\n    constexpr auto operator+(const Modint& rhs) const noexcept { return\
     \ Modint{ *this } += rhs; }\n    constexpr auto operator-(const Modint& rhs) const\
     \ noexcept { return Modint{ *this } -= rhs; }\n    constexpr auto operator*(const\
     \ Modint& rhs) const noexcept { return Modint{ *this } *= rhs; }\n    constexpr\
@@ -65,7 +65,7 @@ data:
     \    }\n    constexpr auto& operator-=(const Modint& rhs) noexcept {\n       \
     \ if ((value -= rhs.value) < 0) value += mod();\n        return *this;\n    }\n\
     \    constexpr auto& operator*=(const Modint& rhs) noexcept {\n        value =\
-    \ static_cast<unsigned int>(static_cast<intmax_t>(value) * static_cast<intmax_t>(rhs.value)\
+    \ static_cast<uint_fast32_t>(static_cast<uint_fast64_t>(value) * static_cast<uint_fast64_t>(rhs.value)\
     \ % mod());\n        return *this;\n    }\n    constexpr auto& operator/=(const\
     \ Modint& rhs) noexcept { return *this *= rhs.inv(); }\n\n    constexpr auto inv()\
     \ const { return Modint{ extgcd(this->val(), this->mod()).first }; }\n    template<class\
@@ -90,7 +90,7 @@ data:
   isVerificationFile: true
   path: test/aoj/NTL_1_B.test.cpp
   requiredBy: []
-  timestamp: '2021-11-23 21:36:17+09:00'
+  timestamp: '2022-01-15 17:41:33+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/NTL_1_B.test.cpp

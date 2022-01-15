@@ -3,49 +3,42 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/GRL_1_A.test.cpp
     title: test/aoj/GRL_1_A.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
-    document_title: Dijkstra's Algorithm
     links: []
-  bundledCode: "#line 2 \"lib/graph/dijkstra.hpp\"\n\n#include <limits>\n#include\
-    \ <queue>\n#include <utility>\n#include <vector>\n\n/**\n * @brief Dijkstra's\
-    \ Algorithm\n * @note  $O(|E|log|V|)$. There must be no negative edges. Return\
-    \ -1 for unreachable vertex.\n */\n\ntemplate<class T> std::vector<T> dijkstra(std::vector<std::vector<std::pair<std::size_t,\
-    \ T>>> const& graph, std::size_t root) {\n    using namespace std;\n    static_assert(is_signed<T>::value,\
-    \ \"template parameter T must be signed type!\");\n    using P = pair<T, size_t>;\n\
-    \    constexpr T INF = numeric_limits<T>::max() / 2;\n    auto chmin = [](auto&\
-    \ a, const auto& b) { return a > b and (a = b, true); };\n    vector<T> dist(size(graph),\
-    \ INF);\n    priority_queue<P, vector<P>, greater<>> pq;\n    pq.emplace(dist[root]\
-    \ = 0, root);\n    while (not empty(pq)) {\n        const auto [c, from] = pq.top();\n\
-    \        pq.pop();\n        if (dist[from] < c) continue;\n        for (const\
-    \ auto& [to, cost]: graph[from])\n            if (chmin(dist[to], dist[from] +\
-    \ cost)) pq.emplace(dist[to], to);\n    }\n    for (auto&& e: dist)\n        if\
-    \ (e == INF) e = -1;\n    return dist;\n}\n"
-  code: "#pragma once\n\n#include <limits>\n#include <queue>\n#include <utility>\n\
-    #include <vector>\n\n/**\n * @brief Dijkstra's Algorithm\n * @note  $O(|E|log|V|)$.\
-    \ There must be no negative edges. Return -1 for unreachable vertex.\n */\n\n\
-    template<class T> std::vector<T> dijkstra(std::vector<std::vector<std::pair<std::size_t,\
-    \ T>>> const& graph, std::size_t root) {\n    using namespace std;\n    static_assert(is_signed<T>::value,\
-    \ \"template parameter T must be signed type!\");\n    using P = pair<T, size_t>;\n\
-    \    constexpr T INF = numeric_limits<T>::max() / 2;\n    auto chmin = [](auto&\
-    \ a, const auto& b) { return a > b and (a = b, true); };\n    vector<T> dist(size(graph),\
-    \ INF);\n    priority_queue<P, vector<P>, greater<>> pq;\n    pq.emplace(dist[root]\
-    \ = 0, root);\n    while (not empty(pq)) {\n        const auto [c, from] = pq.top();\n\
-    \        pq.pop();\n        if (dist[from] < c) continue;\n        for (const\
-    \ auto& [to, cost]: graph[from])\n            if (chmin(dist[to], dist[from] +\
-    \ cost)) pq.emplace(dist[to], to);\n    }\n    for (auto&& e: dist)\n        if\
-    \ (e == INF) e = -1;\n    return dist;\n}\n"
+  bundledCode: "#line 2 \"lib/graph/dijkstra.hpp\"\n\n#include <optional>\n#include\
+    \ <queue>\n#include <vector>\n\ntemplate<class W, template<class, class> class\
+    \ Tp>\nauto dijkstra(std::vector<std::vector<Tp<std::size_t, W>>> const& graph,\
+    \ std::size_t root) {\n    using E = std::pair<W, size_t>;\n    std::vector<std::optional<W>>\
+    \ dist(size(graph), std::nullopt);\n    std::priority_queue<E, std::vector<E>,\
+    \ std::greater<>> pq{};\n    pq.emplace(*(dist[root] = W{}), root);\n    while\
+    \ (not empty(pq)) {\n        const auto [c, from] = pq.top();\n        pq.pop();\n\
+    \        if (*dist[from] < c) continue;\n        for (const auto& [to, cost]:\
+    \ graph[from]) {\n            if (not dist[to] or *dist[to] > *dist[from] + cost)\
+    \ {\n                dist[to] = dist[from].value() + cost;\n                pq.emplace(*dist[to],\
+    \ to);\n            }\n        }\n    }\n    return dist;\n}\n"
+  code: "#pragma once\n\n#include <optional>\n#include <queue>\n#include <vector>\n\
+    \ntemplate<class W, template<class, class> class Tp>\nauto dijkstra(std::vector<std::vector<Tp<std::size_t,\
+    \ W>>> const& graph, std::size_t root) {\n    using E = std::pair<W, size_t>;\n\
+    \    std::vector<std::optional<W>> dist(size(graph), std::nullopt);\n    std::priority_queue<E,\
+    \ std::vector<E>, std::greater<>> pq{};\n    pq.emplace(*(dist[root] = W{}), root);\n\
+    \    while (not empty(pq)) {\n        const auto [c, from] = pq.top();\n     \
+    \   pq.pop();\n        if (*dist[from] < c) continue;\n        for (const auto&\
+    \ [to, cost]: graph[from]) {\n            if (not dist[to] or *dist[to] > *dist[from]\
+    \ + cost) {\n                dist[to] = dist[from].value() + cost;\n         \
+    \       pq.emplace(*dist[to], to);\n            }\n        }\n    }\n    return\
+    \ dist;\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/graph/dijkstra.hpp
   requiredBy: []
-  timestamp: '2021-10-03 22:04:20+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-01-15 17:41:33+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/aoj/GRL_1_A.test.cpp
 documentation_of: lib/graph/dijkstra.hpp

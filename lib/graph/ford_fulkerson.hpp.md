@@ -67,8 +67,8 @@ data:
   timestamp: '2021-10-03 22:09:41+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/GRL_6_A.test.cpp
   - test/aoj/GRL_7_A.test.cpp
+  - test/aoj/GRL_6_A.test.cpp
 documentation_of: lib/graph/ford_fulkerson.hpp
 layout: document
 title: "Max flow(with Ford-Fulkerson) / \u6700\u5927\u8CBB\u7528\u6D41"

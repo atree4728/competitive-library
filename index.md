@@ -24,7 +24,7 @@ data:
       path: lib/graph/bellman_ford.hpp
       title: "Bellman-Ford Algorithm / \u8CA0\u8FBA\u3092\u8A31\u3059\u5358\u4E00\u59CB\
         \u70B9\u6700\u77ED\u7D4C\u8DEF\u554F\u984C"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: lib/graph/dijkstra.hpp
       title: "Dijkstra's Algorithm / \u5358\u4E00\u59CB\u70B9\u6700\u77ED\u7D4C\u8DEF\
         \u554F\u984C"
@@ -64,7 +64,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/euler_phi.hpp
       title: Euler's totient function / $\varphi(n)$
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: lib/math/extgcd.hpp
       title: "Extended Euclidean algorithm / \u62E1\u5F35 Euclid \u306E\u4E92\u9664\
         \u6CD5"
@@ -76,14 +76,17 @@ data:
       title: "Eratosthenes's Sieve / \u7D20\u6570\u5224\u5B9A\u30FB\u5217\u6319"
   - name: lib/modulus
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: lib/modulus/modint.hpp
       title: Modint
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: lib/modulus/modtable.hpp
-      title: lib/modulus/modtable.hpp
+      title: Combinatorics Table on mod
   - name: lib/utility
     pages:
+    - icon: ':warning:'
+      path: lib/utility/memorize.hpp
+      title: Recursively Memorize
     - icon: ':warning:'
       path: lib/utility/neighbor.hpp
       title: "neighbor on grid / \u30B0\u30EA\u30C3\u30C9\u4E0A\u3067\u306E\u8FD1\u508D"
@@ -99,13 +102,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/DPL_5_A.test.cpp
       title: test/aoj/DPL_5_A.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/DPL_5_B.test.cpp
       title: test/aoj/DPL_5_B.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/DPL_5_D.test.cpp
       title: test/aoj/DPL_5_D.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/DPL_5_E.test.cpp
       title: test/aoj/DPL_5_E.test.cpp
     - icon: ':heavy_check_mark:'
@@ -117,7 +120,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_2_B.test.cpp
       title: test/aoj/DSL_2_B.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/GRL_1_A.test.cpp
       title: test/aoj/GRL_1_A.test.cpp
     - icon: ':heavy_check_mark:'

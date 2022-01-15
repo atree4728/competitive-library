@@ -43,8 +43,8 @@ data:
   timestamp: '2021-11-15 23:15:51+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/GRL_4_A.test.cpp
   - test/my_stress_test/topological_sort.test.cpp
+  - test/aoj/GRL_4_A.test.cpp
 documentation_of: lib/graph/topological_sort.hpp
 layout: document
 title: Topological Sort
