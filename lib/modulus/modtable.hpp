@@ -24,8 +24,11 @@ template<typename Modint> class ModTable {
     constexpr auto fact_inv(const int i) const { return factorials_inv[i]; }
     constexpr auto perm(const int i, const int j) const { return i >= j ? fact(i) * fact_inv(i - j) : 0; }
     constexpr auto binom(const int i, const int j) const {
-        if (i < 0 or j < 0 or i < j) return Modint{ 0 };
+        if (i < 0 or j < 0 or i < j) return Modint::raw(0);
         return factorials[i] * factorials_inv[j] * factorials_inv[i - j];
     }
-    constexpr auto homo(const int i, const int j) const { return binom(i + j - 1, j); }
+    constexpr auto homo(const int i, const int j) const {
+        if (i == 0 and j == 0) return Modint::raw(1);
+        return binom(i + j - 1, j);
+    }
 };

@@ -5,7 +5,7 @@
 
 int main() {
     using Fp = Modint1000000007;
-    const auto m = ModTable<Fp>(1000000);
+    const auto m = ModTable<Fp>(2000000);
     int t;
     std::cin >> t;
     while (t--) {
@@ -13,9 +13,9 @@ int main() {
         int n, k;
         std::cin >> f >> _ >> n >> _ >> k >> _;
         switch (f) {
-            case 'C': std::cout << m.binom(n, k) << std::endl; break;
-            case 'P': std::cout << m.perm(n, k) << std::endl; break;
-            case 'H': std::cout << m.homo(n, k) << std::endl; break;
+            case 'C': std::cout << m.binom(n, k).val() << std::endl; break;
+            case 'P': std::cout << m.perm(n, k).val() << std::endl; break;
+            case 'H': std::cout << m.homo(n, k).val() << std::endl; break;
             default: assert(false);
         }
     }
