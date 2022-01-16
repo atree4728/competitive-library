@@ -10,13 +10,12 @@
 #include <numeric>
 #include "lib/math/extgcd.hpp"
 
-template<uint_fast32_t Modulo> struct Modint {
+template<auto Modulo> struct Modint {
     using value_type = decltype(Modulo);
 
   private:
     value_type value = 0;
     template<class T> static constexpr value_type normalize(T n) {
-        static_assert(std::is_integral_v<T>);
         if (static_cast<std::common_type_t<value_type, T>>(n) >= Modulo) n %= Modulo;
         if (n < 0) (n %= Modulo) += Modulo;
         return n;
@@ -34,7 +33,7 @@ template<uint_fast32_t Modulo> struct Modint {
     }
     template<class T> static constexpr auto raw(const T& v) noexcept {
         Modint tmp{};
-        tmp.value = static_cast<uint_fast32_t>(v);
+        tmp.value = static_cast<value_type>(v);
         return tmp;
     }
 
@@ -80,7 +79,7 @@ template<uint_fast32_t Modulo> struct Modint {
         return *this;
     }
     constexpr auto& operator*=(const Modint& rhs) noexcept {
-        value = static_cast<uint_fast32_t>(static_cast<uint_fast64_t>(value) * static_cast<uint_fast64_t>(rhs.value) % mod());
+        value = static_cast<value_type>(static_cast<uint_fast64_t>(value) * static_cast<uint_fast64_t>(rhs.value) % mod());
         return *this;
     }
     constexpr auto& operator/=(const Modint& rhs) noexcept { return *this *= rhs.inv(); }
