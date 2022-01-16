@@ -39,7 +39,7 @@ data:
       path: lib/graph/kruskal.hpp
       title: "Kruskal's Algorithm / Minimum Spanning Tree\uFF08\u6700\u5C0F\u5168\u57DF\
         \u6728\uFF09"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/graph/lowest_common_ancestor.hpp
       title: "Lowest Common Ancestor(Doubling, Binary Search) / \u6700\u8FD1\u5171\
         \u901A\u7956\u5148"
@@ -64,7 +64,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/euler_phi.hpp
       title: Euler's totient function / $\varphi(n)$
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/extgcd.hpp
       title: "Extended Euclidean algorithm / \u62E1\u5F35 Euclid \u306E\u4E92\u9664\
         \u6CD5"
@@ -76,10 +76,10 @@ data:
       title: "Eratosthenes's Sieve / \u7D20\u6570\u5224\u5B9A\u30FB\u5217\u6319"
   - name: lib/modulus
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/modulus/modint.hpp
       title: Modint
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/modulus/modtable.hpp
       title: Combinatorics Table on mod
   - name: lib/utility
@@ -111,7 +111,7 @@ data:
     - icon: ':warning:'
       path: lib/utility/printer.hpp
       title: lib/utility/printer.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/utility/rec_lambda.hpp
       title: lib/utility/rec_lambda.hpp
     - icon: ':warning:'
@@ -135,13 +135,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/DPL_5_A.test.cpp
       title: test/aoj/DPL_5_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/DPL_5_B.test.cpp
       title: test/aoj/DPL_5_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/DPL_5_D.test.cpp
       title: test/aoj/DPL_5_D.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/DPL_5_E.test.cpp
       title: test/aoj/DPL_5_E.test.cpp
     - icon: ':heavy_check_mark:'
@@ -180,7 +180,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_5_A.test.cpp
       title: test/aoj/GRL_5_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_5_C.test.cpp
       title: test/aoj/GRL_5_C.test.cpp
     - icon: ':heavy_check_mark:'
@@ -200,7 +200,7 @@ data:
       title: test/aoj/NTL_1_E.test.cpp
   - name: test/library-checker
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library-checker/lca.test.cpp
       title: test/library-checker/lca.test.cpp
     - icon: ':heavy_check_mark:'
@@ -222,7 +222,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1140.test.cpp
       title: test/yukicoder/1140.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/117.test.cpp
       title: test/yukicoder/117.test.cpp
 layout: toppage

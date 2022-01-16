@@ -1,18 +1,18 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/graph/lowest_common_ancestor.hpp
     title: "Lowest Common Ancestor(Doubling, Binary Search) / \u6700\u8FD1\u5171\u901A\
       \u7956\u5148"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/utility/rec_lambda.hpp
     title: lib/utility/rec_lambda.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/GRL_5_C
@@ -69,7 +69,7 @@ data:
   path: test/aoj/GRL_5_C.test.cpp
   requiredBy: []
   timestamp: '2022-01-16 23:42:32+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_5_C.test.cpp
 layout: document
