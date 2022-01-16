@@ -7,14 +7,14 @@ data:
   - icon: ':question:'
     path: lib/modulus/modint.hpp
     title: Modint
-  - icon: ':question:'
+  - icon: ':x:'
     path: lib/modulus/modtable.hpp
     title: Combinatorics Table on mod
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_D
@@ -93,11 +93,12 @@ data:
     \    constexpr auto fact_inv(const int i) const { return factorials_inv[i]; }\n\
     \    constexpr auto perm(const int i, const int j) const { return i >= j ? fact(i)\
     \ * fact_inv(i - j) : 0; }\n    constexpr auto binom(const int i, const int j)\
-    \ const {\n        if (i < 0 or j < 0 or i < j) return Modint{ 0 };\n        return\
-    \ factorials[i] * factorials_inv[j] * factorials_inv[i - j];\n    }\n    constexpr\
-    \ auto homo(const int i, const int j) const { return binom(i + j - 1, j); }\n\
-    };\n#line 5 \"test/aoj/DPL_5_D.test.cpp\"\n\nint main() {\n    int n, k;\n   \
-    \ std::cin >> n >> k;\n    const auto table = ModTable<Modint1000000007>(2100);\n\
+    \ const {\n        if (i < 0 or j < 0 or i < j) return Modint::raw(0);\n     \
+    \   return factorials[i] * factorials_inv[j] * factorials_inv[i - j];\n    }\n\
+    \    constexpr auto homo(const int i, const int j) const {\n        if (i == 0\
+    \ and j == 0) return Modint::raw(1);\n        return binom(i + j - 1, j);\n  \
+    \  }\n};\n#line 5 \"test/aoj/DPL_5_D.test.cpp\"\n\nint main() {\n    int n, k;\n\
+    \    std::cin >> n >> k;\n    const auto table = ModTable<Modint1000000007>(2100);\n\
     \    std::cout << table.homo(k, n) << \"\\n\";\n    return 0;\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_D\"\
     \n\n#include \"lib/modulus/modint.hpp\"\n#include \"lib/modulus/modtable.hpp\"\
@@ -111,8 +112,8 @@ data:
   isVerificationFile: true
   path: test/aoj/DPL_5_D.test.cpp
   requiredBy: []
-  timestamp: '2022-01-16 17:37:48+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-01-16 23:42:32+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/DPL_5_D.test.cpp
 layout: document

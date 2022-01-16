@@ -3,13 +3,13 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DPL_5_B.test.cpp
     title: test/aoj/DPL_5_B.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DPL_5_D.test.cpp
     title: test/aoj/DPL_5_D.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DPL_5_E.test.cpp
     title: test/aoj/DPL_5_E.test.cpp
   - icon: ':x:'
@@ -17,7 +17,7 @@ data:
     title: test/yukicoder/117.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/modulus/modtable.hpp\"\n\n#include <cassert>\n#include\
@@ -35,9 +35,10 @@ data:
     \ i) const { return factorials_inv[i]; }\n    constexpr auto perm(const int i,\
     \ const int j) const { return i >= j ? fact(i) * fact_inv(i - j) : 0; }\n    constexpr\
     \ auto binom(const int i, const int j) const {\n        if (i < 0 or j < 0 or\
-    \ i < j) return Modint{ 0 };\n        return factorials[i] * factorials_inv[j]\
+    \ i < j) return Modint::raw(0);\n        return factorials[i] * factorials_inv[j]\
     \ * factorials_inv[i - j];\n    }\n    constexpr auto homo(const int i, const\
-    \ int j) const { return binom(i + j - 1, j); }\n};\n"
+    \ int j) const {\n        if (i == 0 and j == 0) return Modint::raw(1);\n    \
+    \    return binom(i + j - 1, j);\n    }\n};\n"
   code: "#pragma once\n\n#include <cassert>\n#include <vector>\n\ntemplate<typename\
     \ Modint> class ModTable {\n    std::vector<Modint> factorials, factorials_inv,\
     \ inverse;\n\n  public:\n    constexpr ModTable() = default;\n    constexpr ModTable(const\
@@ -52,16 +53,17 @@ data:
     \    constexpr auto fact_inv(const int i) const { return factorials_inv[i]; }\n\
     \    constexpr auto perm(const int i, const int j) const { return i >= j ? fact(i)\
     \ * fact_inv(i - j) : 0; }\n    constexpr auto binom(const int i, const int j)\
-    \ const {\n        if (i < 0 or j < 0 or i < j) return Modint{ 0 };\n        return\
-    \ factorials[i] * factorials_inv[j] * factorials_inv[i - j];\n    }\n    constexpr\
-    \ auto homo(const int i, const int j) const { return binom(i + j - 1, j); }\n\
-    };\n"
+    \ const {\n        if (i < 0 or j < 0 or i < j) return Modint::raw(0);\n     \
+    \   return factorials[i] * factorials_inv[j] * factorials_inv[i - j];\n    }\n\
+    \    constexpr auto homo(const int i, const int j) const {\n        if (i == 0\
+    \ and j == 0) return Modint::raw(1);\n        return binom(i + j - 1, j);\n  \
+    \  }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/modulus/modtable.hpp
   requiredBy: []
-  timestamp: '2021-11-23 22:13:24+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2022-01-16 23:42:32+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/aoj/DPL_5_E.test.cpp
   - test/aoj/DPL_5_D.test.cpp
