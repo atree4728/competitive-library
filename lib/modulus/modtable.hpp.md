@@ -3,15 +3,18 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_B.test.cpp
     title: test/aoj/DPL_5_B.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_D.test.cpp
     title: test/aoj/DPL_5_D.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_E.test.cpp
     title: test/aoj/DPL_5_E.test.cpp
+  - icon: ':x:'
+    path: test/yukicoder/117.test.cpp
+    title: test/yukicoder/117.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
@@ -63,6 +66,7 @@ data:
   - test/aoj/DPL_5_E.test.cpp
   - test/aoj/DPL_5_D.test.cpp
   - test/aoj/DPL_5_B.test.cpp
+  - test/yukicoder/117.test.cpp
 documentation_of: lib/modulus/modtable.hpp
 layout: document
 title: Combinatorics Table on mod

@@ -12,15 +12,15 @@ data:
     title: Combinatorics Table on mod
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/DPL_5_B
+    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/7/DPL/5/DPL_5_B
     links:
-    - https://onlinejudge.u-aizu.ac.jp/problems/DPL_5_B
-  bundledCode: "#line 1 \"test/aoj/DPL_5_B.test.cpp\"\n#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/DPL_5_B\"\
+    - https://onlinejudge.u-aizu.ac.jp/courses/library/7/DPL/5/DPL_5_B
+  bundledCode: "#line 1 \"test/aoj/DPL_5_B.test.cpp\"\n#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/7/DPL/5/DPL_5_B\"\
     \n\n#line 2 \"lib/modulus/modint.hpp\"\n\n/**\n * @brief Modint\n */\n\n#include\
     \ <functional>\n#include <iostream>\n#include <limits>\n#include <numeric>\n#line\
     \ 2 \"lib/math/extgcd.hpp\"\n\n#include <cassert>\n#line 5 \"lib/math/extgcd.hpp\"\
@@ -32,20 +32,20 @@ data:
     \ s - t * tmp,\n                       xu = xs - xt * tmp,\n                 \
     \      yu = ys - yt * tmp;\n        s = t, xs = xt, ys = yt;\n        t = u, xt\
     \ = xu, yt = yu;\n    }\n    assert(t == std::gcd(a, b));\n    return { xt, yt\
-    \ };\n}\n#line 12 \"lib/modulus/modint.hpp\"\n\ntemplate<uint_fast32_t Modulo>\
-    \ struct Modint {\n    using value_type = decltype(Modulo);\n\n  private:\n  \
-    \  value_type value = 0;\n    template<class T> static constexpr value_type normalize(T\
-    \ n) {\n        static_assert(std::is_integral_v<T>);\n        if (static_cast<std::common_type_t<value_type,\
-    \ T>>(n) >= Modulo) n %= Modulo;\n        if (n < 0) (n %= Modulo) += Modulo;\n\
-    \        return n;\n    }\n\n  public:\n    constexpr Modint() noexcept: value(0)\
-    \ {}\n    template<class T, std::enable_if_t<std::is_integral_v<T>, std::nullptr_t>\
-    \ = nullptr> constexpr Modint(const T& n)\n        : value(normalize(n)) {}\n\
-    \    template<class T = value_type> constexpr std::enable_if_t<std::is_convertible_v<value_type,\
-    \ T>, T> val() const noexcept {\n        return static_cast<T>(value);\n    }\n\
-    \    template<class T = value_type> static constexpr std::enable_if_t<std::is_convertible_v<value_type,\
+    \ };\n}\n#line 12 \"lib/modulus/modint.hpp\"\n\ntemplate<auto Modulo> struct Modint\
+    \ {\n    using value_type = decltype(Modulo);\n\n  private:\n    value_type value\
+    \ = 0;\n    template<class T> static constexpr value_type normalize(T n) {\n \
+    \       if (static_cast<std::common_type_t<value_type, T>>(n) >= Modulo) n %=\
+    \ Modulo;\n        if (n < 0) (n %= Modulo) += Modulo;\n        return n;\n  \
+    \  }\n\n  public:\n    constexpr Modint() noexcept: value(0) {}\n    template<class\
+    \ T, std::enable_if_t<std::is_integral_v<T>, std::nullptr_t> = nullptr> constexpr\
+    \ Modint(const T& n)\n        : value(normalize(n)) {}\n    template<class T =\
+    \ value_type> constexpr std::enable_if_t<std::is_convertible_v<value_type, T>,\
+    \ T> val() const noexcept {\n        return static_cast<T>(value);\n    }\n  \
+    \  template<class T = value_type> static constexpr std::enable_if_t<std::is_convertible_v<value_type,\
     \ T>, T> mod() noexcept {\n        return static_cast<T>(Modulo);\n    }\n   \
     \ template<class T> static constexpr auto raw(const T& v) noexcept {\n       \
-    \ Modint tmp{};\n        tmp.value = static_cast<uint_fast32_t>(v);\n        return\
+    \ Modint tmp{};\n        tmp.value = static_cast<value_type>(v);\n        return\
     \ tmp;\n    }\n\n    constexpr auto operator+() const noexcept { return *this;\
     \ }\n    constexpr auto operator-() const noexcept {\n        if (value == 0)\
     \ return *this;\n        return Modint::raw(mod() - value);\n    }\n\n    constexpr\
@@ -67,7 +67,7 @@ data:
     \    }\n    constexpr auto& operator-=(const Modint& rhs) noexcept {\n       \
     \ if ((value -= rhs.value) < 0) value += mod();\n        return *this;\n    }\n\
     \    constexpr auto& operator*=(const Modint& rhs) noexcept {\n        value =\
-    \ static_cast<uint_fast32_t>(static_cast<uint_fast64_t>(value) * static_cast<uint_fast64_t>(rhs.value)\
+    \ static_cast<value_type>(static_cast<uint_fast64_t>(value) * static_cast<uint_fast64_t>(rhs.value)\
     \ % mod());\n        return *this;\n    }\n    constexpr auto& operator/=(const\
     \ Modint& rhs) noexcept { return *this *= rhs.inv(); }\n\n    constexpr auto inv()\
     \ const { return Modint{ extgcd(this->val(), this->mod()).first }; }\n    template<class\
@@ -99,9 +99,9 @@ data:
     };\n#line 5 \"test/aoj/DPL_5_B.test.cpp\"\n\nint main() {\n    int n, k;\n   \
     \ std::cin >> n >> k;\n\n    using mint = Modint1000000007;\n    ModTable<mint>\
     \ f(1100);\n    std::cout << f.perm(k, n) << \"\\n\";\n    return 0;\n}\n"
-  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/DPL_5_B\"\n\n\
-    #include \"lib/modulus/modint.hpp\"\n#include \"lib/modulus/modtable.hpp\"\n\n\
-    int main() {\n    int n, k;\n    std::cin >> n >> k;\n\n    using mint = Modint1000000007;\n\
+  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/7/DPL/5/DPL_5_B\"\
+    \n\n#include \"lib/modulus/modint.hpp\"\n#include \"lib/modulus/modtable.hpp\"\
+    \n\nint main() {\n    int n, k;\n    std::cin >> n >> k;\n\n    using mint = Modint1000000007;\n\
     \    ModTable<mint> f(1100);\n    std::cout << f.perm(k, n) << \"\\n\";\n    return\
     \ 0;\n}\n"
   dependsOn:
@@ -111,8 +111,8 @@ data:
   isVerificationFile: true
   path: test/aoj/DPL_5_B.test.cpp
   requiredBy: []
-  timestamp: '2022-01-16 00:36:45+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-01-16 17:37:48+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DPL_5_B.test.cpp
 layout: document

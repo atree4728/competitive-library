@@ -9,13 +9,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_A.test.cpp
     title: test/aoj/DPL_5_A.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_B.test.cpp
     title: test/aoj/DPL_5_B.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_D.test.cpp
     title: test/aoj/DPL_5_D.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_E.test.cpp
     title: test/aoj/DPL_5_E.test.cpp
   - icon: ':heavy_check_mark:'
@@ -24,6 +24,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/NTL_1_E.test.cpp
     title: test/aoj/NTL_1_E.test.cpp
+  - icon: ':x:'
+    path: test/yukicoder/117.test.cpp
+    title: test/yukicoder/117.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
@@ -65,6 +68,7 @@ data:
   - test/aoj/DPL_5_D.test.cpp
   - test/aoj/DPL_5_B.test.cpp
   - test/aoj/DPL_5_A.test.cpp
+  - test/yukicoder/117.test.cpp
 documentation_of: lib/math/extgcd.hpp
 layout: document
 title: "Extended Euclidean algorithm / \u62E1\u5F35 Euclid \u306E\u4E92\u9664\u6CD5"

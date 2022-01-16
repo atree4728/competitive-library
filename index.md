@@ -85,11 +85,44 @@ data:
   - name: lib/utility
     pages:
     - icon: ':warning:'
+      path: lib/utility/assign.hpp
+      title: lib/utility/assign.hpp
+    - icon: ':warning:'
+      path: lib/utility/bit.hpp
+      title: lib/utility/bit.hpp
+    - icon: ':warning:'
+      path: lib/utility/io.hpp
+      title: lib/utility/io.hpp
+    - icon: ':warning:'
+      path: lib/utility/macro.hpp
+      title: lib/utility/macro.hpp
+    - icon: ':warning:'
+      path: lib/utility/make_graph.hpp
+      title: lib/utility/make_graph.hpp
+    - icon: ':warning:'
+      path: lib/utility/make_vector.hpp
+      title: lib/utility/make_vector.hpp
+    - icon: ':warning:'
       path: lib/utility/memorize.hpp
       title: Recursively Memorize
     - icon: ':warning:'
       path: lib/utility/neighbor.hpp
       title: "neighbor on grid / \u30B0\u30EA\u30C3\u30C9\u4E0A\u3067\u306E\u8FD1\u508D"
+    - icon: ':warning:'
+      path: lib/utility/printer.hpp
+      title: lib/utility/printer.hpp
+    - icon: ':warning:'
+      path: lib/utility/rec_lambda.hpp
+      title: lib/utility/rec_lambda.hpp
+    - icon: ':warning:'
+      path: lib/utility/scanner.hpp
+      title: lib/utility/scanner.hpp
+    - icon: ':warning:'
+      path: lib/utility/type.hpp
+      title: lib/utility/type.hpp
+    - icon: ':warning:'
+      path: lib/utility/type_traits.hpp
+      title: lib/utility/type_traits.hpp
   verificationCategories:
   - name: test/aoj
     pages:
@@ -102,13 +135,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/DPL_5_A.test.cpp
       title: test/aoj/DPL_5_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/DPL_5_B.test.cpp
       title: test/aoj/DPL_5_B.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/DPL_5_D.test.cpp
       title: test/aoj/DPL_5_D.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/DPL_5_E.test.cpp
       title: test/aoj/DPL_5_E.test.cpp
     - icon: ':heavy_check_mark:'
@@ -189,6 +222,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1140.test.cpp
       title: test/yukicoder/1140.test.cpp
+    - icon: ':x:'
+      path: test/yukicoder/117.test.cpp
+      title: test/yukicoder/117.test.cpp
 layout: toppage
 ---
 [![atree](https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fatcoder%2Fjson%2Fatree)](https://atcoder.jp/users/atree)
