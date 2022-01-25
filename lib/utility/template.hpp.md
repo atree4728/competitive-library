@@ -2,6 +2,18 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
+    path: lib/utility/assign.hpp
+    title: lib/utility/assign.hpp
+  - icon: ':heavy_check_mark:'
+    path: lib/utility/io.hpp
+    title: lib/utility/io.hpp
+  - icon: ':heavy_check_mark:'
+    path: lib/utility/macro.hpp
+    title: lib/utility/macro.hpp
+  - icon: ':heavy_check_mark:'
+    path: lib/utility/make_graph.hpp
+    title: lib/utility/make_graph.hpp
+  - icon: ':heavy_check_mark:'
     path: lib/utility/make_vector.hpp
     title: lib/utility/make_vector.hpp
   - icon: ':heavy_check_mark:'
@@ -19,10 +31,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/utility/type_traits.hpp
     title: lib/utility/type_traits.hpp
-  _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
-    path: lib/utility/template.hpp
-    title: lib/utility/template.hpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/1595.test.cpp
@@ -32,11 +41,15 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"lib/utility/io.hpp\"\n\n#include <iomanip>\n\n#line 2 \"\
-    lib/utility/printer.hpp\"\n\n#include <iostream>\n#include <tuple>\n#line 2 \"\
-    lib/utility/type_traits.hpp\"\n\n#line 5 \"lib/utility/type_traits.hpp\"\n#include\
-    \ <type_traits>\n\n#line 2 \"lib/utility/type.hpp\"\n\n#include <cstddef>\n#include\
-    \ <cstdint>\n\nusing i32 = std::int_fast32_t;\nusing u32 = std::uint_fast32_t;\n\
+  bundledCode: "#line 2 \"lib/utility/assign.hpp\"\n\n#include <utility>\n\ntemplate<class\
+    \ T, class U = T> constexpr inline auto chmin(T& a, U&& b) -> bool {\n    return\
+    \ b < a ? a = std::forward<U>(b), true : false;\n}\ntemplate<class T, class U\
+    \ = T> constexpr inline auto chmax(T& a, U&& b) -> bool {\n    return a < b ?\
+    \ a = std::forward<U>(b), true : false;\n}\n#line 2 \"lib/utility/io.hpp\"\n\n\
+    #include <iomanip>\n\n#line 2 \"lib/utility/printer.hpp\"\n\n#include <iostream>\n\
+    #include <tuple>\n#line 2 \"lib/utility/type_traits.hpp\"\n\n#line 5 \"lib/utility/type_traits.hpp\"\
+    \n#include <type_traits>\n\n#line 2 \"lib/utility/type.hpp\"\n\n#include <cstddef>\n\
+    #include <cstdint>\n\nusing i32 = std::int_fast32_t;\nusing u32 = std::uint_fast32_t;\n\
     using i64 = std::int_fast64_t;\nusing u64 = std::uint_fast64_t;\nusing usize =\
     \ std::size_t;\nusing bit_t = u64;\n\nconstexpr auto operator\"\"_i32(unsigned\
     \ long long n) noexcept { return static_cast<i32>(n); }\nconstexpr auto operator\"\
@@ -89,8 +102,8 @@ data:
     }\n\ntemplate<class... Args> [[noreturn]] inline auto drop(Args&&... args) {\n\
     \    println(std::forward<Args>(args)...);\n    exit(0);\n}\n#line 2 \"lib/utility/scanner.hpp\"\
     \n\n#line 6 \"lib/utility/scanner.hpp\"\n\n#line 2 \"lib/utility/make_vector.hpp\"\
-    \n\n#include <vector>\n#line 2 \"lib/utility/rec_lambda.hpp\"\n\n#include <utility>\n\
-    \ntemplate<class F> struct rec_lambda {\n    F f;\n    explicit constexpr rec_lambda(F&&\
+    \n\n#include <vector>\n#line 2 \"lib/utility/rec_lambda.hpp\"\n\n#line 4 \"lib/utility/rec_lambda.hpp\"\
+    \n\ntemplate<class F> struct rec_lambda {\n    F f;\n    explicit constexpr rec_lambda(F&&\
     \ f): f(std::forward<F>(f)) {}\n    template<class... Args> constexpr decltype(auto)\
     \ operator()(Args&&... args) const {\n        return f(*this, std::forward<Args>(args)...);\n\
     \    }\n};\n#line 5 \"lib/utility/make_vector.hpp\"\n\ntemplate<class T, size_t\
@@ -132,31 +145,57 @@ data:
     \ }, *in<T>);\n}\n#line 7 \"lib/utility/io.hpp\"\n\n__attribute__((constructor))\
     \ inline auto io_setup() noexcept {\n    std::ios::sync_with_stdio(false);\n \
     \   std::cin.tie(nullptr);\n    std::cout << std::fixed << std::setprecision(10);\n\
-    \    std::cerr << std::fixed << std::setprecision(10);\n}\n"
-  code: "#pragma once\n\n#include <iomanip>\n\n#include \"lib/utility/printer.hpp\"\
-    \n#include \"lib/utility/scanner.hpp\"\n\n__attribute__((constructor)) inline\
-    \ auto io_setup() noexcept {\n    std::ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
-    \    std::cout << std::fixed << std::setprecision(10);\n    std::cerr << std::fixed\
-    \ << std::setprecision(10);\n}\n"
+    \    std::cerr << std::fixed << std::setprecision(10);\n}\n#line 2 \"lib/utility/macro.hpp\"\
+    \n\n#define overload2(_NULL, _1, _2, name, ...) name\n#define rep1(i, n) for (std::decay_t<decltype(n)>\
+    \ i = 0; i < (n); i++)\n#define rep2(i, a, b) for (std::decay_t<decltype(b)> i\
+    \ = (a); i < (b); i++)\n#define rep(...) overload2(__VA_ARGS__, rep2, rep1)(__VA_ARGS__)\n\
+    #define LAMBDA(...) [&]([[maybe_unused]] const auto& _) { return __VA_ARGS__;\
+    \ }\n#define LAMBDA2(...) [&](const auto& _1, const auto& _2) { return __VA_ARGS__;\
+    \ }\n#line 2 \"lib/utility/make_graph.hpp\"\n\n#line 4 \"lib/utility/make_graph.hpp\"\
+    \n\ntemplate<class V> auto make_graph(size_t n, const std::vector<std::tuple<V,\
+    \ V>>& edges, bool is_directed = false) {\n    std::vector graph(n, std::vector<size_t>{});\n\
+    \    for (const auto& [u, v]: edges) {\n        graph[u].emplace_back(v);\n  \
+    \      if (not is_directed) graph[v].emplace_back(u);\n    }\n    return graph;\n\
+    }\n\ntemplate<class V, class W> auto make_graph(size_t n, const std::vector<std::tuple<V,\
+    \ V, W>>& edges, bool is_directed = false) {\n    std::vector graph(n, std::vector<std::pair<size_t,\
+    \ W>>{});\n    for (const auto& [u, v, w]: edges) {\n        graph[u].emplace_back(v,\
+    \ w);\n        if (not is_directed) graph[v].emplace_back(u, w);\n    }\n    return\
+    \ graph;\n}\n#line 7 \"lib/utility/template.hpp\"\n"
+  code: '#include "lib/utility/assign.hpp"
+
+    #include "lib/utility/io.hpp"
+
+    #include "lib/utility/macro.hpp"
+
+    #include "lib/utility/make_graph.hpp"
+
+    #include "lib/utility/rec_lambda.hpp"
+
+    #include "lib/utility/type.hpp"
+
+    '
   dependsOn:
+  - lib/utility/assign.hpp
+  - lib/utility/io.hpp
   - lib/utility/printer.hpp
   - lib/utility/type_traits.hpp
   - lib/utility/type.hpp
   - lib/utility/scanner.hpp
   - lib/utility/make_vector.hpp
   - lib/utility/rec_lambda.hpp
+  - lib/utility/macro.hpp
+  - lib/utility/make_graph.hpp
   isVerificationFile: false
-  path: lib/utility/io.hpp
-  requiredBy:
-  - lib/utility/template.hpp
+  path: lib/utility/template.hpp
+  requiredBy: []
   timestamp: '2022-01-25 23:16:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/1595.test.cpp
-documentation_of: lib/utility/io.hpp
+documentation_of: lib/utility/template.hpp
 layout: document
 redirect_from:
-- /library/lib/utility/io.hpp
-- /library/lib/utility/io.hpp.html
-title: lib/utility/io.hpp
+- /library/lib/utility/template.hpp
+- /library/lib/utility/template.hpp.html
+title: lib/utility/template.hpp
 ---

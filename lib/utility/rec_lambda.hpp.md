@@ -6,7 +6,25 @@ data:
     path: lib/graph/lowest_common_ancestor.hpp
     title: "Lowest Common Ancestor(Doubling, Binary Search) / \u6700\u8FD1\u5171\u901A\
       \u7956\u5148"
+  - icon: ':heavy_check_mark:'
+    path: lib/utility/io.hpp
+    title: lib/utility/io.hpp
+  - icon: ':heavy_check_mark:'
+    path: lib/utility/make_vector.hpp
+    title: lib/utility/make_vector.hpp
+  - icon: ':heavy_check_mark:'
+    path: lib/utility/rerooting_dp.hpp
+    title: "Rerooting DP / \u5168\u65B9\u4F4D\u6728 DP"
+  - icon: ':heavy_check_mark:'
+    path: lib/utility/scanner.hpp
+    title: lib/utility/scanner.hpp
+  - icon: ':heavy_check_mark:'
+    path: lib/utility/template.hpp
+    title: lib/utility/template.hpp
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/1595.test.cpp
+    title: test/aoj/1595.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_5_C.test.cpp
     title: test/aoj/GRL_5_C.test.cpp
@@ -32,11 +50,17 @@ data:
   isVerificationFile: false
   path: lib/utility/rec_lambda.hpp
   requiredBy:
+  - lib/utility/make_vector.hpp
+  - lib/utility/rerooting_dp.hpp
+  - lib/utility/template.hpp
+  - lib/utility/scanner.hpp
+  - lib/utility/io.hpp
   - lib/graph/lowest_common_ancestor.hpp
   timestamp: '2022-01-16 21:32:47+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL_5_C.test.cpp
+  - test/aoj/1595.test.cpp
   - test/library-checker/lca.test.cpp
 documentation_of: lib/utility/rec_lambda.hpp
 layout: document

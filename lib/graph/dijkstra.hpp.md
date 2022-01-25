@@ -52,7 +52,7 @@ Dijkstra 法は、Bellman Ford 法などよりも高速に動作する、負辺�
 Tropical semiring ($\mathbb{R} \cup{\{\infty \}}, min, +, \infty, 0$) の上で動作することが知られている。
 
 ## 使い方
-- `dijkstra(g, r)`:`g`を`vector<vector<size_t, T>>`として、頂点`r`からの最短経路問題を解く。`dijkstra(g, r)[v]`=$dist(r, v)$である。
+- `dijkstra(std::vector<std::vector<Tp<size_t, W>> const& g, size_t r)`:`g`上で頂点`r`からの最短経路問題を解く。`dijkstra(g, r)[v]`=$dist(r, v)$である。
 
 ## 計算量
 $G=(V,E)$について`\mathcal{O}(E \log V)`。

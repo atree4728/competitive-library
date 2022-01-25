@@ -84,22 +84,22 @@ data:
       title: Combinatorics Table on mod
   - name: lib/utility
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/utility/assign.hpp
       title: lib/utility/assign.hpp
     - icon: ':warning:'
       path: lib/utility/bit.hpp
       title: lib/utility/bit.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/utility/io.hpp
       title: lib/utility/io.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/utility/macro.hpp
       title: lib/utility/macro.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/utility/make_graph.hpp
       title: lib/utility/make_graph.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/utility/make_vector.hpp
       title: lib/utility/make_vector.hpp
     - icon: ':warning:'
@@ -108,19 +108,25 @@ data:
     - icon: ':warning:'
       path: lib/utility/neighbor.hpp
       title: "neighbor on grid / \u30B0\u30EA\u30C3\u30C9\u4E0A\u3067\u306E\u8FD1\u508D"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/utility/printer.hpp
       title: lib/utility/printer.hpp
     - icon: ':heavy_check_mark:'
       path: lib/utility/rec_lambda.hpp
       title: lib/utility/rec_lambda.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
+      path: lib/utility/rerooting_dp.hpp
+      title: "Rerooting DP / \u5168\u65B9\u4F4D\u6728 DP"
+    - icon: ':heavy_check_mark:'
       path: lib/utility/scanner.hpp
       title: lib/utility/scanner.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
+      path: lib/utility/template.hpp
+      title: lib/utility/template.hpp
+    - icon: ':heavy_check_mark:'
       path: lib/utility/type.hpp
       title: lib/utility/type.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/utility/type_traits.hpp
       title: lib/utility/type_traits.hpp
   verificationCategories:
@@ -129,6 +135,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/0560.test.cpp
       title: test/aoj/0560.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/1595.test.cpp
+      title: test/aoj/1595.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/ALDS1_11_D.test.cpp
       title: test/aoj/ALDS1_11_D.test.cpp

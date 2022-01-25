@@ -2,22 +2,28 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: lib/utility/io.hpp
     title: lib/utility/io.hpp
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: lib/utility/printer.hpp
     title: lib/utility/printer.hpp
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: lib/utility/scanner.hpp
     title: lib/utility/scanner.hpp
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
+    path: lib/utility/template.hpp
+    title: lib/utility/template.hpp
+  - icon: ':heavy_check_mark:'
     path: lib/utility/type_traits.hpp
     title: lib/utility/type_traits.hpp
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/1595.test.cpp
+    title: test/aoj/1595.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: '#line 2 "lib/utility/type.hpp"
@@ -104,13 +110,15 @@ data:
   isVerificationFile: false
   path: lib/utility/type.hpp
   requiredBy:
-  - lib/utility/scanner.hpp
   - lib/utility/printer.hpp
   - lib/utility/type_traits.hpp
+  - lib/utility/template.hpp
+  - lib/utility/scanner.hpp
   - lib/utility/io.hpp
   timestamp: '2022-01-16 21:32:47+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/aoj/1595.test.cpp
 documentation_of: lib/utility/type.hpp
 layout: document
 redirect_from:

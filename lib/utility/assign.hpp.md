@@ -1,11 +1,17 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: lib/utility/template.hpp
+    title: lib/utility/template.hpp
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/1595.test.cpp
+    title: test/aoj/1595.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/utility/assign.hpp\"\n\n#include <utility>\n\ntemplate<class\
@@ -21,10 +27,12 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: lib/utility/assign.hpp
-  requiredBy: []
+  requiredBy:
+  - lib/utility/template.hpp
   timestamp: '2022-01-16 21:32:47+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/aoj/1595.test.cpp
 documentation_of: lib/utility/assign.hpp
 layout: document
 redirect_from:

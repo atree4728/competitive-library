@@ -65,10 +65,10 @@ data:
   timestamp: '2022-01-16 23:42:32+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/DPL_5_E.test.cpp
-  - test/aoj/DPL_5_D.test.cpp
-  - test/aoj/DPL_5_B.test.cpp
   - test/yukicoder/117.test.cpp
+  - test/aoj/DPL_5_D.test.cpp
+  - test/aoj/DPL_5_E.test.cpp
+  - test/aoj/DPL_5_B.test.cpp
 documentation_of: lib/modulus/modtable.hpp
 layout: document
 title: Combinatorics Table on mod

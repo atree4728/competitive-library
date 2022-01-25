@@ -62,13 +62,13 @@ data:
   timestamp: '2021-11-16 17:42:48+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/NTL_1_B.test.cpp
-  - test/aoj/DPL_5_E.test.cpp
-  - test/aoj/NTL_1_E.test.cpp
-  - test/aoj/DPL_5_D.test.cpp
-  - test/aoj/DPL_5_B.test.cpp
-  - test/aoj/DPL_5_A.test.cpp
   - test/yukicoder/117.test.cpp
+  - test/aoj/DPL_5_D.test.cpp
+  - test/aoj/DPL_5_A.test.cpp
+  - test/aoj/DPL_5_E.test.cpp
+  - test/aoj/DPL_5_B.test.cpp
+  - test/aoj/NTL_1_B.test.cpp
+  - test/aoj/NTL_1_E.test.cpp
 documentation_of: lib/math/extgcd.hpp
 layout: document
 title: "Extended Euclidean algorithm / \u62E1\u5F35 Euclid \u306E\u4E92\u9664\u6CD5"

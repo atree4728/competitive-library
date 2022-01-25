@@ -144,12 +144,12 @@ data:
   timestamp: '2022-01-16 17:37:48+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/NTL_1_B.test.cpp
-  - test/aoj/DPL_5_E.test.cpp
-  - test/aoj/DPL_5_D.test.cpp
-  - test/aoj/DPL_5_B.test.cpp
-  - test/aoj/DPL_5_A.test.cpp
   - test/yukicoder/117.test.cpp
+  - test/aoj/DPL_5_D.test.cpp
+  - test/aoj/DPL_5_A.test.cpp
+  - test/aoj/DPL_5_E.test.cpp
+  - test/aoj/DPL_5_B.test.cpp
+  - test/aoj/NTL_1_B.test.cpp
 documentation_of: lib/modulus/modint.hpp
 layout: document
 redirect_from:

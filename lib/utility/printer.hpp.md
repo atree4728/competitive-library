@@ -1,20 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: lib/utility/type.hpp
     title: lib/utility/type.hpp
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: lib/utility/type_traits.hpp
     title: lib/utility/type_traits.hpp
   _extendedRequiredBy:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: lib/utility/io.hpp
     title: lib/utility/io.hpp
-  _extendedVerifiedWith: []
+  - icon: ':heavy_check_mark:'
+    path: lib/utility/template.hpp
+    title: lib/utility/template.hpp
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/1595.test.cpp
+    title: test/aoj/1595.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/utility/printer.hpp\"\n\n#include <iostream>\n#include\
@@ -63,7 +69,7 @@ data:
     \        else std::cout << x;\n    } else if constexpr (is_tuple_like<std::decay_t<T>>::value)\
     \ {\n        tuple_print(std::forward<T>(x), std::make_index_sequence<std::tuple_size_v<std::decay_t<T>>>());\n\
     \    } else if constexpr (is_iteratable<T>::value) {\n        for (auto it = std::begin(x);\
-    \ it != std::end(x); ++it) {\n            print(std::forward<typename std::decay_t<T>::value_type>(*it));\n\
+    \ it != std::end(x); ++it) {\n            print(std::forward<decltype(*it)>(*it));\n\
     \            if (next(it) != std::end(x)) print(print_values::sep);\n        }\n\
     \    } else {\n        static_assert(false_v<T>, \"print: got an unexpented type.\"\
     );\n    }\n}\n\ntemplate<class T, class... Args> inline auto print(T&& t, Args&&...\
@@ -87,7 +93,7 @@ data:
     \        else std::cout << x;\n    } else if constexpr (is_tuple_like<std::decay_t<T>>::value)\
     \ {\n        tuple_print(std::forward<T>(x), std::make_index_sequence<std::tuple_size_v<std::decay_t<T>>>());\n\
     \    } else if constexpr (is_iteratable<T>::value) {\n        for (auto it = std::begin(x);\
-    \ it != std::end(x); ++it) {\n            print(std::forward<typename std::decay_t<T>::value_type>(*it));\n\
+    \ it != std::end(x); ++it) {\n            print(std::forward<decltype(*it)>(*it));\n\
     \            if (next(it) != std::end(x)) print(print_values::sep);\n        }\n\
     \    } else {\n        static_assert(false_v<T>, \"print: got an unexpented type.\"\
     );\n    }\n}\n\ntemplate<class T, class... Args> inline auto print(T&& t, Args&&...\
@@ -102,10 +108,12 @@ data:
   isVerificationFile: false
   path: lib/utility/printer.hpp
   requiredBy:
+  - lib/utility/template.hpp
   - lib/utility/io.hpp
-  timestamp: '2022-01-16 21:32:47+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2022-01-25 23:16:15+09:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/aoj/1595.test.cpp
 documentation_of: lib/utility/printer.hpp
 layout: document
 redirect_from:
