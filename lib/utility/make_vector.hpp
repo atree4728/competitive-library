@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include "lib/utility/rec_lambda.hpp"
 
 template<class T, size_t N> auto construct_vector(std::vector<size_t>& sizes, T x = std::decay_t<T>{}) {
     if constexpr (N == 1) {

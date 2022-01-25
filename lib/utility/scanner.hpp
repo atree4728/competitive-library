@@ -4,6 +4,7 @@
 #include <tuple>
 #include <type_traits>
 
+#include "lib/utility/make_vector.hpp"
 #include "lib/utility/type_traits.hpp"
 
 // Copyright (c) 2021 Mitama Lab | `tuple_scan`, `scan`, `in` are based on the code released under the ISC license. see
@@ -27,7 +28,7 @@ template<class Tp, std::size_t... I> inline auto tuple_scan(Tp& tup, std::index_
 template<class T, class... Args> decltype(auto) inline in();
 
 template<class Tp, std::size_t... I> inline auto tuple_in(std::index_sequence<I...>) {
-    return Tp{ in<typename std::tuple_element_t<I, Tp>>()... };
+    return std::tuple{ in<typename std::tuple_element_t<I, Tp>>()... };
 }
 
 template<class T, class... Args> decltype(auto) inline in() {
@@ -48,4 +49,8 @@ template<class T, class... Args> decltype(auto) inline in() {
     } else {
         return std::tuple{ in<T>(), in<Args>()... };
     }
+}
+
+template<class T, class... size_t> inline auto in_vec(size_t&&... args) {
+    return make_vector({ static_cast<usize>(args)... }, *in<T>);
 }

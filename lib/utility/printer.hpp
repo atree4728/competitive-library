@@ -33,7 +33,7 @@ template<class T> inline auto print(T&& x) -> void {
         tuple_print(std::forward<T>(x), std::make_index_sequence<std::tuple_size_v<std::decay_t<T>>>());
     } else if constexpr (is_iteratable<T>::value) {
         for (auto it = std::begin(x); it != std::end(x); ++it) {
-            print(std::forward<typename std::decay_t<T>::value_type>(*it));
+            print(std::forward<decltype(*it)>(*it));
             if (next(it) != std::end(x)) print(print_values::sep);
         }
     } else {

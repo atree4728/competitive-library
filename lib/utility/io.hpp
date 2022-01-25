@@ -5,7 +5,7 @@
 #include "lib/utility/printer.hpp"
 #include "lib/utility/scanner.hpp"
 
-_attribute__((constructor)) auto io_setup() noexcept {
+__attribute__((constructor)) inline auto io_setup() noexcept {
     std::ios::sync_with_stdio(false);
     std::cin.tie(nullptr);
     std::cout << std::fixed << std::setprecision(10);
