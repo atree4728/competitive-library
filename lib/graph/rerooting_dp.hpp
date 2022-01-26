@@ -3,7 +3,7 @@
 #include <numeric>
 #include <optional>
 #include <vector>
-#include "rec_lambda.hpp"
+#include "lib/utility/rec_lambda.hpp"
 
 template<class value_type, class E, class F, class H, class G>
 auto rerooting_dp(std::vector<std::vector<E>> const& graph, F const& op, H const& id, G const& propagate) {

@@ -1,6 +1,6 @@
 ---
 title: Rerooting DP / 全方位木 DP
-documentation_of: //lib/utility/rerooting_dp.hpp
+documentation_of: //lib/graph/rerooting_dp.hpp
 ---
 
 木上の catamorphism を考える。
@@ -13,4 +13,4 @@ documentation_of: //lib/utility/rerooting_dp.hpp
 - https://rsk0315.github.io/library-rs/nekolib/graph/tree/struct.Tree.html
 - https://qiita.com/keymoon/items/2a52f1b0fb7ef67fb89e
 - https://ei1333.hateblo.jp/entry/2017/04/10/224413
-ss
+

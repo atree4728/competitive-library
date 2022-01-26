@@ -1,6 +1,6 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/1595"
 
-#include "lib/utility/rerooting_dp.hpp"
+#include "lib/graph/rerooting_dp.hpp"
 #include "lib/utility/template.hpp"
 
 auto main() -> int {
