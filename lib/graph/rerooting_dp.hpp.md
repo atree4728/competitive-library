@@ -14,12 +14,12 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"lib/utility/rerooting_dp.hpp\"\n\n#include <numeric>\n#include\
+  bundledCode: "#line 2 \"lib/graph/rerooting_dp.hpp\"\n\n#include <numeric>\n#include\
     \ <optional>\n#include <vector>\n#line 2 \"lib/utility/rec_lambda.hpp\"\n\n#include\
     \ <utility>\n\ntemplate<class F> struct rec_lambda {\n    F f;\n    explicit constexpr\
     \ rec_lambda(F&& f): f(std::forward<F>(f)) {}\n    template<class... Args> constexpr\
     \ decltype(auto) operator()(Args&&... args) const {\n        return f(*this, std::forward<Args>(args)...);\n\
-    \    }\n};\n#line 7 \"lib/utility/rerooting_dp.hpp\"\n\ntemplate<class value_type,\
+    \    }\n};\n#line 7 \"lib/graph/rerooting_dp.hpp\"\n\ntemplate<class value_type,\
     \ class E, class F, class H, class G>\nauto rerooting_dp(std::vector<std::vector<E>>\
     \ const& graph, F const& op, H const& id, G const& propagate) {\n    const auto\
     \ n = size(graph);\n    auto dp_on_subtree = std::vector<std::optional<value_type>>(n,\
@@ -43,10 +43,10 @@ data:
     \ from_right[i + 1]);\n            self(v, u, propagate(op(to_parent, except_ci),\
     \ v, u, w));\n        }\n    })(0, 0, id());\n    return rerooting_dp;\n}\n"
   code: "#pragma once\n\n#include <numeric>\n#include <optional>\n#include <vector>\n\
-    #include \"rec_lambda.hpp\"\n\ntemplate<class value_type, class E, class F, class\
-    \ H, class G>\nauto rerooting_dp(std::vector<std::vector<E>> const& graph, F const&\
-    \ op, H const& id, G const& propagate) {\n    const auto n = size(graph);\n  \
-    \  auto dp_on_subtree = std::vector<std::optional<value_type>>(n, std::nullopt);\n\
+    #include \"lib/utility/rec_lambda.hpp\"\n\ntemplate<class value_type, class E,\
+    \ class F, class H, class G>\nauto rerooting_dp(std::vector<std::vector<E>> const&\
+    \ graph, F const& op, H const& id, G const& propagate) {\n    const auto n = size(graph);\n\
+    \    auto dp_on_subtree = std::vector<std::optional<value_type>>(n, std::nullopt);\n\
     \    rec_lambda([&](auto&& self, const size_t u, const size_t p) {\n        if\
     \ (dp_on_subtree[u].has_value()) return *dp_on_subtree[u];\n        *dp_on_subtree[u]\
     \ = id();\n        for (const auto& [v, w]: graph[u]) {\n            if (v ==\
@@ -69,13 +69,13 @@ data:
   dependsOn:
   - lib/utility/rec_lambda.hpp
   isVerificationFile: false
-  path: lib/utility/rerooting_dp.hpp
+  path: lib/graph/rerooting_dp.hpp
   requiredBy: []
-  timestamp: '2022-01-25 23:16:15+09:00'
+  timestamp: '2022-01-26 17:41:18+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/1595.test.cpp
-documentation_of: lib/utility/rerooting_dp.hpp
+documentation_of: lib/graph/rerooting_dp.hpp
 layout: document
 title: "Rerooting DP / \u5168\u65B9\u4F4D\u6728 DP"
 ---
@@ -90,4 +90,4 @@ title: "Rerooting DP / \u5168\u65B9\u4F4D\u6728 DP"
 - https://rsk0315.github.io/library-rs/nekolib/graph/tree/struct.Tree.html
 - https://qiita.com/keymoon/items/2a52f1b0fb7ef67fb89e
 - https://ei1333.hateblo.jp/entry/2017/04/10/224413
-ss
+

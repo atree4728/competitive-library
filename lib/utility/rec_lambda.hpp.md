@@ -7,14 +7,14 @@ data:
     title: "Lowest Common Ancestor(Doubling, Binary Search) / \u6700\u8FD1\u5171\u901A\
       \u7956\u5148"
   - icon: ':heavy_check_mark:'
+    path: lib/graph/rerooting_dp.hpp
+    title: "Rerooting DP / \u5168\u65B9\u4F4D\u6728 DP"
+  - icon: ':heavy_check_mark:'
     path: lib/utility/io.hpp
     title: lib/utility/io.hpp
   - icon: ':heavy_check_mark:'
     path: lib/utility/make_vector.hpp
     title: lib/utility/make_vector.hpp
-  - icon: ':heavy_check_mark:'
-    path: lib/utility/rerooting_dp.hpp
-    title: "Rerooting DP / \u5168\u65B9\u4F4D\u6728 DP"
   - icon: ':heavy_check_mark:'
     path: lib/utility/scanner.hpp
     title: lib/utility/scanner.hpp
@@ -51,10 +51,10 @@ data:
   path: lib/utility/rec_lambda.hpp
   requiredBy:
   - lib/utility/make_vector.hpp
-  - lib/utility/rerooting_dp.hpp
   - lib/utility/template.hpp
   - lib/utility/scanner.hpp
   - lib/utility/io.hpp
+  - lib/graph/rerooting_dp.hpp
   - lib/graph/lowest_common_ancestor.hpp
   timestamp: '2022-01-16 21:32:47+09:00'
   verificationStatus: LIBRARY_ALL_AC

@@ -47,6 +47,9 @@ data:
       path: lib/graph/lowlink.hpp
       title: "Lowlink / \u6A4B\u30FB\u95A2\u7BC0\u70B9"
     - icon: ':heavy_check_mark:'
+      path: lib/graph/rerooting_dp.hpp
+      title: "Rerooting DP / \u5168\u65B9\u4F4D\u6728 DP"
+    - icon: ':heavy_check_mark:'
       path: lib/graph/strongly_connected_components.hpp
       title: "Strongly Connected Components / \u5F37\u9023\u7D50\u6210\u5206\u5206\
         \u89E3"
@@ -114,9 +117,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/utility/rec_lambda.hpp
       title: lib/utility/rec_lambda.hpp
-    - icon: ':heavy_check_mark:'
-      path: lib/utility/rerooting_dp.hpp
-      title: "Rerooting DP / \u5168\u65B9\u4F4D\u6728 DP"
     - icon: ':heavy_check_mark:'
       path: lib/utility/scanner.hpp
       title: lib/utility/scanner.hpp
