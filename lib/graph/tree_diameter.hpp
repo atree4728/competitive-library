@@ -3,28 +3,36 @@
 #include <algorithm>
 #include <cassert>
 #include <limits>
+#include <queue>
 #include <vector>
 
-template<typename T> T tree_diameter(const std::vector<std::vector<std::pair<std::size_t, T>>> &tree) {
-    using namespace std;
-    const size_t n = size(tree);
-    const T INF = numeric_limits<T>::max();
-    vector<T> dist(n, INF);
-    auto dfs = [&](auto &&self, size_t v, size_t prev) -> void {
-        for (const auto &[u, w]: tree[v]) {
-            if (u == prev) continue;
-            assert(dist[u] == INF);  // graph must be a tree
-            dist[u] = dist[v] + w;
-            self(self, u, v);
+template<class T> std::vector<T> tree_diameter(const std::vector<std::vector<T>>& tree) {
+    const T n = size(tree);
+    const auto furthest = [&](T s) {
+        std::vector<T> dist(n, static_cast<T>(-1));
+        dist[s] = 0;
+        std::queue<T> que{ { s } };
+        while (not empty(que)) {
+            const T u = que.front();
+            que.pop();
+            for (const T& v: tree[u]) {
+                if (dist[v] != static_cast<T>(-1)) continue;
+                dist[v] = dist[u] + 1;
+                que.emplace(v);
+            }
         }
+        const T f = distance(cbegin(dist), max_element(cbegin(dist), cend(dist)));
+        std::vector<T> path{ f };
+        while (dist[path.back()] != 0) {
+            for (const T& u: tree[path.back()]) {
+                if (dist[u] + 1 == dist[path.back()]) {
+                    path.emplace_back(u);
+                    break;
+                }
+            }
+        }
+        reverse(begin(path), end(path));
+        return path;
     };
-    dist[0] = 0;
-    dfs(dfs, 0, 0);
-    size_t farthest = distance(begin(dist), max_element(begin(dist), end(dist)));
-    assert(dist[farthest] != INF);  // graph must be a tree
-    fill(begin(dist), end(dist), INF);
-    dist[farthest] = 0;
-    dfs(dfs, farthest, 0);
-    T ans = *max_element(begin(dist), end(dist));
-    return ans;
+    return furthest(furthest(0).back());
 }

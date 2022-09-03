@@ -16,6 +16,6 @@ int main() {
         tree[s].emplace_back(t, w);
         tree[t].emplace_back(s, w);
     }
-    const auto ans = tree_diameter(tree);
+    const auto ans = size(tree_diameter(tree));
     cout << ans << "\n";
 }

@@ -9,7 +9,7 @@ documentation_of: //lib/graph/tree_diameter.hpp
 
 ## 使い方
 
-- `tree_diameter(graph)`: 木`graph`の直径を求める。
+- `tree_diameter(graph)`: 木`graph`の直径を構成する頂点列。
 
 ## 計算量
 
