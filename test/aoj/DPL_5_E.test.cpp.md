@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/extgcd.hpp
     title: "Extended Euclidean algorithm / \u62E1\u5F35 Euclid \u306E\u4E92\u9664\u6CD5"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/modulus/modint.hpp
     title: Modint
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/modulus/modtable.hpp
     title: Combinatorics Table on mod
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/7/DPL/5/DPL_5_E
@@ -81,26 +81,25 @@ data:
     \    return os;\n    }\n};\n\nusing Modint1000000007 = Modint<1000000007>;\nusing\
     \ Modint998244353 = Modint<998244353>;\n#line 2 \"lib/modulus/modtable.hpp\"\n\
     \n#line 4 \"lib/modulus/modtable.hpp\"\n#include <vector>\n\ntemplate<typename\
-    \ Modint> class ModTable {\n    std::vector<Modint> factorials, factorials_inv,\
-    \ inverse;\n\n  public:\n    constexpr ModTable() = default;\n    constexpr ModTable(const\
-    \ size_t n): factorials(n + 1), factorials_inv(n + 1), inverse(n + 1) {\n    \
-    \    inverse[1] = 1;\n        for (size_t i = 2; i <= n; ++i) inverse[i] = -inverse[Modint::mod()\
-    \ % i] * (Modint::mod() / i);\n        factorials[0] = 1;\n        for (size_t\
-    \ i = 0; i < n; i++) factorials[i + 1] = factorials[i] * Modint{ i + 1 };\n  \
-    \      factorials_inv[n] = factorials[n].inv();\n        for (size_t i = n; i--;)\
-    \ factorials_inv[i] = factorials_inv[i + 1] * Modint{ i + 1 };\n    }\n    constexpr\
-    \ auto inv(const int i) const {\n        assert(i != 0);\n        return inverse[i];\n\
-    \    }\n    constexpr auto fact(const int i) const { return factorials[i]; }\n\
-    \    constexpr auto fact_inv(const int i) const { return factorials_inv[i]; }\n\
-    \    constexpr auto perm(const int i, const int j) const { return i >= j ? fact(i)\
-    \ * fact_inv(i - j) : 0; }\n    constexpr auto binom(const int i, const int j)\
-    \ const {\n        if (i < 0 or j < 0 or i < j) return Modint::raw(0);\n     \
-    \   return factorials[i] * factorials_inv[j] * factorials_inv[i - j];\n    }\n\
-    \    constexpr auto homo(const int i, const int j) const {\n        if (i == 0\
-    \ and j == 0) return Modint::raw(1);\n        return binom(i + j - 1, j);\n  \
-    \  }\n};\n#line 5 \"test/aoj/DPL_5_E.test.cpp\"\n\nint main() {\n    int n, k;\n\
-    \    std::cin >> n >> k;\n    const auto table = ModTable<Modint1000000007>(1100);\n\
-    \    std::cout << table.binom(k, n) << \"\\n\";\n    return 0;\n}\n"
+    \ M> class ModTable {\n    std::vector<M> m_fact, m_fact_inv, m_inv;\n\n  public:\n\
+    \    constexpr ModTable() = default;\n    constexpr ModTable(const size_t n):\
+    \ m_fact(n + 1), m_fact_inv(n + 1), m_inv(n + 1) {\n        m_inv[1] = 1;\n  \
+    \      for (size_t i = 2; i <= n; ++i) m_inv[i] = -m_inv[M::mod() % i] * (M::mod()\
+    \ / i);\n        m_fact[0] = 1;\n        for (size_t i = 0; i < n; i++) m_fact[i\
+    \ + 1] = m_fact[i] * M{ i + 1 };\n        m_fact_inv[n] = m_fact[n].inv();\n \
+    \       for (size_t i = n; i--;) m_fact_inv[i] = m_fact_inv[i + 1] * M{ i + 1\
+    \ };\n    }\n    constexpr auto inv(const int i) const {\n        assert(i !=\
+    \ 0);\n        return m_inv[i];\n    }\n    constexpr auto fact(const int i) const\
+    \ { return m_fact[i]; }\n    constexpr auto fact_inv(const int i) const { return\
+    \ m_fact_inv[i]; }\n    constexpr auto perm(const int i, const int j) const {\
+    \ return i >= j ? fact(i) * fact_inv(i - j) : 0; }\n    constexpr auto binom(const\
+    \ int i, const int j) const {\n        if (i < 0 or j < 0 or i < j) return M::raw(0);\n\
+    \        return m_fact[i] * m_fact_inv[j] * m_fact_inv[i - j];\n    }\n    constexpr\
+    \ auto homo(const int i, const int j) const {\n        if (i == 0 and j == 0)\
+    \ return M::raw(1);\n        return binom(i + j - 1, j);\n    }\n};\n#line 5 \"\
+    test/aoj/DPL_5_E.test.cpp\"\n\nint main() {\n    int n, k;\n    std::cin >> n\
+    \ >> k;\n    const auto table = ModTable<Modint1000000007>(1100);\n    std::cout\
+    \ << table.binom(k, n) << \"\\n\";\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/7/DPL/5/DPL_5_E\"\
     \                                                           \n\n#include \"lib/modulus/modint.hpp\"\
     \n#include \"lib/modulus/modtable.hpp\"\n\nint main() {\n    int n, k;\n    std::cin\
@@ -113,8 +112,8 @@ data:
   isVerificationFile: true
   path: test/aoj/DPL_5_E.test.cpp
   requiredBy: []
-  timestamp: '2022-01-16 23:42:32+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-01-29 19:35:55+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/DPL_5_E.test.cpp
 layout: document

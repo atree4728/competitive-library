@@ -45,8 +45,8 @@ data:
   timestamp: '2021-11-16 22:42:05+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/DSL_2_B.test.cpp
   - test/library-checker/point_add_range_sum.test.cpp
+  - test/aoj/DSL_2_B.test.cpp
 documentation_of: lib/data_structure/fenwick_tree.hpp
 layout: document
 title: Fenwick Tree / Binary Indexed Tree

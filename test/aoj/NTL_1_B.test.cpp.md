@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/extgcd.hpp
     title: "Extended Euclidean algorithm / \u62E1\u5F35 Euclid \u306E\u4E92\u9664\u6CD5"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/modulus/modint.hpp
     title: Modint
   _extendedRequiredBy: []

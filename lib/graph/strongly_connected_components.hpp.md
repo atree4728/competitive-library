@@ -66,8 +66,8 @@ data:
   timestamp: '2021-10-03 22:09:41+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/GRL_3_C.test.cpp
   - test/library-checker/scc.test.cpp
+  - test/aoj/GRL_3_C.test.cpp
 documentation_of: lib/graph/strongly_connected_components.hpp
 layout: document
 title: "Strongly Connected Components / \u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3"

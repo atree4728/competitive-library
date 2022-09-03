@@ -3,72 +3,68 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DPL_5_B.test.cpp
     title: test/aoj/DPL_5_B.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DPL_5_D.test.cpp
     title: test/aoj/DPL_5_D.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DPL_5_E.test.cpp
     title: test/aoj/DPL_5_E.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/117.test.cpp
     title: test/yukicoder/117.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/modulus/modtable.hpp\"\n\n#include <cassert>\n#include\
-    \ <vector>\n\ntemplate<typename Modint> class ModTable {\n    std::vector<Modint>\
-    \ factorials, factorials_inv, inverse;\n\n  public:\n    constexpr ModTable()\
-    \ = default;\n    constexpr ModTable(const size_t n): factorials(n + 1), factorials_inv(n\
-    \ + 1), inverse(n + 1) {\n        inverse[1] = 1;\n        for (size_t i = 2;\
-    \ i <= n; ++i) inverse[i] = -inverse[Modint::mod() % i] * (Modint::mod() / i);\n\
-    \        factorials[0] = 1;\n        for (size_t i = 0; i < n; i++) factorials[i\
-    \ + 1] = factorials[i] * Modint{ i + 1 };\n        factorials_inv[n] = factorials[n].inv();\n\
-    \        for (size_t i = n; i--;) factorials_inv[i] = factorials_inv[i + 1] *\
-    \ Modint{ i + 1 };\n    }\n    constexpr auto inv(const int i) const {\n     \
-    \   assert(i != 0);\n        return inverse[i];\n    }\n    constexpr auto fact(const\
-    \ int i) const { return factorials[i]; }\n    constexpr auto fact_inv(const int\
-    \ i) const { return factorials_inv[i]; }\n    constexpr auto perm(const int i,\
-    \ const int j) const { return i >= j ? fact(i) * fact_inv(i - j) : 0; }\n    constexpr\
-    \ auto binom(const int i, const int j) const {\n        if (i < 0 or j < 0 or\
-    \ i < j) return Modint::raw(0);\n        return factorials[i] * factorials_inv[j]\
-    \ * factorials_inv[i - j];\n    }\n    constexpr auto homo(const int i, const\
-    \ int j) const {\n        if (i == 0 and j == 0) return Modint::raw(1);\n    \
-    \    return binom(i + j - 1, j);\n    }\n};\n"
+    \ <vector>\n\ntemplate<typename M> class ModTable {\n    std::vector<M> m_fact,\
+    \ m_fact_inv, m_inv;\n\n  public:\n    constexpr ModTable() = default;\n    constexpr\
+    \ ModTable(const size_t n): m_fact(n + 1), m_fact_inv(n + 1), m_inv(n + 1) {\n\
+    \        m_inv[1] = 1;\n        for (size_t i = 2; i <= n; ++i) m_inv[i] = -m_inv[M::mod()\
+    \ % i] * (M::mod() / i);\n        m_fact[0] = 1;\n        for (size_t i = 0; i\
+    \ < n; i++) m_fact[i + 1] = m_fact[i] * M{ i + 1 };\n        m_fact_inv[n] = m_fact[n].inv();\n\
+    \        for (size_t i = n; i--;) m_fact_inv[i] = m_fact_inv[i + 1] * M{ i + 1\
+    \ };\n    }\n    constexpr auto inv(const int i) const {\n        assert(i !=\
+    \ 0);\n        return m_inv[i];\n    }\n    constexpr auto fact(const int i) const\
+    \ { return m_fact[i]; }\n    constexpr auto fact_inv(const int i) const { return\
+    \ m_fact_inv[i]; }\n    constexpr auto perm(const int i, const int j) const {\
+    \ return i >= j ? fact(i) * fact_inv(i - j) : 0; }\n    constexpr auto binom(const\
+    \ int i, const int j) const {\n        if (i < 0 or j < 0 or i < j) return M::raw(0);\n\
+    \        return m_fact[i] * m_fact_inv[j] * m_fact_inv[i - j];\n    }\n    constexpr\
+    \ auto homo(const int i, const int j) const {\n        if (i == 0 and j == 0)\
+    \ return M::raw(1);\n        return binom(i + j - 1, j);\n    }\n};\n"
   code: "#pragma once\n\n#include <cassert>\n#include <vector>\n\ntemplate<typename\
-    \ Modint> class ModTable {\n    std::vector<Modint> factorials, factorials_inv,\
-    \ inverse;\n\n  public:\n    constexpr ModTable() = default;\n    constexpr ModTable(const\
-    \ size_t n): factorials(n + 1), factorials_inv(n + 1), inverse(n + 1) {\n    \
-    \    inverse[1] = 1;\n        for (size_t i = 2; i <= n; ++i) inverse[i] = -inverse[Modint::mod()\
-    \ % i] * (Modint::mod() / i);\n        factorials[0] = 1;\n        for (size_t\
-    \ i = 0; i < n; i++) factorials[i + 1] = factorials[i] * Modint{ i + 1 };\n  \
-    \      factorials_inv[n] = factorials[n].inv();\n        for (size_t i = n; i--;)\
-    \ factorials_inv[i] = factorials_inv[i + 1] * Modint{ i + 1 };\n    }\n    constexpr\
-    \ auto inv(const int i) const {\n        assert(i != 0);\n        return inverse[i];\n\
-    \    }\n    constexpr auto fact(const int i) const { return factorials[i]; }\n\
-    \    constexpr auto fact_inv(const int i) const { return factorials_inv[i]; }\n\
-    \    constexpr auto perm(const int i, const int j) const { return i >= j ? fact(i)\
-    \ * fact_inv(i - j) : 0; }\n    constexpr auto binom(const int i, const int j)\
-    \ const {\n        if (i < 0 or j < 0 or i < j) return Modint::raw(0);\n     \
-    \   return factorials[i] * factorials_inv[j] * factorials_inv[i - j];\n    }\n\
-    \    constexpr auto homo(const int i, const int j) const {\n        if (i == 0\
-    \ and j == 0) return Modint::raw(1);\n        return binom(i + j - 1, j);\n  \
-    \  }\n};\n"
+    \ M> class ModTable {\n    std::vector<M> m_fact, m_fact_inv, m_inv;\n\n  public:\n\
+    \    constexpr ModTable() = default;\n    constexpr ModTable(const size_t n):\
+    \ m_fact(n + 1), m_fact_inv(n + 1), m_inv(n + 1) {\n        m_inv[1] = 1;\n  \
+    \      for (size_t i = 2; i <= n; ++i) m_inv[i] = -m_inv[M::mod() % i] * (M::mod()\
+    \ / i);\n        m_fact[0] = 1;\n        for (size_t i = 0; i < n; i++) m_fact[i\
+    \ + 1] = m_fact[i] * M{ i + 1 };\n        m_fact_inv[n] = m_fact[n].inv();\n \
+    \       for (size_t i = n; i--;) m_fact_inv[i] = m_fact_inv[i + 1] * M{ i + 1\
+    \ };\n    }\n    constexpr auto inv(const int i) const {\n        assert(i !=\
+    \ 0);\n        return m_inv[i];\n    }\n    constexpr auto fact(const int i) const\
+    \ { return m_fact[i]; }\n    constexpr auto fact_inv(const int i) const { return\
+    \ m_fact_inv[i]; }\n    constexpr auto perm(const int i, const int j) const {\
+    \ return i >= j ? fact(i) * fact_inv(i - j) : 0; }\n    constexpr auto binom(const\
+    \ int i, const int j) const {\n        if (i < 0 or j < 0 or i < j) return M::raw(0);\n\
+    \        return m_fact[i] * m_fact_inv[j] * m_fact_inv[i - j];\n    }\n    constexpr\
+    \ auto homo(const int i, const int j) const {\n        if (i == 0 and j == 0)\
+    \ return M::raw(1);\n        return binom(i + j - 1, j);\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/modulus/modtable.hpp
   requiredBy: []
-  timestamp: '2022-01-16 23:42:32+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-01-29 19:35:55+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yukicoder/117.test.cpp
   - test/aoj/DPL_5_D.test.cpp
-  - test/aoj/DPL_5_E.test.cpp
   - test/aoj/DPL_5_B.test.cpp
+  - test/aoj/DPL_5_E.test.cpp
 documentation_of: lib/modulus/modtable.hpp
 layout: document
 title: Combinatorics Table on mod

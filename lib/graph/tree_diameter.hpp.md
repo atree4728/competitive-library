@@ -3,47 +3,51 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/GRL_5_A.test.cpp
     title: test/aoj/GRL_5_A.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/graph/tree_diameter.hpp\"\n\n#include <algorithm>\n\
-    #include <cassert>\n#include <limits>\n#include <vector>\n\ntemplate<typename\
-    \ T> T tree_diameter(const std::vector<std::vector<std::pair<std::size_t, T>>>\
-    \ &tree) {\n    using namespace std;\n    const size_t n = size(tree);\n    const\
-    \ T INF = numeric_limits<T>::max();\n    vector<T> dist(n, INF);\n    auto dfs\
-    \ = [&](auto &&self, size_t v, size_t prev) -> void {\n        for (const auto\
-    \ &[u, w]: tree[v]) {\n            if (u == prev) continue;\n            assert(dist[u]\
-    \ == INF);  // graph must be a tree\n            dist[u] = dist[v] + w;\n    \
-    \        self(self, u, v);\n        }\n    };\n    dist[0] = 0;\n    dfs(dfs,\
-    \ 0, 0);\n    size_t farthest = distance(begin(dist), max_element(begin(dist),\
-    \ end(dist)));\n    assert(dist[farthest] != INF);  // graph must be a tree\n\
-    \    fill(begin(dist), end(dist), INF);\n    dist[farthest] = 0;\n    dfs(dfs,\
-    \ farthest, 0);\n    T ans = *max_element(begin(dist), end(dist));\n    return\
-    \ ans;\n}\n"
+    #include <cassert>\n#include <limits>\n#include <queue>\n#include <vector>\n\n\
+    template<class T> std::vector<T> tree_diameter(const std::vector<std::vector<T>>&\
+    \ tree) {\n    const T n = size(tree);\n    const auto furthest = [&](T s) {\n\
+    \        std::vector<T> dist(n, static_cast<T>(-1));\n        dist[s] = 0;\n \
+    \       std::queue<T> que{ { s } };\n        while (not empty(que)) {\n      \
+    \      const T u = que.front();\n            que.pop();\n            for (const\
+    \ T& v: tree[u]) {\n                if (dist[v] != static_cast<T>(-1)) continue;\n\
+    \                dist[v] = dist[u] + 1;\n                que.emplace(v);\n   \
+    \         }\n        }\n        const T f = distance(cbegin(dist), max_element(cbegin(dist),\
+    \ cend(dist)));\n        std::vector<T> path{ f };\n        while (dist[path.back()]\
+    \ != 0) {\n            for (const T& u: tree[path.back()]) {\n               \
+    \ if (dist[u] + 1 == dist[path.back()]) {\n                    path.emplace_back(u);\n\
+    \                    break;\n                }\n            }\n        }\n   \
+    \     reverse(begin(path), end(path));\n        return path;\n    };\n    return\
+    \ furthest(furthest(0).back());\n}\n"
   code: "#pragma once\n\n#include <algorithm>\n#include <cassert>\n#include <limits>\n\
-    #include <vector>\n\ntemplate<typename T> T tree_diameter(const std::vector<std::vector<std::pair<std::size_t,\
-    \ T>>> &tree) {\n    using namespace std;\n    const size_t n = size(tree);\n\
-    \    const T INF = numeric_limits<T>::max();\n    vector<T> dist(n, INF);\n  \
-    \  auto dfs = [&](auto &&self, size_t v, size_t prev) -> void {\n        for (const\
-    \ auto &[u, w]: tree[v]) {\n            if (u == prev) continue;\n           \
-    \ assert(dist[u] == INF);  // graph must be a tree\n            dist[u] = dist[v]\
-    \ + w;\n            self(self, u, v);\n        }\n    };\n    dist[0] = 0;\n \
-    \   dfs(dfs, 0, 0);\n    size_t farthest = distance(begin(dist), max_element(begin(dist),\
-    \ end(dist)));\n    assert(dist[farthest] != INF);  // graph must be a tree\n\
-    \    fill(begin(dist), end(dist), INF);\n    dist[farthest] = 0;\n    dfs(dfs,\
-    \ farthest, 0);\n    T ans = *max_element(begin(dist), end(dist));\n    return\
-    \ ans;\n}\n"
+    #include <queue>\n#include <vector>\n\ntemplate<class T> std::vector<T> tree_diameter(const\
+    \ std::vector<std::vector<T>>& tree) {\n    const T n = size(tree);\n    const\
+    \ auto furthest = [&](T s) {\n        std::vector<T> dist(n, static_cast<T>(-1));\n\
+    \        dist[s] = 0;\n        std::queue<T> que{ { s } };\n        while (not\
+    \ empty(que)) {\n            const T u = que.front();\n            que.pop();\n\
+    \            for (const T& v: tree[u]) {\n                if (dist[v] != static_cast<T>(-1))\
+    \ continue;\n                dist[v] = dist[u] + 1;\n                que.emplace(v);\n\
+    \            }\n        }\n        const T f = distance(cbegin(dist), max_element(cbegin(dist),\
+    \ cend(dist)));\n        std::vector<T> path{ f };\n        while (dist[path.back()]\
+    \ != 0) {\n            for (const T& u: tree[path.back()]) {\n               \
+    \ if (dist[u] + 1 == dist[path.back()]) {\n                    path.emplace_back(u);\n\
+    \                    break;\n                }\n            }\n        }\n   \
+    \     reverse(begin(path), end(path));\n        return path;\n    };\n    return\
+    \ furthest(furthest(0).back());\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/graph/tree_diameter.hpp
   requiredBy: []
-  timestamp: '2021-10-03 22:09:41+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-09-04 00:42:44+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/aoj/GRL_5_A.test.cpp
 documentation_of: lib/graph/tree_diameter.hpp
@@ -57,7 +61,7 @@ title: "Diameter of a Tree / \u6728\u306E\u76F4\u5F84"
 
 ## 使い方
 
-- `tree_diameter(graph)`: 木`graph`の直径を求める。
+- `tree_diameter(graph)`: 木`graph`の直径を構成する頂点列。
 
 ## 計算量
 
