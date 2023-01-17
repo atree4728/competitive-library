@@ -50,18 +50,18 @@ data:
   isVerificationFile: false
   path: lib/utility/rec_lambda.hpp
   requiredBy:
-  - lib/graph/lowest_common_ancestor.hpp
   - lib/graph/rerooting_dp.hpp
+  - lib/graph/lowest_common_ancestor.hpp
   - lib/utility/make_vector.hpp
-  - lib/utility/io.hpp
   - lib/utility/scanner.hpp
+  - lib/utility/io.hpp
   - lib/utility/template.hpp
   timestamp: '2022-01-16 21:32:47+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library-checker/lca.test.cpp
-  - test/aoj/GRL_5_C.test.cpp
   - test/aoj/1595.test.cpp
+  - test/aoj/GRL_5_C.test.cpp
+  - test/library-checker/lca.test.cpp
 documentation_of: lib/utility/rec_lambda.hpp
 layout: document
 redirect_from:

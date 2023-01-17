@@ -67,7 +67,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/euler_phi.hpp
       title: Euler's totient function / $\varphi(n)$
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/extgcd.hpp
       title: "Extended Euclidean algorithm / \u62E1\u5F35 Euclid \u306E\u4E92\u9664\
         \u6CD5"
@@ -79,10 +79,10 @@ data:
       title: "Eratosthenes's Sieve / \u7D20\u6570\u5224\u5B9A\u30FB\u5217\u6319"
   - name: lib/modulus
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/modulus/modint.hpp
       title: Modint
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/modulus/modtable.hpp
       title: Combinatorics Table on mod
   - name: lib/utility
@@ -144,13 +144,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/DPL_5_A.test.cpp
       title: test/aoj/DPL_5_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/DPL_5_B.test.cpp
       title: test/aoj/DPL_5_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/DPL_5_D.test.cpp
       title: test/aoj/DPL_5_D.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/DPL_5_E.test.cpp
       title: test/aoj/DPL_5_E.test.cpp
     - icon: ':heavy_check_mark:'
@@ -237,5 +237,3 @@ data:
 layout: toppage
 ---
 [![atree](https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fatcoder%2Fjson%2Fatree)](https://atcoder.jp/users/atree)
-
-バグがあると思われです。

@@ -63,8 +63,8 @@ data:
   isVerificationFile: false
   path: lib/utility/make_vector.hpp
   requiredBy:
-  - lib/utility/io.hpp
   - lib/utility/scanner.hpp
+  - lib/utility/io.hpp
   - lib/utility/template.hpp
   timestamp: '2022-01-25 23:16:15+09:00'
   verificationStatus: LIBRARY_ALL_AC

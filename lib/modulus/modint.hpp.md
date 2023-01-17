@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/extgcd.hpp
     title: "Extended Euclidean algorithm / \u62E1\u5F35 Euclid \u306E\u4E92\u9664\u6CD5"
   _extendedRequiredBy: []
@@ -9,13 +9,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_A.test.cpp
     title: test/aoj/DPL_5_A.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_B.test.cpp
     title: test/aoj/DPL_5_B.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_D.test.cpp
     title: test/aoj/DPL_5_D.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_E.test.cpp
     title: test/aoj/DPL_5_E.test.cpp
   - icon: ':heavy_check_mark:'
@@ -24,9 +24,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/117.test.cpp
     title: test/yukicoder/117.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Modint
     links: []
@@ -142,14 +142,14 @@ data:
   path: lib/modulus/modint.hpp
   requiredBy: []
   timestamp: '2022-01-16 17:37:48+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/117.test.cpp
-  - test/aoj/DPL_5_D.test.cpp
+  - test/aoj/DPL_5_A.test.cpp
   - test/aoj/DPL_5_B.test.cpp
   - test/aoj/DPL_5_E.test.cpp
+  - test/aoj/DPL_5_D.test.cpp
   - test/aoj/NTL_1_B.test.cpp
-  - test/aoj/DPL_5_A.test.cpp
 documentation_of: lib/modulus/modint.hpp
 layout: document
 redirect_from:

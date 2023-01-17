@@ -110,10 +110,10 @@ data:
   isVerificationFile: false
   path: lib/utility/type.hpp
   requiredBy:
-  - lib/utility/io.hpp
   - lib/utility/type_traits.hpp
-  - lib/utility/printer.hpp
   - lib/utility/scanner.hpp
+  - lib/utility/printer.hpp
+  - lib/utility/io.hpp
   - lib/utility/template.hpp
   timestamp: '2022-01-16 21:32:47+09:00'
   verificationStatus: LIBRARY_ALL_AC
